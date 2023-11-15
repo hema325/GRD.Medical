@@ -18,7 +18,8 @@ namespace Application.Account.Queries
             {
                 CreateMap<User, UserDto>()
                     .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role.ToString()))
-                    .ForMember(dest => dest.ImageUrl, opt=>opt.MapFrom<ImageUrlResolver>());
+                    .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.FullName))
+                    .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom<ImageUrlResolver>());
             }
         }
     }

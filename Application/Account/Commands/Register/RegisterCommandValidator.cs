@@ -20,7 +20,8 @@ namespace Application.Account.Commands.Register
                 .NotEmpty()
                 .EmailAddress()
                 .MaximumLength(250)
-                .MustAsync(async (e, ct) => !await context.Users.AnyAsync(u => u.Email == e, ct));
+                .MustAsync(async (e, ct) => !await context.Users.AnyAsync(u => u.Email == e, ct))
+                .WithMessage("{PropertyName} has been taken");
 
             RuleFor(c => c.Password)
                 .NotEmpty()
