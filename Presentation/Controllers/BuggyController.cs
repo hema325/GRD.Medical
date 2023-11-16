@@ -1,6 +1,4 @@
 ﻿using Application.Common.Exceptions;
-using Application.Common.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Errors;
 
@@ -20,7 +18,7 @@ namespace Presentation.Controllers
         [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
         public IActionResult Unauthorized()
         {
-            throw new UnauthorizedException("You are not authorized");
+            throw new UnauthorizedException();
         }
 
         [HttpGet("badRequest")]
@@ -38,7 +36,7 @@ namespace Presentation.Controllers
         [ProducesResponseType(typeof(ExceptionResponse), StatusCodes.Status500InternalServerError)]
         public IActionResult InternalServerError()
         {
-            throw new Exception("this is an internal server error");
+            throw new Exception("Server Error");
         }
 
     }

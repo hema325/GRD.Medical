@@ -2,24 +2,23 @@
 {
     public class ErrorResponse
     {
-        public int StatusCode { get; set; }
-        public string? Message { get; set; }
+        public int StatusCode { get; }
+        public string? Message { get; }
 
-        public ErrorResponse()
-        {
-            
-        }
-
-        public ErrorResponse(int statusCode)
+        public ErrorResponse(int statusCode, string? message = null)
         {
             StatusCode = statusCode;
-            Message = statusCode switch
+            Message = message ?? GetDefaultStatusMessage(statusCode);
+        }
+
+        private string? GetDefaultStatusMessage(int statusCode)
+            => statusCode switch
             {
+                400 => "One or more validations have occurred",
                 401 => "You are not authorized",
                 404 => "Resource wasn't found",
                 500 => "Error occurred while processing your request",
                 _ => null
             };
-        }
     }
 }

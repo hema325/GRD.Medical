@@ -6,7 +6,7 @@ namespace Application.Common.Exceptions
     {
         public override int StatusCode => (int)HttpStatusCode.Unauthorized;
 
-        public UnauthorizedException(string message = "You are not authorized"): base(message)
+        public UnauthorizedException(string? message = null): base(message ?? "You are not authorized")
         {
             
         }

@@ -5,8 +5,9 @@ namespace Application.Common.Exceptions
     {
         public abstract int StatusCode { get; }
 
-        public ExceptionBase(string message): base(message)
+        public ExceptionBase(string? message = null): base(message)
         {
         }
+
     }
 }

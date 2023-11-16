@@ -8,9 +8,10 @@ namespace Application.Common.Exceptions
 
         public IEnumerable<string> Errors { get; set; }
 
-        public ValidationException(IEnumerable<string> errors) : base("One or more validations have occurred")
+        public ValidationException(IEnumerable<string> errors): base("One or more validations have occurred")
         {
             Errors = errors;
         }
+
     }
 }

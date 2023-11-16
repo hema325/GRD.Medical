@@ -5,7 +5,6 @@ using Infrastructure.Authentication.JWT.JWTManager;
 using Infrastructure.Authentication.PasswordHasher;
 using Infrastructure.Authentication.Settings;
 using Infrastructure.Email.EmailTemplateModels;
-using Infrastructure.Email.TemplateParser;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
@@ -21,7 +20,6 @@ namespace Infrastructure.Authentication
         private readonly IApplicationDbContext _context;
         private readonly RefreshTokenSettings _refreshTokenSettings;
         private readonly IEmailSender _emailSender;
-        private readonly ITemplateParser _templateParser;
         private readonly IDistributedCache _distributedCache;
         private readonly ClientSettings _clientSettins;
         private readonly ICurrentUser _currentUser;
@@ -31,7 +29,6 @@ namespace Infrastructure.Authentication
             IApplicationDbContext context,
             IOptions<RefreshTokenSettings> refreshTokenSettings,
             IEmailSender emailSender,
-            ITemplateParser templateParser,
             IDistributedCache distributedCache,
             IOptions<ClientSettings> clientSettings,
             ICurrentUser currentUser)
@@ -41,7 +38,6 @@ namespace Infrastructure.Authentication
             _context = context;
             _refreshTokenSettings = refreshTokenSettings.Value;
             _emailSender = emailSender;
-            _templateParser = templateParser;
             _distributedCache = distributedCache;
             _clientSettins = clientSettings.Value;
             _currentUser = currentUser;
@@ -53,6 +49,15 @@ namespace Infrastructure.Authentication
             user.AddDomainEvent(new EntityCreatedEvent(user));
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
+
+            try
+            {
+                await SendEmailConfirmationAsync(user.Email);
+            }
+            catch
+            {
+                //do not do any thing
+            }
         }
 
         public async Task<AuthResultDto> AuthenticateAsync(string email, string password)
@@ -142,7 +147,7 @@ namespace Infrastructure.Authentication
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null)
-                throw new UnauthorizedException("Email is incorrect");
+                throw new UnauthorizedException("Email is not correct");
 
             //generate email confirmation model & cache it
             var key = $"emailConfirmationToken-{user.Id}";
@@ -157,9 +162,7 @@ namespace Infrastructure.Authentication
                 ConfirmationUrl = $"{_clientSettins.BaseUrl}/authentication/confirmEmail?userId={user.Id}&token={HttpUtility.UrlEncode(token)}"
             };
 
-            //build template and send email confirmation
-            var template = await _templateParser.ParseAsync("EmailConfirmationTemplate", emailConfirmation);
-            await _emailSender.SendAsync(user.Email, "Confirming Email", template);
+            await _emailSender.SendEmailConfirmationAsync(user.Email, emailConfirmation);
         }
 
         public async Task<AuthResultDto> ConfirmEmailAsync(int userId, string token)
@@ -201,9 +204,7 @@ namespace Infrastructure.Authentication
                 ResetUrl = $"{_clientSettins.BaseUrl}/authentication/resetPassword?userId={user.Id}&token={HttpUtility.UrlEncode(token)}"
             };
 
-            //build template and send email confirmation
-            var template = await _templateParser.ParseAsync("EmailResetPasswordTemplate", emailResetPassword);
-            await _emailSender.SendAsync(user.Email, "Resating Password", template);
+            await _emailSender.SendEmailResetPasswordAsync(user.Email, emailResetPassword);
         }
 
         public async Task ResetPasswordAsync(int userId, string token, string newPassword)

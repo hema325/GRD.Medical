@@ -1,7 +1,11 @@
-﻿namespace Application.Common.Interfaces
+﻿using Application.Common.Models.EmailTemplates;
+using Infrastructure.Email.EmailTemplateModels;
+
+namespace Application.Common.Interfaces
 {
     public interface IEmailSender
     {
-        Task SendAsync(string to, string subject, string body);
+        Task SendEmailConfirmationAsync(string to, EmailConfirmationTemplate emailConfirmation);
+        Task SendEmailResetPasswordAsync(string to, EmailResetPasswordTemplate emailResetPassword);
     }
 }
