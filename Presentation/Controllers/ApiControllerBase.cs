@@ -5,7 +5,7 @@ namespace Presentation.Controllers
 {
     [ApiController]
     [GlobalExceptionFilter]
-    public class ApiControllerBase : ControllerBase
+    public abstract class ApiControllerBase : ControllerBase
     {
     }
 }
