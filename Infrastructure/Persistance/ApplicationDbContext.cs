@@ -25,8 +25,7 @@ namespace Infrastructure.Persistance
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             await _publisher.DispatchDomainEventsAsync(this);
-            var affectedRows =  await base.SaveChangesAsync(cancellationToken);
-            return affectedRows;
+            return await base.SaveChangesAsync(cancellationToken);
         }
 
         public DbSet<User> Users { get; private set; }

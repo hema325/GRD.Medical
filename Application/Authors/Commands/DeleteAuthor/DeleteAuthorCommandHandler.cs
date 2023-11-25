@@ -18,6 +18,8 @@
             if (author == null)
                 throw new NotFoundException(nameof(Author));
 
+            author.AddDomainEvent(new EntityDeletedEvent(author));
+
             await _fileStorage.RemoveAsync(author.ImageUrl);
             _context.Authors.Remove(author);
             await _context.SaveChangesAsync();
