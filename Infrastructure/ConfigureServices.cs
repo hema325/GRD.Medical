@@ -2,6 +2,7 @@
 using Infrastructure.Email;
 using Infrastructure.FileStorage;
 using Infrastructure.Persistance;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ namespace Infrastructure
             services.AddEmailService(configuration);
             services.AddDistributedMemoryCache();
             services.AddFileStorageService();
+            services.AddCommonServces();
 
             return services;
         }

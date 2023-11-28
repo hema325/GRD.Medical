@@ -1,22 +1,20 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace Application.Common.Mappings
+﻿namespace Application.Common.Mappings
 {
     internal class ImageUrlResolver : IValueResolver<object, object, string?>
     {
-        private readonly HttpContext _httpContext;
+        private readonly ICurrentHttpRequest _httpRequest;
 
-        public ImageUrlResolver(IHttpContextAccessor accessor)
+        public ImageUrlResolver(ICurrentHttpRequest httpRequest)
         {
-            _httpContext = accessor.HttpContext;
+            _httpRequest = httpRequest;
         }
 
         public string Resolve(dynamic source, object destination, string? destMember, ResolutionContext context)
         {
             if(!string.IsNullOrEmpty(source.ImageUrl))
             {
-                var scheme = _httpContext.Request.Scheme;
-                var host = _httpContext.Request.Host;
+                var scheme = _httpRequest.Scheme;
+                var host = _httpRequest.Host;
                 return $"{scheme}://{host}/{source.ImageUrl}";
             }
 

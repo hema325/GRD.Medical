@@ -14,7 +14,15 @@ builder.Services.AddSwaggerService();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
-
+builder.Services.AddCors(o =>
+{
+    o.AddDefaultPolicy(b =>
+    {
+        b.AllowAnyOrigin();
+        b.AllowAnyMethod();
+        b.AllowAnyHeader();
+    });
+});
 builder.Services.Configure<ApiBehaviorOptions>(o =>
 {
     o.SuppressModelStateInvalidFilter = true;
@@ -30,6 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors();
 
 app.UseHttpsRedirection();
 

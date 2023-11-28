@@ -1,7 +1,6 @@
 ﻿using Infrastructure.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection;
 
 namespace Infrastructure.Persistance

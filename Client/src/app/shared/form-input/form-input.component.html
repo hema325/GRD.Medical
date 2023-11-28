@@ -1,0 +1,12 @@
+<ng-container *ngIf="control">
+    <input [formControl]="control" [type]="type" [placeholder]="label">
+    <div class="validations" *ngIf="control.touched && control.invalid">
+        <span *ngIf="control.errors?.['required']">{{label}} is required</span>
+        <span *ngIf="control.errors?.['email']">{{label}} is not a proper email</span>
+        <span *ngIf="control.errors?.['emailDuplication']">{{label}} is already taken</span>
+        <span *ngIf="control.errors?.['password']">{{label}} must contain lower/upper case, special characters with
+            minimum length of 6</span>
+        <span *ngIf="control.errors?.['maxlength'] as maxLength">{{label}} has max length of
+            {{maxLength.requiredLength}}</span>
+    </div>
+</ng-container>

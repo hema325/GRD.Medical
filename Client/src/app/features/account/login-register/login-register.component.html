@@ -1,0 +1,70 @@
+<div class="wrapper">
+    <div class="container" [class.active]="!isLogin" id="container">
+        <div class="form-container sign-up">
+            <form [formGroup]="registerForm">
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email to register</span>
+                <div class="input-wrapper">
+                    <app-form-input label="First Name" type="text"
+                        [control]="registerForm.controls['firstName']"></app-form-input>
+                </div>
+                <div class="input-wrapper">
+                    <app-form-input label="last Name" type="text"
+                        [control]="registerForm.controls['lastName']"></app-form-input>
+                </div>
+                <div class="input-wrapper">
+                    <app-form-input label="Email" type="text"
+                        [control]="registerForm.controls['email']"></app-form-input>
+                </div>
+                <div class="input-wrapper">
+                    <app-form-input label="Password" type="password"
+                        [control]="registerForm.controls['password']"></app-form-input>
+                </div>
+                <button (click)="signUp()" [disabled]="registerForm.invalid">Sign Up</button>
+            </form>
+            <h1>hello</h1>
+
+        </div>
+        <div class="form-container sign-in">
+            <form [formGroup]="loginForm">
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email & password</span>
+                <div class="input-wrapper">
+                    <app-form-input label="Email" type="text" [control]="loginForm.controls['email']"></app-form-input>
+                </div>
+                <div class="input-wrapper">
+                    <app-form-input label="Password" type="password"
+                        [control]="loginForm.controls['password']"></app-form-input>
+                </div>
+                <a href="#">Forget Your Password?</a>
+                <button (click)="signIn()" [disabled]="loginForm.invalid">Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Ready to healthify your day?<br> Enter your personal details and log back in</p>
+                    <button class="hidden" id="login" (click)="signInView()">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hi There!</h1>
+                    <p>Register your account to start using all of our site features</p>
+                    <button class="hidden" id="register" (click)="signUpView()">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
