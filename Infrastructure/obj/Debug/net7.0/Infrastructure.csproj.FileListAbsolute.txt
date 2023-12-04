@@ -36,3 +36,22 @@ D:\Projects\GRD.Medical\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dl
 D:\Projects\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
 D:\Projects\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
 D:\Projects\GRD.Medical\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.deps.json
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.runtimeconfig.json
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.dll
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.pdb
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\bin\Debug\net7.0\Application.dll
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\bin\Debug\net7.0\Domain.dll
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\bin\Debug\net7.0\Application.pdb
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\bin\Debug\net7.0\Domain.pdb
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.AssemblyReference.cache
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfoInputs.cache
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfo.cs
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CoreCompileInputs.cache
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CopyComplete
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.dll
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
+D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll

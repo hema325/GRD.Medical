@@ -18,4 +18,11 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Articles\Queries\" />
+    <Folder Include="Categories\Commands\DeleteCategory\" />
+    <Folder Include="Categories\Commands\UpdateCategory\" />
+    <Folder Include="Categories\Queries\" />
+  </ItemGroup>
+
 </Project>

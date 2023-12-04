@@ -30,5 +30,7 @@ namespace Infrastructure.Persistance
         public DbSet<User> Users { get; private set; }
         public DbSet<RefreshToken> RefreshTokens { get; private set; }
         public DbSet<Author> Authors { get; private set; }
+        public DbSet<Article> Articles { get; private set; }
+        public DbSet<Category> Categories { get; private set; }
     }
 }
