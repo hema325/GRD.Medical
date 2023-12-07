@@ -1,0 +1,28 @@
+<app-header title="Register"></app-header>
+
+<div class="section">
+    <div class="container">
+        <div class="bg-white rounded-3 my-5 shadow p-4">
+            <h1 class="mb-4">Register</h1>
+            <form [formGroup]="registerForm" class="w-100">
+                <div class="my-2">
+                    <app-form-input [control]="registerForm.controls.firstName" label="First Name"></app-form-input>
+                </div>
+                <div class="my-2">
+                    <app-form-input [control]="registerForm.controls.lastName" label="Last Name"></app-form-input>
+                </div>
+                <div class="my-2">
+                    <app-form-input [control]="registerForm.controls.email" label="Email"></app-form-input>
+                </div>
+                <div class="my-2">
+                    <app-form-input [control]="registerForm.controls.password" label="Password"
+                        type="password"></app-form-input>
+                </div>
+            </form>
+            <div class="mt-4 d-flex justify-content-end">
+                <button mat-raised-button mat-dialog-close [disabled]="registerForm.invalid" color="primary"
+                    (click)="register()">Register</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.landing {
+    background-color: #3f51b5;
+    padding: 20px;
+    padding-top: 150px;
+    padding-bottom: 80px;
+    color: #fff;
+    text-align: center;
+}
+
+.landing .title {
+    font-size: 60px;
+}
+
+.seperator {
+    height: 2px;
+    width: 100%;
+    background-color: #ebebeb;
+    display: block;
+}

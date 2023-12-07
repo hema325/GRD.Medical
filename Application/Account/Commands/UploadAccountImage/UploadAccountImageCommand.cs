@@ -2,7 +2,7 @@
 
 namespace Application.Account.Commands.UploadAccountImage
 {
-    public class UploadAccountImageCommand: IRequest
+    public class UploadAccountImageCommand: IRequest<string>
     {
         public IFormFile Image { get; set; }
     }

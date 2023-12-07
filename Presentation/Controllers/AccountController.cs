@@ -7,6 +7,7 @@ using Application.Account.Commands.RemoveAccountImage;
 using Application.Account.Commands.RequestJWTToken;
 using Application.Account.Commands.ResetPassword;
 using Application.Account.Commands.RevokeRefreshToken;
+using Application.Account.Commands.UpdateUser;
 using Application.Account.Commands.UploadAccountImage;
 using Application.Account.Queries;
 using Application.Account.Queries.CheckEmailDuplication;
@@ -115,12 +116,11 @@ namespace Presentation.Controllers
         }
 
         [HttpPost("uploadImage")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [Authorize]
         public async Task<IActionResult> UploadImage([FromForm] UploadAccountImageCommand request)
         {
-            await _sender.Send(request);
-            return NoContent();
+            return Ok(new {imageUrl = await _sender.Send(request) });
         }
 
         [HttpPost("removeImage")]
@@ -130,6 +130,14 @@ namespace Presentation.Controllers
         {
             await _sender.Send(new RemoveAccountImageCommand());
             return NoContent();
+        }
+
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [Authorize]
+        public async Task<IActionResult> UpdateCurrentUserAsync(UpdateUserCommand request)
+        {
+            return Ok(await _sender.Send(request));
         }
     }
 }

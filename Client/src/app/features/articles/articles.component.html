@@ -1,0 +1,84 @@
+<app-header title="Articles"></app-header>
+<div class="section">
+    <div class="container">
+        <form class="my-5 shadow bg-white p-4 rounded-3">
+            <h2>Search By Title</h2>
+            <app-form-input [control]="filterForm.controls.title" label="Title"></app-form-input>
+            <div class="d-flex justify-content-end">
+                <button mat-raised-button color="primary" [disabled]="filterForm.invalid">Search</button>
+            </div>
+        </form>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
+            <div class="col">
+                <div class="card shadow overflow-hidden" routerLink="/articles/1">
+                    <img src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2225092.jpg"
+                        class="w-100">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
+                            children</h5>
+                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow overflow-hidden" routerLink="/articles/1">
+                    <img src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2225092.jpg"
+                        class="w-100">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
+                            children</h5>
+                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow overflow-hidden" routerLink="/articles/1">
+                    <img src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2225092.jpg"
+                        class="w-100">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
+                            children</h5>
+                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow overflow-hidden" routerLink="/articles/1">
+                    <img src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2225092.jpg"
+                        class="w-100">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
+                            children</h5>
+                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow overflow-hidden" routerLink="/articles/1">
+                    <img src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2225092.jpg"
+                        class="w-100">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
+                            children</h5>
+                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow overflow-hidden" routerLink="/articles/1">
+                    <img src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2225092.jpg"
+                        class="w-100">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
+                            children</h5>
+                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <mat-paginator #paginator class=" my-5 shadow bg-white p-3 rounded-3" (page)="handlePageEvent($event)"
+            [length]="50" [pageSize]="10" [showFirstLastButtons]="true" [pageIndex]="0" [hidePageSize]="true"
+            aria-label="Select page">
+        </mat-paginator>
+    </div>
+</div>

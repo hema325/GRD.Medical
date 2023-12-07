@@ -1,21 +1,24 @@
 ﻿namespace Application.Account.Commands.UploadAccountImage
 {
-    internal class UploadAccountImageCommandHandler : IRequestHandler<UploadAccountImageCommand>
+    internal class UploadAccountImageCommandHandler : IRequestHandler<UploadAccountImageCommand, string>
     {
         private readonly IApplicationDbContext _context;
         private readonly IFileStorage _fileStorage;
         private readonly ICurrentUser _currentUser;
+        private readonly ICurrentHttpRequest _httpRequest;
 
         public UploadAccountImageCommandHandler(IApplicationDbContext context,
-            IFileStorage fileStorage, 
-            ICurrentUser currentUser)
+            IFileStorage fileStorage,
+            ICurrentUser currentUser,
+            ICurrentHttpRequest httpRequest)
         {
             _context = context;
             _fileStorage = fileStorage;
             _currentUser = currentUser;
+            _httpRequest = httpRequest;
         }
 
-        public async Task<Unit> Handle(UploadAccountImageCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(UploadAccountImageCommand request, CancellationToken cancellationToken)
         {
             var user = await  _context.Users.FindAsync(_currentUser.Id);
 
@@ -29,7 +32,8 @@
 
             await _context.SaveChangesAsync();
 
-            return Unit.Value;
+            return $"{_httpRequest.Scheme}://{_httpRequest.Host}/{user.ImageUrl}";
+
         }
     }
 }

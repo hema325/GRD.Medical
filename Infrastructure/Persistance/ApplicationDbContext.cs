@@ -1,8 +1,6 @@
-﻿using Application.Common.Interfaces;
-using Infrastructure.Common;
+﻿using Infrastructure.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection;
 
 namespace Infrastructure.Persistance
@@ -25,12 +23,12 @@ namespace Infrastructure.Persistance
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            var affectedRows =  await base.SaveChangesAsync(cancellationToken);
-            if(ChangeTracker.HasChanges()) await _publisher.DispatchDomainEventsAsync(this); 
-            return affectedRows;
+            await _publisher.DispatchDomainEventsAsync(this);
+            return await base.SaveChangesAsync(cancellationToken);
         }
 
         public DbSet<User> Users { get; private set; }
         public DbSet<RefreshToken> RefreshTokens { get; private set; }
+        public DbSet<Author> Authors { get; private set; }
     }
 }
