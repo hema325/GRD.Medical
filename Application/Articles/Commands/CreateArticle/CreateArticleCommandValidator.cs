@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Articles.Commands.CreateArticle
 {
@@ -18,10 +13,19 @@ namespace Application.Articles.Commands.CreateArticle
                 .MustAsync(async (n, ct) => !await context.Articles.AnyAsync(a => a.Title == n))
                 .WithMessage("Article already exists");
             
-            RuleFor(c => c.PublicationDate).NotEmpty();
-            RuleFor(c => c.Content).NotEmpty();
-            RuleFor(c => c.AuthorId).NotEmpty();
-            RuleFor(c => c.Image).Cascade(CascadeMode.Stop).NotEmpty().Image();
+            RuleFor(c => c.PublishedOn)
+                .NotEmpty();
+
+            RuleFor(c => c.Content)
+                .NotEmpty();
+
+            RuleFor(c => c.AuthorId)
+                .NotEmpty();
+
+            RuleFor(c => c.Image)
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty()
+                .Image();
         }
     }
 }

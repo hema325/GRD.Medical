@@ -42,7 +42,7 @@ namespace Infrastructure.Persistance.Migrations
                         .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("PublicationDate")
+                    b.Property<DateTime>("PublishedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")

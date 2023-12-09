@@ -1,12 +1,4 @@
-﻿using Domain.Entities;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Articles.Commands.CreateArticle
+﻿namespace Application.Articles.Commands.CreateArticle
 {
     public class CreateArticleCommandHandler : IRequestHandler<CreateArticleCommand, int>
     {
@@ -24,11 +16,12 @@ namespace Application.Articles.Commands.CreateArticle
             var article = new Article
             {
                 Title = command.Title,
-                PublicationDate = command.PublicationDate,
+                PublishedOn = command.PublishedOn,
                 Content = command.Content,
                 ImageUrl = await _fileStorage.SaveAsync(command.Image),
                 AuthorId = command.AuthorId
             };
+
             article.AddDomainEvent(new EntityCreatedEvent(article));
             _context.Articles.Add(article);
             await _context.SaveChangesAsync();

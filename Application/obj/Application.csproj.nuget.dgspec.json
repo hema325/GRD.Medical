@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GRD\\Application\\Application.csproj": {}
+    "D:\\GRD\\GRD.Medical\\Application\\Application.csproj": {}
   },
   "projects": {
-    "D:\\GRD\\Application\\Application.csproj": {
+    "D:\\GRD\\GRD.Medical\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GRD\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\GRD\\GRD.Medical\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\GRD\\Application\\Application.csproj",
+        "projectPath": "D:\\GRD\\GRD.Medical\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "D:\\GRD\\Application\\obj\\",
+        "outputPath": "D:\\GRD\\GRD.Medical\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\GRD\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\GRD\\Domain\\Domain.csproj"
+              "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "D:\\GRD\\Domain\\Domain.csproj": {
+    "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GRD\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\GRD\\Domain\\Domain.csproj",
+        "projectPath": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "D:\\GRD\\Domain\\obj\\",
+        "outputPath": "D:\\GRD\\GRD.Medical\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

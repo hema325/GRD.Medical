@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cBxA6uQXmr71qFYWisYl1T+QnW9gDsIXX/CZneCfI7cLwWdRxcXuv9vdXef8nDOx2T0E3U0/q1lefZT7xmqdMQ==",
+  "dgSpecHash": "XkZYSYwBH7ec82HtzINmsoA0kknvbnr72Oxlj2mgWlcPlI2yrA99rO37HliI0oA577q1JRoQo/JNdJsR/RLceQ==",
   "success": true,
-  "projectFilePath": "D:\\GRD\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "D:\\GRD\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

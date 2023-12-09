@@ -46,3 +46,15 @@ D:\GRD\Domain\obj\Debug\net7.0\Domain.dll
 D:\GRD\Domain\obj\Debug\net7.0\refint\Domain.dll
 D:\GRD\Domain\obj\Debug\net7.0\Domain.pdb
 D:\GRD\Domain\obj\Debug\net7.0\ref\Domain.dll
+D:\GRD\GRD.Medical\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\GRD\GRD.Medical\Domain\bin\Debug\net7.0\Domain.dll
+D:\GRD\GRD.Medical\Domain\bin\Debug\net7.0\Domain.pdb
+D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\Domain.dll
+D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\Domain.pdb
+D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\ref\Domain.dll

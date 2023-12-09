@@ -11,7 +11,7 @@ namespace Application.Articles.Queries
     public class ArticleDto
     {
         public string Title { get; set; }
-        public DateTime PublicationDate { get; set; }
+        public DateTime PublishedOn { get; set; }
         public string Content { get; set; }
         public string ImageUrl { get; set; }
         public AuthorDto Author { get; set; }
