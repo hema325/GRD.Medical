@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Application.Articles.Commands.DeleteAritcle
 {
     public class DeleteArticleCommandHandler : IRequestHandler<DeleteArticleCommand>
@@ -27,7 +22,7 @@ namespace Application.Articles.Commands.DeleteAritcle
             article.AddDomainEvent(new EntityDeletedEvent(article));
             await _fileStorage.RemoveAsync(article.ImageUrl);
             _context.Articles.Remove(article);
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return Unit.Value;
 
         }

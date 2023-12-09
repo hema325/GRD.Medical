@@ -34,3 +34,15 @@ D:\Learn Programming\Graduation_project\GRD.Medical\Domain\obj\Debug\net7.0\Doma
 D:\Learn Programming\Graduation_project\GRD.Medical\Domain\obj\Debug\net7.0\refint\Domain.dll
 D:\Learn Programming\Graduation_project\GRD.Medical\Domain\obj\Debug\net7.0\Domain.pdb
 D:\Learn Programming\Graduation_project\GRD.Medical\Domain\obj\Debug\net7.0\ref\Domain.dll
+D:\GRD\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\GRD\Domain\bin\Debug\net7.0\Domain.dll
+D:\GRD\Domain\bin\Debug\net7.0\Domain.pdb
+D:\GRD\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\GRD\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\GRD\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\GRD\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\GRD\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\GRD\Domain\obj\Debug\net7.0\Domain.dll
+D:\GRD\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\GRD\Domain\obj\Debug\net7.0\Domain.pdb
+D:\GRD\Domain\obj\Debug\net7.0\ref\Domain.dll

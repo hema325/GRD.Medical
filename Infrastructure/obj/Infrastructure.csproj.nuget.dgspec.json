@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Infrastructure\\Infrastructure.csproj": {}
+    "D:\\GRD\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Application\\Application.csproj": {
+    "D:\\GRD\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\GRD\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\engbo\\.nuget\\packages\\",
-        "outputPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Application\\obj\\",
+        "projectPath": "D:\\GRD\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\GRD\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\engbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj"
+              "D:\\GRD\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\GRD\\Domain\\Domain.csproj"
               }
             }
           }
@@ -81,21 +81,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj": {
+    "D:\\GRD\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\GRD\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\engbo\\.nuget\\packages\\",
-        "outputPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\obj\\",
+        "projectPath": "D:\\GRD\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\GRD\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\engbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -142,21 +142,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\GRD\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\GRD\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\engbo\\.nuget\\packages\\",
-        "outputPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Infrastructure\\obj\\",
+        "projectPath": "D:\\GRD\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\GRD\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\engbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -170,11 +170,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Application\\Application.csproj": {
-                "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Application\\Application.csproj"
+              "D:\\GRD\\Application\\Application.csproj": {
+                "projectPath": "D:\\GRD\\Application\\Application.csproj"
               },
-              "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj"
+              "D:\\GRD\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\GRD\\Domain\\Domain.csproj"
               }
             }
           }
@@ -244,7 +244,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

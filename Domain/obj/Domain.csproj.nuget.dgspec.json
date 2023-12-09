@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj": {}
+    "D:\\GRD\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj": {
+    "D:\\GRD\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\GRD\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\engbo\\.nuget\\packages\\",
-        "outputPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Domain\\obj\\",
+        "projectPath": "D:\\GRD\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\GRD\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\engbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

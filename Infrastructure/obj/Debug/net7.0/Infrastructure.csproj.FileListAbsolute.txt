@@ -55,3 +55,22 @@ D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net
 D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
 D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
 D:\Learn Programming\Graduation_project\GRD.Medical\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll
+D:\GRD\Infrastructure\bin\Debug\net7.0\Infrastructure.deps.json
+D:\GRD\Infrastructure\bin\Debug\net7.0\Infrastructure.runtimeconfig.json
+D:\GRD\Infrastructure\bin\Debug\net7.0\Infrastructure.dll
+D:\GRD\Infrastructure\bin\Debug\net7.0\Infrastructure.pdb
+D:\GRD\Infrastructure\bin\Debug\net7.0\Application.dll
+D:\GRD\Infrastructure\bin\Debug\net7.0\Domain.dll
+D:\GRD\Infrastructure\bin\Debug\net7.0\Application.pdb
+D:\GRD\Infrastructure\bin\Debug\net7.0\Domain.pdb
+D:\GRD\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.AssemblyReference.cache
+D:\GRD\Infrastructure\obj\Debug\net7.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\GRD\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfoInputs.cache
+D:\GRD\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfo.cs
+D:\GRD\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CoreCompileInputs.cache
+D:\GRD\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CopyComplete
+D:\GRD\Infrastructure\obj\Debug\net7.0\Infrastructure.dll
+D:\GRD\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
+D:\GRD\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
+D:\GRD\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
+D:\GRD\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll

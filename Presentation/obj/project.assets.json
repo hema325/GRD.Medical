@@ -4625,19 +4625,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\engbo\\.nuget\\packages\\": {}
+    "C:\\Users\\hp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Presentation\\Presentation.csproj",
+      "projectUniqueName": "D:\\GRD\\Presentation\\Presentation.csproj",
       "projectName": "Presentation",
-      "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Presentation\\Presentation.csproj",
-      "packagesPath": "C:\\Users\\engbo\\.nuget\\packages\\",
-      "outputPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Presentation\\obj\\",
+      "projectPath": "D:\\GRD\\Presentation\\Presentation.csproj",
+      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+      "outputPath": "D:\\GRD\\Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\engbo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4651,11 +4651,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Application\\Application.csproj": {
-              "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Application\\Application.csproj"
+            "D:\\GRD\\Application\\Application.csproj": {
+              "projectPath": "D:\\GRD\\Application\\Application.csproj"
             },
-            "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\Learn Programming\\Graduation_project\\GRD.Medical\\Infrastructure\\Infrastructure.csproj"
+            "D:\\GRD\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\GRD\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -4704,7 +4704,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -43,3 +43,18 @@ D:\Learn Programming\Graduation_project\GRD.Medical\Application\obj\Debug\net7.0
 D:\Learn Programming\Graduation_project\GRD.Medical\Application\obj\Debug\net7.0\refint\Application.dll
 D:\Learn Programming\Graduation_project\GRD.Medical\Application\obj\Debug\net7.0\Application.pdb
 D:\Learn Programming\Graduation_project\GRD.Medical\Application\obj\Debug\net7.0\ref\Application.dll
+D:\GRD\Application\bin\Debug\net7.0\Application.deps.json
+D:\GRD\Application\bin\Debug\net7.0\Application.dll
+D:\GRD\Application\bin\Debug\net7.0\Application.pdb
+D:\GRD\Application\bin\Debug\net7.0\Domain.dll
+D:\GRD\Application\bin\Debug\net7.0\Domain.pdb
+D:\GRD\Application\obj\Debug\net7.0\Application.csproj.AssemblyReference.cache
+D:\GRD\Application\obj\Debug\net7.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\GRD\Application\obj\Debug\net7.0\Application.AssemblyInfoInputs.cache
+D:\GRD\Application\obj\Debug\net7.0\Application.AssemblyInfo.cs
+D:\GRD\Application\obj\Debug\net7.0\Application.csproj.CoreCompileInputs.cache
+D:\GRD\Application\obj\Debug\net7.0\Application.csproj.CopyComplete
+D:\GRD\Application\obj\Debug\net7.0\Application.dll
+D:\GRD\Application\obj\Debug\net7.0\refint\Application.dll
+D:\GRD\Application\obj\Debug\net7.0\Application.pdb
+D:\GRD\Application\obj\Debug\net7.0\ref\Application.dll
