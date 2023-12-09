@@ -19,13 +19,7 @@
                 throw new NotFoundException(nameof(Author));
 
             author.Name = request.Name;
-            author.JobTitle = request.JobTitle;
 
-            if (request.Image != null)
-            {
-                await _fileStorage.RemoveAsync(author.ImageUrl);
-                author.ImageUrl = await _fileStorage.SaveAsync(request.Image);
-            }
 
             author.AddDomainEvent(new EntityUpdatedEvent(author));
             await _context.SaveChangesAsync();

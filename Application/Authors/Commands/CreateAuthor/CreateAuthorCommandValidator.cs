@@ -12,15 +12,6 @@ namespace Application.Authors.Commands.CreateAuthor
                 .MaximumLength(80)
                 .MustAsync(async (n,ct) => !await context.Authors.AnyAsync(a=>a.Name == n))
                 .WithMessage("Name already exists");
-
-            RuleFor(c => c.JobTitle)
-                .NotEmpty()
-                .MaximumLength(80);
-
-            RuleFor(c => c.Image)
-                .Cascade(CascadeMode.Stop)
-                .NotEmpty()
-                .Image();
         }
     }
 }

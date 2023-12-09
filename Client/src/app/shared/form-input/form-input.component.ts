@@ -10,4 +10,8 @@ export class FormInputComponent {
   @Input() type = 'text';
   @Input() label = '';
   @Input() control!: FormControl;
+<<<<<<< HEAD
+=======
+  @Input() disabled = false;
+>>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
 }

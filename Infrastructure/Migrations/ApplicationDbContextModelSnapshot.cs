@@ -78,6 +78,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(80)

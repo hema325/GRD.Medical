@@ -23,6 +23,7 @@ namespace Infrastructure.Authentication
         private readonly IDistributedCache _distributedCache;
         private readonly ClientSettings _clientSettins;
         private readonly ICurrentUser _currentUser;
+        private readonly ICurrentHttpRequest _httpRequest;
 
         public AuthenticationService(IPasswordHasher passwordHasher,
             IJWTManager jwtManager,
@@ -31,7 +32,8 @@ namespace Infrastructure.Authentication
             IEmailSender emailSender,
             IDistributedCache distributedCache,
             IOptions<ClientSettings> clientSettings,
-            ICurrentUser currentUser)
+            ICurrentUser currentUser,
+            ICurrentHttpRequest httpRequest)
         {
             _passwordHasher = passwordHasher;
             _jwtManager = jwtManager;
@@ -41,6 +43,7 @@ namespace Infrastructure.Authentication
             _distributedCache = distributedCache;
             _clientSettins = clientSettings.Value;
             _currentUser = currentUser;
+            _httpRequest = httpRequest;
         }
 
         public async Task RegisterAsync(User user, string password)
@@ -111,6 +114,7 @@ namespace Infrastructure.Authentication
                 Name = $"{user.FirstName} {user.LastName}",
                 Email = user.Email,
                 Role = user.Role.ToString(),
+                ImageUrl = user.ImageUrl== null ? null:$"{_httpRequest.Scheme}://{_httpRequest.Host}/{user.ImageUrl}",
                 JWTToken = jwtToken.Token,
                 JWTTokenExpiresOn = jwtToken.ExpiresOn,
                 RefreshToken = refreshToken.Token,
@@ -159,7 +163,7 @@ namespace Infrastructure.Authentication
             //build email confirmation model
             var emailConfirmation = new EmailConfirmationTemplate
             {
-                ConfirmationUrl = $"{_clientSettins.BaseUrl}/authentication/confirmEmail?userId={user.Id}&token={HttpUtility.UrlEncode(token)}"
+                ConfirmationUrl = $"{_clientSettins.BaseUrl}/account/confirm-email?userId={user.Id}&token={HttpUtility.UrlEncode(token)}"
             };
 
             await _emailSender.SendEmailConfirmationAsync(user.Email, emailConfirmation);
@@ -201,7 +205,7 @@ namespace Infrastructure.Authentication
             //build email reset password model
             var emailResetPassword = new EmailResetPasswordTemplate
             {
-                ResetUrl = $"{_clientSettins.BaseUrl}/authentication/resetPassword?userId={user.Id}&token={HttpUtility.UrlEncode(token)}"
+                ResetUrl = $"{_clientSettins.BaseUrl}/account/reset-password?userId={user.Id}&token={HttpUtility.UrlEncode(token)}"
             };
 
             await _emailSender.SendEmailResetPasswordAsync(user.Email, emailResetPassword);

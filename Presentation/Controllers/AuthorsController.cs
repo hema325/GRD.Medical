@@ -22,14 +22,15 @@ namespace Presentation.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
-        public async Task<IActionResult> CreateAsync([FromForm] CreateAuthorCommand request)
+        public async Task<IActionResult> CreateAsync(CreateAuthorCommand request)
         {
             return Ok(await _sender.Send(request));
         }
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> UpdateAsync([FromForm] UpdateAuthorCommand request)
+
+        public async Task<IActionResult> UpdateAsync(UpdateAuthorCommand request)
         {
             await _sender.Send(request);
             return NoContent();
@@ -43,11 +44,11 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{Id}")]
         [ProducesResponseType(typeof(AuthorDto), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetByIdAsync(int id)
+        public async Task<IActionResult> GetByIdAsync([FromRoute] GetAuthorByIdQuery request)
         {
-            return Ok(await _sender.Send(new GetAuthorByIdQuery { Id = id }));
+            return Ok(await _sender.Send(request));
         }
 
         [HttpGet]

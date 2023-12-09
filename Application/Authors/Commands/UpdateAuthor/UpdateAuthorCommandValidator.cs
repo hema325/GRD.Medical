@@ -13,14 +13,6 @@ namespace Application.Authors.Commands.UpdateAuthor
                 .MustAsync(async (c, n, ct) => !await context.Authors.AnyAsync(a => a.Name == n && a.Id != c.Id, ct))
                 .WithMessage("Name already exists");
 
-            RuleFor(c => c.JobTitle)
-                .NotEmpty()
-                .MaximumLength(80);
-
-            RuleFor(c => c.Image)
-                .Cascade(CascadeMode.Stop)
-                .NotEmpty()
-                .Image();
         }
     }
 }

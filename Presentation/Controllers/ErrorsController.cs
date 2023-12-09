@@ -7,7 +7,6 @@ namespace Presentation.Controllers
     [ApiExplorerSettings(IgnoreApi = true)]
     public class ErrorsController : ApiControllerBase
     {
-        [HttpGet]
         public IActionResult Error(int statusCode)
         {
             return StatusCode(statusCode, new ErrorResponse(statusCode));

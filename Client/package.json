@@ -10,14 +10,28 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "^16.2.0",
+=======
+    "@angular/animations": "^16.2.12",
+    "@angular/cdk": "^16.2.12",
+>>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
     "@angular/common": "^16.2.0",
     "@angular/compiler": "^16.2.0",
     "@angular/core": "^16.2.0",
     "@angular/forms": "^16.2.0",
+<<<<<<< HEAD
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+=======
+    "@angular/material": "^16.2.12",
+    "@angular/platform-browser": "^16.2.0",
+    "@angular/platform-browser-dynamic": "^16.2.0",
+    "@angular/router": "^16.2.0",
+    "ngx-spinner": "^16.0.2",
+    "ngx-toastr": "^18.0.0",
+>>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

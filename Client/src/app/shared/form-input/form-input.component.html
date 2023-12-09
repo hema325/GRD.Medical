@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 <ng-container *ngIf="control">
     <input [formControl]="control" [type]="type" [placeholder]="label">
     <div class="validations" *ngIf="control.touched && control.invalid">
+=======
+<mat-form-field class="w-100" appearance="outline">
+    <mat-label *ngIf="label">{{label}}</mat-label>
+    <input matInput [formControl]="control" [type]="type" [disabled]="disabled">
+    <mat-error *ngIf="control.touched">
+>>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
         <span *ngIf="control.errors?.['required']">{{label}} is required</span>
         <span *ngIf="control.errors?.['email']">{{label}} is not a proper email</span>
         <span *ngIf="control.errors?.['emailDuplication']">{{label}} is already taken</span>
@@ -8,5 +15,10 @@
             minimum length of 6</span>
         <span *ngIf="control.errors?.['maxlength'] as maxLength">{{label}} has max length of
             {{maxLength.requiredLength}}</span>
+<<<<<<< HEAD
     </div>
 </ng-container>
+=======
+    </mat-error>
+</mat-form-field>
+>>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf

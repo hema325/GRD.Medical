@@ -8,6 +8,7 @@ namespace Application.Common.Interfaces
         DbSet<RefreshToken> RefreshTokens { get; }
         DbSet<Author> Authors { get; }
         DbSet<Article> Articles { get; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
