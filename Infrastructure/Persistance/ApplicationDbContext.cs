@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Common;
+using Infrastructure.Persistance.Seeds;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -19,6 +20,7 @@ namespace Infrastructure.Persistance
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            ModelSeeder.Seed(modelBuilder);
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

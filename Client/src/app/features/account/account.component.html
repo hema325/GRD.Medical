@@ -9,7 +9,7 @@
                         <div style="width: fit-content; cursor: pointer;" class="m-auto img-holder"
                             (click)="openBottomSheet()">
                             <img [src]="user.imageUrl? user.imageUrl: 'assets/images/profile.png'"
-                                style="width: 100px;height: 100px;" class="rounded-circle">
+                                style="width: 100px;height: 100px;" class="rounded-circle object-fit-cover ">
                             <mat-icon>edit</mat-icon>
                         </div>
                         <h2 class="text-center mt-2 mb-0">{{user.firstName}} {{user.lastName}}</h2>

@@ -46,4 +46,6 @@ app.UseInfrastructure();
 
 app.MapControllers();
 
+await app.Services.InitialiseDBAsync();
+
 app.Run();
