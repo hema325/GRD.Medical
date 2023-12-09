@@ -27,8 +27,7 @@ namespace Application.Articles.Commands.CreateArticle
                 PublicationDate = command.PublicationDate,
                 Content = command.Content,
                 ImageUrl = await _fileStorage.SaveAsync(command.Image),
-                AuthorId = command.AuthorId,
-                CategoryId = command.categoryId
+                AuthorId = command.AuthorId
             };
             article.AddDomainEvent(new EntityCreatedEvent(article));
             _context.Articles.Add(article);

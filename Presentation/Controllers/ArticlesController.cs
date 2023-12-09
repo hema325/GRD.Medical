@@ -1,12 +1,16 @@
 ﻿using Application.Articles.Commands.CreateArticle;
 using Application.Articles.Commands.DeleteAritcle;
 using Application.Articles.Commands.UpdateArticle;
+using Application.Articles.Queries;
+using Application.Articles.Queries.GetArticleById;
+using Application.Articles.Queries.GetArticles;
+using Application.Common.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
-    [Route("api/article")]
+    [Route("api/articles")]
     public class ArticlesController : ApiControllerBase
     {
         private readonly ISender _sender;
@@ -38,5 +42,18 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
+        [HttpGet("{Id}")]
+        [ProducesResponseType(typeof(ArticleDto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAsync([FromRoute]GetArticleByIdQuery request)
+        {
+            return Ok(await _sender.Send(request));
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(PaginatedList<ArticleDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAllAsync([FromQuery]GetArticlesQuery request)
+        {
+            return Ok(await _sender.Send(request));
+        }
     }
 }

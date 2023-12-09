@@ -26,7 +26,6 @@ namespace Application.Articles.Commands.UpdateArticle
             article.Title = request.Title;
             article.PublicationDate = request.PublicationDate;
             article.Content = request.Content;
-            article.CategoryId = request.categoryId;
             article.AuthorId = request.AuthorId;
             if(request.Image  != null)
             {

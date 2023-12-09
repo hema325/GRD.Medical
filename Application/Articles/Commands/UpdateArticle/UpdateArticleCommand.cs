@@ -15,6 +15,5 @@ namespace Application.Articles.Commands.UpdateArticle
         public string Content { get; set; }
         public IFormFile Image { get; set; }
         public int AuthorId { get; set; }
-        public int categoryId { get; set; }
     }
 }

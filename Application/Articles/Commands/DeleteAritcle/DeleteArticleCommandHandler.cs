@@ -24,6 +24,7 @@ namespace Application.Articles.Commands.DeleteAritcle
             {
                 throw new NotFoundException(nameof(Article));
             }
+            article.AddDomainEvent(new EntityDeletedEvent(article));
             await _fileStorage.RemoveAsync(article.ImageUrl);
             _context.Articles.Remove(article);
             _context.SaveChangesAsync();
