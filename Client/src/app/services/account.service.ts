@@ -1,25 +1,16 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { HttpClient } from '@angular/common/http'
-<<<<<<< HEAD
-import { BehaviorSubject, map } from 'rxjs';
-import { AuthResult } from '../models/auth-result';
-=======
 import { BehaviorSubject, Observable, catchError, map, of, throwError } from 'rxjs';
 import { AuthResult } from '../models/auth-result';
 import { User } from '../models/user';
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-<<<<<<< HEAD
-  baseUrl = environment.baseUrl + '/api/account';
-=======
   baseUrl = environment.baseUrl + '/account';
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
 
   private currentAuth = new BehaviorSubject<AuthResult | null>(null);
   currentAuth$ = this.currentAuth.asObservable();
@@ -29,21 +20,11 @@ export class AccountService {
   login(credentials: object) {
     return this.httpClient.post<AuthResult>(this.baseUrl + '/authenticate', credentials).pipe(map((authResult): AuthResult => {
       this.currentAuth.next(authResult);
-<<<<<<< HEAD
-=======
       localStorage.setItem('rftkn', JSON.stringify({ refreshToken: authResult.refreshToken, expiration: authResult.refreshTokenExpiresON }));
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
       return authResult;
     }));
   }
 
-<<<<<<< HEAD
-  logout() {
-    if (this.currentAuth.value)
-      this.httpClient.post(this.baseUrl + '/revokeRefreshToken', this.currentAuth.value.refreshToken);
-
-    this.currentAuth.next(null);
-=======
   relogin(): Observable<AuthResult | null> {
     let tokenStr = localStorage.getItem('rftkn');
     if (tokenStr) {
@@ -80,7 +61,6 @@ export class AccountService {
 
     return of(null);
 
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
   }
 
   register(registeration: object) {
@@ -91,9 +71,6 @@ export class AccountService {
     return this.httpClient.get(this.baseUrl + '/isEmailDuplicated?email=' + email);
   }
 
-<<<<<<< HEAD
-}
-=======
   getDetails() {
     return this.httpClient.get<User>(this.baseUrl);
   }
@@ -153,4 +130,3 @@ export class AccountService {
 
 }
 
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf

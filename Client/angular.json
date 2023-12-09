@@ -13,11 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-<<<<<<< HEAD
-            "outputPath": "dist/client",
-=======
             "outputPath": "../Presentation/wwwroot",
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -29,14 +25,10 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
-              "src/styles.css"
-=======
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/ngx-spinner/animations/ball-spin-clockwise.css"
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
             ],
             "scripts": []
           },
@@ -104,10 +96,7 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
-=======
               "@angular/material/prebuilt-themes/indigo-pink.css",
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
               "src/styles.css"
             ],
             "scripts": []
@@ -116,8 +105,4 @@
       }
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { Component } from '@angular/core';
-=======
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
@@ -10,16 +7,12 @@ import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
 import { password } from 'src/app/validators/password.validator';
 import { EditImageComponent } from './edit-image/edit-image.component';
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']
 })
-<<<<<<< HEAD
-export class AccountComponent {
-=======
 export class AccountComponent implements OnInit {
 
   user: User | null = null;
@@ -78,6 +71,5 @@ export class AccountComponent implements OnInit {
         this.user.imageUrl = res
     });
   }
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
 
 }

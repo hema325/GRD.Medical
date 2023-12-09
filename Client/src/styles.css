@@ -5,8 +5,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-<<<<<<< HEAD
-=======
 }
 
 html,
@@ -34,5 +32,4 @@ body {
     .section {
         min-height: calc(100vh - 224px);
     }
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
 }

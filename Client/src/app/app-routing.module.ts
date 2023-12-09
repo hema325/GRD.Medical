@@ -1,11 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-<<<<<<< HEAD
-
-const routes: Routes = [
-  { path: '', redirectTo: 'account', pathMatch: "full" },
-  { path: 'account', loadChildren: () => import('./features/account/account.module').then(m => m.AccountModule) }
-=======
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
 import { tryToLoginGuard } from './guards/try-to-login.guard';
@@ -26,7 +20,6 @@ const routes: Routes = [
     ], canMatch: [tryToLoginGuard]
   }
 
->>>>>>> f89b181cb3a284fefa679d8b2d4d8c350d335dcf
 ];
 
 @NgModule({
