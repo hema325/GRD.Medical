@@ -8,3 +8,7 @@
         padding-top: 110px !important;
     }
 }
+
+* {
+    caret-color: transparent;
+}
