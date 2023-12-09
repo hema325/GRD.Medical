@@ -7,6 +7,7 @@ import { User } from 'src/app/models/user';
 import { AccountService } from 'src/app/services/account.service';
 import { password } from 'src/app/validators/password.validator';
 import { EditImageComponent } from './edit-image/edit-image.component';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-account',
@@ -58,7 +59,7 @@ export class AccountComponent implements OnInit {
     this.accountService.changePassword(this.passwordForm.value).subscribe({
       next: res => {
         this.router.navigateByUrl("/account/login");
-        this.accountService.logout().subscribe();
+        this.accountService.logout().pipe(take(1)).subscribe();
         this.toastr.success('Password changed successfully');
       }
     })

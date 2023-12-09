@@ -30,14 +30,7 @@
                 </div>
             </div>
 
-            <h4 class="mt-4 mb-0" style="color:#3f51b5" *ngIf="response">{{response.response}}.</h4>
-
-            <!-- <div class="d-flex align-items-center mt-4">
-                <div style="height: 40px;" class="rounded-3 overflow-hidden bg-light flex-grow-1">
-                    <span style="width: 40%;background-color: #3f51b5" class="d-block h-100"></span>
-                </div>
-                <h1 class="ms-4 mb-0 text-center fs-4" style="color:#3f51b5">25%</h1>
-            </div> -->
+            <div class="mt-4 mb-0" *ngIf="response" [innerHtml]="response.response"></div>
         </div>
     </div>
 </div>
