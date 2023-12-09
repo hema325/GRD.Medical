@@ -53,14 +53,7 @@ namespace Infrastructure.Authentication
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            try
-            {
-                await SendEmailConfirmationAsync(user.Email);
-            }
-            catch
-            {
-                //do not do any thing
-            }
+            SendEmailConfirmationAsync(user.Email);
         }
 
         public async Task<AuthResultDto> AuthenticateAsync(string email, string password)

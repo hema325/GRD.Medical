@@ -39,7 +39,7 @@ namespace Infrastructure.Email
                 SecureSocketOptions.StartTls);
             await smtpClient.AuthenticateAsync(_emailSettings.UserName, _emailSettings.Password);
             await smtpClient.SendAsync(message);
-            //await smtpClient.DisconnectAsync(true);
+            await smtpClient.DisconnectAsync(false);
         }
 
         public async Task SendEmailConfirmationAsync(string to, EmailConfirmationTemplate emailConfirmation)
