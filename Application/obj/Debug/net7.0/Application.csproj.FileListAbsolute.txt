@@ -73,3 +73,19 @@ D:\GRD\GRD.Medical\Application\obj\Debug\net7.0\Application.dll
 D:\GRD\GRD.Medical\Application\obj\Debug\net7.0\refint\Application.dll
 D:\GRD\GRD.Medical\Application\obj\Debug\net7.0\Application.pdb
 D:\GRD\GRD.Medical\Application\obj\Debug\net7.0\ref\Application.dll
+D:\GRD\New clone\GRD.Medical\Application\bin\Debug\net7.0\Application.deps.json
+D:\GRD\New clone\GRD.Medical\Application\bin\Debug\net7.0\Application.dll
+D:\GRD\New clone\GRD.Medical\Application\bin\Debug\net7.0\Application.pdb
+D:\GRD\New clone\GRD.Medical\Application\bin\Debug\net7.0\Domain.dll
+D:\GRD\New clone\GRD.Medical\Application\bin\Debug\net7.0\Domain.pdb
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\Application.csproj.AssemblyReference.cache
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\Application.AssemblyInfoInputs.cache
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\Application.AssemblyInfo.cs
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\Application.csproj.CoreCompileInputs.cache
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\Application.sourcelink.json
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\Application.csproj.CopyComplete
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\Application.dll
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\refint\Application.dll
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\Application.pdb
+D:\GRD\New clone\GRD.Medical\Application\obj\Debug\net7.0\ref\Application.dll
