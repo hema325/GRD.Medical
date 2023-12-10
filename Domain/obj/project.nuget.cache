@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "uR2Ws2TEgaZYuDxc3EJKxBJUuiUl7/1LxogIwBcrEl0fLHMQ4CZLzavQa2YXOWeqvz78cn252ZN+sv0Nl0XhKw==",
+  "dgSpecHash": "jGhkULe+YNej4V+NQjD0O8jhPvwzutyJLHIrF+mapf2bB28r+mrZgwCXw0xBbFYLCQwd7pFBVZhnOfFEtokZbA==",
   "success": true,
-  "projectFilePath": "D:\\GRD\\New clone\\GRD.Medical\\Domain\\Domain.csproj",
+  "projectFilePath": "D:\\Temp\\GRD.Medical\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\khale\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
-    "C:\\Users\\khale\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
-    "C:\\Users\\khale\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
-    "C:\\Users\\khale\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+    "C:\\Users\\hp\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

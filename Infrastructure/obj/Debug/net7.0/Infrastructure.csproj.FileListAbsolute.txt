@@ -113,3 +113,22 @@ D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\refint\Infrastructu
 D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
 D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
 D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll
+D:\Temp\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.deps.json
+D:\Temp\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.runtimeconfig.json
+D:\Temp\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.dll
+D:\Temp\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.pdb
+D:\Temp\GRD.Medical\Infrastructure\bin\Debug\net7.0\Application.dll
+D:\Temp\GRD.Medical\Infrastructure\bin\Debug\net7.0\Domain.dll
+D:\Temp\GRD.Medical\Infrastructure\bin\Debug\net7.0\Application.pdb
+D:\Temp\GRD.Medical\Infrastructure\bin\Debug\net7.0\Domain.pdb
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.AssemblyReference.cache
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfoInputs.cache
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfo.cs
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CoreCompileInputs.cache
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CopyComplete
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.dll
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
+D:\Temp\GRD.Medical\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll

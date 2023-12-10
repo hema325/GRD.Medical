@@ -33,7 +33,6 @@ namespace Infrastructure.Persistance
         public DbSet<RefreshToken> RefreshTokens { get; private set; }
         public DbSet<Author> Authors { get; private set; }
         public DbSet<Article> Articles { get; private set; }
-        public DbSet<MedicalAdvice> MedicalAdvices { get; private set; }
-
+        public DbSet<Advice> Advices { get; private set; }
     }
 }

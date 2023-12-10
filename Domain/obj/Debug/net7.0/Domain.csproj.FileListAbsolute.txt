@@ -71,3 +71,15 @@ D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.dll
 D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\refint\Domain.dll
 D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.pdb
 D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\ref\Domain.dll
+D:\Temp\GRD.Medical\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\Temp\GRD.Medical\Domain\bin\Debug\net7.0\Domain.dll
+D:\Temp\GRD.Medical\Domain\bin\Debug\net7.0\Domain.pdb
+D:\Temp\GRD.Medical\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\Temp\GRD.Medical\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Temp\GRD.Medical\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\Temp\GRD.Medical\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\Temp\GRD.Medical\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\Temp\GRD.Medical\Domain\obj\Debug\net7.0\Domain.dll
+D:\Temp\GRD.Medical\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\Temp\GRD.Medical\Domain\obj\Debug\net7.0\Domain.pdb
+D:\Temp\GRD.Medical\Domain\obj\Debug\net7.0\ref\Domain.dll

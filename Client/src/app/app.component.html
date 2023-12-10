@@ -1,0 +1,12 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.6)" size="medium" color="#fff" type="ball-spin-clockwise" [fullScreen]="true">
+    <p style="color:#fff"> Loading... </p>
+</ngx-spinner>
+
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+
+<button mat-fab color="accent" class="position-fixed floating-btn" routerLink="/ai-models/chating" *ngIf="currentAuth"
+    style="bottom: 16px;right: 16px;">
+    <mat-icon>forum</mat-icon>
+</button>

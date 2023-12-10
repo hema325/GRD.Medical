@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GRD\\New clone\\GRD.Medical\\Domain\\Domain.csproj": {}
+    "D:\\Temp\\GRD.Medical\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\GRD\\New clone\\GRD.Medical\\Domain\\Domain.csproj": {
+    "D:\\Temp\\GRD.Medical\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GRD\\New clone\\GRD.Medical\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Temp\\GRD.Medical\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\GRD\\New clone\\GRD.Medical\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
-        "outputPath": "D:\\GRD\\New clone\\GRD.Medical\\Domain\\obj\\",
+        "projectPath": "D:\\Temp\\GRD.Medical\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "D:\\Temp\\GRD.Medical\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
