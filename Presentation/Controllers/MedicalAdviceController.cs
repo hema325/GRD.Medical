@@ -39,11 +39,11 @@ namespace Presentation.Controllers
             await _sender.Send(request);
             return NoContent();
         }
-        [HttpGet("{id}")]
+        [HttpGet("{Id}")]
         [ProducesResponseType(typeof(MedicalAdviceDto), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetByIdAsync(int id)
+        public async Task<IActionResult> GetByIdAsync([FromRoute]GetMedicalAdviceByIdQuary request)
         {
-            return Ok(await _sender.Send(new GetMedicalAdviceByIdQuary { Id = id }));
+            return Ok(await _sender.Send(request));
         }
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<MedicalAdviceDto>), StatusCodes.Status200OK)]

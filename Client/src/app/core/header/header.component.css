@@ -1,0 +1,14 @@
+.wrapper {
+    background-color: #3f51b5;
+    padding-top: 84px !important;
+}
+
+@media(max-width: 600px) {
+    .wrapper {
+        padding-top: 110px !important;
+    }
+}
+
+* {
+    caret-color: transparent;
+}

@@ -20,7 +20,10 @@ namespace Application.Articles.Commands.UpdateArticle
                 .NotEmpty();
 
             RuleFor(c => c.AuthorId)
-                .NotNull();
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty()
+                .MustAsync(async (id, ct) => await context.Authors.AnyAsync(a => a.Id == id))
+                .WithMessage("Author id wasn't found.");
 
             RuleFor(c => c.Image)
                 .Cascade(CascadeMode.Stop)

@@ -36,10 +36,9 @@ namespace Infrastructure.Email
             var smtpClient = new SmtpClient();
             await smtpClient.ConnectAsync(_emailSettings.Host,
                 _emailSettings.Port,
-                SecureSocketOptions.StartTls);
+                SecureSocketOptions.SslOnConnect);
             await smtpClient.AuthenticateAsync(_emailSettings.UserName, _emailSettings.Password);
             await smtpClient.SendAsync(message);
-            await smtpClient.DisconnectAsync(false);
         }
 
         public async Task SendEmailConfirmationAsync(string to, EmailConfirmationTemplate emailConfirmation)

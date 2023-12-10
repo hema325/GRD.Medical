@@ -1,11 +1,6 @@
 ﻿using Application.Common.Extensions;
 using Application.Common.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Articles.Queries.GetArticles
 {
@@ -25,7 +20,7 @@ namespace Application.Articles.Queries.GetArticles
             var query = _context.Articles.Include(a=>a.Author).AsQueryable();
 
             if(request.Title != null)
-                query = query.Where(a=>a.Title == request.Title);
+                query = query.Where(a=>a.Title.StartsWith(request.Title));
 
             return await query.PaginateAsync<Article,ArticleDto>(request.pageNumber,request.pageSize, _mapper);
         }

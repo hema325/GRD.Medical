@@ -1,0 +1,67 @@
+<app-header title="Profile"></app-header>
+
+<div class="section ">
+    <div class="container" *ngIf="user">
+        <div class=" shadow bg-white rounded-3 my-5">
+            <div class="p-4 row">
+                <div class="col-12 col-lg-4">
+                    <div class="pe-md-4 border-end h-100 no-border">
+                        <div style="width: fit-content; cursor: pointer;" class="m-auto img-holder"
+                            (click)="openBottomSheet()">
+                            <img [src]="user.imageUrl? user.imageUrl: 'assets/images/profile.png'"
+                                style="width: 100px;height: 100px;" class="rounded-circle object-fit-cover ">
+                            <mat-icon>edit</mat-icon>
+                        </div>
+                        <h2 class="text-center mt-2 mb-0">{{user.firstName}} {{user.lastName}}</h2>
+                        <h5 class="text-center text-muted" style="margin-top: -5px;">{{user.email}}</h5>
+
+                        <div class="list-group my-5 list-group-flush ">
+                            <button type="button" class="list-group-item list-group-item-action py-3"
+                                [class.active]="tab == 0" aria-current="true" (click)="tab = 0">
+                                <mat-icon class="align-middle" style="width: 40px;">person</mat-icon> Account
+                            </button>
+                            <button type="button" class="list-group-item list-group-item-action py-3"
+                                [class.active]="tab == 1" (click)="tab=1"><mat-icon class="align-middle"
+                                    style="width: 40px;">key</mat-icon>
+                                Password</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <ng-container *ngIf="tab==0">
+                        <h2 class="mb-4 mt-2">Account</h2>
+                        <form [formGroup]="userForm" (ngSubmit)="updateDetails()">
+                            <div class="my-2">
+                                <app-form-input [control]="userForm.controls.firstName"
+                                    label="First Name"></app-form-input>
+                            </div>
+                            <div class="my-2">
+                                <app-form-input [control]="userForm.controls.lastName" label="Last Name"
+                                    class="my-1"></app-form-input>
+                            </div>
+
+                            <button mat-raised-button color="primary" [disabled]="userForm.invalid"
+                                class="float-end mt-3">Update</button>
+                        </form>
+                    </ng-container>
+                    <ng-container *ngIf="tab==1">
+                        <h2 class="mb-4 mt-2">Password</h2>
+                        <form [formGroup]="userForm" (ngSubmit)="changePassword()">
+                            <div class="my-2">
+                                <app-form-input [control]="passwordForm.controls.oldPassword" label="Old Password"
+                                    type="password"></app-form-input>
+                            </div>
+                            <div class="my-2">
+                                <app-form-input [control]="passwordForm.controls.newPassword" label="New Password"
+                                    type="password" class="my-1"></app-form-input>
+                            </div>
+
+                            <button mat-raised-button color="primary" [disabled]="passwordForm.invalid"
+                                class="float-end mt-3">Change</button>
+                        </form>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

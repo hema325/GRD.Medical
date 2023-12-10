@@ -11,6 +11,7 @@ namespace Infrastructure.Persistance
             services.AddDbContext<ApplicationDbContext>(o => o.UseSqlServer(configuration.GetConnectionString("Default")));
             
             services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<ApplicationDbContextInitialiser>();
 
             return services;
         }

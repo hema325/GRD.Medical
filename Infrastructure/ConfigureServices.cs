@@ -30,5 +30,11 @@ namespace Infrastructure
 
             return app;
         }
+
+        public static async Task InitialiseDBAsync(this IServiceProvider serviceProvider)
+        {
+            using var scope = serviceProvider.CreateScope();
+            await scope.ServiceProvider.GetRequiredService<ApplicationDbContextInitialiser>().InitialiseAsync();
+        }
     }
 }
