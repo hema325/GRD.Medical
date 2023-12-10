@@ -2,84 +2,32 @@
 
 <div class="section">
     <div class="container">
-        <form class="my-5 shadow bg-white p-4 rounded-3">
-            <h2>Search By Title</h2>
-            <app-form-input [control]="filterForm.controls.title" label="Title"></app-form-input>
-            <div class="d-flex justify-content-end">
-                <button mat-raised-button color="primary" [disabled]="filterForm.invalid">Search</button>
-            </div>
-        </form>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
-            <div class="col">
-                <div class="card shadow overflow-hidden" routerLink="/advices/1">
-                    <img src="https://th.bing.com/th/id/R.87edac703255e512854086a94da27930?rik=UCr9IDtOW4v0Og&pid=ImgRaw&r=0"
-                        class="w-100">
-                    <div class="card-body">
-                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
-                            children</h5>
-                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
+        <ng-container *ngIf="paginatedList">
+            <form class="my-5 shadow bg-white p-4 rounded-3">
+                <h2>Search By Title</h2>
+                <app-form-input [control]="filterForm.controls.title" label="Title"></app-form-input>
+                <div class="d-flex justify-content-end">
+                    <button type="button" mat-raised-button color="accent" (click)="handleResetFilter()"
+                        [disabled]="!filterForm.dirty" class="me-2">Reset</button>
+                    <button type="button" mat-raised-button color="primary" (click)="handleSearchFilter()"
+                        [disabled]="filterForm.invalid">Search</button>
+                </div>
+            </form>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
+                <div class="col" *ngFor="let advice of paginatedList.data">
+                    <div class="card shadow overflow-hidden h-100" routerLink="/advices/1" [state]="advice">
+                        <img [src]="advice.imgUrl" class="w-100" style="height: 250px;">
+                        <div class="card-body">
+                            <h5 class="card-title fs-5 fw-medium mb-2">{{advice.title}}</h5>
+                            <span class="text-muted">{{advice.author.name}} . {{ advice.publishedOn| date}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card shadow overflow-hidden" routerLink="/advices/1">
-                    <img src="https://th.bing.com/th/id/R.87edac703255e512854086a94da27930?rik=UCr9IDtOW4v0Og&pid=ImgRaw&r=0"
-                        class="w-100">
-                    <div class="card-body">
-                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
-                            children</h5>
-                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow overflow-hidden" routerLink="/advices/1">
-                    <img src="https://th.bing.com/th/id/R.87edac703255e512854086a94da27930?rik=UCr9IDtOW4v0Og&pid=ImgRaw&r=0"
-                        class="w-100">
-                    <div class="card-body">
-                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
-                            children</h5>
-                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow overflow-hidden" routerLink="/advices/1">
-                    <img src="https://th.bing.com/th/id/R.87edac703255e512854086a94da27930?rik=UCr9IDtOW4v0Og&pid=ImgRaw&r=0"
-                        class="w-100">
-                    <div class="card-body">
-                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
-                            children</h5>
-                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow overflow-hidden" routerLink="/advices/1">
-                    <img src="https://th.bing.com/th/id/R.87edac703255e512854086a94da27930?rik=UCr9IDtOW4v0Og&pid=ImgRaw&r=0"
-                        class="w-100">
-                    <div class="card-body">
-                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
-                            children</h5>
-                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow overflow-hidden" routerLink="/advices/1">
-                    <img src="https://th.bing.com/th/id/R.87edac703255e512854086a94da27930?rik=UCr9IDtOW4v0Og&pid=ImgRaw&r=0"
-                        class="w-100">
-                    <div class="card-body">
-                        <h5 class="card-title fs-5 fw-medium mb-2">how to manage tonsillitis in
-                            children</h5>
-                        <span class="text-muted">Lydia Smith . {{ date | date}}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <mat-paginator #paginator class=" my-5 shadow bg-white p-3 rounded-3" (page)="handlePageEvent($event)"
-            [length]="50" [pageSize]="10" [showFirstLastButtons]="true" [pageIndex]="0" [hidePageSize]="true"
-            aria-label="Select page">
-        </mat-paginator>
+            <mat-paginator #paginator class=" my-5 shadow bg-white p-3 rounded-3" (page)="handlePageEvent($event)"
+                [length]="paginatedList.totalCount" [pageSize]="filter.pageSize" [showFirstLastButtons]="true"
+                [pageIndex]="filter.pageNumber - 1" [hidePageSize]="true" aria-label="Select page">
+            </mat-paginator>
+        </ng-container>
     </div>
 </div>

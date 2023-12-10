@@ -5,8 +5,10 @@ using Application.Authors.Queries;
 using Application.Authors.Queries.GetAuthorById;
 using Application.Authors.Queries.GetAuthors;
 using Application.Common.Models;
+using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.Attributes;
 
 namespace Presentation.Controllers
 {
@@ -22,6 +24,7 @@ namespace Presentation.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [HaveRoles(Roles.Admin)]
         public async Task<IActionResult> CreateAsync(CreateAuthorCommand request)
         {
             return Ok(await _sender.Send(request));
@@ -29,6 +32,7 @@ namespace Presentation.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HaveRoles(Roles.Admin)]
 
         public async Task<IActionResult> UpdateAsync(UpdateAuthorCommand request)
         {
@@ -38,6 +42,7 @@ namespace Presentation.Controllers
 
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HaveRoles(Roles.Admin)]
         public async Task<IActionResult> DeleteAsync([FromQuery] DeleteAuthorCommand request)
         {
             await _sender.Send(request);

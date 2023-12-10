@@ -5,8 +5,10 @@ using Application.Articles.Queries;
 using Application.Articles.Queries.GetArticleById;
 using Application.Articles.Queries.GetArticles;
 using Application.Common.Models;
+using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.Attributes;
 
 namespace Presentation.Controllers
 {
@@ -21,6 +23,7 @@ namespace Presentation.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [HaveRoles(Roles.Admin)]
         public async Task<IActionResult> CreateAsync([FromForm]CreateArticleCommand request)
         {
             return Ok(await _sender.Send(request));
@@ -28,6 +31,7 @@ namespace Presentation.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HaveRoles(Roles.Admin)]
         public async Task<IActionResult> UpdateAsync([FromForm] UpdateArticleCommand request)
         {
             await _sender.Send(request);
@@ -36,6 +40,7 @@ namespace Presentation.Controllers
 
         [HttpDelete]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HaveRoles(Roles.Admin)]
         public async Task<IActionResult> DeleteAsync([FromForm] DeleteArticleCommand request)
         {
             await _sender.Send(request);

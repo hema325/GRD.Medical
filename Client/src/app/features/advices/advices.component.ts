@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Advice } from 'src/app/models/advice';
+import { Filter } from 'src/app/models/filter';
+import { PaginatedList } from 'src/app/models/paginated-list';
+import { AdvicesService } from 'src/app/services/advices.service';
 
 @Component({
   selector: 'app-advices',
@@ -13,9 +17,40 @@ export class AdvicesComponent {
     title: ['', Validators.required]
   })
 
-  constructor(private fb: FormBuilder) { }
+  filter: Filter = {
+    title: null,
+    pageNumber: 1,
+    pageSize: 6
+  }
+
+  paginatedList: PaginatedList<Advice> | null = null;
+
+  constructor(private fb: FormBuilder,
+    private adviceService: AdvicesService) { }
+
+  ngOnInit() {
+    this.getAdvices();
+  }
+
+  getAdvices() {
+    this.adviceService.getAdvices(this.filter).subscribe(res => this.paginatedList = res);
+  }
 
   handlePageEvent(event: any) {
-    console.log(event);
+    this.filter.pageNumber = event.pageIndex + 1;
+    this.getAdvices();
+  }
+
+  handleResetFilter() {
+    this.filter.title = null;
+    this.filter.pageNumber = 1;
+    this.filterForm.reset();
+    this.getAdvices();
+  }
+
+  handleSearchFilter() {
+    this.filter.title = this.filterForm.controls.title.value;
+    this.filter.pageNumber = 1;
+    this.getAdvices();
   }
 }

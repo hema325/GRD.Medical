@@ -2,7 +2,7 @@
 
 namespace Application.MedicalAdvices.Queries.GetMedicalAdviceByID
 {
-    internal class GetAdviceByIdQuaryHandler : IRequestHandler<GetAdviceByIdQuary, MedicalAdviceDto>
+    internal class GetAdviceByIdQuaryHandler : IRequestHandler<GetAdviceByIdQuary, AdviceDto>
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
@@ -13,14 +13,14 @@ namespace Application.MedicalAdvices.Queries.GetMedicalAdviceByID
             _mapper = mapper;
         }
 
-        public async Task<MedicalAdviceDto> Handle(GetAdviceByIdQuary request, CancellationToken cancellationToken)
+        public async Task<AdviceDto> Handle(GetAdviceByIdQuary request, CancellationToken cancellationToken)
         {
             var advice = await _context.Advices.Include(a => a.Author).FirstOrDefaultAsync(a => a.Id == request.Id);
             
             if (advice == null)
                 throw new NotFoundException(nameof(advice));
 
-            return _mapper.Map<MedicalAdviceDto>(advice);
+            return _mapper.Map<AdviceDto>(advice);
         }
     }
 }

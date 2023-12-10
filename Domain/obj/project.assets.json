@@ -147,11 +147,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Temp\\GRD.Medical\\Domain\\Domain.csproj",
+      "projectUniqueName": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "D:\\Temp\\GRD.Medical\\Domain\\Domain.csproj",
+      "projectPath": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "D:\\Temp\\GRD.Medical\\Domain\\obj\\",
+      "outputPath": "D:\\GRD\\GRD.Medical\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

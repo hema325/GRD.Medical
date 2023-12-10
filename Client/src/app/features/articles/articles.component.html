@@ -2,6 +2,7 @@
 <div class="section">
     <div class="container">
         <ng-container *ngIf="paginatedList">
+
             <form class="my-5 shadow bg-white p-4 rounded-3">
                 <h2>Search By Title</h2>
                 <app-form-input [control]="filterForm.controls.title" label="Title"></app-form-input>
@@ -19,15 +20,18 @@
                         <img [src]="article.imageUrl" class="w-100 object-fit-cover " style="height: 250px;">
                         <div class="card-body">
                             <h5 class="card-title fs-5 fw-medium mb-2">{{article.title}}</h5>
-                            <span class="text-muted">{{article.author.name}} . {{ article.publishedOn | date}}</span>
+                            <span class="text-muted">{{article.author.name}} . {{ article.publishedOn |
+                                date}}</span>
                         </div>
                     </div>
                 </div>
             </div>
+
             <mat-paginator #paginator class=" my-5 shadow bg-white p-3 rounded-3" (page)="handlePageEvent($event)"
-                [length]="paginatedList.totalPages*paginatedList.pageSize" [pageSize]="filter.pageSize"
-                [showFirstLastButtons]="true" [pageIndex]="0" [hidePageSize]="true" aria-label="Select page">
+                [length]="paginatedList.totalCount" [pageSize]="filter.pageSize" [showFirstLastButtons]="true"
+                [pageIndex]="filter.pageNumber - 1" [hidePageSize]="true" aria-label="Select page">
             </mat-paginator>
+
         </ng-container>
     </div>
 </div>

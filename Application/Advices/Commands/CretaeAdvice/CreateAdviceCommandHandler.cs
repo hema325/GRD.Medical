@@ -19,7 +19,7 @@
                 Content = request.Content,
                 AuthorId = request.AuthorId,
                 ImageUrl = await _fileStorage.SaveAsync(request.Image),
-                PublishedON = request.PublishedON
+                PublishedOn = request.PublishedOn
             };
 
             advice.AddDomainEvent(new EntityCreatedEvent(advice));

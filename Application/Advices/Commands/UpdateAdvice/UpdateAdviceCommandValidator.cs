@@ -26,7 +26,8 @@ namespace Application.MedicalAdvices.Commands.UpdateMedicalAdvice
                 .NotEmpty()
                 .Image();
 
-
+            RuleFor(a => a.PublishedOn)
+                .NotEmpty();
         }
     }
 }

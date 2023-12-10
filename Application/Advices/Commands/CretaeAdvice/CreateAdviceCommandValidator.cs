@@ -26,7 +26,7 @@ namespace Application.MedicalAdvices.Commands.CretaeMedicalAdvice
                 .NotEmpty()
                 .Image();
 
-            RuleFor(a => a.PublishedON)
+            RuleFor(a => a.PublishedOn)
                 .NotEmpty();
 
         }

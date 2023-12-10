@@ -23,7 +23,7 @@ namespace Application.advices.Commands.Updateadvice
             advice.Title = request.Title;
             advice.Content = request.Content;
             advice.AuthorId = request.AuthorId;
-            advice.PublishedON = request.PublishedON;
+            advice.PublishedOn = request.PublishedOn;
 
             if (request.Image != null)
             {
