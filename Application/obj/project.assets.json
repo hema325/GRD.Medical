@@ -928,11 +928,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GRD\\GRD.Medical\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\Projects\\GRD.Medical\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "D:\\GRD\\GRD.Medical\\Application\\Application.csproj",
+      "projectPath": "D:\\Projects\\GRD.Medical\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "D:\\GRD\\GRD.Medical\\Application\\obj\\",
+      "outputPath": "D:\\Projects\\GRD.Medical\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -949,8 +949,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj"
+            "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj"
             }
           }
         }

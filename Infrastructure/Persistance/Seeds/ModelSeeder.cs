@@ -1,36 +1,11 @@
-﻿using Infrastructure.Authentication.PasswordHasher;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistance.Seeds
 {
-    internal class ModelSeeder
+    internal static class ModelSeeder
     {
-        private readonly IPasswordHasher _passwordHasher;
-
-        public ModelSeeder(IPasswordHasher passwordHasher)
+        public static void Seed(ModelBuilder builder)
         {
-            _passwordHasher = passwordHasher;
-        }
-
-        public void Seed(ModelBuilder builder)
-        {
-            var users = new[]
-            {
-                new User
-                {
-                    Id = 1,
-                    FirstName = "Ibrahim",
-                    LastName = "Moawad",
-                    Email = "admin@gmail.com",
-                    IsEmailConfirmed = true,
-                    HashedPassword = _passwordHasher.HashPassword("Pa$$w0rd"),
-                    Role = Roles.Admin,
-                    JoinedON = DateTime.UtcNow
-                }
-            };
-
-            builder.Entity<User>().HasData(users);
-
             var random = new Random();
 
             var authors = new[] {

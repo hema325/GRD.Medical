@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GRD\\GRD.Medical\\Presentation\\Presentation.csproj": {}
+    "D:\\Projects\\GRD.Medical\\Presentation\\Presentation.csproj": {}
   },
   "projects": {
-    "D:\\GRD\\GRD.Medical\\Application\\Application.csproj": {
+    "D:\\Projects\\GRD.Medical\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GRD\\GRD.Medical\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\Projects\\GRD.Medical\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\GRD\\GRD.Medical\\Application\\Application.csproj",
+        "projectPath": "D:\\Projects\\GRD.Medical\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "D:\\GRD\\GRD.Medical\\Application\\obj\\",
+        "outputPath": "D:\\Projects\\GRD.Medical\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj"
+              "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj": {
+    "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj",
+        "projectPath": "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "D:\\GRD\\GRD.Medical\\Domain\\obj\\",
+        "outputPath": "D:\\Projects\\GRD.Medical\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -146,14 +146,14 @@
         }
       }
     },
-    "D:\\GRD\\GRD.Medical\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\Projects\\GRD.Medical\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GRD\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\Projects\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\GRD\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "D:\\Projects\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "D:\\GRD\\GRD.Medical\\Infrastructure\\obj\\",
+        "outputPath": "D:\\Projects\\GRD.Medical\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -170,11 +170,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\GRD\\GRD.Medical\\Application\\Application.csproj": {
-                "projectPath": "D:\\GRD\\GRD.Medical\\Application\\Application.csproj"
+              "D:\\Projects\\GRD.Medical\\Application\\Application.csproj": {
+                "projectPath": "D:\\Projects\\GRD.Medical\\Application\\Application.csproj"
               },
-              "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj"
+              "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj"
               }
             }
           }
@@ -248,14 +248,14 @@
         }
       }
     },
-    "D:\\GRD\\GRD.Medical\\Presentation\\Presentation.csproj": {
+    "D:\\Projects\\GRD.Medical\\Presentation\\Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GRD\\GRD.Medical\\Presentation\\Presentation.csproj",
+        "projectUniqueName": "D:\\Projects\\GRD.Medical\\Presentation\\Presentation.csproj",
         "projectName": "Presentation",
-        "projectPath": "D:\\GRD\\GRD.Medical\\Presentation\\Presentation.csproj",
+        "projectPath": "D:\\Projects\\GRD.Medical\\Presentation\\Presentation.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "D:\\GRD\\GRD.Medical\\Presentation\\obj\\",
+        "outputPath": "D:\\Projects\\GRD.Medical\\Presentation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -272,11 +272,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\GRD\\GRD.Medical\\Application\\Application.csproj": {
-                "projectPath": "D:\\GRD\\GRD.Medical\\Application\\Application.csproj"
+              "D:\\Projects\\GRD.Medical\\Application\\Application.csproj": {
+                "projectPath": "D:\\Projects\\GRD.Medical\\Application\\Application.csproj"
               },
-              "D:\\GRD\\GRD.Medical\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "D:\\GRD\\GRD.Medical\\Infrastructure\\Infrastructure.csproj"
+              "D:\\Projects\\GRD.Medical\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\Projects\\GRD.Medical\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }

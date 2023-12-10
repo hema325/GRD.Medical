@@ -13,7 +13,6 @@ namespace Infrastructure.Persistance
             
             services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<ApplicationDbContextInitialiser>();
-            services.AddScoped<ModelSeeder>();
 
             return services;
         }

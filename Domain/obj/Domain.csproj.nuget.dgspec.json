@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj": {}
+    "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj": {
+    "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj",
+        "projectPath": "D:\\Projects\\GRD.Medical\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "D:\\GRD\\GRD.Medical\\Domain\\obj\\",
+        "outputPath": "D:\\Projects\\GRD.Medical\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

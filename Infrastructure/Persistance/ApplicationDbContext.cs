@@ -9,13 +9,10 @@ namespace Infrastructure.Persistance
     internal class ApplicationDbContext: DbContext, IApplicationDbContext
     {
         private readonly IPublisher _publisher;
-        private readonly ModelSeeder _seeder;
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
-        IPublisher publisher,
-        ModelSeeder seeder) : base(options)
+        IPublisher publisher) : base(options)
         {
             _publisher = publisher;
-            _seeder = seeder;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,7 +20,7 @@ namespace Infrastructure.Persistance
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            _seeder.Seed(modelBuilder);
+            ModelSeeder.Seed(modelBuilder);
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
