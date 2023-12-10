@@ -1,8 +1,0 @@
-.card {
-    cursor: pointer;
-    transition: transform 400ms;
-}
-
-.card:hover {
-    transform: translatey(-10px);
-}

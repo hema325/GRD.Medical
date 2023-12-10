@@ -4185,19 +4185,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {}
+    "C:\\Users\\khale\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GRD\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "D:\\GRD\\New clone\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "D:\\GRD\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "D:\\GRD\\GRD.Medical\\Infrastructure\\obj\\",
+      "projectPath": "D:\\GRD\\New clone\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
+      "outputPath": "D:\\GRD\\New clone\\GRD.Medical\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4211,11 +4211,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\GRD\\GRD.Medical\\Application\\Application.csproj": {
-              "projectPath": "D:\\GRD\\GRD.Medical\\Application\\Application.csproj"
+            "D:\\GRD\\New clone\\GRD.Medical\\Application\\Application.csproj": {
+              "projectPath": "D:\\GRD\\New clone\\GRD.Medical\\Application\\Application.csproj"
             },
-            "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\GRD\\GRD.Medical\\Domain\\Domain.csproj"
+            "D:\\GRD\\New clone\\GRD.Medical\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\GRD\\New clone\\GRD.Medical\\Domain\\Domain.csproj"
             }
           }
         }
@@ -4285,7 +4285,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

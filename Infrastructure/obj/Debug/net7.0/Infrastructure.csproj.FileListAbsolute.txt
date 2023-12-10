@@ -93,3 +93,23 @@ D:\GRD\GRD.Medical\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
 D:\GRD\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
 D:\GRD\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
 D:\GRD\GRD.Medical\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll
+D:\GRD\New clone\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.deps.json
+D:\GRD\New clone\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.runtimeconfig.json
+D:\GRD\New clone\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.dll
+D:\GRD\New clone\GRD.Medical\Infrastructure\bin\Debug\net7.0\Infrastructure.pdb
+D:\GRD\New clone\GRD.Medical\Infrastructure\bin\Debug\net7.0\Application.dll
+D:\GRD\New clone\GRD.Medical\Infrastructure\bin\Debug\net7.0\Domain.dll
+D:\GRD\New clone\GRD.Medical\Infrastructure\bin\Debug\net7.0\Application.pdb
+D:\GRD\New clone\GRD.Medical\Infrastructure\bin\Debug\net7.0\Domain.pdb
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.AssemblyReference.cache
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfoInputs.cache
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfo.cs
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CoreCompileInputs.cache
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.sourcelink.json
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CopyComplete
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.dll
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
+D:\GRD\New clone\GRD.Medical\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll

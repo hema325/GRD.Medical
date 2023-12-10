@@ -58,3 +58,16 @@ D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\Domain.dll
 D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\refint\Domain.dll
 D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\Domain.pdb
 D:\GRD\GRD.Medical\Domain\obj\Debug\net7.0\ref\Domain.dll
+D:\GRD\New clone\GRD.Medical\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\GRD\New clone\GRD.Medical\Domain\bin\Debug\net7.0\Domain.dll
+D:\GRD\New clone\GRD.Medical\Domain\bin\Debug\net7.0\Domain.pdb
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.sourcelink.json
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.dll
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\Domain.pdb
+D:\GRD\New clone\GRD.Medical\Domain\obj\Debug\net7.0\ref\Domain.dll
