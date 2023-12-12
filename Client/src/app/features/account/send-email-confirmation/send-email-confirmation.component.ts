@@ -22,15 +22,9 @@ export class SendEmailConfirmationComponent {
     private router: Router) { }
 
   send() {
-    this.accountService.sendEmailConfirmation(this.emailForm.value).subscribe({
-      next: res => {
-        this.toastr.success('Email sent successfully');
-        this.router.navigateByUrl('/home');
-      },
-      error: err => {
-        if (err.statusCode != 500)
-          this.toastr.error(err.message);
-      }
+    this.accountService.sendEmailConfirmation(this.emailForm.value).subscribe(res => {
+      this.toastr.success('Email sent successfully');
+      this.router.navigateByUrl('/home');
     });
   }
 

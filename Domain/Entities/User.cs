@@ -10,7 +10,7 @@ namespace Domain.Entities
         public string HashedPassword { get; set; }
         public Roles Role { get; set; }
         public string? ImageUrl { get; set; }
-        public DateTime JoinedON { get; set; }
+        public DateTime JoinedOn { get; set; }
 
         public ICollection<RefreshToken> RefreshTokens { get; set; }
 

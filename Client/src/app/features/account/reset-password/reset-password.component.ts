@@ -36,10 +36,7 @@ export class ResetPasswordComponent {
         this.router.navigateByUrl('/account/login');
         this.toastr.success('Password reseted successfully.');
       },
-      error: err => {
-        this.router.navigateByUrl('/home');
-        this.toastr.error('Failed to reset your password.');
-      }
+      error: err => this.router.navigateByUrl('/home')
     });
   }
 

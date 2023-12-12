@@ -7,5 +7,5 @@ export interface AuthResult {
     jwtToken: string
     jwtTokenExpiresOn: Date
     refreshToken: string
-    refreshTokenExpiresON: Date
+    refreshTokenExpiresOn: Date
 }

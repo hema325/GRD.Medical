@@ -25,15 +25,12 @@ export class LoginComponent {
     private toastr: ToastrService) { }
 
   login() {
-    this.accountService.login(this.loginForm.value).pipe(take(1)).subscribe({
-      next: res => {
-        let returnUrl = this.activatedRoute.snapshot.queryParamMap.get('returnUrl');
-        if (!returnUrl)
-          returnUrl = '/home';
-        this.router.navigateByUrl(returnUrl);
-        this.toastr.success('Loggedin successfully');
-      },
-      error: error => this.toastr.error(error.message)
+    this.accountService.login(this.loginForm.value).pipe(take(1)).subscribe(res => {
+      let returnUrl = this.activatedRoute.snapshot.queryParamMap.get('returnUrl');
+      if (!returnUrl)
+        returnUrl = '/home';
+      this.router.navigateByUrl(returnUrl);
+      this.toastr.success('Loggedin successfully');
     });
   }
 }

@@ -39,5 +39,12 @@ namespace Presentation.Controllers
             throw new Exception("Server Error");
         }
 
+        [HttpGet("conflict")]
+        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
+        public IActionResult Conflict()
+        {
+            throw new ConflictException("There is a conflict.");
+        }
+
     }
 }

@@ -28,11 +28,9 @@ export class RegisterComponent {
     private loader: LoaderService) { }
 
   register() {
-    this.accountService.register(this.registerForm.value).pipe(take(1)).subscribe({
-      next: res => {
-        this.router.navigateByUrl("/home");
-        this.toastr.success('Account is registered successfully, please check your email for confirmation.');
-      }, error: error => this.toastr.error(error.message)
+    this.accountService.register(this.registerForm.value).pipe(take(1)).subscribe(res => {
+      this.router.navigateByUrl("/home");
+      this.toastr.success('Account is registered successfully, please check your email for confirmation.');
     });
   }
 }

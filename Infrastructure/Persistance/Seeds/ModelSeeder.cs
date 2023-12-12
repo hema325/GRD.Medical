@@ -6,7 +6,11 @@ namespace Infrastructure.Persistance.Seeds
     {
         public static void Seed(ModelBuilder builder)
         {
-            var random = new Random();
+            Func<DateTime> GetRandomDateTime = () =>
+            {
+                var random = new Random();
+                return DateTime.UtcNow.AddYears(-random.Next(0, 3)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30));
+            };
 
             var authors = new[] {
                 new Author { Id = 1, Name = "Lydia Smith" },
@@ -32,7 +36,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "How to manage tonsillitis in children",
                     ImageUrl = "Files/Seeds/Articles/TonsillitisInChildren.jpg",
                     AuthorId = authors[0].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\Tonsillitis.txt")
                 },
                 new Article
@@ -41,7 +45,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Does stress make skin problems worse?",
                     ImageUrl = "Files/Seeds/Articles/Stress.jpg",
                     AuthorId = authors[1].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\Stress.txt")
                 },
                 new Article
@@ -50,7 +54,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Having a heart attack when you're young",
                     ImageUrl = "Files/Seeds/Articles/HeartAttack.webp",
                     AuthorId = authors[2].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\HeartAttack.txt")
                 },
                 new Article
@@ -59,7 +63,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Red spots? Fleshy bumps? When to worry about spots on the penis",
                     ImageUrl = "Files/Seeds/Articles/Spots.jpeg",
                     AuthorId = authors[3].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\Spots.txt")
                 },
                 new Article
@@ -68,7 +72,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "The best and the worst times of year to get pregnant",
                     ImageUrl = "Files/Seeds/Articles/GetPregnant.jpeg",
                     AuthorId = authors[4].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\GetPregnant.txt")
                 },
                 new Article
@@ -77,7 +81,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "How long before you travel should you get vaccinated?",
                     ImageUrl = "Files/Seeds/Articles/GetVaccinated.webp",
                     AuthorId = authors[5].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\GetPregnant.txt")
                 },
                 new Article
@@ -86,7 +90,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "How to find the right treatment for your hay fever",
                     ImageUrl = "Files/Seeds/Articles/Fever.webp",
                     AuthorId = authors[6].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\Fever.txt")
                 },
                 new Article
@@ -95,7 +99,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Can changing your diet ease endometriosis symptoms?",
                     ImageUrl = "Files/Seeds/Articles/Diet.jpg",
                     AuthorId = authors[7].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\Diet.txt")
                 },
                 new Article
@@ -104,7 +108,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Is your cough really a chest infection?",
                     ImageUrl = "Files/Seeds/Articles/Cough.jpg",
                     AuthorId = authors[8].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\Cough.txt")
                 },
                 new Article
@@ -113,7 +117,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Cancer symptoms you should never ignore",
                     ImageUrl = "Files/Seeds/Articles/Cancer.jpeg",
                     AuthorId = authors[9].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\Cancer.txt")
                 },
                 new Article
@@ -122,7 +126,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Reasons you feel tired all the time",
                     ImageUrl = "Files/Seeds/Articles/FeelingTired.jpeg",
                     AuthorId = authors[6].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\FeelingTired.txt")
                 }
                 ,new Article
@@ -131,7 +135,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "What's causing your chest pain?",
                     ImageUrl = "Files/Seeds/Articles/ChestPain.webp",
                     AuthorId = authors[10].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0,5)).AddMonths(-random.Next(0,12)).AddDays(-random.Next(0,30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Articles\\ChestPain.txt")
                 }
             };
@@ -144,7 +148,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "5 Simple Rules for Amazing Health",
                     ImageUrl = "Files/Seeds/Advices/AmazingHealth.webp",
                     AuthorId = authors[0].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\AmazingHealth.txt")
                 },
                 new Advice {
@@ -152,7 +156,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "12 Common Food Additives — Should You Avoid Them?",
                     ImageUrl = "Files/Seeds/Advices/FoodAdditives.jpeg",
                     AuthorId = authors[1].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\FoodAdditives.txt")
                 },
                 new Advice {
@@ -160,7 +164,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Mental Health, Depression, and MenopauseMental Health, Depression, and Menopause",
                     ImageUrl = "Files/Seeds/Advices/MentalHealth.jpeg",
                     AuthorId = authors[2].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\MentalHealth.txt")
                 },
                 new Advice {
@@ -168,7 +172,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "10 Encouraging Signs of Progress on Your Weight Loss Journey",
                     ImageUrl = "Files/Seeds/Advices/WeightLoss.jpg",
                     AuthorId = authors[3].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\WeightLoss.txt")
                 },
                 new Advice {
@@ -176,7 +180,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Top 12 Biggest Myths About Weight Loss",
                     ImageUrl = "Files/Seeds/Advices/MythsAboutWeightLoss.jpeg",
                     AuthorId = authors[4].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\MythsAboutWeightLoss.txt")
                 },
                 new Advice {
@@ -184,7 +188,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "8 Best Personalized Vitamin Subscription Services of 2023, According to Dietitians",
                     ImageUrl = "Files/Seeds/Advices/VitaminBrands.jpeg",
                     AuthorId = authors[5].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\VitaminBrands.txt")
                 },
                 new Advice {
@@ -192,7 +196,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "12 Tips for a Speedy Flu Recovery",
                     ImageUrl = "Files/Seeds/Advices/SpeedyFluRecovery.webp",
                     AuthorId = authors[6].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\SpeedyFluRecovery.txt")
                 },
                 new Advice {
@@ -200,7 +204,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Habits to Form Now for a Longer Life",
                     ImageUrl = "Files/Seeds/Advices/LongerLife.webp",
                     AuthorId = authors[7].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\LongerLife.txt")
                 },
                 new Advice {
@@ -208,7 +212,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "Tips To Sleep Better",
                     ImageUrl = "Files/Seeds/Advices/SleepBetter.jpeg",
                     AuthorId = authors[8].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\SleepBetter.txt")
                 },
                 new Advice {
@@ -216,7 +220,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "How to Lower Your Risk of Prostate Cancer",
                     ImageUrl = "Files/Seeds/Advices/ProstateCancer.jpg",
                     AuthorId = authors[9].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\ProstateCancer.txt")
                 },
                 new Advice {
@@ -224,7 +228,7 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "How to Prevent Obesity in Kids and Adults",
                     ImageUrl = "Files/Seeds/Advices/PreventObesity.jpg",
                     AuthorId = authors[10].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\PreventObesity.txt")
                 },
                 new Advice {
@@ -232,9 +236,9 @@ namespace Infrastructure.Persistance.Seeds
                     Title = "14 Best Natural Cough Remedies and Prevention Tips",
                     ImageUrl = "Files/Seeds/Advices/Cough.jpg",
                     AuthorId = authors[6].Id,
-                    PublishedOn = DateTime.UtcNow.AddYears(-random.Next(0, 5)).AddMonths(-random.Next(0, 12)).AddDays(-random.Next(0, 30)),
+                    PublishedOn = GetRandomDateTime(),
                     Content = File.ReadAllText("..\\Infrastructure\\Persistance\\Seeds\\Advices\\Cough.txt")
-                },
+                }
             };
 
             builder.Entity<Advice>().HasData(advices);

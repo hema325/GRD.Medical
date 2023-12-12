@@ -20,7 +20,7 @@ export class AccountService {
   login(credentials: object) {
     return this.httpClient.post<AuthResult>(this.baseUrl + '/authenticate', credentials).pipe(map((authResult): AuthResult => {
       this.currentAuth.next(authResult);
-      localStorage.setItem('rftkn', JSON.stringify({ refreshToken: authResult.refreshToken, expiration: authResult.refreshTokenExpiresON }));
+      localStorage.setItem('rftkn', JSON.stringify({ refreshToken: authResult.refreshToken, expiration: authResult.refreshTokenExpiresOn }));
       return authResult;
     }));
   }
@@ -32,7 +32,7 @@ export class AccountService {
       if (new Date().getTime() < new Date(token.expiration).getTime()) {
         return this.httpClient.post<AuthResult>(this.baseUrl + '/requestJwt', { refreshToken: token.refreshToken }).pipe(map(authResult => {
           this.currentAuth.next(authResult);
-          localStorage.setItem('rftkn', JSON.stringify({ refreshToken: authResult.refreshToken, expiration: authResult.refreshTokenExpiresON }));
+          localStorage.setItem('rftkn', JSON.stringify({ refreshToken: authResult.refreshToken, expiration: authResult.refreshTokenExpiresOn }));
           return authResult;
         }),
           catchError(err => {

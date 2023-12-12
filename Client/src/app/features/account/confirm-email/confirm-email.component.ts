@@ -25,13 +25,9 @@ export class ConfirmEmailComponent {
   confirmEmail() {
     let userId = this.activatedRoute.snapshot.queryParamMap.get('userId');
     let token = this.activatedRoute.snapshot.queryParamMap.get('token');
-    this.accountService.confrimEmail({ userId, token }).pipe(take(1)).subscribe({
-      next: res => {
-        this.router.navigateByUrl('/account/login');
-        this.toastr.success('Email confirmed successfully');
-      },
-      error: error => this.toastr.error('Failed to confirm your email.')
-
+    this.accountService.confrimEmail({ userId, token }).pipe(take(1)).subscribe(res => {
+      this.router.navigateByUrl('/account/login');
+      this.toastr.success('Email confirmed successfully');
     });
   }
 

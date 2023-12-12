@@ -19,7 +19,7 @@ namespace Application.Account.Commands.Register
                 LastName = request.LastName,
                 Email = request.Email,
                 IsEmailConfirmed = false,
-                JoinedON = DateTime.UtcNow,
+                JoinedOn = DateTime.UtcNow,
                 Role = Roles.Patient
             };
 

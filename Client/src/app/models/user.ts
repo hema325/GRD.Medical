@@ -5,5 +5,5 @@ export interface User {
     email: string
     role: string
     imageUrl: string
-    joinedON: string
+    joinedOn: string
 }

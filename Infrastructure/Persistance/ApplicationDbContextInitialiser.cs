@@ -33,7 +33,7 @@ namespace Infrastructure.Persistance
                         IsEmailConfirmed = true,
                         HashedPassword = _passwordHasher.HashPassword("Pa$$w0rd"),
                         Role = Roles.Admin,
-                        JoinedON = DateTime.UtcNow
+                        JoinedOn = DateTime.UtcNow
                     }
                 };
 

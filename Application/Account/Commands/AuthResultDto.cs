@@ -10,6 +10,6 @@
         public string JWTToken { get; set; }
         public DateTime JWTTokenExpiresOn { get; set; }
         public string RefreshToken { get; set; }
-        public DateTime RefreshTokenExpiresON { get; set; }
+        public DateTime RefreshTokenExpiresOn { get; set; }
     }
 }

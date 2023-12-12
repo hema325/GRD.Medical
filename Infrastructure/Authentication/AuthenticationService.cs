@@ -61,10 +61,10 @@ namespace Infrastructure.Authentication
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null || !_passwordHasher.VerifyHashedPassword(user.HashedPassword, password))
-                throw new UnauthorizedException("email or password is not correct");
+                throw new UnauthorizedException("Email or password is not correct");
 
             if (!user.IsEmailConfirmed)
-                throw new UnauthorizedException("email is not confirmed");
+                throw new UnauthorizedException("Email is not confirmed");
 
             return await GetAuthResultDtoAsync(user);
         }
@@ -75,12 +75,10 @@ namespace Infrastructure.Authentication
                 .Include(rt => rt.User)
                 .FirstOrDefaultAsync(rt => rt.Token == rfToken);
 
-            if (refreshToken == null)
-                throw new UnauthorizedException("Invalid token");
+            if(refreshToken != null)
+                await RemoveRefreshTokenAsync(refreshToken);
 
-            await RemoveRefreshTokenAsync(refreshToken);
-
-            if (DateTime.UtcNow>=refreshToken.ExpiresON)
+            if (refreshToken == null || DateTime.UtcNow>=refreshToken.ExpiresOn)
                 throw new UnauthorizedException("Invalid token");
 
             return await GetAuthResultDtoAsync(refreshToken.User);
@@ -111,7 +109,7 @@ namespace Infrastructure.Authentication
                 JWTToken = jwtToken.Token,
                 JWTTokenExpiresOn = jwtToken.ExpiresOn,
                 RefreshToken = refreshToken.Token,
-                RefreshTokenExpiresON = refreshToken.ExpiresON
+                RefreshTokenExpiresOn = refreshToken.ExpiresOn
             };
         }
 
@@ -123,7 +121,7 @@ namespace Infrastructure.Authentication
             var refreshToken = new RefreshToken
             {
                 Token = Convert.ToBase64String(bytes),
-                ExpiresON = DateTime.UtcNow.AddDays(_refreshTokenSettings.ExpirationInDays),
+                ExpiresOn = DateTime.UtcNow.AddDays(_refreshTokenSettings.ExpirationInDays),
                 UserId = userId
             };
 
@@ -144,7 +142,10 @@ namespace Infrastructure.Authentication
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null)
-                throw new UnauthorizedException("Email is not correct");
+                throw new UnauthorizedException("Invalid email address.");
+
+            if (user.IsEmailConfirmed)
+                throw new ConflictException("Email already confirmed.");
 
             //generate email confirmation model & cache it
             var key = $"emailConfirmationToken-{user.Id}";
@@ -170,7 +171,7 @@ namespace Infrastructure.Authentication
 
             //check if user has this token
             if (confimrationToken == null || confimrationToken != token)
-                throw new UnauthorizedException("Invalid token");
+                throw new UnauthorizedException("Failed to confirm your email address.");
 
             //confirm user email
             var user = await _context.Users.FindAsync(userId);
@@ -186,7 +187,7 @@ namespace Infrastructure.Authentication
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null)
-                throw new UnauthorizedException("Email is incorrect");
+                throw new UnauthorizedException("Invalid email address.");
 
             //generate email reset password model & cache it
             var key = $"emailResetPasswordToken-{user.Id}";
@@ -212,7 +213,7 @@ namespace Infrastructure.Authentication
 
             //check if user has this token
             if (resatingToken == null || resatingToken != token)
-                throw new UnauthorizedException("Invalid token");
+                throw new UnauthorizedException("Failed to reset your password.");
 
             //reset user password
             var user = await _context.Users.FindAsync(userId);
