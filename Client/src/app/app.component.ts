@@ -10,12 +10,25 @@ import { AccountService } from './services/account.service';
 export class AppComponent {
 
   currentAuth: AuthResult | null = null;
+  isAuthenticating = true;
 
 
   constructor(private accountService: AccountService) { }
 
   ngOnInit() {
-    this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
+    this.loadCurrentAuth();
+    this.relogin();
+  }
+
+  loadCurrentAuth() {
+    this.accountService.currentAuth$.subscribe(res => this.currentAuth = res);
+  }
+
+  relogin() {
+    this.accountService.relogin().subscribe({
+      next: res => this.isAuthenticating = false,
+      error: err => this.isAuthenticating = false
+    });
   }
 
 }

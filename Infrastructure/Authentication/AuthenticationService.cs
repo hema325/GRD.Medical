@@ -88,10 +88,8 @@ namespace Infrastructure.Authentication
         {
             var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(rt => rt.Token == rfToken);
 
-            if (refreshToken == null)
-                throw new UnauthorizedException("Invalid token");
-
-            await RemoveRefreshTokenAsync(refreshToken);
+            if (refreshToken != null)
+                await RemoveRefreshTokenAsync(refreshToken);
         }
 
         private async Task<AuthResultDto> GetAuthResultDtoAsync(User user)

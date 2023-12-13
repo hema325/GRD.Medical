@@ -13,10 +13,10 @@
                         [disabled]="filterForm.invalid">Search</button>
                 </div>
             </form>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4 my-5">
                 <div class="col" *ngFor="let advice of paginatedList.data">
                     <div class="card shadow overflow-hidden h-100" routerLink="/advices/1" [state]="advice">
-                        <img [src]="advice.imgUrl" class="w-100" style="height: 250px;">
+                        <img [src]="advice.imgUrl" class="w-100 object-fit-cover" style="height: 250px;">
                         <div class="card-body">
                             <h5 class="card-title fs-5 fw-medium mb-2">{{advice.title}}</h5>
                             <span class="text-muted">{{advice.author.name}} . {{ advice.publishedOn| date}}</span>

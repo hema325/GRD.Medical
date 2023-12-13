@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { HttpClient } from '@angular/common/http'
-import { BehaviorSubject, Observable, catchError, map, of, throwError } from 'rxjs';
+import { Observable, ReplaySubject, catchError, map, of, throwError } from 'rxjs';
 import { AuthResult } from '../models/auth-result';
 import { User } from '../models/user';
 
@@ -12,15 +12,28 @@ export class AccountService {
 
   baseUrl = environment.baseUrl + '/account';
 
-  private currentAuth = new BehaviorSubject<AuthResult | null>(null);
+  private currentAuth = new ReplaySubject<AuthResult | null>(1);
   currentAuth$ = this.currentAuth.asObservable();
+
+  private currentAuthResult: AuthResult | null = null;
 
   constructor(private httpClient: HttpClient) { }
 
+  private setCurrentAuth(currentAuth: AuthResult) {
+    this.currentAuth.next(currentAuth);
+    localStorage.setItem('rftkn', JSON.stringify({ refreshToken: currentAuth.refreshToken, expiration: currentAuth.refreshTokenExpiresOn }));
+    this.currentAuthResult = currentAuth;
+  }
+
+  private removeCurrentAuth() {
+    localStorage.removeItem('rftkn');
+    this.currentAuth.next(null);
+    this.currentAuthResult = null;
+  }
+
   login(credentials: object) {
     return this.httpClient.post<AuthResult>(this.baseUrl + '/authenticate', credentials).pipe(map((authResult): AuthResult => {
-      this.currentAuth.next(authResult);
-      localStorage.setItem('rftkn', JSON.stringify({ refreshToken: authResult.refreshToken, expiration: authResult.refreshTokenExpiresOn }));
+      this.setCurrentAuth(authResult);
       return authResult;
     }));
   }
@@ -31,36 +44,31 @@ export class AccountService {
       let token = JSON.parse(tokenStr);
       if (new Date().getTime() < new Date(token.expiration).getTime()) {
         return this.httpClient.post<AuthResult>(this.baseUrl + '/requestJwt', { refreshToken: token.refreshToken }).pipe(map(authResult => {
-          this.currentAuth.next(authResult);
-          localStorage.setItem('rftkn', JSON.stringify({ refreshToken: authResult.refreshToken, expiration: authResult.refreshTokenExpiresOn }));
+          this.setCurrentAuth(authResult);
           return authResult;
         }),
           catchError(err => {
             localStorage.removeItem('rftkn');
+            this.currentAuth.next(null);
             return throwError(() => err);
           }));
       }
     }
+    this.currentAuth.next(null);
     return of(null);
   }
 
   logout(): Observable<null> {
-
-    let rftkn = this.currentAuth.value?.refreshToken;
-
+    let rftkn = this.currentAuthResult?.refreshToken;
 
     if (rftkn)
       return this.httpClient.post<null>(this.baseUrl + '/revokeRefreshToken', { refreshToken: rftkn }).pipe(map(res => {
-        localStorage.removeItem('rftkn');
-        this.currentAuth.next(null);
+        this.removeCurrentAuth();
         return res;
       }));
 
-    localStorage.removeItem('rftkn');
-    this.currentAuth.next(null);
-
+    this.removeCurrentAuth();
     return of(null);
-
   }
 
   register(registeration: object) {
@@ -77,7 +85,7 @@ export class AccountService {
 
   update(data: any) {
     return this.httpClient.put(this.baseUrl, data).pipe(map(res => {
-      let auth = this.currentAuth.value;
+      let auth = this.currentAuthResult;
       if (auth) {
         auth.name = data.firstName + ' ' + data.lastName;
         this.currentAuth.next(auth);
@@ -95,7 +103,10 @@ export class AccountService {
   }
 
   confrimEmail(data: any) {
-    return this.httpClient.post(this.baseUrl + '/confirmEmail', data);
+    return this.httpClient.post<AuthResult>(this.baseUrl + '/confirmEmail', data).pipe(map(res => {
+      this.setCurrentAuth(res);
+      return res;
+    }));
   }
 
   sendEmailResetPassword(data: any) {
@@ -109,7 +120,7 @@ export class AccountService {
 
   uploadImage(data: any) {
     return this.httpClient.post<any>(this.baseUrl + '/uploadImage', data).pipe(map(res => {
-      let auth = this.currentAuth.value;
+      let auth = this.currentAuthResult;
       if (auth) {
         auth.imageUrl = res.imageUrl;
         this.currentAuth.next(auth);
@@ -120,7 +131,7 @@ export class AccountService {
 
   removeImage() {
     return this.httpClient.post(this.baseUrl + '/removeImage', null).pipe(map(res => {
-      let auth = this.currentAuth.value;
+      let auth = this.currentAuthResult;
       if (auth) {
         auth.imageUrl = null;
         this.currentAuth.next(auth);

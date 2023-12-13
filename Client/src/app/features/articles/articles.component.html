@@ -13,7 +13,7 @@
                         [disabled]="filterForm.invalid">Search</button>
                 </div>
             </form>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-5">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4 my-5">
                 <div class="col" *ngFor="let article of paginatedList.data">
                     <div class="card shadow overflow-hidden h-100" routerLink="/articles/{{article.id}}"
                         [state]="article">
