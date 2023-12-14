@@ -1,11 +1,11 @@
 .chat-box {
-    height: calc(100vh - 304px);
+    height: calc(100vh - 268px);
     min-height: 420px;
 }
 
 @media (max-width: 600px) {
     .chat-box {
-        height: calc(100vh - 330px);
+        height: calc(100vh - 296px);
     }
 }
 

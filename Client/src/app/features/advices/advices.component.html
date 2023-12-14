@@ -3,7 +3,7 @@
 <div class="section">
     <div class="container">
         <ng-container *ngIf="paginatedList">
-            <form class="my-5 shadow bg-white p-4 rounded-3">
+            <form class="mt-5 shadow-sm bg-white p-4 rounded-3">
                 <h2>Search By Title</h2>
                 <app-form-input [control]="filterForm.controls.title" label="Title"></app-form-input>
                 <div class="d-flex justify-content-end">
@@ -13,9 +13,9 @@
                         [disabled]="filterForm.invalid">Search</button>
                 </div>
             </form>
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4 my-5">
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4 my-4">
                 <div class="col" *ngFor="let advice of paginatedList.data">
-                    <div class="card shadow overflow-hidden h-100" routerLink="/advices/1" [state]="advice">
+                    <div class="card shadow-sm border-0 overflow-hidden h-100" routerLink="/advices/1" [state]="advice">
                         <img [src]="advice.imgUrl" class="w-100 object-fit-cover" style="height: 250px;">
                         <div class="card-body">
                             <h5 class="card-title fs-5 fw-medium mb-2">{{advice.title}}</h5>
@@ -24,9 +24,9 @@
                     </div>
                 </div>
             </div>
-            <mat-paginator #paginator class=" my-5 shadow bg-white p-3 rounded-3" (page)="handlePageEvent($event)"
+            <mat-paginator #paginator class=" my-5 shadow-sm bg-white p-3 rounded-3" (page)="handlePageEvent($event)"
                 [length]="paginatedList.totalCount" [pageSize]="filter.pageSize" [showFirstLastButtons]="true"
-                [pageIndex]="filter.pageNumber - 1" [hidePageSize]="true" aria-label="Select page">
+                [pageIndex]="filter.pageNumber - 1" [pageSizeOptions]="[6, 12, 24, 50]" aria-label="Select page">
             </mat-paginator>
         </ng-container>
     </div>

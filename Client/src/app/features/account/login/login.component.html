@@ -2,7 +2,7 @@
 
 <div class="section">
     <div class="container">
-        <div class="bg-white rounded-3 my-5 shadow p-4">
+        <div class="bg-white rounded-3 my-5 shadow-sm p-4">
             <h1 class="mb-4">Login</h1>
             <form [formGroup]="loginForm" class="w-100">
                 <div class="my-2">
@@ -13,9 +13,9 @@
                         type="password"></app-form-input>
                 </div>
             </form>
-            <a class="link-primary text-decoration-none d-block link"
-                routerLink="/account/send-email-reset-password">Forgot your password?</a>
-            <a class="link-primary text-decoration-none d-block link" routerLink="/account/send-email-confirmation">Want
+            <a class="link-primary text-decoration-none d-block link" (click)="sendEmailResetPassword()">Forgot your
+                password?</a>
+            <a class="link-primary text-decoration-none d-block link" (click)="sendEmailConfirmation()">Want
                 to confirm your email?</a>
             <div class="mt-4 d-flex justify-content-end">
                 <button mat-raised-button [disabled]="loginForm.invalid" color="primary"

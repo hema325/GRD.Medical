@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 import { Advice } from 'src/app/models/advice';
 import { Filter } from 'src/app/models/filter';
 import { PaginatedList } from 'src/app/models/paginated-list';
@@ -36,7 +37,8 @@ export class AdvicesComponent {
     this.adviceService.getAdvices(this.filter).subscribe(res => this.paginatedList = res);
   }
 
-  handlePageEvent(event: any) {
+  handlePageEvent(event: PageEvent) {
+    this.filter.pageSize = event.pageSize;
     this.filter.pageNumber = event.pageIndex + 1;
     this.getAdvices();
   }

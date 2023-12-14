@@ -22,7 +22,7 @@ body {
 }
 
 .section {
-    min-height: calc(100vh - 198px);
+    min-height: calc(100vh - 220px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,6 +30,6 @@ body {
 
 @media (max-width: 600px) {
     .section {
-        min-height: calc(100vh - 224px);
+        min-height: calc(100vh - 248px);
     }
 }
