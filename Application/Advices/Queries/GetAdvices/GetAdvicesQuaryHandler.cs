@@ -6,23 +6,25 @@ namespace Application.MedicalAdvices.Queries.GetMedicalAdvices
 {
     internal class GetAdvicesQuaryHandler : IRequestHandler<GetAdvicesQuary, PaginatedList<AdviceDto>>
     {
-        private readonly IMapper mapper;
-        private readonly IApplicationDbContext context;
+        private readonly IMapper _mapper;
+        private readonly IApplicationDbContext _context;
 
         public GetAdvicesQuaryHandler(IMapper mapper, IApplicationDbContext context)
         {
-            this.mapper = mapper;
-            this.context = context;
+            _mapper = mapper;
+            _context = context;
         }
 
         public async Task<PaginatedList<AdviceDto>> Handle(GetAdvicesQuary request, CancellationToken cancellationToken)
         {
-            var query = context.Advices.Include(a => a.Author).AsQueryable();
+            var query = _context.Advices.Include(a => a.Author).AsQueryable();
 
             if (request.Title != null)
                 query = query.Where(a => a.Title.StartsWith(request.Title));
 
-            return await query.PaginateAsync<Advice, AdviceDto>(request.PageNumber, request.PageSize, mapper);
+            var advices = await query.PaginateAsync(request.PageNumber, request.PageSize);
+
+            return _mapper.Map<PaginatedList<AdviceDto>>(advices);
         }
     }
 }

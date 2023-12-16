@@ -1,9 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Articles.Queries.GetArticleById
 {
@@ -21,6 +16,7 @@ namespace Application.Articles.Queries.GetArticleById
         public async Task<ArticleDto> Handle(GetArticleByIdQuery request, CancellationToken cancellationToken)
         {
             var article = await _context.Articles.Include(a=>a.Author).FirstOrDefaultAsync(a=>a.Id == request.Id);
+            
             if (article == null)
                 throw new NotFoundException(nameof(Article));
 

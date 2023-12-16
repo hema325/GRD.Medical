@@ -21,7 +21,9 @@ namespace Application.Authors.Queries.GetAuthors
             if (request.Name != null)
                 query = query.Where(a => a.Name.StartsWith(request.Name));
 
-            return await query.PaginateAsync<Author, AuthorDto>(request.PageNumber, request.PageSize, _mapper);
+            var authors = await query.PaginateAsync(request.PageNumber, request.PageSize);
+
+            return _mapper.Map<PaginatedList<AuthorDto>>(authors);
         }
     }
 }
