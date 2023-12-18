@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
   { path: 'articles', loadChildren: () => import('./features/articles/articles.module').then(m => m.ArticlesModule) },
   { path: 'advices', loadChildren: () => import('./features/advices/advices.module').then(m => m.AdvicesModule) },
+  { path: 'posts', loadChildren: () => import('./features/posts/posts.module').then(m => m.PostsModule) },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'server-error', component: ServerErrorComponent },
   { path: '**', component: NotFoundComponent },

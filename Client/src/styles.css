@@ -33,3 +33,7 @@ body {
         min-height: calc(100vh - 248px);
     }
 }
+
+.pointer {
+    cursor: pointer;
+}
