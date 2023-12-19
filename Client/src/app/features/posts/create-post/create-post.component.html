@@ -34,8 +34,7 @@
                 <a class="text-body text-opacity-50 me-3 d-flex clickable"
                     (click)="postEmojiList.active= !postEmojiList.active"
                     [style.color]="postEmojiList.active?'#3f51b5 !important':''"><mat-icon>emoji_emotions</mat-icon></a>
-                <app-emojis-list class="position-absolute z-3 mt-2 top-100 end-0"
-                    (emojiSelected)="postTextarea.value = postTextarea.value + $event;"
+                <app-emojis-list class="position-absolute z-3 mt-2 top-100 end-0" (emojiSelected)="insertText($event);"
                     #postEmojiList></app-emojis-list>
 
 

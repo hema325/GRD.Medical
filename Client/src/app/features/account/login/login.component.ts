@@ -39,10 +39,10 @@ export class LoginComponent {
   }
 
   sendEmailConfirmation() {
-    this.dialog.open(SendEmailConfirmationComponent, { width: '90%', maxWidth: '600px' });
+    this.dialog.open(SendEmailConfirmationComponent, { width: '90%', maxWidth: '800px' });
   }
 
   sendEmailResetPassword() {
-    this.dialog.open(SendEmailResetPasswordComponent, { width: '90%', maxWidth: '600px' });
+    this.dialog.open(SendEmailResetPasswordComponent, { width: '90%', maxWidth: '800px' });
   }
 }

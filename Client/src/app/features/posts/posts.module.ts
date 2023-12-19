@@ -9,6 +9,8 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostCardComponent } from './post-card/post-card.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
+import { CommentComponent } from './comment/comment.component';
+import { ReplyCommentComponent } from './reply-comment/reply-comment.component';
 
 
 
@@ -17,7 +19,9 @@ import { CreateCommentComponent } from './create-comment/create-comment.componen
     PostsComponent,
     CreatePostComponent,
     PostCardComponent,
-    CreateCommentComponent
+    CreateCommentComponent,
+    CommentComponent,
+    ReplyCommentComponent
   ],
   imports: [
     CommonModule,

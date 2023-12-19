@@ -7,6 +7,9 @@ import { CreateComment } from 'src/app/models/CreateComment';
   styleUrls: ['./create-comment.component.css']
 })
 export class CreateCommentComponent {
+
+  isEmojiListActive = false;
+
   createComment: CreateComment = {
     content: '',
     image: null,
@@ -19,6 +22,8 @@ export class CreateCommentComponent {
 
     this.createComment.image = event.target.files[0];
     this.createComment.imageUrl = URL.createObjectURL(event.target.files[0]);
+
+    this.commentInput?.nativeElement.focus();
   }
 
   @ViewChild('commentInput') commentInput?: ElementRef;
@@ -27,8 +32,6 @@ export class CreateCommentComponent {
     this.createComment.image = null;
     if (this.createComment.imageUrl)
       URL.revokeObjectURL(this.createComment.imageUrl);
-
-    console.log(this.commentInput);
 
     if (!this.commentInput)
       return;
@@ -39,24 +42,53 @@ export class CreateCommentComponent {
 
   textareaHeight: number = 100;
 
-  extandTextArea(event: any) {
-    if (!event.target)
+  extandTextArea() {
+    if (!this.commentInput)
       return;
 
-    event.target.style.height = this.textareaHeight + 'px'
+    this.commentInput.nativeElement.style.height = this.textareaHeight + 'px'
   }
 
-  autoResizeTextArea(event: any) {
-    if (event.target.scrollHeight >= this.textareaHeight)
-      event.target.style.height = event.target.scrollHeight + 'px';
-  }
-
-  minimizeTextArea(event: any) {
-    if (!event.target)
+  autoResizeTextArea() {
+    if (!this.commentInput)
       return;
 
-    if (!this.createComment.content && !this.createComment.image)
-      event.target.removeAttribute('style');
+    const ele = this.commentInput.nativeElement;
+
+    if (ele.scrollHeight >= this.textareaHeight)
+      ele.style.height = ele.scrollHeight + 'px';
+  }
+
+  minimizeTextArea() {
+    if (!this.commentInput)
+      return;
+
+    if (!this.createComment.content && !this.createComment.image && !this.isEmojiListActive)
+      this.commentInput.nativeElement.removeAttribute('style');
+  }
+
+  insertText(text: string) {
+    this.createComment.content = this.createComment.content + text;
+
+    if (!this.commentInput)
+      return;
+
+    const ele = this.commentInput.nativeElement;
+    const selectionStart = ele.selectionStart;
+    const selectionEnd = ele.selectionEnd;
+
+    const textToInsert = text;
+    const currentText = ele.value;
+
+    const newText = currentText.substring(0, selectionStart)
+      + textToInsert
+      + currentText.substring(selectionEnd);
+
+    this.createComment.content = newText;
+
+    const newCursorPosition = selectionStart + currentText.length;
+    ele.setSelectionRange(newCursorPosition, newCursorPosition);
+    this.commentInput?.nativeElement.focus();
   }
 }
 

@@ -6,25 +6,24 @@
             <textarea type="text"
                 class="form-control bg-white bg-opacity-15 position-relative overflow-auto hide-scrollbar" #commentInput
                 placeholder="Write a comment..." contenteditable [(ngModel)]="createComment.content"
-                (focus)="extandTextArea($event)" (blur)="minimizeTextArea($event)" (input)="autoResizeTextArea($event)">
+                (focus)="extandTextArea()" (blur)="minimizeTextArea();" (input)="autoResizeTextArea()">
             </textarea>
 
             <div class="position-absolute end-0 text-center d-flex me-2 " style="top:9px;">
 
                 <a class="text-body text-opacity-50 me-2 d-flex clickable"><mat-icon
                         style="width: fit-content; height: fit-content; font-size: 20px;"
-                        (click)="postEmojiList.active= !postEmojiList.active"
-                        [style.color]="postEmojiList.active?'#3f51b5 !important':''">emoji_emotions</mat-icon></a>
+                        (click)="isEmojiListActive= !isEmojiListActive;commentInput.focus();"
+                        [style.color]="isEmojiListActive?'#3f51b5 !important':''">emoji_emotions</mat-icon></a>
 
 
                 <a class="text-body text-opacity-50 me-2 d-flex clickable" (click)="postImages.click()"><mat-icon
                         style="width: fit-content; height: fit-content; font-size: 20px;">photo_camera</mat-icon>
-                    <input type="file" (change)="setImages($event);commentInput.focus();" hidden #postImages
-                        accept="image/*"></a>
+                    <input type="file" (change)="setImages($event);" hidden #postImages accept="image/*"></a>
 
             </div>
-            <app-emojis-list class="position-absolute z-3 mt-2 top-100 end-0"
-                (emojiSelected)="commentInput.value = commentInput.value + $event;" #postEmojiList></app-emojis-list>
+            <app-emojis-list class="position-absolute z-3 mt-2 top-100 end-0" (emojiSelected)="insertText($event)"
+                [active]="isEmojiListActive" #postEmojiList></app-emojis-list>
         </div>
     </div>
 </div>

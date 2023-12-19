@@ -1,0 +1,11 @@
+.reply,
+.clickable {
+    caret-color: transparent;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.reply:hover,
+.clickable:hover {
+    color: #3f51b5 !important;
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CreatePost } from 'src/app/models/CreatePost';
 
 @Component({
@@ -39,6 +39,33 @@ export class CreatePostComponent {
   ngOnDestroy(): void {
     if (this.createPost.imagesUrl)
       this.createPost.imagesUrl.forEach(url => URL.revokeObjectURL(url));
+  }
+
+  @ViewChild('postTextarea') postTextarea?: ElementRef;
+
+
+  insertText(text: string) {
+    this.createPost.content = this.createPost.content + text;
+
+    if (!this.postTextarea)
+      return;
+
+    const ele = this.postTextarea.nativeElement;
+    const selectionStart = ele.selectionStart;
+    const selectionEnd = ele.selectionEnd;
+
+    const textToInsert = text;
+    const currentText = ele.value;
+
+    const newText = currentText.substring(0, selectionStart)
+      + textToInsert
+      + currentText.substring(selectionEnd);
+
+    this.createPost.content = newText;
+
+    const newCursorPosition = selectionStart + currentText.length;
+    ele.focus();
+    ele.setSelectionRange(newCursorPosition, newCursorPosition);
   }
 
 }
