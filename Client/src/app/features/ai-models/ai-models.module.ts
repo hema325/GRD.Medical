@@ -6,7 +6,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModule } from 'src/app/core/core.module';
 import { ChatingComponent } from './chating/chating.component';
 import { HeartCheckingComponent } from './heart-checking/heart-checking.component';
-import { BytesSizePipe } from 'src/app/pipes/bytes-size.pipe';
 import { SkinCheckingComponent } from './skin-checking/skin-checking.component';
 
 
@@ -15,7 +14,6 @@ import { SkinCheckingComponent } from './skin-checking/skin-checking.component';
     AiModelsComponent,
     ChatingComponent,
     HeartCheckingComponent,
-    BytesSizePipe,
     SkinCheckingComponent
   ],
   imports: [

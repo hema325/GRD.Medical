@@ -5,7 +5,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    caret-color: transparent;
 }
+
+input,
+textarea,
+div[contenteditable] {
+    caret-color: initial;
+}
+
 
 html,
 body {
@@ -36,4 +44,8 @@ body {
 
 .pointer {
     cursor: pointer;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
 }

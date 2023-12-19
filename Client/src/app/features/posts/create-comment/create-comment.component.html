@@ -1,0 +1,44 @@
+<div class="d-flex">
+    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="35" height="35"
+        class="rounded-circle" />
+    <div class="flex-fill ps-2">
+        <div class="position-relative d-flex">
+            <textarea type="text"
+                class="form-control bg-white bg-opacity-15 position-relative overflow-auto hide-scrollbar" #commentInput
+                placeholder="Write a comment..." contenteditable [(ngModel)]="createComment.content"
+                (focus)="extandTextArea($event)" (blur)="minimizeTextArea($event)" (input)="autoResizeTextArea($event)">
+            </textarea>
+
+            <div class="position-absolute end-0 text-center d-flex me-2 " style="top:9px;">
+
+                <a class="text-body text-opacity-50 me-2 d-flex clickable"><mat-icon
+                        style="width: fit-content; height: fit-content; font-size: 20px;"
+                        (click)="postEmojiList.active= !postEmojiList.active"
+                        [style.color]="postEmojiList.active?'#3f51b5 !important':''">emoji_emotions</mat-icon></a>
+
+
+                <a class="text-body text-opacity-50 me-2 d-flex clickable" (click)="postImages.click()"><mat-icon
+                        style="width: fit-content; height: fit-content; font-size: 20px;">photo_camera</mat-icon>
+                    <input type="file" (change)="setImages($event);commentInput.focus();" hidden #postImages
+                        accept="image/*"></a>
+
+            </div>
+            <app-emojis-list class="position-absolute z-3 mt-2 top-100 end-0"
+                (emojiSelected)="commentInput.value = commentInput.value + $event;" #postEmojiList></app-emojis-list>
+        </div>
+    </div>
+</div>
+
+<div class="bg-light py-2 px-3 rounded-3 mt-3" style="margin-left: 43px;" *ngIf="createComment.image as image">
+    <div class="d-flex align-items-center">
+        <img [src]="this.createComment.imageUrl" class="rounded-circle me-4 object-fit-cover" width="45" height="45">
+        <div class="d-flex align-items-center justify-content-between flex-fill">
+            <div style="width: calc(100% - 48px)">
+                <h3 class="mb-0 text-nowrap overflow-hidden  " style="color:#444;text-overflow: ellipsis;width: 100%;">
+                    {{image.name}}</h3>
+                <h5 class="text-muted mb-0">{{image.size | BytesSize:2 }}</h5>
+            </div>
+            <mat-icon class="clickable text-body text-opacity-50" (click)="removeImage();">close</mat-icon>
+        </div>
+    </div>
+</div>

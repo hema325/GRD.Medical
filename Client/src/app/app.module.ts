@@ -15,7 +15,7 @@ import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,8 @@ import { SharedModule } from './shared/shared.module';
       positionClass: 'toast-bottom-right'
     }),
     SharedModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

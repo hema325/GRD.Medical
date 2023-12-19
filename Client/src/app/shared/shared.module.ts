@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormInputComponent } from './form-input/form-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
+import { EmojisListComponent } from './emojis-list/emojis-list.component';
+import { BytesSizePipe } from '../pipes/bytes-size.pipe';
 
 
 @NgModule({
   declarations: [
-    FormInputComponent
+    FormInputComponent,
+    EmojisListComponent,
+    BytesSizePipe
   ],
   imports: [
     CommonModule,
@@ -16,7 +20,9 @@ import { MaterialModule } from './material.module';
   ],
   exports: [
     FormInputComponent,
-    MaterialModule
+    MaterialModule,
+    EmojisListComponent,
+    BytesSizePipe
   ]
 })
 export class SharedModule { }

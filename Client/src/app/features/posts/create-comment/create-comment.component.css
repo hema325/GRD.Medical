@@ -1,0 +1,16 @@
+.clickable {
+    caret-color: transparent;
+    cursor: pointer;
+}
+
+.clickable:hover {
+    color: #3f51b5 !important;
+}
+
+textarea {
+    padding-right: 70px;
+    border-radius: 20px;
+    max-height: 150px;
+    resize: none;
+    height: 38px;
+}

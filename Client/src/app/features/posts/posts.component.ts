@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-posts',
@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
 })
 export class PostsComponent {
 
-  postInputLength: number = 0;
 
 }
