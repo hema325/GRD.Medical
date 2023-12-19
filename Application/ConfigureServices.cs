@@ -12,7 +12,7 @@ namespace Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-
+            
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(UnHandledExceptionBehavior<,>));
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 

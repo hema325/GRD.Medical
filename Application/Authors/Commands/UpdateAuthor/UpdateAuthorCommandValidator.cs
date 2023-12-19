@@ -8,6 +8,7 @@ namespace Application.Authors.Commands.UpdateAuthor
         public UpdateAuthorCommandValidator(IApplicationDbContext context)
         {
             RuleFor(c => c.Name)
+                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .MaximumLength(80)
                 .MustAsync(async (c, n, ct) => !await context.Authors.AnyAsync(a => a.Name == n && a.Id != c.Id, ct))

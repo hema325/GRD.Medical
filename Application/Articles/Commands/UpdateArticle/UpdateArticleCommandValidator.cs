@@ -8,6 +8,7 @@ namespace Application.Articles.Commands.UpdateArticle
         public UpdateArticleCommandValidator(IApplicationDbContext context)
         {
             RuleFor(c => c.Title)
+                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .MaximumLength(200)
                 .MustAsync(async (c, n, ct) => !await context.Articles.AnyAsync(a => a.Title == n && c.Id != a.Id))
@@ -26,7 +27,6 @@ namespace Application.Articles.Commands.UpdateArticle
                 .WithMessage("Author id wasn't found.");
 
             RuleFor(c => c.Image)
-                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .Image();
         }

@@ -16,6 +16,10 @@ export class CreateCommentComponent {
     imageUrl: null
   }
 
+  isCommentValid() {
+    return this.createComment.content || this.createComment.image;
+  }
+
   setImages(event: any) {
     if (!event.target)
       return;
@@ -89,6 +93,10 @@ export class CreateCommentComponent {
     const newCursorPosition = selectionStart + currentText.length;
     ele.setSelectionRange(newCursorPosition, newCursorPosition);
     this.commentInput?.nativeElement.focus();
+  }
+
+  comment() {
+    console.log(this.createComment);
   }
 }
 

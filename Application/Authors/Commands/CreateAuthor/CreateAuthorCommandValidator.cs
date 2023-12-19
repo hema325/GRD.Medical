@@ -8,6 +8,7 @@ namespace Application.Authors.Commands.CreateAuthor
         public CreateAuthorCommandValidator(IApplicationDbContext context)
         {
             RuleFor(c => c.Name)
+                .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .MaximumLength(80)
                 .MustAsync(async (n,ct) => !await context.Authors.AnyAsync(a=>a.Name == n))

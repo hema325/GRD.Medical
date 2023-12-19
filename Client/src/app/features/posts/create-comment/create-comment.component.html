@@ -17,9 +17,14 @@
                         [style.color]="isEmojiListActive?'#3f51b5 !important':''">emoji_emotions</mat-icon></a>
 
 
-                <a class="text-body text-opacity-50 me-2 d-flex clickable" (click)="postImages.click()"><mat-icon
+                <a class="text-body text-opacity-50 me-2 d-flex clickable"
+                    (click)="isEmojiListActive = false;postImages.click();"><mat-icon
                         style="width: fit-content; height: fit-content; font-size: 20px;">photo_camera</mat-icon>
                     <input type="file" (change)="setImages($event);" hidden #postImages accept="image/*"></a>
+
+                <button class="text-body text-opacity-50 me-2 d-flex clickable border-0 bg-transparent"
+                    (click)="comment()" [disabled]="!isCommentValid()"><mat-icon
+                        style="width: fit-content; height: fit-content; font-size: 20px;">send</mat-icon></button>
 
             </div>
             <app-emojis-list class="position-absolute z-3 mt-2 top-100 end-0" (emojiSelected)="insertText($event)"

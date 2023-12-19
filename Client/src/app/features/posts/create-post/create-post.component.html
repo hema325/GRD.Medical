@@ -39,7 +39,7 @@
 
 
                 <a class="text-body text-opacity-50 me-3 d-flex clickable"
-                    (click)="postImages.click()"><mat-icon>photo_camera</mat-icon>
+                    (click)="postEmojiList.active = false; postImages.click()"><mat-icon>photo_camera</mat-icon>
                     <input type="file" (change)="setImages($event);" hidden #postImages multiple accept="image/*"></a>
 
             </div>
