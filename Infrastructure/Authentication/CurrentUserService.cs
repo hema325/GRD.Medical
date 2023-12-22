@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
 namespace Infrastructure.Authentication
@@ -23,5 +22,6 @@ namespace Infrastructure.Authentication
         }
 
         public string? Email => _user.FindFirst(ClaimTypes.Email)?.Value;
+        public Roles? Role => Enum.Parse<Roles>(_user.FindFirst(ClaimTypes.Role).Value);
     }
 }

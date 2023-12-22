@@ -27,7 +27,7 @@ export class EditImageComponent {
     fd.append('image', event.target.files[0]);
     this.accountService.uploadImage(fd).subscribe(res => {
       this.toastr.success('Profile image updated successfully.');
-      this.bottomSheetRef.dismiss(res.imageUrl);
+      this.bottomSheetRef.dismiss(res.url);
     });
 
   }

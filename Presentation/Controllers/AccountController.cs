@@ -14,6 +14,7 @@ using Application.Account.Queries.CheckEmailDuplication;
 using Application.Account.Queries.GetCurrentUser;
 using Application.Account.Queries.SendEmailConfirmation;
 using Application.Account.Queries.SendEmailResetPassword;
+using Application.Common.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -116,11 +117,11 @@ namespace Presentation.Controllers
         }
 
         [HttpPost("uploadImage")]
-        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(MediaDto), StatusCodes.Status200OK)]
         [Authorize]
         public async Task<IActionResult> UploadImage([FromForm] UploadAccountImageCommand request)
         {
-            return Ok(new {imageUrl = await _sender.Send(request) });
+            return Ok(await _sender.Send(request));
         }
 
         [HttpPost("removeImage")]

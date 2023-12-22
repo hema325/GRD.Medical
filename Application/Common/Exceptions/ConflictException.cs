@@ -6,6 +6,6 @@ namespace Application.Common.Exceptions
     {
         public override int StatusCode => (int)HttpStatusCode.Conflict;
 
-        public ConflictException(string? message = null): base(message) { }
+        public ConflictException(string? message = "There is a conflict happened while processing your request."): base(message) { }
     }
 }

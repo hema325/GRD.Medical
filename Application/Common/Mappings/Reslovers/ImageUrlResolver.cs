@@ -1,4 +1,4 @@
-﻿namespace Application.Common.Mappings
+﻿namespace Application.Common.Mappings.Reslovers
 {
     internal class ImageUrlResolver : IValueResolver<object, object, string?>
     {
@@ -9,9 +9,9 @@
             _httpRequest = httpRequest;
         }
 
-        public string Resolve(dynamic source, object destination, string? destMember, ResolutionContext context)
+        public string? Resolve(dynamic source, object destination, string? destMember, ResolutionContext context)
         {
-            if(!string.IsNullOrEmpty(source.ImageUrl))
+            if (!string.IsNullOrEmpty(source.ImageUrl))
             {
                 var scheme = _httpRequest.Scheme;
                 var host = _httpRequest.Host;

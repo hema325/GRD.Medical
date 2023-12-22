@@ -1,5 +1,5 @@
 ﻿using Application.Authors.Queries;
-using Application.Common.Mappings;
+using Application.Common.Mappings.Reslovers;
 
 namespace Application.Articles.Queries
 {

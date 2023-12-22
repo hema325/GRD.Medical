@@ -1,6 +1,8 @@
-﻿namespace Application.Account.Commands.UploadAccountImage
+﻿using Application.Common.Models;
+
+namespace Application.Account.Commands.UploadAccountImage
 {
-    internal class UploadAccountImageCommandHandler : IRequestHandler<UploadAccountImageCommand, string>
+    internal class UploadAccountImageCommandHandler : IRequestHandler<UploadAccountImageCommand, MediaDto>
     {
         private readonly IApplicationDbContext _context;
         private readonly IFileStorage _fileStorage;
@@ -18,7 +20,7 @@
             _httpRequest = httpRequest;
         }
 
-        public async Task<string> Handle(UploadAccountImageCommand request, CancellationToken cancellationToken)
+        public async Task<MediaDto> Handle(UploadAccountImageCommand request, CancellationToken cancellationToken)
         {
             var user = await  _context.Users.FindAsync(_currentUser.Id);
 
@@ -32,7 +34,10 @@
 
             await _context.SaveChangesAsync();
 
-            return $"{_httpRequest.Scheme}://{_httpRequest.Host}/{user.ImageUrl}";
+            return new MediaDto { 
+                Type = MediaTypes.Image.ToString(),
+                Url = $"{_httpRequest.Scheme}://{_httpRequest.Host}/{user.ImageUrl}" 
+            };
 
         }
     }

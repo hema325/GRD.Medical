@@ -9,6 +9,8 @@ namespace Application.Common.Interfaces
         DbSet<Author> Authors { get; }
         DbSet<Article> Articles { get; }
         DbSet<Advice> Advices { get; }
+        DbSet<Post> Posts { get; }
+        DbSet<Comment> Comments { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

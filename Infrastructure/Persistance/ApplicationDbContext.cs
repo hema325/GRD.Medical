@@ -34,5 +34,7 @@ namespace Infrastructure.Persistance
         public DbSet<Author> Authors { get; private set; }
         public DbSet<Article> Articles { get; private set; }
         public DbSet<Advice> Advices { get; private set; }
+        public DbSet<Post> Posts { get; private set; }
+        public DbSet<Comment> Comments { get; private set; }
     }
 }

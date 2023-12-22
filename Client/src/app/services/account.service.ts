@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable, ReplaySubject, catchError, map, of, throwError } from 'rxjs';
 import { AuthResult } from '../models/auth-result';
 import { User } from '../models/user';
+import { Media } from '../models/media';
 
 @Injectable({
   providedIn: 'root'
@@ -119,10 +120,10 @@ export class AccountService {
   }
 
   uploadImage(data: any) {
-    return this.httpClient.post<any>(this.baseUrl + '/uploadImage', data).pipe(map(res => {
+    return this.httpClient.post<Media>(this.baseUrl + '/uploadImage', data).pipe(map(res => {
       let auth = this.currentAuthResult;
       if (auth) {
-        auth.imageUrl = res.imageUrl;
+        auth.imageUrl = res.url;
         this.currentAuth.next(auth);
       }
       return res;
