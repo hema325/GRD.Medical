@@ -11,14 +11,7 @@
 
         public string? Resolve(dynamic source, object destination, string? destMember, ResolutionContext context)
         {
-            if (!string.IsNullOrEmpty(source.ImageUrl))
-            {
-                var scheme = _httpRequest.Scheme;
-                var host = _httpRequest.Host;
-                return $"{scheme}://{host}/{source.ImageUrl}";
-            }
-
-            return null;
+            return MediaHelpers.GetFullUrl(_httpRequest, source.ImageUrl);
         }
     }
 }

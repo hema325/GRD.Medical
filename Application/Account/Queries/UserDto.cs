@@ -8,7 +8,6 @@ namespace Application.Account.Queries
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Role { get; set; }
         public string? ImageUrl { get; set; }
         public DateTime JoinedOn { get; set; }
 
@@ -18,7 +17,6 @@ namespace Application.Account.Queries
             public Mapping()
             {
                 CreateMap<User, UserDto>()
-                    .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role.ToString()))
                     .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom<ImageUrlResolver>());
             }
         }

@@ -29,31 +29,21 @@ namespace Application.Comments.Queries.GetComments
             return _mapper.Map<PaginatedList<CommentDto>>(comments);
         }
 
-        private string GetFullUrl(string? path)
-        {
-            if (string.IsNullOrEmpty(path))
-                return null;
-
-            var scheme = _currentHttpRequest.Scheme;
-            var host = _currentHttpRequest.Host;
-            return $"{scheme}://{host}/{path}";
-        }
-
         private void ResolveImagesUrls(PaginatedList<CommentDto> comments)
         {
             foreach (var data in comments.Data)
             {
                 if(data.Media != null)
-                    data.Media.Url = GetFullUrl(data.Media.Url);
+                    data.Media.Url = MediaHelpers.GetFullUrl(_currentHttpRequest, data.Media.Url);
 
-                data.Owner.ImageUrl = GetFullUrl(data.Owner.ImageUrl);
+                data.Owner.ImageUrl = MediaHelpers.GetFullUrl(_currentHttpRequest, data.Owner.ImageUrl);
 
                 foreach (var rply in data.Replies)
                 {
                     if(rply.Media!=null)
-                        rply.Media.Url = GetFullUrl(rply.Media?.Url);
+                        rply.Media.Url = MediaHelpers.GetFullUrl(_currentHttpRequest, rply.Media?.Url);
 
-                    rply.Owner.ImageUrl = GetFullUrl(rply.Owner.ImageUrl);
+                    rply.Owner.ImageUrl = MediaHelpers.GetFullUrl(_currentHttpRequest, rply.Owner.ImageUrl);
                 }
             }
         }

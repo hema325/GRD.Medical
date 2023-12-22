@@ -1,5 +1,6 @@
-﻿using Application.Common.Models;
-using Domain.OwnedEntities;
+﻿using Application.Common.Interfaces;
+using Application.Common.Models;
+using Domain.Entities.OwnedEntities;
 
 namespace Application.Common.Mappings.Reslovers
 {
@@ -14,14 +15,7 @@ namespace Application.Common.Mappings.Reslovers
 
         public string Resolve(Media source, MediaDto destination, string destMember, ResolutionContext context)
         {
-            if (!string.IsNullOrEmpty(source.Url))
-            {
-                var scheme = _httpRequest.Scheme;
-                var host = _httpRequest.Host;
-                return $"{scheme}://{host}/{source.Url}";
-            }
-
-            return null;
+            return MediaHelpers.GetFullUrl(_httpRequest,source.Url);
         }
     }
 }

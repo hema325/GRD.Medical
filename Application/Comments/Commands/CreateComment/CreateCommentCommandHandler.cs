@@ -1,5 +1,5 @@
 ﻿using Application.Comments.Queries;
-using Domain.OwnedEntities;
+using Domain.Entities.OwnedEntities;
 
 namespace Application.Comments.Commands.CreateComment
 {

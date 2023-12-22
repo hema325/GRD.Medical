@@ -3,7 +3,6 @@ export interface User {
     firstName: string
     lastName: string
     email: string
-    role: string
     imageUrl: string
     joinedOn: string
 }

@@ -1,5 +1,5 @@
 ﻿using Application.Posts.Queries;
-using Domain.OwnedEntities;
+using Domain.Entities.OwnedEntities;
 
 namespace Application.Posts.Commands.CreatePost
 {

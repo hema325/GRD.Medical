@@ -17,10 +17,15 @@ namespace Application.Posts.Queries.GetPosts
 
         public async Task<PaginatedList<PostDto>> Handle(GetPostsQuery request, CancellationToken cancellationToken)
         {
-            var posts = await _context.Posts
-                .OrderByDescending(p=>p.PostedOn)
-                .Include(p=>p.Owner)
-                .PaginateAsync(request.pageNumber, request.pageSize);
+            var query = _context.Posts
+                .OrderByDescending(p => p.PostedOn)
+                .Include(p => p.Owner)
+                .AsQueryable();
+
+            if(request.OwnerId != null)
+                query = query.Where(p => p.OwnerId == request.OwnerId);
+
+            var posts = await query.PaginateAsync(request.pageNumber, request.pageSize);
 
             return _mapper.Map<PaginatedList<PostDto>>(posts);
         }

@@ -1,6 +1,6 @@
 ﻿using Application.Common.Mappings.Reslovers;
 using Application.Common.Models;
-using Domain.OwnedEntities;
+using Domain.Entities.OwnedEntities;
 
 namespace Application.Common.Mappings
 {
