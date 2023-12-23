@@ -1,5 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { CreateComment } from 'src/app/models/CreateComment';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { take } from 'rxjs';
+import { AuthResult } from 'src/app/models/account/auth-result';
+import { AccountService } from 'src/app/services/account.service';
+import { CommentsService } from 'src/app/services/comments.service';
 
 @Component({
   selector: 'app-create-comment',
@@ -8,24 +11,36 @@ import { CreateComment } from 'src/app/models/CreateComment';
 })
 export class CreateCommentComponent {
 
+  currentAuth: AuthResult | null = null;
   isEmojiListActive = false;
 
-  createComment: CreateComment = {
-    content: '',
-    image: null,
-    imageUrl: null
+  createCommentObj: {
+    content: string
+    image: File | null
+    imageUrl: string | null
+  } = {
+      content: '',
+      image: null,
+      imageUrl: null,
+    }
+
+  constructor(private accountService: AccountService,
+    private commentsService: CommentsService) { }
+
+  ngOnInit() {
+    this.accountService.currentAuth$.pipe(take(1)).subscribe(auth => this.currentAuth = auth);
   }
 
   isCommentValid() {
-    return this.createComment.content || this.createComment.image;
+    return this.createCommentObj.content || this.createCommentObj.image;
   }
 
   setImages(event: any) {
     if (!event.target)
       return;
 
-    this.createComment.image = event.target.files[0];
-    this.createComment.imageUrl = URL.createObjectURL(event.target.files[0]);
+    this.createCommentObj.image = event.target.files[0];
+    this.createCommentObj.imageUrl = URL.createObjectURL(event.target.files[0]);
 
     this.commentInput?.nativeElement.focus();
   }
@@ -33,14 +48,14 @@ export class CreateCommentComponent {
   @ViewChild('commentInput') commentInput?: ElementRef;
 
   removeImage() {
-    this.createComment.image = null;
-    if (this.createComment.imageUrl)
-      URL.revokeObjectURL(this.createComment.imageUrl);
+    this.createCommentObj.image = null;
+    if (this.createCommentObj.imageUrl)
+      URL.revokeObjectURL(this.createCommentObj.imageUrl);
 
     if (!this.commentInput)
       return;
 
-    if (!this.createComment.content && !this.createComment.image)
+    if (!this.createCommentObj.content && !this.createCommentObj.image)
       this.commentInput.nativeElement.removeAttribute('style');
   }
 
@@ -67,12 +82,12 @@ export class CreateCommentComponent {
     if (!this.commentInput)
       return;
 
-    if (!this.createComment.content && !this.createComment.image && !this.isEmojiListActive)
+    if (!this.createCommentObj.content && !this.createCommentObj.image && !this.isEmojiListActive)
       this.commentInput.nativeElement.removeAttribute('style');
   }
 
   insertText(text: string) {
-    this.createComment.content = this.createComment.content + text;
+    this.createCommentObj.content = this.createCommentObj.content + text;
 
     if (!this.commentInput)
       return;
@@ -88,15 +103,34 @@ export class CreateCommentComponent {
       + textToInsert
       + currentText.substring(selectionEnd);
 
-    this.createComment.content = newText;
+    this.createCommentObj.content = newText;
 
     const newCursorPosition = selectionStart + currentText.length;
     ele.setSelectionRange(newCursorPosition, newCursorPosition);
     this.commentInput?.nativeElement.focus();
   }
 
-  comment() {
-    console.log(this.createComment);
+  @Input() postId: number = 0;
+  @Input() replyTo: number | null = null;
+
+  createComment() {
+    this.commentsService.create({
+      postId: this.postId,
+      replyTo: this.replyTo,
+      content: this.createCommentObj.content,
+      image: this.createCommentObj.image
+    }).subscribe(comment => this.resetTextArea());
+  }
+
+  resetTextArea() {
+    this.createCommentObj = {
+      content: '',
+      image: null,
+      imageUrl: null,
+    };
+
+    this.isEmojiListActive = false;
+    this.minimizeTextArea();
   }
 }
 

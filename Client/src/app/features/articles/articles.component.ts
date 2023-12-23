@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { Article } from 'src/app/models/article';
-import { Filter } from 'src/app/models/filter';
+import { Article } from 'src/app/models/articles/article';
+import { ArticleFilter } from 'src/app/models/articles/article-filter';
 import { PaginatedList } from 'src/app/models/paginated-list';
 import { ArticlesService } from 'src/app/services/articles.service';
 
@@ -18,7 +18,7 @@ export class ArticlesComponent {
     title: ['', Validators.required]
   });
 
-  filter: Filter = {
+  filter: ArticleFilter = {
     title: '',
     pageNumber: 1,
     pageSize: 6

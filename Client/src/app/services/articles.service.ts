@@ -1,9 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { Article } from '../models/article';
-import { Filter } from '../models/filter';
+import { Article } from '../models/articles/article';
 import { PaginatedList } from '../models/paginated-list';
+import { ArticleFilter } from '../models/articles/article-filter';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +16,11 @@ export class ArticlesService {
     return this.httpClient.get<Article>(this.baseUrl + '/' + id);
   }
 
-  getArticles(articleFilter: Filter) {
+  getArticles(filter: ArticleFilter) {
     let params = new HttpParams();
-    params = articleFilter.title ? params.append('title', articleFilter.title) : params;
-    params = params.append('pageNumber', articleFilter.pageNumber);
-    params = params.append('pageSize', articleFilter.pageSize);
+    params = filter.title ? params.append('title', filter.title) : params;
+    params = params.append('pageNumber', filter.pageNumber);
+    params = params.append('pageSize', filter.pageSize);
 
     return this.httpClient.get<PaginatedList<Article>>(this.baseUrl, { params });
   }

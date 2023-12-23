@@ -1,0 +1,42 @@
+<div *ngIf="paginatedList" #postsContainer>
+    <div class="container profile p-0" *ngFor="let post of paginatedList.data; let index = index">
+        <div class="w-fit">
+            <div class="card mb-3 shadow-sm border-0 rounded-3 m-auto">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <a href="#"><img [src]="post.owner.imageUrl??'assets/images/profile.png'" alt="" width="50"
+                                class="rounded-circle" /></a>
+                        <div class="flex-fill ps-2">
+                            <div class="fw-bold"><a href="#" class="text-decoration-none"
+                                    style="color: #3f51b5">{{post.owner.firstName}} {{post.owner.lastName}}</a>
+                            </div>
+                            <div class="small text-body text-opacity-50">{{ post.postedOn | date }}</div>
+                        </div>
+                    </div>
+
+                    <p *ngIf="post.content">{{post.content}}</p>
+                    <div class="row g-1" [class]="post.medias.length < 3 ?'row-cols-1':'row-cols-2'"
+                        *ngIf="post.medias">
+                        <div class="col flex-fill" *ngFor="let media of post.medias">
+                            <img [src]="media.url" *ngIf="media.type=='Image'" class="w-100 object-fit-cover rounded-1"
+                                [style.height]="post.medias.length == 1 ? '400px':'200px'">
+                        </div>
+                    </div>
+                    <hr class="mb-1 opacity-1" />
+
+                    <div class="d-flex justify-content-center  fw-bold">
+                        <a (click)="commentSections[index]=true;"
+                            class="text-body text-opacity-50 text-decoration-none d-block p-2 d-flex align-items-center gap-1 clickable"><mat-icon
+                                style="font-size: 18px;width: fit-content; height: fit-content;">notes</mat-icon>
+                            Comments </a>
+                    </div>
+                    <hr class="mb-0 mt-1 opacity-1" [class.mb-3]="commentSections[index]" />
+
+                    <app-create-comment *ngIf="commentSections[index]" [postId]="post.id"></app-create-comment>
+                    <app-comments-list *ngIf="commentSections[index]" [postId]="post.id"></app-comments-list>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

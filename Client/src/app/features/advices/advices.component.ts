@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-import { Advice } from 'src/app/models/advice';
-import { Filter } from 'src/app/models/filter';
+import { Advice } from 'src/app/models/advices/advice';
+import { AdviceFilter } from 'src/app/models/advices/advice-filter';
 import { PaginatedList } from 'src/app/models/paginated-list';
 import { AdvicesService } from 'src/app/services/advices.service';
 
@@ -18,7 +18,7 @@ export class AdvicesComponent {
     title: ['', Validators.required]
   })
 
-  filter: Filter = {
+  filter: AdviceFilter = {
     title: null,
     pageNumber: 1,
     pageSize: 6

@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { User } from 'src/app/models/user';
+import { User } from 'src/app/models/account/user';
 import { AccountService } from 'src/app/services/account.service';
 import { password } from 'src/app/validators/password.validator';
 import { EditImageComponent } from './edit-image/edit-image.component';

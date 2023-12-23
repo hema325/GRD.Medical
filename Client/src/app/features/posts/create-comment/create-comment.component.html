@@ -1,11 +1,11 @@
 <div class="d-flex">
-    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" width="35" height="35"
+    <img [src]="currentAuth?.imageUrl ??  'assets/images/profile.png'" alt="" width="35" height="35"
         class="rounded-circle" />
     <div class="flex-fill ps-2">
         <div class="position-relative d-flex">
             <textarea type="text"
                 class="form-control bg-white bg-opacity-15 position-relative overflow-auto hide-scrollbar" #commentInput
-                placeholder="Write a comment..." contenteditable [(ngModel)]="createComment.content"
+                placeholder="Write a comment..." contenteditable [(ngModel)]="createCommentObj.content"
                 (focus)="extandTextArea()" (blur)="minimizeTextArea();" (input)="autoResizeTextArea()">
             </textarea>
 
@@ -23,7 +23,7 @@
                     <input type="file" (change)="setImages($event);" hidden #postImages accept="image/*"></a>
 
                 <button class="text-body text-opacity-50 me-2 d-flex clickable border-0 bg-transparent"
-                    (click)="comment()" [disabled]="!isCommentValid()"><mat-icon
+                    (click)="createComment()" [disabled]="!isCommentValid()"><mat-icon
                         style="width: fit-content; height: fit-content; font-size: 20px;">send</mat-icon></button>
 
             </div>
@@ -33,9 +33,9 @@
     </div>
 </div>
 
-<div class="bg-light py-2 px-3 rounded-3 mt-3" style="margin-left: 43px;" *ngIf="createComment.image as image">
+<div class="bg-light py-2 px-3 rounded-3 mt-3" style="margin-left: 43px;" *ngIf="createCommentObj.image as image">
     <div class="d-flex align-items-center">
-        <img [src]="this.createComment.imageUrl" class="rounded-circle me-4 object-fit-cover" width="45" height="45">
+        <img [src]="this.createCommentObj.imageUrl" class="rounded-circle me-4 object-fit-cover" width="45" height="45">
         <div class="d-flex align-items-center justify-content-between flex-fill">
             <div style="width: calc(100% - 48px)">
                 <h3 class="mb-0 text-nowrap overflow-hidden  " style="color:#444;text-overflow: ellipsis;width: 100%;">

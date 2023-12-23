@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { HttpClient } from '@angular/common/http'
 import { Observable, ReplaySubject, catchError, map, of, throwError } from 'rxjs';
-import { AuthResult } from '../models/auth-result';
-import { User } from '../models/user';
+import { AuthResult } from '../models/account/auth-result';
+import { User } from '../models/account/user';
 import { Media } from '../models/media';
 
 @Injectable({

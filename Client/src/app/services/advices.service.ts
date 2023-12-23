@@ -1,9 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { Filter } from '../models/filter';
-import { Advice } from '../models/advice';
+import { Advice } from '../models/advices/advice';
 import { PaginatedList } from '../models/paginated-list';
+import { AdviceFilter } from '../models/advices/advice-filter';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AdvicesService {
     return this.httpClient.get<Advice>(this.baseUrl + '/' + id);
   }
 
-  getAdvices(filter: Filter) {
+  getAdvices(filter: AdviceFilter) {
     var params = new HttpParams();
     params = filter.title ? params.append('title', filter.title) : params;
     params = params.append('pageNumber', filter.pageNumber);

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthResult } from './models/auth-result';
+import { AuthResult } from './models/account/auth-result';
 import { AccountService } from './services/account.service';
 
 @Component({

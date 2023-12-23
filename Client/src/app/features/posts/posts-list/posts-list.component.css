@@ -1,0 +1,37 @@
+.btn-trans {
+    background-color: transparent;
+    border-color: transparent;
+    color: #929292;
+}
+
+.btn-icon {
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.btn-sm,
+.btn-group-sm>.btn,
+.btn-icon.btn-sm {
+    padding: 5px 10px !important;
+}
+
+.mar-top {
+    margin-top: 15px;
+}
+
+.reply {
+    width: fit-content;
+    color: #909294;
+}
+
+
+.reply,
+.clickable {
+    caret-color: transparent;
+    cursor: pointer;
+}
+
+.reply:hover,
+.clickable:hover {
+    color: #3f51b5 !important;
+}

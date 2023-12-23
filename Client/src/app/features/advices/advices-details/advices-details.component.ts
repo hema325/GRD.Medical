@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Advice } from 'src/app/models/advice';
+import { Advice } from 'src/app/models/advices/advice';
 import { AdvicesService } from 'src/app/services/advices.service';
 
 @Component({

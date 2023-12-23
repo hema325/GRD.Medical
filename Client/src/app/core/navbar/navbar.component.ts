@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginComponent } from 'src/app/features/account/login/login.component';
 import { RegisterComponent } from 'src/app/features/account/register/register.component';
-import { AuthResult } from 'src/app/models/auth-result';
+import { AuthResult } from 'src/app/models/account/auth-result';
 import { AccountService } from 'src/app/services/account.service';
 
 @Component({

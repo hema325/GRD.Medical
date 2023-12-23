@@ -1,16 +1,16 @@
-<div class="card shadow-sm border-0 rounded-3 my-5">
+<div class="card shadow-sm border-0 rounded-3">
     <div class="card-body">
         <div class="mb-3">
-            <textarea class="form-control hide-scrollbar" name="" id="" rows="10"
+            <textarea class="form-control hide-scrollbar" name="" id="" rows="8"
                 placeholder="What are you suffering from?" #postTextarea [maxLength]="5000"
-                [(ngModel)]="createPost.content"></textarea>
+                [(ngModel)]="createPostObj.content"></textarea>
         </div>
 
-        <ng-container *ngIf="createPost.images?.length">
+        <ng-container *ngIf="createPostObj.images?.length">
             <div class="bg-light py-2 px-3 rounded-3 mt-4 mb-3"
-                *ngFor="let image of createPost.images; let index=index">
+                *ngFor="let image of createPostObj.images; let index=index">
                 <div class="d-flex align-items-center">
-                    <img [src]="this.createPost.imagesUrl?.[index]" class="rounded-circle me-4 object-fit-cover"
+                    <img [src]="createPostObj.imagesUrl?.[index]" class="rounded-circle me-4 object-fit-cover"
                         width="45" height="45">
                     <div class="d-flex align-items-center justify-content-between flex-fill">
                         <div style="width: calc(100% - 48px)">
@@ -29,7 +29,7 @@
 
         <div class="d-flex justify-content-between align-items-center position-relative">
             <div class="d-flex align-items-center flex-fill justify-content-end ">
-                <span class="me-3">{{createPost.content.length}} / 5000</span>
+                <span class="me-3">{{createPostObj.content.length}} / 5000</span>
 
                 <a class="text-body text-opacity-50 me-3 d-flex clickable"
                     (click)="postEmojiList.active= !postEmojiList.active"
@@ -40,10 +40,12 @@
 
                 <a class="text-body text-opacity-50 me-3 d-flex clickable"
                     (click)="postEmojiList.active = false; postImages.click()"><mat-icon>photo_camera</mat-icon>
-                    <input type="file" (change)="setImages($event);" hidden #postImages multiple accept="image/*"></a>
+                    <input type="file" (change)="setImages($event);" hidden #postImages multiple accept="image/*"
+                        #test></a>
 
             </div>
-            <button mat-raised-button color="primary" [disabled]="!isPostFormValid()">Post</button>
+            <button mat-raised-button color="primary" [disabled]="!isPostFormValid()"
+                (click)="createPost()">Post</button>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
 export interface Media {
-    type: string,
+    type: string
     url: string
 }
