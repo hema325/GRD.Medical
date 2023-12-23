@@ -4,9 +4,9 @@
         <div class="bg-white p-4 rounded-3 shadow-sm my-4 chat-box d-flex flex-column justify-content-between"
             *ngIf="currentAuth">
             <div class="overflow-auto" data-mdb-perfect-scrollbar="true">
-                <div class="d-flex flex-row justify-content-start">
-                    <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle"
-                        style="width: 45px; height: 100%;">
+                <div class="d-flex flex-row justify-content-start align-items-start">
+                    <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle flex-shrink-0"
+                        width="40px" height="40px">
                     <div>
                         <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
                             Lorem ipsum
@@ -18,7 +18,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex flex-row justify-content-end">
+                <div class="d-flex flex-row justify-content-end align-items-start">
                     <div>
                         <p class="small p-2 me-3 mb-1 text-white rounded-3" style="background-color: #3f51b5;">
                             Ut enim ad
@@ -31,13 +31,13 @@
                             13</p>
                     </div>
                     <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" alt="avatar 1"
-                        class="rounded-circle" style="width: 45px; height: 100%;">
+                        class="rounded-circle flex-shrink-0" style="width: 40px; height: 40px;">
                 </div>
 
                 <!-- wrong -->
                 <div class="d-flex flex-row justify-content-start">
-                    <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle"
-                        style="width: 45px; height: 100%;">
+                    <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle flex-shrink-0"
+                        width="40px" height="40px">
                     <div>
                         <p class="small p-2 ms-3 mb-1 rounded-3 text-danger" style="background-color: #f5f6f7;">
                             Something
@@ -49,9 +49,9 @@
                 </div>
 
                 <!-- writing animation -->
-                <div class="d-flex flex-row justify-content-start">
-                    <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle"
-                        style="width: 45px; height: 100%;">
+                <div class="d-flex flex-row align-items-start justify-content-start">
+                    <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle flex-shrink-0"
+                        width="40px" height="40px">
                     <div>
                         <div class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
                             <div class="loader"></div>
@@ -61,8 +61,8 @@
             </div>
 
             <div class="text-muted d-flex justify-content-start align-items-center pt-3 mt-2">
-                <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" alt="avatar 3" class="rounded-circle"
-                    style="width: 40px; height: 40px;">
+                <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" alt="avatar 3"
+                    class="rounded-circle flex-shrink-0" width="45px" height="45px">
                 <input type="text" class="form-control form-control-lg mx-2" id="exampleFormControlInput2"
                     placeholder="Type message">
                 <button mat-icon-button color="primary"><mat-icon>send</mat-icon></button>
