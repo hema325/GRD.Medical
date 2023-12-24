@@ -34,6 +34,7 @@ builder.Services.Configure<ApiBehaviorOptions>(o =>
 var app = builder.Build();
 
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -41,13 +42,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors();
+
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 
 app.UseInfrastructure();
 
 app.MapControllers();
+app.MapFallbackToController("Index", "Fallback");
 
 await app.Services.InitialiseDBAsync();
 

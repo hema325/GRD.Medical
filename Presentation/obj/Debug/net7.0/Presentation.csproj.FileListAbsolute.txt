@@ -923,3 +923,4 @@ D:\Temp\GRD.Medical\Presentation\obj\Debug\net7.0\refint\Presentation.dll
 D:\Temp\GRD.Medical\Presentation\obj\Debug\net7.0\Presentation.pdb
 D:\Temp\GRD.Medical\Presentation\obj\Debug\net7.0\Presentation.genruntimeconfig.cache
 D:\Temp\GRD.Medical\Presentation\obj\Debug\net7.0\ref\Presentation.dll
+D:\Projects\GRD.Medical\Presentation\bin\Debug\net7.0\Presentation.staticwebassets.runtime.json

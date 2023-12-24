@@ -1,0 +1,11 @@
+<h2 class="mb-4 mt-2">Account</h2>
+<form [formGroup]="userForm" (ngSubmit)="updateDetails()">
+    <div class="my-2">
+        <app-form-input [control]="userForm.controls.firstName" label="First Name"></app-form-input>
+    </div>
+    <div class="my-2">
+        <app-form-input [control]="userForm.controls.lastName" label="Last Name" class="my-1"></app-form-input>
+    </div>
+
+    <button mat-raised-button color="primary" [disabled]="userForm.invalid" class="float-end mt-3">Update</button>
+</form>

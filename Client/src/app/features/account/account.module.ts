@@ -11,7 +11,9 @@ import { SendEmailConfirmationComponent } from './send-email-confirmation/send-e
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { SendEmailResetPasswordComponent } from './send-email-reset-password/send-email-reset-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { EditImageComponent } from './edit-image/edit-image.component';
+import { UpdateAccountDetailsComponent } from './update-account-details/update-account-details.component';
+import { ChangeAccountPasswordComponent } from './change-account-password/change-account-password.component';
+import { EditImageBottomSheetComponent } from './edit-image-bottom-sheet/edit-image-bottom-sheet.component';
 
 
 
@@ -24,7 +26,9 @@ import { EditImageComponent } from './edit-image/edit-image.component';
     ConfirmEmailComponent,
     SendEmailResetPasswordComponent,
     ResetPasswordComponent,
-    EditImageComponent
+    UpdateAccountDetailsComponent,
+    ChangeAccountPasswordComponent,
+    EditImageBottomSheetComponent
   ],
   imports: [
     CommonModule,

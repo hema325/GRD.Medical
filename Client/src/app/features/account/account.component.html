@@ -28,38 +28,8 @@
                     </div>
                 </div>
                 <div class="col">
-                    <ng-container *ngIf="tab==0">
-                        <h2 class="mb-4 mt-2">Account</h2>
-                        <form [formGroup]="userForm" (ngSubmit)="updateDetails()">
-                            <div class="my-2">
-                                <app-form-input [control]="userForm.controls.firstName"
-                                    label="First Name"></app-form-input>
-                            </div>
-                            <div class="my-2">
-                                <app-form-input [control]="userForm.controls.lastName" label="Last Name"
-                                    class="my-1"></app-form-input>
-                            </div>
-
-                            <button mat-raised-button color="primary" [disabled]="userForm.invalid"
-                                class="float-end mt-3">Update</button>
-                        </form>
-                    </ng-container>
-                    <ng-container *ngIf="tab==1">
-                        <h2 class="mb-4 mt-2">Password</h2>
-                        <form [formGroup]="userForm" (ngSubmit)="changePassword()">
-                            <div class="my-2">
-                                <app-form-input [control]="passwordForm.controls.oldPassword" label="Old Password"
-                                    type="password"></app-form-input>
-                            </div>
-                            <div class="my-2">
-                                <app-form-input [control]="passwordForm.controls.newPassword" label="New Password"
-                                    type="password" class="my-1"></app-form-input>
-                            </div>
-
-                            <button mat-raised-button color="primary" [disabled]="passwordForm.invalid"
-                                class="float-end mt-3">Change</button>
-                        </form>
-                    </ng-container>
+                    <app-update-account-details [user]="user" *ngIf="tab==0"></app-update-account-details>
+                    <app-change-account-password *ngIf="tab==1"></app-change-account-password>
                 </div>
             </div>
         </div>

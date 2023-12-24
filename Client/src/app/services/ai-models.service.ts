@@ -13,8 +13,11 @@ export class AiModelsService {
   constructor(private httpClient: HttpClient) { }
 
 
-  checkHeart(data: any) {
-    return this.httpClient.post<AiModelsResponse>(this.baseUrl + '/heartChecking', data);
+  checkHeart(voice: File) {
+    const fd = new FormData();
+    fd.append('voice', voice);
+
+    return this.httpClient.post<AiModelsResponse>(this.baseUrl + '/heartChecking', fd);
   }
 
 }

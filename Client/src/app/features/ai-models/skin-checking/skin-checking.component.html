@@ -8,19 +8,11 @@
                 <mat-icon style="color: #9d9fa5;font-size: 80px;width: 80px;height: 80px;"
                     class="m-auto d-block">cloud_upload</mat-icon>
                 <h4 class="text-muted text-center">Choose image file</h4>
-                <input type="file" (change)="image = fileInput.files?.[0];setSrc()" hidden #fileInput accept="image/*">
+                <input type="file" (change)="image = fileInput.files?.[0];" hidden #fileInput accept="image/*">
             </div>
 
-            <div class="bg-light py-2 px-3 rounded-3 mt-3" *ngIf="image as image">
-                <div class="d-flex align-items-center">
-                    <img [src]="imageUrl" class="rounded-circle me-4 object-fit-cover" width="45" height="45">
-                    <div style="width: calc(100% - 48px)">
-                        <h3 class="mb-0 text-nowrap overflow-hidden  "
-                            style="color:#444;text-overflow: ellipsis;width: 100%;">
-                            {{image.name}}</h3>
-                        <h5 class="text-muted mb-0">{{image.size | BytesSize:2 }}</h5>
-                    </div>
-                </div>
+            <div class="bg-light py-2 px-3 rounded-3 mt-3" *ngIf="image">
+                <app-image-card [image]="image" [hideActions]="true"></app-image-card>
             </div>
             <h4 class="mt-4 mb-0" style="color: #444;" style="color:#3f51b5" *ngIf="response">{{response.response}}.
             </h4>

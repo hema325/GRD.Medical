@@ -49,3 +49,12 @@ body {
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
+.clickable {
+    caret-color: transparent;
+    cursor: pointer;
+}
+
+.clickable:hover {
+    color: #3f51b5 !important;
+}

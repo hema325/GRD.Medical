@@ -5,13 +5,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { EmojisListComponent } from './emojis-list/emojis-list.component';
 import { BytesSizePipe } from '../pipes/bytes-size.pipe';
+import { ImageCardComponent } from './image-card/image-card.component';
+import { AudioCardComponent } from './audio-card/audio-card.component';
 
 
 @NgModule({
   declarations: [
     FormInputComponent,
     EmojisListComponent,
-    BytesSizePipe
+    BytesSizePipe,
+    ImageCardComponent,
+    AudioCardComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { BytesSizePipe } from '../pipes/bytes-size.pipe';
     FormInputComponent,
     MaterialModule,
     EmojisListComponent,
-    BytesSizePipe
+    BytesSizePipe,
+    ImageCardComponent,
+    AudioCardComponent
   ]
 })
 export class SharedModule { }

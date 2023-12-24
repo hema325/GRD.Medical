@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { take } from 'rxjs';
 import { AuthResult } from 'src/app/models/account/auth-result';
+import { CreateComment } from 'src/app/models/comments/create-comment';
 import { AccountService } from 'src/app/services/account.service';
 import { CommentsService } from 'src/app/services/comments.service';
 
@@ -14,15 +15,12 @@ export class CreateCommentComponent {
   currentAuth: AuthResult | null = null;
   isEmojiListActive = false;
 
-  createCommentObj: {
-    content: string
-    image: File | null
-    imageUrl: string | null
-  } = {
-      content: '',
-      image: null,
-      imageUrl: null,
-    }
+  createCommentObj: CreateComment = {
+    content: '',
+    image: null,
+    replyTo: null,
+    postId: 0
+  }
 
   constructor(private accountService: AccountService,
     private commentsService: CommentsService) { }
@@ -40,8 +38,6 @@ export class CreateCommentComponent {
       return;
 
     this.createCommentObj.image = event.target.files[0];
-    this.createCommentObj.imageUrl = URL.createObjectURL(event.target.files[0]);
-
     this.commentInput?.nativeElement.focus();
   }
 
@@ -49,8 +45,6 @@ export class CreateCommentComponent {
 
   removeImage() {
     this.createCommentObj.image = null;
-    if (this.createCommentObj.imageUrl)
-      URL.revokeObjectURL(this.createCommentObj.imageUrl);
 
     if (!this.commentInput)
       return;
@@ -113,21 +107,20 @@ export class CreateCommentComponent {
   @Input() postId: number = 0;
   @Input() replyTo: number | null = null;
 
+  ngOnChanges() {
+    this.createCommentObj.postId = this.postId;
+    this.createCommentObj.replyTo = this.replyTo;
+  }
+
   createComment() {
-    this.commentsService.create({
-      postId: this.postId,
-      replyTo: this.replyTo,
-      content: this.createCommentObj.content,
-      image: this.createCommentObj.image
-    }).subscribe(comment => this.resetTextArea());
+
+    this.commentsService.create(this.createCommentObj)
+      .subscribe(comment => this.resetTextArea());
   }
 
   resetTextArea() {
-    this.createCommentObj = {
-      content: '',
-      image: null,
-      imageUrl: null,
-    };
+    this.createCommentObj.content = '';
+    this.createCommentObj.image = null;
 
     this.isEmojiListActive = false;
     this.minimizeTextArea();

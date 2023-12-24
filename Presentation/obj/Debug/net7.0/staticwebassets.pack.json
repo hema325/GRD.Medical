@@ -1,0 +1,93 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\126.702bb6a11bc62808.js",
+      "PackagePath": "staticwebassets\\126.702bb6a11bc62808.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\129.849a11697727c260.js",
+      "PackagePath": "staticwebassets\\129.849a11697727c260.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\496.ef965575969dcc5a.js",
+      "PackagePath": "staticwebassets\\496.ef965575969dcc5a.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\498.e485eecd45573b40.js",
+      "PackagePath": "staticwebassets\\498.e485eecd45573b40.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.279d93364925aa07.js",
+      "PackagePath": "staticwebassets\\760.279d93364925aa07.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\87.bbfd8e839e6fd646.js",
+      "PackagePath": "staticwebassets\\87.bbfd8e839e6fd646.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\about.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\about.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\chat_bot.webp",
+      "PackagePath": "staticwebassets\\assets\\images\\chat_bot.webp"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\not_found.png",
+      "PackagePath": "staticwebassets\\assets\\images\\not_found.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\profile.png",
+      "PackagePath": "staticwebassets\\assets\\images\\profile.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\server-error.png",
+      "PackagePath": "staticwebassets\\assets\\images\\server-error.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\common.2afd25eeeb44788d.js",
+      "PackagePath": "staticwebassets\\common.2afd25eeeb44788d.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.f45ecceb6ef6d311.js",
+      "PackagePath": "staticwebassets\\main.f45ecceb6ef6d311.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\polyfills.b21d18c38c3a54db.js",
+      "PackagePath": "staticwebassets\\polyfills.b21d18c38c3a54db.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.69907d479857c5b0.js",
+      "PackagePath": "staticwebassets\\runtime.69907d479857c5b0.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.ebb182ee50839ce2.css",
+      "PackagePath": "staticwebassets\\styles.ebb182ee50839ce2.css"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Presentation.props",
+      "PackagePath": "build\\Presentation.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Presentation.props",
+      "PackagePath": "buildMultiTargeting\\Presentation.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Presentation.props",
+      "PackagePath": "buildTransitive\\Presentation.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 
 
@@ -16,7 +17,8 @@ import { ServerErrorComponent } from './server-error/server-error.component';
     FooterComponent,
     HeaderComponent,
     NotFoundComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    NavMenuComponent
   ],
   imports: [
     CommonModule,

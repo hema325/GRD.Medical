@@ -7,22 +7,8 @@
         </div>
 
         <ng-container *ngIf="createPostObj.images?.length">
-            <div class="bg-light py-2 px-3 rounded-3 mt-4 mb-3"
-                *ngFor="let image of createPostObj.images; let index=index">
-                <div class="d-flex align-items-center">
-                    <img [src]="createPostObj.imagesUrl?.[index]" class="rounded-circle me-4 object-fit-cover"
-                        width="45" height="45">
-                    <div class="d-flex align-items-center justify-content-between flex-fill">
-                        <div style="width: calc(100% - 48px)">
-                            <h3 class="mb-0 text-nowrap overflow-hidden  "
-                                style="color:#444;text-overflow: ellipsis;width: 100%;">
-                                {{image.name}}</h3>
-                            <h5 class="text-muted mb-0">{{image.size | BytesSize:2 }}</h5>
-                        </div>
-                        <mat-icon class="clickable text-body text-opacity-50"
-                            (click)="removeImage(index)">close</mat-icon>
-                    </div>
-                </div>
+            <div class="my-3" *ngFor="let image of createPostObj.images; let index=index">
+                <app-image-card [image]="image" (imageRemoved)="removeImage(index)"></app-image-card>
             </div>
         </ng-container>
 

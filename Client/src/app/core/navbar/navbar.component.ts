@@ -13,26 +13,12 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
   currentAuth: AuthResult | null = null;
   isDropdownActive = false;
 
-  constructor(private dialog: MatDialog,
-    public accountService: AccountService,
-    private router: Router,
-    private toastr: ToastrService,
-    private renderer: Renderer2) { }
-
+  constructor(private accountService: AccountService) { }
 
   ngOnInit() {
     this.accountService.currentAuth$.subscribe(result => this.currentAuth = result);
   }
-
-  logout() {
-    this.accountService.logout().subscribe(res => {
-      this.router.navigateByUrl('/home');
-      this.toastr.success('logged out successfully');
-    });
-  }
-
 }

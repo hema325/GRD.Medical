@@ -1,0 +1,16 @@
+<div class="bg-light py-2 px-3 rounded-3" *ngIf="audio">
+    <div class="d-flex align-items-center">
+        <mat-icon style="width: 36px;height: 36px;font-size: 36px;color:#444;" class="flex-shrink-0 me-3">
+            graphic_eq
+        </mat-icon>
+        <div class="d-flex align-items-center justify-content-between" style="width: calc(100% - 52px)">
+            <div style="width: calc(100% - 48px)">
+                <h3 class="mb-0 text-nowrap overflow-hidden" style="color:#444;text-overflow: ellipsis;width: 100%;">
+                    {{audio.name}}</h3>
+                <h5 class="text-muted mb-0">{{audio.size | BytesSize:2 }}</h5>
+            </div>
+            <button mat-icon-button (click)="playPause()" class="flex-shrink-0"><mat-icon>
+                    {{!player.paused ? 'pause':'play_arrow'}}</mat-icon></button>
+        </div>
+    </div>
+</div>

@@ -4,16 +4,16 @@ import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/services/account.service';
 
 @Component({
-  selector: 'app-edit-image',
-  templateUrl: './edit-image.component.html',
-  styleUrls: ['./edit-image.component.css']
+  selector: 'app-edit-image-bottom-sheet',
+  templateUrl: './edit-image-bottom-sheet.component.html',
+  styleUrls: ['./edit-image-bottom-sheet.component.css']
 })
-export class EditImageComponent {
+export class EditImageBottomSheetComponent {
 
 
   constructor(private accountService: AccountService,
     private toastr: ToastrService,
-    private bottomSheetRef: MatBottomSheetRef<EditImageComponent>) { }
+    private bottomSheetRef: MatBottomSheetRef<EditImageBottomSheetComponent>) { }
 
   removeImage() {
     this.accountService.removeImage().subscribe(res => {

@@ -22,29 +22,8 @@
             <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" class="rounded-circle object-fit-cover"
                 style="width: 36px;height: 36px;">
         </button>
-        <div class="outlier" [class.active]="isDropdownActive" (click)="isDropdownActive=false">
-            <div class="rounded-3 bg-white  shadow dropdown-nav">
-                <button mat-button routerLink="/account" color="primary"
-                    class="d-flex justify-content-start w-100 fs-6 px-3 py-4">
-                    <mat-icon>account_circle</mat-icon>
-                    Profile
-                </button>
-                <button mat-button color="primary" class="d-flex justify-content-start w-100  fs-6 px-3 py-4"
-                    routerLink="/posts">
-                    <mat-icon>newspaper</mat-icon>
-                    Posts
-                </button>
-                <button mat-button color="primary" class="d-flex justify-content-start w-100  fs-6 px-3 py-4"
-                    routerLink="/ai-models">
-                    <mat-icon>healing</mat-icon>
-                    Heal Me
-                </button>
-                <button mat-button color="primary" (click)="logout()"
-                    class="d-flex justify-content-start w-100  fs-6 px-3 py-4">
-                    <mat-icon>logout</mat-icon>
-                    Logout
-                </button>
-            </div>
-        </div>
+
+        <app-nav-menu [active]="isDropdownActive"></app-nav-menu>
+
     </div>
 </mat-toolbar>

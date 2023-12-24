@@ -1,0 +1,14 @@
+<div class="bg-light py-2 px-3 rounded-3" *ngIf="image">
+    <div class="d-flex align-items-start">
+        <img [src]="imageUrl" class="rounded-circle me-4 object-fit-cover flex-shrink-0 " width="45" height="45">
+        <div class="d-flex align-items-center justify-content-between flex-fill">
+            <div class="pe-2">
+                <h3 class="mb-0 text-break " style="color:#444;">
+                    {{image.name}}</h3>
+                <h5 class="text-muted mb-0">{{image.size | BytesSize:2 }}</h5>
+            </div>
+            <mat-icon class="clickable text-body text-opacity-50 flex-shrink-0" *ngIf="!hideActions"
+                (click)="removeImage()">close</mat-icon>
+        </div>
+    </div>
+</div>

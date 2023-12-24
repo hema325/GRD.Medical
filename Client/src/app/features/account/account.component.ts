@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/account/user';
 import { AccountService } from 'src/app/services/account.service';
-import { password } from 'src/app/validators/password.validator';
-import { EditImageComponent } from './edit-image/edit-image.component';
-import { take } from 'rxjs';
+import { EditImageBottomSheetComponent } from './edit-image-bottom-sheet/edit-image-bottom-sheet.component';
+
 
 @Component({
   selector: 'app-account',
@@ -19,54 +15,15 @@ export class AccountComponent implements OnInit {
   user: User | null = null;
   tab = 0;
 
-  userForm = this.fb.group({
-    firstName: ['', [Validators.required, Validators.maxLength(20)]],
-    lastName: ['', [Validators.required, Validators.maxLength(20)]]
-  });
-
-  passwordForm = this.fb.group({
-    oldPassword: ['', Validators.required],
-    newPassword: ['', [Validators.required, password()]],
-  })
-
   constructor(private accountService: AccountService,
-    private fb: FormBuilder,
-    private router: Router,
-    private toastr: ToastrService,
     private bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
-    this.accountService.getDetails().subscribe(data => {
-      this.userForm.setValue({
-        firstName: data.firstName,
-        lastName: data.lastName
-      });
-      this.user = data;
-    });
-  }
-
-  updateDetails() {
-    this.accountService.update(this.userForm.value).subscribe(res => {
-      if (this.user) {
-        this.user.firstName = this.userForm.value.firstName!;
-        this.user.lastName = this.userForm.value.lastName!;
-      }
-      this.toastr.success('Updates saved successfully');
-    });
-  }
-
-  changePassword() {
-    this.accountService.changePassword(this.passwordForm.value).subscribe({
-      next: res => {
-        this.router.navigateByUrl("/account/login");
-        this.accountService.logout().pipe(take(1)).subscribe();
-        this.toastr.success('Password changed successfully');
-      }
-    })
+    this.accountService.getDetails().subscribe(data => this.user = data);
   }
 
   openBottomSheet() {
-    let sheet = this.bottomSheet.open(EditImageComponent);
+    let sheet = this.bottomSheet.open(EditImageBottomSheetComponent);
     sheet.afterDismissed().subscribe(res => {
       if (this.user && res)
         this.user.imageUrl = res
