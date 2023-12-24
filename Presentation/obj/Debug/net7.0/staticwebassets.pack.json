@@ -1,32 +1,32 @@
 {
   "Files": [
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\126.702bb6a11bc62808.js",
-      "PackagePath": "staticwebassets\\126.702bb6a11bc62808.js"
-    },
-    {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\129.849a11697727c260.js",
-      "PackagePath": "staticwebassets\\129.849a11697727c260.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\39.c3812d95d38a2fe9.js",
+      "PackagePath": "staticwebassets\\39.c3812d95d38a2fe9.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\3rdpartylicenses.txt",
       "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\496.ef965575969dcc5a.js",
-      "PackagePath": "staticwebassets\\496.ef965575969dcc5a.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\496.d8f7865eb34166ff.js",
+      "PackagePath": "staticwebassets\\496.d8f7865eb34166ff.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\498.e485eecd45573b40.js",
-      "PackagePath": "staticwebassets\\498.e485eecd45573b40.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\602.c4a32a32ed01faf9.js",
+      "PackagePath": "staticwebassets\\602.c4a32a32ed01faf9.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.279d93364925aa07.js",
-      "PackagePath": "staticwebassets\\760.279d93364925aa07.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.5e6da435b3371128.js",
+      "PackagePath": "staticwebassets\\760.5e6da435b3371128.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\87.bbfd8e839e6fd646.js",
-      "PackagePath": "staticwebassets\\87.bbfd8e839e6fd646.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\87.75cce3a6ab4f1f36.js",
+      "PackagePath": "staticwebassets\\87.75cce3a6ab4f1f36.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\998.67dc1f996bb04e5b.js",
+      "PackagePath": "staticwebassets\\998.67dc1f996bb04e5b.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\about.jpg",
@@ -49,28 +49,28 @@
       "PackagePath": "staticwebassets\\assets\\images\\server-error.png"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\common.2afd25eeeb44788d.js",
-      "PackagePath": "staticwebassets\\common.2afd25eeeb44788d.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\common.06f19fd9683972fc.js",
+      "PackagePath": "staticwebassets\\common.06f19fd9683972fc.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.f45ecceb6ef6d311.js",
-      "PackagePath": "staticwebassets\\main.f45ecceb6ef6d311.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.c9cbd3ccbc4704fa.js",
+      "PackagePath": "staticwebassets\\main.c9cbd3ccbc4704fa.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\polyfills.b21d18c38c3a54db.js",
       "PackagePath": "staticwebassets\\polyfills.b21d18c38c3a54db.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.69907d479857c5b0.js",
-      "PackagePath": "staticwebassets\\runtime.69907d479857c5b0.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.df70fca7da094b00.js",
+      "PackagePath": "staticwebassets\\runtime.df70fca7da094b00.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.ebb182ee50839ce2.css",
-      "PackagePath": "staticwebassets\\styles.ebb182ee50839ce2.css"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.a8824b8bd729412e.css",
+      "PackagePath": "staticwebassets\\styles.a8824b8bd729412e.css"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",

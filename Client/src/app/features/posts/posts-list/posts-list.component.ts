@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { PaginatedList } from 'src/app/models/paginated-list';
 import { Post } from 'src/app/models/posts/post';
 import { PostFilter } from 'src/app/models/post-filter';
@@ -15,6 +15,8 @@ export class PostsListComponent {
   paginatedList?: PaginatedList<Post>;
   commentSections: boolean[] = [false]
 
+  @Input() ownerId: number | null = null;
+
   postFilter: PostFilter = {
     ownerId: null,
     pageNumber: 1,
@@ -23,6 +25,10 @@ export class PostsListComponent {
 
 
   constructor(private postsService: PostsService) { }
+
+  ngOnChanges() {
+    this.postFilter.ownerId = this.ownerId;
+  }
 
   ngOnInit() {
     this.getPosts();

@@ -14,6 +14,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { UpdateAccountDetailsComponent } from './update-account-details/update-account-details.component';
 import { ChangeAccountPasswordComponent } from './change-account-password/change-account-password.component';
 import { EditImageBottomSheetComponent } from './edit-image-bottom-sheet/edit-image-bottom-sheet.component';
+import { PostsModule } from '../posts/posts.module';
 
 
 
@@ -36,7 +37,8 @@ import { EditImageBottomSheetComponent } from './edit-image-bottom-sheet/edit-im
     ReactiveFormsModule,
     SharedModule,
     ReactiveFormsModule,
-    CoreModule
+    CoreModule,
+    PostsModule
   ]
 })
 export class AccountModule { }

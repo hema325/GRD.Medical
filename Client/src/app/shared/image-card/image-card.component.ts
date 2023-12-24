@@ -11,10 +11,11 @@ export class ImageCardComponent {
   @Input() hideActions: boolean = false;
   @Output() imageRemoved = new EventEmitter();
 
-  imageUrl: string | null = null;
+  imageUrl: string = '';
 
   ngOnChanges() {
     if (this.image) {
+      URL.revokeObjectURL(this.imageUrl);
       this.imageUrl = URL.createObjectURL(this.image);
     }
   }

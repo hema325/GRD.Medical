@@ -26,6 +26,10 @@ import { CommentsListComponent } from './comments-list/comments-list.component';
     SharedModule,
     CoreModule,
     FormsModule
+  ],
+  exports: [
+    CreatePostComponent,
+    PostsListComponent
   ]
 })
 export class PostsModule { }

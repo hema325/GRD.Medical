@@ -14,8 +14,10 @@ export class AudioCardComponent {
   }
 
   ngOnChanges() {
-    if (this.audio)
+    if (this.audio) {
+      URL.revokeObjectURL(this.player.src);
       this.player.src = URL.createObjectURL(this.audio);
+    }
   }
 
   playPause() {
