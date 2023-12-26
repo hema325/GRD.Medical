@@ -1,68 +1,70 @@
 <ng-container *ngIf="paginatedList">
-    <div class="mt-3 d-flex" *ngFor="let comment of paginatedList.data">
-        <a>
-            <img [src]="comment.owner.imageUrl ?? 'assets/images/profile.png'" width="35" height="35"
-                class="rounded-circle">
-        </a>
+    <ng-container *ngFor="let comment of paginatedList.data">
+        <div class="py-1 my-2 d-flex"
+            (longPress)="comment.owner.id == currentAuth!.id ? openCommentBottomSheet(comment) : null">
+            <a>
+                <img [src]="comment.owner.imageUrl ?? 'assets/images/profile.png'" width="35" height="35"
+                    class="rounded-circle me-2">
+            </a>
 
-        <div class="ps-2 flex-fill">
-            <div class="d-flex justify-content-between align-items-center mb-1">
-                <a class="fw-semibold  text-decoration-none" style="color: #3f51b5;">{{comment.owner.firstName}}
-                    {{comment.owner.lastName}}</a>
-                <span class="small text-body text-opacity-50">{{comment.commentedOn | date}}</span>
-            </div>
-            <p class="my-1 small" *ngIf="comment.content">{{comment.content}}</p>
-            <div class="my-2" *ngIf="comment.media && comment.media.type == 'Image'">
-                <img [src]="comment.media.url" class="rounded-3 object-fit-cover"
-                    style="max-height: 150px;max-width: 100%;">
-            </div>
-            <div class="d-flex align-items-center small reply text-body text-opacity-50">
-                <mat-icon style="width: 20px;height: 20px;font-size:20px;">reply</mat-icon> <span class="ms-1"
-                    (click)="reply.hidden = false">Reply</span>
-            </div>
-
-            <!-- Comment Replies -->
-
-            <div class="my-3">
-
-                <!-- Comment replay form -->
-                <div #reply hidden>
-                    <app-create-comment [postId]="postId" [replyTo]="comment.id"></app-create-comment>
+            <div class="flex-fill">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <a class="fw-semibold  text-decoration-none" style="color: #3f51b5;">{{comment.owner.firstName}}
+                        {{comment.owner.lastName}}</a>
+                    <span class="small text-body text-opacity-50">{{comment.commentedOn | timeago}}</span>
                 </div>
-
-                <!-- Replies comments -->
-
-                <div class="mt-3 d-flex" *ngFor="let reply of comment.replies">
-                    <a>
-                        <img [src]="reply.owner.imageUrl ?? 'assets/images/profile.png'" width="35" height="35"
-                            class="rounded-circle">
-                    </a>
-
-                    <div class="ps-2 flex-fill">
-                        <div class="d-flex justify-content-between align-items-center mb-1">
-                            <a class="fw-semibold  text-decoration-none"
-                                style="color: #3f51b5;">{{reply.owner.firstName}}
-                                {{reply.owner.lastName}}</a>
-                            <span class="small text-body text-opacity-50">13 March</span>
-                        </div>
-                        <p class="my-1 small" *ngIf="reply.content">{{reply.content}}</p>
-                        <div class="my-2 w-100" *ngIf="reply.media && reply.media.type == 'Image'">
-                            <img [src]="reply.media.url" class="rounded-3 object-fit-cover"
-                                style="max-height: 150px;max-width: 100%;">
-                        </div>
-                    </div>
+                <p class="my-1 small" *ngIf="comment.content" [innerText]="comment.content"></p>
+                <div class="my-2" *ngIf="comment.media && comment.media.type == 'Image'">
+                    <img [src]="comment.media.url" class="rounded-3 object-fit-cover"
+                        style="max-height: 150px;max-width: 100%;">
                 </div>
-
-                <!-- more replies -->
-
-                <div class="d-flex  mt-2 align-items-center fw-semibold text-body text-opacity-50"
-                    *ngIf="comment.replies.length < comment.totalRepliesCount" style="margin-left: 43px;"
-                    (click)="loadMoreReplies(comment)">
-                    <span class="clickable">Load more replies</span>
+                <div class="d-flex align-items-center small reply text-body text-opacity-50">
+                    <mat-icon style="width: 20px;height: 20px;font-size:20px;">reply</mat-icon> <span class="ms-1"
+                        (click)="reply.hidden = false">Reply</span>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div style="margin-left: 43px;">
+
+            <!-- replay form -->
+            <div #reply hidden>
+                <app-create-comment [postId]="postId" [replyTo]="comment.id"></app-create-comment>
+            </div>
+
+            <!-- Replies -->
+
+            <div class="py-1 my-2 d-flex" *ngFor="let reply of comment.replies"
+                (longPress)="reply.owner.id == currentAuth!.id ? openCommentBottomSheet(reply) : null">
+                <a>
+                    <img [src]="reply.owner.imageUrl ?? 'assets/images/profile.png'" width="35" height="35"
+                        class="rounded-circle">
+                </a>
+
+                <div class="ps-2 flex-fill">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <a class="fw-semibold  text-decoration-none" style="color: #3f51b5;">{{reply.owner.firstName}}
+                            {{reply.owner.lastName}}</a>
+                        <span class="small text-body text-opacity-50">{{ reply.commentedOn | timeago
+                            }}</span>
+                    </div>
+                    <p class="my-1 small" *ngIf="reply.content" [innerText]="reply.content"></p>
+                    <div class="my-2 w-100" *ngIf="reply.media && reply.media.type == 'Image'">
+                        <img [src]="reply.media.url" class="rounded-3 object-fit-cover"
+                            style="max-height: 150px;max-width: 100%;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- more replies -->
+
+            <div class="d-flex  mt-2 align-items-center fw-semibold text-body text-opacity-50"
+                *ngIf="comment.replies.length < comment.totalRepliesCount" style="margin-left: 43px;"
+                (click)="loadMoreReplies(comment)">
+                <span class="clickable">Load more replies</span>
+            </div>
+        </div>
+    </ng-container>
 
     <!-- More comments -->
     <div class="d-flex mt-2 justify-content-center  align-items-center fw-semibold text-body text-opacity-50"

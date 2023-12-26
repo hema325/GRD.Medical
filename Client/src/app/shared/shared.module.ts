@@ -4,31 +4,40 @@ import { FormInputComponent } from './form-input/form-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { EmojisListComponent } from './emojis-list/emojis-list.component';
-import { BytesSizePipe } from '../pipes/bytes-size.pipe';
 import { ImageCardComponent } from './image-card/image-card.component';
 import { AudioCardComponent } from './audio-card/audio-card.component';
+import { LongPressDirective } from '../directives/long-press.directive';
+import { BytesSizePipe } from '../pipes/bytes-size.pipe';
+import { AutoResizeTextAreaDirective } from '../directives/auto-resize-text-area.directive';
+import { TimeagoModule } from "ngx-timeago";
 
 
 @NgModule({
   declarations: [
     FormInputComponent,
     EmojisListComponent,
-    BytesSizePipe,
     ImageCardComponent,
-    AudioCardComponent
+    AudioCardComponent,
+    LongPressDirective,
+    BytesSizePipe,
+    AutoResizeTextAreaDirective
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    TimeagoModule.forChild()
   ],
   exports: [
     FormInputComponent,
     MaterialModule,
     EmojisListComponent,
-    BytesSizePipe,
     ImageCardComponent,
-    AudioCardComponent
+    AudioCardComponent,
+    LongPressDirective,
+    BytesSizePipe,
+    AutoResizeTextAreaDirective,
+    TimeagoModule
   ]
 })
 export class SharedModule { }

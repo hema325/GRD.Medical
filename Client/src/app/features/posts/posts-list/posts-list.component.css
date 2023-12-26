@@ -35,3 +35,11 @@
 .clickable:hover {
     color: #3f51b5 !important;
 }
+
+.show-more {
+    cursor: pointer;
+}
+
+.show-more:hover {
+    color: #3f51b5 !important;
+}

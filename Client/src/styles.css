@@ -58,3 +58,13 @@ body {
 .clickable:hover {
     color: #3f51b5 !important;
 }
+
+.long-press {
+    cursor: pointer;
+    transition: all 400ms;
+    border-radius: 5px;
+}
+
+.long-press:active {
+    background-color: #f8f9fa;
+}

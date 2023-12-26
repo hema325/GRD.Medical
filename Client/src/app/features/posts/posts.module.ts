@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
+import { EditPostBottomSheetComponent } from './edit-post-bottom-sheet/edit-post-bottom-sheet.component';
+import { EditCommentBottomSheetComponent } from './edit-comment-bottom-sheet/edit-comment-bottom-sheet.component';
 
 
 
@@ -18,7 +20,9 @@ import { CommentsListComponent } from './comments-list/comments-list.component';
     CreatePostComponent,
     CreateCommentComponent,
     PostsListComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    EditPostBottomSheetComponent,
+    EditCommentBottomSheetComponent
   ],
   imports: [
     CommonModule,

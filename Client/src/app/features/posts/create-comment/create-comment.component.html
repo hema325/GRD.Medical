@@ -6,7 +6,7 @@
             <textarea type="text"
                 class="form-control bg-white bg-opacity-15 position-relative overflow-auto hide-scrollbar" #commentInput
                 placeholder="Write a comment..." contenteditable [(ngModel)]="createCommentObj.content"
-                (focus)="extandTextArea()" (blur)="minimizeTextArea();" (input)="autoResizeTextArea()">
+                AutoResizeTextArea defaultHeight="38px">
             </textarea>
 
             <div class="position-absolute end-0 text-center d-flex me-2 " style="top:9px;">
@@ -23,7 +23,7 @@
                     <input type="file" (change)="setImages($event);" hidden #postImages accept="image/*"></a>
 
                 <button class="text-body text-opacity-50 me-2 d-flex clickable border-0 bg-transparent"
-                    (click)="createComment()" [disabled]="!isCommentValid()"><mat-icon
+                    (click)="createComment();isEmojiListActive=false;" [disabled]="!isCommentValid()"><mat-icon
                         style="width: fit-content; height: fit-content; font-size: 20px;">send</mat-icon></button>
 
             </div>

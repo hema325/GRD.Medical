@@ -1,7 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Comment } from 'src/app/models/comments/comment';
 import { PaginatedList } from 'src/app/models/paginated-list';
 import { CommentsService } from 'src/app/services/comments.service';
+import { EditCommentBottomSheetComponent } from '../edit-comment-bottom-sheet/edit-comment-bottom-sheet.component';
+import { AuthResult } from 'src/app/models/account/auth-result';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-comments-list',
@@ -17,13 +21,42 @@ export class CommentsListComponent {
     pageSize: 6
   }
 
+  currentAuth: AuthResult | null = null;
+
   paginatedList: PaginatedList<Comment> | null = null;
 
-  constructor(private commentsService: CommentsService) { }
+  constructor(private commentsService: CommentsService,
+    private commentBottomSheet: MatBottomSheet,
+    private accountService: AccountService) { }
 
   ngOnInit() {
     this.loadComments();
     this.addCreatedComment();
+    this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
+  }
+
+  openCommentBottomSheet(comment: Comment) {
+    const bottomSheet = this.commentBottomSheet.open(EditCommentBottomSheetComponent, { data: comment.id });
+    bottomSheet.afterDismissed().subscribe(res => {
+      if (res.commentDeleted)
+        this.removeComment(comment);
+    });
+  }
+
+  removeComment(comment: Comment) {
+    if (!this.paginatedList)
+      return;
+
+    const comments = this.paginatedList.data;
+    if (comment.replyTo) {
+      const mainComment = comments.find(c => c.id == comment.replyTo);
+      if (mainComment) {
+        mainComment.replies.splice(mainComment.replies.findIndex(r => r.id == comment.id), 1);
+        mainComment.totalRepliesCount -= 1;
+      }
+    }
+    else
+      comments.splice(comments.findIndex(c => c.id == comment.id), 1);
   }
 
   loadComments() {

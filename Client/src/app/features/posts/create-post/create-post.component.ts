@@ -41,6 +41,7 @@ export class CreatePostComponent {
 
   setImages(e: any) {
     this.createPostObj.images = [...e.target?.files];
+    this.postTextarea?.nativeElement.focus();
   }
 
   removeImage(index: number) {

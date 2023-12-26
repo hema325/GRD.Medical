@@ -9,7 +9,8 @@ namespace Application.Comments.Commands.CreateComment
         {
             RuleFor(c => c.PostId)
                 .NotEmpty()
-                .MustAsync(async (id, ct) => await context.Posts.AnyAsync(p => p.Id == id));
+                .MustAsync(async (id, ct) => await context.Posts.AnyAsync(p => p.Id == id))
+                .WithMessage("PostId wasn't found.");
 
             RuleFor(c => c.Content)
                 .MaximumLength(1500);

@@ -9,11 +9,13 @@
                     <div class="fw-bold"><a href="#" class="text-decoration-none"
                             style="color: #3f51b5">{{post.owner.firstName}} {{post.owner.lastName}}</a>
                     </div>
-                    <div class="small text-body text-opacity-50">{{ post.postedOn | date }}</div>
+                    <div class="small text-body text-opacity-50">{{ post.postedOn | timeago }}</div>
                 </div>
+                <button mat-icon-button *ngIf="post.owner.id == currentAuth?.id"
+                    (click)="openPostBottomSheet(post.id)"><mat-icon>more_horiz</mat-icon></button>
             </div>
 
-            <p *ngIf="post.content">{{post.content}}</p>
+            <p *ngIf="post.content" [innerText]="post.content"></p>
             <div class="row g-1" [class]="post.medias.length < 3 ?'row-cols-1':'row-cols-2'" *ngIf="post.medias">
                 <div class="col flex-fill" *ngFor="let media of post.medias">
                     <img [src]="media.url" *ngIf="media.type=='Image'" class="w-100 object-fit-cover rounded-1"

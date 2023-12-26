@@ -1,7 +1,7 @@
 textarea {
     padding-right: 70px;
     border-radius: 20px;
-    max-height: 150px;
+    max-height: 100px;
     resize: none;
     height: 38px;
 }

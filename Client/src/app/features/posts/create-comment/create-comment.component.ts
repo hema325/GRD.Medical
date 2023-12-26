@@ -33,6 +33,8 @@ export class CreateCommentComponent {
     return this.createCommentObj.content || this.createCommentObj.image;
   }
 
+  @ViewChild('commentInput') commentInput?: ElementRef;
+
   setImages(event: any) {
     if (!event.target)
       return;
@@ -41,43 +43,8 @@ export class CreateCommentComponent {
     this.commentInput?.nativeElement.focus();
   }
 
-  @ViewChild('commentInput') commentInput?: ElementRef;
-
   removeImage() {
     this.createCommentObj.image = null;
-
-    if (!this.commentInput)
-      return;
-
-    if (!this.createCommentObj.content && !this.createCommentObj.image)
-      this.commentInput.nativeElement.removeAttribute('style');
-  }
-
-  textareaHeight: number = 100;
-
-  extandTextArea() {
-    if (!this.commentInput)
-      return;
-
-    this.commentInput.nativeElement.style.height = this.textareaHeight + 'px'
-  }
-
-  autoResizeTextArea() {
-    if (!this.commentInput)
-      return;
-
-    const ele = this.commentInput.nativeElement;
-
-    if (ele.scrollHeight >= this.textareaHeight)
-      ele.style.height = ele.scrollHeight + 'px';
-  }
-
-  minimizeTextArea() {
-    if (!this.commentInput)
-      return;
-
-    if (!this.createCommentObj.content && !this.createCommentObj.image && !this.isEmojiListActive)
-      this.commentInput.nativeElement.removeAttribute('style');
   }
 
   insertText(text: string) {
@@ -113,17 +80,13 @@ export class CreateCommentComponent {
   }
 
   createComment() {
-
     this.commentsService.create(this.createCommentObj)
-      .subscribe(comment => this.resetTextArea());
+      .subscribe(() => this.resetTextArea());
   }
 
   resetTextArea() {
     this.createCommentObj.content = '';
     this.createCommentObj.image = null;
-
-    this.isEmojiListActive = false;
-    this.minimizeTextArea();
   }
 }
 

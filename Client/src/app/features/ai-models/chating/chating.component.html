@@ -60,11 +60,12 @@
                 </div>
             </div>
 
-            <div class="text-muted d-flex justify-content-start align-items-center pt-3 mt-2">
+            <div class="text-muted d-flex justify-content-start align-items-end pt-3 mt-2">
                 <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" alt="avatar 3"
-                    class="rounded-circle flex-shrink-0" width="45px" height="45px">
-                <input type="text" class="form-control form-control-lg mx-2" id="exampleFormControlInput2"
-                    placeholder="Type message">
+                    class="rounded-circle flex-shrink-0" width="46px" height="46px">
+                <textarea type="text" class="form-control form-control-lg mx-2 hide-scrollbar"
+                    id="exampleFormControlInput2" placeholder="Type message" AutoResizeTextArea defaultHeight="48px"
+                    style="resize: none;height: 48px;max-height: 100px;border-radius: 20px;"></textarea>
                 <button mat-icon-button color="primary"><mat-icon>send</mat-icon></button>
             </div>
         </div>

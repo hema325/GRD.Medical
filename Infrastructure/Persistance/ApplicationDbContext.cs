@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Common;
+using Infrastructure.Persistance.Conversions;
 using Infrastructure.Persistance.Seeds;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,14 @@ namespace Infrastructure.Persistance
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             ModelSeeder.Seed(modelBuilder);
+        }
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            configurationBuilder.Properties<DateTime>()
+                .HaveConversion<DateTimeToUtcConverter>();
+
+            base.ConfigureConventions(configurationBuilder);
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
