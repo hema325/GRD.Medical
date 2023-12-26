@@ -90,7 +90,8 @@ export class CommentsListComponent {
         else {
           const mainComment = this.paginatedList.data.find(c => c.id == comment.replyTo);
           if (mainComment) {
-            mainComment.replies = [comment, ...mainComment.replies.slice(0, this.commentFilter.pageSize - 1)]
+            // mainComment.replies = [comment, ...mainComment.replies.slice(0, this.commentFilter.pageSize - 1)]
+            mainComment.replies.push(comment);
             mainComment.totalRepliesCount += 1;
           }
         }

@@ -19,10 +19,14 @@ namespace Application.Comments.Queries.GetComments
 
         public async Task<PaginatedList<CommentDto>> Handle(GetCommentsQuery request, CancellationToken cancellationToken)
         {
-            var comments = await _context.Comments
+            var query = _context.Comments
                 .Where(c => c.PostId == request.PostId && c.ReplyTo == request.ReplyTo)
-                .OrderByDescending(c => c.CommentedOn)
-                .ProjectTo<CommentDto>(_mapper.ConfigurationProvider)
+                .AsQueryable();
+                
+            if(request.ReplyTo == null)
+                query = query.OrderByDescending(c => c.CommentedOn);
+
+            var comments = await query.ProjectTo<CommentDto>(_mapper.ConfigurationProvider)
                 .PaginateAsync(request.PageNumber, request.PageSize);
 
             ResolveImagesUrls(comments);
