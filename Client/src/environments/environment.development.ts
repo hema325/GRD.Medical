@@ -1,5 +1,6 @@
 export const environment = {
     baseUrl: 'https://localhost:7295/api',
-    // baseUrl: ' https://8238-197-35-173-216.ngrok-free.app/api', // for testing purposes only
-    AIModelsBaseUrl: 'http://localhost:5000'
+    // baseUrl: 'https://47da-197-35-73-138.ngrok-free.app/api',
+    AIModelsBaseUrl: 'http://localhost:5000',
+    isProduction: false
 };

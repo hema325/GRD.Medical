@@ -22,9 +22,11 @@ namespace Application.Comments.Queries.GetComments
             var query = _context.Comments
                 .Where(c => c.PostId == request.PostId && c.ReplyTo == request.ReplyTo)
                 .AsQueryable();
-                
-            if(request.ReplyTo == null)
+
+            if (request.ReplyTo == null)
                 query = query.OrderByDescending(c => c.CommentedOn);
+            else
+                query = query.OrderBy(c => c.CommentedOn);
 
             var comments = await query.ProjectTo<CommentDto>(_mapper.ConfigurationProvider)
                 .PaginateAsync(request.PageNumber, request.PageSize);
@@ -53,6 +55,4 @@ namespace Application.Comments.Queries.GetComments
         }
 
     }
-
-
 }
