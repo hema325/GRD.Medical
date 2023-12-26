@@ -2,13 +2,13 @@
 
 <div class="section">
     <div class="container">
-        <div class="bg-white rounded-3 shadow-sm p-4 my-5">
+        <div class="bg-white rounded-3 shadow-sm p-4 my-5" (fileDropped)="check($event)">
             <div class="w-100 rounded-1 position-relative p-4" style="cursor: pointer;border:1px dashed #9d9fa5"
                 (click)="fileInput.click()">
                 <mat-icon style="color: #9d9fa5;font-size: 80px;width: 80px;height: 80px;"
                     class="m-auto d-block">cloud_upload</mat-icon>
                 <h4 class="text-muted text-center">Choose image file</h4>
-                <input type="file" (change)="image = fileInput.files?.[0];" hidden #fileInput accept="image/*">
+                <input type="file" (change)="check($event)" hidden #fileInput accept="image/*">
             </div>
 
             <div class="bg-light py-2 px-3 rounded-3 mt-3" *ngIf="image">

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="bg-white rounded-3 shadow-sm p-4 my-5">
             <div class="w-100 p-4 rounded-1" style="cursor: pointer;border:1px dashed #9d9fa5;"
-                (click)="fileInput.click()">
+                (fileDropped)="check($event)" (click)="fileInput.click()">
                 <mat-icon style="color: #9d9fa5;font-size: 80px;width: 80px;height: 80px;"
                     class="m-auto d-block">cloud_upload</mat-icon>
                 <h4 class="text-muted text-center">Choose voice file</h4>

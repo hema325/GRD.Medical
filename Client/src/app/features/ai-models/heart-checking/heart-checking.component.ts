@@ -16,7 +16,16 @@ export class HeartCheckingComponent {
   constructor(private AIModelsService: AiModelsService) { }
 
   check(event: any) {
-    this.voice = event.target?.files[0];
+
+    if (event instanceof FileList) {
+      if (event[0].type.includes('audio'))
+        this.voice = event[0];
+      else
+        return;
+    }
+    else
+      this.voice = event.target?.files[0];
+
     if (this.voice) {
       this.AIModelsService.checkHeart(this.voice)
         .pipe(take(1)).subscribe(res => this.response = res);

@@ -10,6 +10,7 @@ import { LongPressDirective } from '../directives/long-press.directive';
 import { BytesSizePipe } from '../pipes/bytes-size.pipe';
 import { AutoResizeTextAreaDirective } from '../directives/auto-resize-text-area.directive';
 import { TimeagoModule } from "ngx-timeago";
+import { FileDroppedDirective } from '../directives/file-dropped.directive';
 
 
 @NgModule({
@@ -20,13 +21,14 @@ import { TimeagoModule } from "ngx-timeago";
     AudioCardComponent,
     LongPressDirective,
     BytesSizePipe,
-    AutoResizeTextAreaDirective
+    AutoResizeTextAreaDirective,
+    FileDroppedDirective
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    TimeagoModule.forChild()
+    TimeagoModule.forChild(),
   ],
   exports: [
     FormInputComponent,
@@ -37,7 +39,8 @@ import { TimeagoModule } from "ngx-timeago";
     LongPressDirective,
     BytesSizePipe,
     AutoResizeTextAreaDirective,
-    TimeagoModule
+    TimeagoModule,
+    FileDroppedDirective
   ]
 })
 export class SharedModule { }

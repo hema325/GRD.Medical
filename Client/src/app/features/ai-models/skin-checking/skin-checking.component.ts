@@ -11,4 +11,16 @@ export class SkinCheckingComponent {
   image: any = null;
   response: AiModelsResponse | null = null;
 
+
+  check(event: any) {
+    if (event instanceof FileList) {
+      if (event[0].type.includes('image'))
+        this.image = event[0];
+      else
+        return;
+    }
+    else
+      this.image = event.target?.files[0];
+  }
+
 }

@@ -5,7 +5,7 @@ import { PostsRoutingModule } from './posts-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModule } from 'src/app/core/core.module';
 import { CreatePostComponent } from './create-post/create-post.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
