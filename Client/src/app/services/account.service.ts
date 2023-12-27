@@ -84,6 +84,10 @@ export class AccountService {
     return this.httpClient.get<User>(this.baseUrl);
   }
 
+  getUser(id: number) {
+    return this.httpClient.get<User>(this.baseUrl + '/' + id);
+  }
+
   update(data: any) {
     return this.httpClient.put(this.baseUrl, data).pipe(map(res => {
       let auth = this.currentAuthResult;

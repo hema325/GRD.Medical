@@ -1,0 +1,23 @@
+<app-header title="Profile"></app-header>
+
+<div class="section ">
+    <div class="container" *ngIf="user">
+        <div class=" shadow-sm bg-white rounded-3 mt-5 mb-3">
+            <div class="p-4">
+                <div class="pe-md-4 h-100 no-border d-flex flex-column align-items-center ">
+                    <div style="width: fit-content; cursor: pointer;" class="m-auto img-holder">
+                        <img [src]="user.imageUrl? user.imageUrl: 'assets/images/profile.png'"
+                            style="width: 100px;height: 100px;" class="rounded-circle object-fit-cover ">
+                    </div>
+                    <h2 class="text-center mt-2 mb-0">{{user.firstName}} {{user.lastName}}</h2>
+                    <h5 class="text-center text-muted mb-0" style="margin-top: -5px;">{{user.email}}</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-5 mt-3">
+            <app-posts-list [ownerId]="user.id"></app-posts-list>
+        </div>
+
+    </div>
+</div>

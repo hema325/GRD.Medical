@@ -12,7 +12,6 @@ import { AutoResizeTextAreaDirective } from '../directives/auto-resize-text-area
 import { TimeagoModule } from "ngx-timeago";
 import { FileDroppedDirective } from '../directives/file-dropped.directive';
 
-
 @NgModule({
   declarations: [
     FormInputComponent,
@@ -22,13 +21,13 @@ import { FileDroppedDirective } from '../directives/file-dropped.directive';
     LongPressDirective,
     BytesSizePipe,
     AutoResizeTextAreaDirective,
-    FileDroppedDirective
+    FileDroppedDirective,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    TimeagoModule.forChild(),
+    TimeagoModule.forChild()
   ],
   exports: [
     FormInputComponent,

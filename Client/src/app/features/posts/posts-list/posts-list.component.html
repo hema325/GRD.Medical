@@ -3,11 +3,12 @@
         *ngFor="let post of paginatedList.data; let index = index">
         <div class="card-body w-100">
             <div class="d-flex align-items-center mb-3">
-                <a href="#"><img [src]="post.owner.imageUrl??'assets/images/profile.png'" alt="" width="50" height="50"
+                <a [routerLink]="currentAuth?.id != post.owner.id ? '/account/'+post.owner.id:'/account'"><img
+                        [src]="post.owner.imageUrl??'assets/images/profile.png'" alt="" width="50" height="50"
                         class="rounded-circle" /></a>
                 <div class="flex-fill ps-2">
-                    <div class="fw-bold"><a href="#" class="text-decoration-none"
-                            style="color: #3f51b5">{{post.owner.firstName}} {{post.owner.lastName}}</a>
+                    <div class="fw-bold"><a class="text-decoration-none" style="color: #3f51b5">{{post.owner.firstName}}
+                            {{post.owner.lastName}}</a>
                     </div>
                     <div class="small text-body text-opacity-50">{{ post.postedOn | timeago }}</div>
                 </div>

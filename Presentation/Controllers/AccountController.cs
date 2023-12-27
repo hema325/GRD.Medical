@@ -12,6 +12,7 @@ using Application.Account.Commands.UploadAccountImage;
 using Application.Account.Queries;
 using Application.Account.Queries.CheckEmailDuplication;
 using Application.Account.Queries.GetCurrentUser;
+using Application.Account.Queries.GetUser;
 using Application.Account.Queries.SendEmailConfirmation;
 using Application.Account.Queries.SendEmailResetPassword;
 using Application.Common.Models;
@@ -114,6 +115,14 @@ namespace Presentation.Controllers
         public async Task<IActionResult> CurrentUserAsync()
         {
             return Ok(await _sender.Send(new GetCurrentUserQuery()));
+        }
+        
+        [HttpGet("{Id}")]
+        [ProducesResponseType(typeof(UserDto),StatusCodes.Status200OK)]
+        [Authorize]
+        public async Task<IActionResult> CurrentUserAsync([FromRoute] GetUserQuery request)
+        {
+            return Ok(await _sender.Send(request));
         }
 
         [HttpPost("uploadImage")]

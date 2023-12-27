@@ -2,7 +2,7 @@
     <ng-container *ngFor="let comment of paginatedList.data">
         <div class="py-1 my-2 d-flex"
             (longPress)="comment.owner.id == currentAuth!.id ? openCommentBottomSheet(comment) : null">
-            <a>
+            <a [routerLink]="currentAuth?.id != comment.owner.id ? '/account/'+comment.owner.id:'/account'">
                 <img [src]="comment.owner.imageUrl ?? 'assets/images/profile.png'" width="35" height="35"
                     class="rounded-circle me-2">
             </a>
@@ -36,7 +36,7 @@
 
             <div class="py-1 my-2 d-flex" *ngFor="let reply of comment.replies"
                 (longPress)="reply.owner.id == currentAuth!.id ? openCommentBottomSheet(reply) : null">
-                <a>
+                <a [routerLink]="currentAuth?.id != reply.owner.id ? '/account/'+reply.owner.id:'/account'">
                     <img [src]="reply.owner.imageUrl ?? 'assets/images/profile.png'" width="35" height="35"
                         class="rounded-circle">
                 </a>

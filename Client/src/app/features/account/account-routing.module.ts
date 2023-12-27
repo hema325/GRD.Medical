@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { authGuard } from 'src/app/guards/auth.guard';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes = [
   { path: '', component: AccountComponent, canActivate: [authGuard] },
@@ -13,6 +14,7 @@ const routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'confirm-email', component: ConfirmEmailComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  { path: ':id', component: UserProfileComponent, canActivate: [authGuard] }
 ]
 
 @NgModule({

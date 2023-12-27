@@ -44,6 +44,17 @@ export class PostsListComponent {
     this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
   }
 
+  // openLightBox(post: Post, curIdx: number = 0) {
+  //   const images = post.medias.filter(m => m.type == 'Image').map(m => {
+  //     return {
+  //       src: m.url,
+  //       thumb: 'null',
+  //     }
+  //   });
+
+  //   this.lightbox.open(images, curIdx);
+  // }
+
   openPostBottomSheet(postId: number) {
     const bottomSheet = this.postBottomSheet.open(EditPostBottomSheetComponent, { data: postId });
     bottomSheet.afterDismissed().subscribe(res => {
