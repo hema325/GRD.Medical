@@ -7,6 +7,8 @@ import { AuthResult } from 'src/app/models/account/auth-result';
 import { AccountService } from 'src/app/services/account.service';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { EditPostBottomSheetComponent } from '../edit-post-bottom-sheet/edit-post-bottom-sheet.component';
+import { environment } from 'src/environments/environment.development';
+import { Media } from 'src/app/models/media';
 
 @Component({
   selector: 'app-posts-list',
@@ -14,7 +16,7 @@ import { EditPostBottomSheetComponent } from '../edit-post-bottom-sheet/edit-pos
   styleUrls: ['./posts-list.component.css']
 })
 export class PostsListComponent {
-
+  defaultUserImageUrl = environment.defaultUserImageUrl;
   preventLoading = false;
   paginatedList?: PaginatedList<Post>;
   commentSections: boolean[] = [false]
@@ -27,7 +29,6 @@ export class PostsListComponent {
     pageNumber: 1,
     pageSize: 6
   }
-
 
   constructor(private postsService: PostsService,
     private accountService: AccountService,
@@ -44,16 +45,9 @@ export class PostsListComponent {
     this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
   }
 
-  // openLightBox(post: Post, curIdx: number = 0) {
-  //   const images = post.medias.filter(m => m.type == 'Image').map(m => {
-  //     return {
-  //       src: m.url,
-  //       thumb: 'null',
-  //     }
-  //   });
-
-  //   this.lightbox.open(images, curIdx);
-  // }
+  getMediaUrls(medias: Media[]) {
+    return medias.map(m => m.url);
+  }
 
   openPostBottomSheet(postId: number) {
     const bottomSheet = this.postBottomSheet.open(EditPostBottomSheetComponent, { data: postId });

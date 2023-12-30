@@ -12,13 +12,12 @@ export class UserProfileComponent {
 
   user: User | null = null;
 
-
   constructor(private accountService: AccountService,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(id);
+
     if (id)
       this.accountService.getUser(+id).subscribe(user => this.user = user);
   }

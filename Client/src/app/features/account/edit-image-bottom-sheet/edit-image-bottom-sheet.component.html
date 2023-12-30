@@ -1,8 +1,15 @@
-<mat-nav-list style="width: 65vw;max-width: 800px;">
-    <a mat-list-item (click)="file.click()">
-        <span matListItemTitle class="d-flex align-items-center gap-2"><mat-icon>edit</mat-icon>Change Profile
+<mat-nav-list style="width: calc(100vw );max-width: 100%;">
+
+    <a mat-list-item mat-list-item-close (click)="showImage()">
+        <span matListItemTitle class="d-flex align-items-center gap-2"><mat-icon>image</mat-icon>Show
+            Profile
             Image</span>
-        <input hidden (input)="uploadImage($event)" type="file" #file accept="image/*">
+    </a>
+
+    <a mat-list-item mat-list-item-close (click)="uploadImage()">
+        <span matListItemTitle class="d-flex align-items-center gap-2"><mat-icon>photo_camera</mat-icon>Change
+            Profile
+            Image</span>
     </a>
 
     <a mat-list-item mat-list-item-close (click)="removeImage()">
@@ -10,4 +17,5 @@
             class="d-flex align-items-center gap-2"><mat-icon>delete</mat-icon>Remove Profile
             Image</span>
     </a>
+
 </mat-nav-list>

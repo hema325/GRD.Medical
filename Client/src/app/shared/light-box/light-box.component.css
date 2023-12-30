@@ -1,0 +1,31 @@
+.outlier {
+    background-color: rgb(0 0 0 / .8);
+    z-index: 2000;
+    opacity: 0%;
+    visibility: hidden;
+    transition: opacity, visibility, 400ms;
+}
+
+.outlier.active {
+    visibility: visible;
+    opacity: 100%;
+}
+
+.outlier img {
+    transform: scale(0);
+    transition: transform 400ms;
+}
+
+.outlier.active img {
+    transform: scale(1);
+}
+
+.close-btn {
+    cursor: pointer;
+    color: rgb(255, 255, 255, .7);
+    z-index: 10000;
+}
+
+.close-btn:hover {
+    color: #fff;
+}

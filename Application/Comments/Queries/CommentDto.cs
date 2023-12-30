@@ -21,7 +21,7 @@ namespace Application.Comments.Queries
             public Mapping()
             {
                 CreateMap<Comment, CommentDto>()
-                    .ForMember(dto => dto.Replies, opt => opt.MapFrom(c => c.Replies.OrderBy(c => c.CommentedOn).Take(1)))
+                    .ForMember(dto => dto.Replies, opt => opt.MapFrom(c => c.Replies.OrderByDescending(c => c.CommentedOn).Take(1)))
                     .ForMember(dto=>dto.TotalRepliesCount, opt=> opt.MapFrom(c=>c.Replies.Count())); // reslover won't work using this approach
             }
         }

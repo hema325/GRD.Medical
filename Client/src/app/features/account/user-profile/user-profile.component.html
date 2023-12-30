@@ -7,7 +7,9 @@
                 <div class="pe-md-4 h-100 no-border d-flex flex-column align-items-center ">
                     <div style="width: fit-content; cursor: pointer;" class="m-auto img-holder">
                         <img [src]="user.imageUrl? user.imageUrl: 'assets/images/profile.png'"
-                            style="width: 100px;height: 100px;" class="rounded-circle object-fit-cover ">
+                            style="width: 100px;height: 100px;" class="rounded-circle object-fit-cover "
+                            (click)="this.lighbox.active = true">
+                        <app-light-box [imagesUrl]="[user.imageUrl]" #lighbox></app-light-box>
                     </div>
                     <h2 class="text-center mt-2 mb-0">{{user.firstName}} {{user.lastName}}</h2>
                     <h5 class="text-center text-muted mb-0" style="margin-top: -5px;">{{user.email}}</h5>

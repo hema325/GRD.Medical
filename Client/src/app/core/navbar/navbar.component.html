@@ -19,7 +19,7 @@
     <div *ngIf="currentAuth">
         <button mat-button (click)="isDropdownActive = !isDropdownActive">
             {{currentAuth.name}}
-            <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" class="rounded-circle object-fit-cover"
+            <img [src]="currentAuth.imageUrl ?? defaultUserImageUrl" class="rounded-circle object-fit-cover"
                 style="width: 36px;height: 36px;">
         </button>
 

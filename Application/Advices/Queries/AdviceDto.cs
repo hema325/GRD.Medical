@@ -8,7 +8,7 @@ namespace Application.MedicalAdvices.Queries
         public int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public string? ImgUrl { get; set; }
+        public string? ImageUrl { get; set; }
         public DateTime PublishedOn { get; set; }
         public AuthorDto? Author { get; set; }
 
@@ -17,7 +17,7 @@ namespace Application.MedicalAdvices.Queries
             public Mapping()
             {
                 CreateMap<Advice, AdviceDto>()
-                    .ForMember(dest => dest.ImgUrl, opt => opt.MapFrom<ImageUrlResolver>());
+                    .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom<ImageUrlResolver>());
             }
         }
     }

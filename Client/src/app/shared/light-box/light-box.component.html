@@ -1,0 +1,11 @@
+<div class="position-fixed start-0 top-0 end-0 bottom-0 outlier row justify-content-center align-items-center"
+    [class.active]="active" #outlier>
+    <div #carouselContainer>
+        <owl-carousel-o [options]="customOptions" #carousel>
+            <ng-template carouselSlide *ngFor="let url of imagesUrl;let idx=index;" id="{{idx}}">
+                <img [src]="url" class="rounded-2  m-auto w-100 h-auto" style="max-width: 800px;max-height: 100vh;">
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+    <mat-icon class="fs-2 w-auto h-auto position-absolute top-0 end-0 close-btn m-3" (click)="close()">close</mat-icon>
+</div>

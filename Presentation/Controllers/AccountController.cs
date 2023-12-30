@@ -102,9 +102,9 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
-        [HttpGet("isEmailDuplicated")]
+        [HttpPost("isEmailDuplicated")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
-        public async Task<IActionResult> IsEmailExistsAsync([FromQuery] CheckEmailDuplicationCommand request)
+        public async Task<IActionResult> IsEmailExistsAsync(CheckEmailDuplicationCommand request)
         {
             return Ok(await _sender.Send(request));
         }
@@ -126,7 +126,7 @@ namespace Presentation.Controllers
         }
 
         [HttpPost("uploadImage")]
-        [ProducesResponseType(typeof(MediaDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(UploadAccountImageCommandDto), StatusCodes.Status200OK)]
         [Authorize]
         public async Task<IActionResult> UploadImage([FromForm] UploadAccountImageCommand request)
         {

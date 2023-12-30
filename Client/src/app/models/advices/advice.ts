@@ -4,7 +4,7 @@ export interface Advice {
     id: number
     title: string
     content: string
-    imgUrl: string
+    imageUrl: string
     publishedOn: string
     author: Author
 }

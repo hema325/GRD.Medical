@@ -77,7 +77,7 @@ export class AccountService {
   }
 
   isEmailDuplicated(email: string) {
-    return this.httpClient.get(this.baseUrl + '/isEmailDuplicated?email=' + email);
+    return this.httpClient.post(this.baseUrl + '/isEmailDuplicated', { email: email });
   }
 
   getDetails() {
@@ -124,7 +124,10 @@ export class AccountService {
   }
 
   uploadImage(data: any) {
-    return this.httpClient.post<Media>(this.baseUrl + '/uploadImage', data).pipe(map(res => {
+    var fd = new FormData();
+    fd.append('image', data);
+
+    return this.httpClient.post<Media>(this.baseUrl + '/uploadImage', fd).pipe(map(res => {
       let auth = this.currentAuthResult;
       if (auth) {
         auth.imageUrl = res.url;

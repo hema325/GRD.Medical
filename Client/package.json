@@ -11,7 +11,6 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.2.12",
-    "@angular/cdk": "^16.2.12",
     "@angular/common": "^16.2.0",
     "@angular/compiler": "^16.2.0",
     "@angular/core": "^16.2.0",
@@ -20,6 +19,8 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "@ngu/carousel": "^8.0.0",
+    "ngx-owl-carousel-o": "^16.0.0",
     "ngx-spinner": "^16.0.2",
     "ngx-timeago": "^3.0.0",
     "ngx-toastr": "^18.0.0",

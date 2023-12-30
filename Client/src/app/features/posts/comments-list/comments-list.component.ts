@@ -6,6 +6,7 @@ import { CommentsService } from 'src/app/services/comments.service';
 import { EditCommentBottomSheetComponent } from '../edit-comment-bottom-sheet/edit-comment-bottom-sheet.component';
 import { AuthResult } from 'src/app/models/account/auth-result';
 import { AccountService } from 'src/app/services/account.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-comments-list',
@@ -14,6 +15,7 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class CommentsListComponent {
 
+  defaultUserImageUrl = environment.defaultUserImageUrl;
   @Input() postId: number = 0;
 
   commentFilter = {

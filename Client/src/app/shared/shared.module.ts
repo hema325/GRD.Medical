@@ -11,6 +11,8 @@ import { BytesSizePipe } from '../pipes/bytes-size.pipe';
 import { AutoResizeTextAreaDirective } from '../directives/auto-resize-text-area.directive';
 import { TimeagoModule } from "ngx-timeago";
 import { FileDroppedDirective } from '../directives/file-dropped.directive';
+import { LightBoxComponent } from './light-box/light-box.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { FileDroppedDirective } from '../directives/file-dropped.directive';
     BytesSizePipe,
     AutoResizeTextAreaDirective,
     FileDroppedDirective,
+    LightBoxComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    TimeagoModule.forChild()
+    TimeagoModule.forChild(),
+    CarouselModule
   ],
   exports: [
     FormInputComponent,
@@ -39,7 +43,8 @@ import { FileDroppedDirective } from '../directives/file-dropped.directive';
     BytesSizePipe,
     AutoResizeTextAreaDirective,
     TimeagoModule,
-    FileDroppedDirective
+    FileDroppedDirective,
+    LightBoxComponent
   ]
 })
 export class SharedModule { }

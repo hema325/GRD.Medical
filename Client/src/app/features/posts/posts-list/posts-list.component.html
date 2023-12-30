@@ -4,7 +4,7 @@
         <div class="card-body w-100">
             <div class="d-flex align-items-center mb-3">
                 <a [routerLink]="currentAuth?.id != post.owner.id ? '/account/'+post.owner.id:'/account'"><img
-                        [src]="post.owner.imageUrl??'assets/images/profile.png'" alt="" width="50" height="50"
+                        [src]="post.owner.imageUrl ?? defaultUserImageUrl" alt="" width="50" height="50"
                         class="rounded-circle" /></a>
                 <div class="flex-fill ps-2">
                     <div class="fw-bold"><a class="text-decoration-none" style="color: #3f51b5">{{post.owner.firstName}}
@@ -18,11 +18,20 @@
 
             <p *ngIf="post.content" [innerText]="post.content"></p>
             <div class="row g-1" [class]="post.medias.length < 3 ?'row-cols-1':'row-cols-2'" *ngIf="post.medias">
-                <div class="col flex-fill" *ngFor="let media of post.medias">
-                    <img [src]="media.url" *ngIf="media.type=='Image'" class="w-100 object-fit-cover rounded-1"
-                        [style.height]="post.medias.length == 1 ? '400px':'200px'">
+                <div class="col flex-fill position-relative " *ngFor="let media of post.medias; let idx = index;">
+                    <div *ngIf="idx <= 3" (click)="lighbox.activate(idx);">
+                        <img [src]="media.url" *ngIf="media.type=='Image'" class="w-100 object-fit-cover rounded-1"
+                            [style.height]="post.medias.length == 1 ? '400px':'200px'">
+                        <div class="position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center"
+                            *ngIf="idx == 3 && post.medias.length > 4" style="background-color: rgb(0 0 0 / .32);">
+                            <span class="text-white " style="font-size: 60px;">+{{post.medias.length - idx -
+                                1 }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <app-light-box [imagesUrl]="getMediaUrls(post.medias)" #lighbox></app-light-box>
+
             <hr class="mb-1 opacity-1" />
 
             <div class="d-flex justify-content-center  fw-bold">

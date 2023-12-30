@@ -5,9 +5,6 @@ using Presentation.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-//builder.WebHost.UseUrls("https://192.168.1.104:7295");  //test from other devices
-
 // Add services to the container.
 
 builder.Services.AddControllers();
