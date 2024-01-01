@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AiModelsResponse } from 'src/app/models/ai-models-response';
+import { AiModelsService } from 'src/app/services/ai-models.service';
 
 @Component({
   selector: 'app-skin-checking',
@@ -11,6 +12,8 @@ export class SkinCheckingComponent {
   image: any = null;
   response: AiModelsResponse | null = null;
 
+  constructor(private aiModelsService: AiModelsService) { }
+
 
   check(event: any) {
     if (event instanceof FileList) {
@@ -21,6 +24,10 @@ export class SkinCheckingComponent {
     }
     else
       this.image = event.target?.files[0];
+
+    if (this.image) {
+      this.aiModelsService.checkSkin(this.image).subscribe(res => this.response = res);
+    }
   }
 
 }

@@ -45,5 +45,6 @@ namespace Infrastructure.Persistance
         public DbSet<Advice> Advices { get; private set; }
         public DbSet<Post> Posts { get; private set; }
         public DbSet<Comment> Comments { get; private set; }
+        public DbSet<UserChatBotMessage> UserChatBotMessages { get; private set; }
     }
 }

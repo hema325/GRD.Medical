@@ -20,4 +20,11 @@ export class AiModelsService {
     return this.httpClient.post<AiModelsResponse>(this.baseUrl + '/heartChecking', fd);
   }
 
+  checkSkin(image: File) {
+    const fd = new FormData();
+    fd.append('image', image);
+
+    return this.httpClient.post<AiModelsResponse>(this.baseUrl + '/skinChecking', fd);
+  }
+
 }

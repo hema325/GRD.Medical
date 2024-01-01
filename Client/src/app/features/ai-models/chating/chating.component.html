@@ -3,53 +3,47 @@
     <div class="container">
         <div class="bg-white p-4 rounded-3 shadow-sm my-4 chat-box d-flex flex-column justify-content-between"
             *ngIf="currentAuth">
-            <div class="overflow-auto" data-mdb-perfect-scrollbar="true">
-                <div class="d-flex flex-row justify-content-start align-items-start">
-                    <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle flex-shrink-0"
-                        width="40px" height="40px">
-                    <div>
-                        <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
-                            Lorem ipsum
-                            dolor
-                            sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
-                        <p class="small ms-3 mb-3 rounded-3 text-muted float-end">12:00
-                            PM | Aug 13
-                        </p>
-                    </div>
-                </div>
+            <div class="overflow-auto hide-scrollbar" data-mdb-perfect-scrollbar="true" #messagesContainer
+                (change)="scrollBottom()">
 
-                <div class="d-flex flex-row justify-content-end align-items-start">
-                    <div>
-                        <p class="small p-2 me-3 mb-1 text-white rounded-3" style="background-color: #3f51b5;">
-                            Ut enim ad
-                            minim veniam,
-                            quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo
-                            consequat.</p>
-                        <p class="small me-3 mb-3 rounded-3 text-muted">12:00 PM | Aug
-                            13</p>
-                    </div>
-                    <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" alt="avatar 1"
-                        class="rounded-circle flex-shrink-0" style="width: 40px; height: 40px;">
-                </div>
+                <ng-container *ngFor="let msg of paginatedList?.data?.reverse() as msgs; let idx = index">
 
-                <!-- wrong -->
-                <div class="d-flex flex-row justify-content-start">
-                    <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle flex-shrink-0"
-                        width="40px" height="40px">
-                    <div>
-                        <p class="small p-2 ms-3 mb-1 rounded-3 text-danger" style="background-color: #f5f6f7;">
-                            Something
-                            went wrong.</p>
-                        <p class="small ms-3 mb-3 rounded-3 text-muted float-end">12:00
-                            PM | Aug 13
-                        </p>
+                    <div class="d-flex flex-row justify-content-start align-items-start" id="{{msg.id}}"
+                        *ngIf="msg.isBotMessage">
+                        <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle flex-shrink-0"
+                            width="40px" height="40px">
+                        <div>
+                            <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;"
+                                [innerText]="msg.content">
+                            </p>
+                            <p class="small ms-3 mb-3 rounded-3 text-muted float-end">
+                                {{msg.messagedOn | timeago}}
+                            </p>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="d-flex flex-row justify-content-end align-items-start" *ngIf="!msg.isBotMessage">
+                        <div>
+                            <p class="small p-2 me-3 mb-1 text-white rounded-3" style="background-color: #3f51b5;"
+                                [innerText]="msg.content">
+                            </p>
+                            <p class="small me-3 mb-3 rounded-3 text-muted">
+                                <ng-container *ngIf="msg.messagedOn else sending">
+                                    {{msg.messagedOn | timeago}}
+                                </ng-container>
+                                <ng-template #sending>
+                                    Processing...
+                                </ng-template>
+                            </p>
+                        </div>
+                        <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" alt="avatar 1"
+                            class="rounded-circle flex-shrink-0" style="width: 40px; height: 40px;">
+                    </div>
+
+                </ng-container>
 
                 <!-- writing animation -->
-                <div class="d-flex flex-row align-items-start justify-content-start">
+                <div class="d-flex flex-row align-items-start justify-content-start" *ngIf="isWriting">
                     <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle flex-shrink-0"
                         width="40px" height="40px">
                     <div>
@@ -65,8 +59,10 @@
                     class="rounded-circle flex-shrink-0" width="46px" height="46px">
                 <textarea type="text" class="form-control form-control-lg mx-2 hide-scrollbar"
                     id="exampleFormControlInput2" placeholder="Type message" AutoResizeTextArea defaultHeight="48px"
-                    style="resize: none;height: 48px;max-height: 100px;border-radius: 20px;"></textarea>
-                <button mat-icon-button color="primary"><mat-icon>send</mat-icon></button>
+                    style="resize: none;height: 48px;max-height: 100px;border-radius: 20px;" maxlength="500"
+                    #textarea></textarea>
+                <button mat-icon-button color="primary" [disabled]="!textarea.value"
+                    (click)="message(textarea.value);textarea.value = ''"><mat-icon>send</mat-icon></button>
             </div>
         </div>
     </div>

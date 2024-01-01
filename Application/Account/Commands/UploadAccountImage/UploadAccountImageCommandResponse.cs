@@ -1,6 +1,6 @@
 ﻿namespace Application.Account.Commands.UploadAccountImage
 {
-    public class UploadAccountImageCommandDto
+    public class UploadAccountImageCommandResponse
     {
         public string Url { get; set; }
     }

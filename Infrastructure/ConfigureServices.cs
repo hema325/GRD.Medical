@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Authentication;
+using Infrastructure.ChatBot;
 using Infrastructure.Email;
 using Infrastructure.FileStorage;
 using Infrastructure.Persistance;
@@ -16,6 +17,7 @@ namespace Infrastructure
             services.AddPersistanceService(configuration);
             services.AddAuthenticationService(configuration);
             services.AddEmailService(configuration);
+            services.AddChatBotService(configuration);
             services.AddDistributedMemoryCache();
             services.AddFileStorageService();
             services.AddCommonServces();

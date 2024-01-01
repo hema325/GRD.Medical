@@ -126,7 +126,7 @@ namespace Presentation.Controllers
         }
 
         [HttpPost("uploadImage")]
-        [ProducesResponseType(typeof(UploadAccountImageCommandDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(UploadAccountImageCommandResponse), StatusCodes.Status200OK)]
         [Authorize]
         public async Task<IActionResult> UploadImage([FromForm] UploadAccountImageCommand request)
         {

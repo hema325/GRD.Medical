@@ -14,7 +14,8 @@
             <div class="bg-light py-2 px-3 rounded-3 mt-3" *ngIf="image">
                 <app-image-card [image]="image" [hideActions]="true"></app-image-card>
             </div>
-            <h4 class="mt-4 mb-0" style="color: #444;" style="color:#3f51b5" *ngIf="response">{{response.response}}.
+            <h4 class="mt-4 mb-0" style="color: #444;" style="color: #444;" *ngIf="response"
+                [innerHTML]="response.response">
             </h4>
         </div>
     </div>
