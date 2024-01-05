@@ -15,7 +15,7 @@ export class ArticlesComponent {
   date = new Date();
 
   filterForm = this.fb.group({
-    title: ['', Validators.required]
+    title: ['']
   });
 
   filter: ArticleFilter = {
@@ -46,13 +46,6 @@ export class ArticlesComponent {
   handleSearchFilter() {
     this.filter.title = this.filterForm.controls.title.value;
     this.filter.pageNumber = 1;
-    this.getArticles();
-  }
-
-  handleResetFilter() {
-    this.filter.title = null;
-    this.filter.pageNumber = 1;
-    this.filterForm.reset();
     this.getArticles();
   }
 }

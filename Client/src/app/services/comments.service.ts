@@ -39,6 +39,7 @@ export class CommentsService {
   get(filter: CommentFilter) {
     let params = new HttpParams();
     params = filter.replyTo ? params.append('replyTo', filter.replyTo.toString()) : params;
+    params = filter.before ? params.append('before', filter.before) : params;
     params = params.append('postId', filter.postId);
     params = params.append('pageNumber', filter.pageNumber);
     params = params.append('pageSize', filter.pageSize);

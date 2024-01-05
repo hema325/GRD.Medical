@@ -4,16 +4,15 @@
     <div class="container">
         <ng-container *ngIf="paginatedList">
 
-            <form class="mt-5 shadow-sm bg-white p-4 rounded-3">
+            <div class="mt-5 shadow-sm bg-white p-4 rounded-3">
                 <h2>Search By Title</h2>
-                <app-form-input [control]="filterForm.controls.title" label="Title"></app-form-input>
+                <app-form-input [control]="filterForm.controls.title" label="Title"
+                    (keydown.enter)="handleSearchFilter()"></app-form-input>
                 <div class="d-flex justify-content-end">
-                    <button type="button" mat-raised-button color="accent" (click)="handleResetFilter()"
-                        [disabled]="!filterForm.dirty" class="me-2">Reset</button>
-                    <button type="button" mat-raised-button color="primary" (click)="handleSearchFilter()"
-                        [disabled]="filterForm.invalid">Search</button>
+                    <button type="button" mat-raised-button color="primary"
+                        (click)="handleSearchFilter()">Search</button>
                 </div>
-            </form>
+            </div>
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4 my-4">
                 <div class="col" *ngFor="let article of paginatedList.data">
                     <div class="card shadow-sm overflow-hidden border-0 h-100" routerLink="/articles/{{article.id}}"

@@ -9,6 +9,7 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { EditPostBottomSheetComponent } from '../edit-post-bottom-sheet/edit-post-bottom-sheet.component';
 import { environment } from 'src/environments/environment.development';
 import { Media } from 'src/app/models/media';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-posts-list',
@@ -27,7 +28,8 @@ export class PostsListComponent {
   postFilter: PostFilter = {
     ownerId: null,
     pageNumber: 1,
-    pageSize: 6
+    pageSize: 6,
+    before: new Date().toISOString()
   }
 
   constructor(private postsService: PostsService,
@@ -41,7 +43,16 @@ export class PostsListComponent {
   ngOnInit() {
     this.getPosts();
     this.addCreatedPosts();
+    this.loadCurrentAuth();
+    this.loadPostsWhenReachedBottom();
+  }
+
+  loadPostsWhenReachedBottom() {
     window.addEventListener('scroll', () => this.isPostsContainerAtBottom() && !this.preventLoading ? this.loadMorePosts() : null)
+
+  }
+
+  loadCurrentAuth() {
     this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
   }
 
@@ -69,16 +80,14 @@ export class PostsListComponent {
 
   getPosts() {
     this.preventLoading = true;
-    this.postsService.get(this.postFilter).subscribe({
-      next: res => {
+    this.postsService.get(this.postFilter)
+      .pipe(finalize(() => this.preventLoading = false))
+      .subscribe(res => {
         if (this.paginatedList)
           res.data.unshift(...this.paginatedList.data);
 
         this.paginatedList = res
-        this.preventLoading = false;
-      },
-      error: error => this.preventLoading = false
-    });
+      });
   }
 
   loadMorePosts() {
@@ -91,13 +100,8 @@ export class PostsListComponent {
   addCreatedPosts() {
     this.postsService.createdPost$.subscribe(post => {
       if (post && this.paginatedList) {
-        this.paginatedList.data = [post, ...this.paginatedList!.data.slice(0, this.paginatedList.pageSize - 1)];
-        this.commentSections = [false, ...this.commentSections.slice(0, this.paginatedList.pageSize - 1)];
-
-        this.postFilter.pageNumber = 1;
-        this.paginatedList.pageNumber = 1;
-        this.paginatedList.hasNextPage = this.paginatedList.totalCount > this.paginatedList.pageSize - 1;
-        this.paginatedList.hasPreviousPage = false;
+        this.paginatedList.data.unshift(post);
+        this.commentSections.unshift(false);
       }
     });
   }

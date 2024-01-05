@@ -1,6 +1,6 @@
 export interface UserChatBotMessage {
     id: number
     content: string
-    messagedOn: Date | null
+    messagedOn: string | null
     isBotMessage: boolean
 }

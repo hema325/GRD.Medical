@@ -19,10 +19,15 @@ namespace Application.UserChatBotMessages.Queries.GetUserChatBotMessages
 
         public async Task<PaginatedList<UserChatBotMessageDto>> Handle(GetUserChatBotMessagesQuery request, CancellationToken cancellationToken)
         {
-            return await _context.UserChatBotMessages
-                .Where(msg=> msg.OwnerId == _currentUser.Id)
-                .OrderByDescending(msg=>msg.MessagedOn)
-                .ProjectTo<UserChatBotMessageDto>(_mapper.ConfigurationProvider)
+            var query = _context.UserChatBotMessages
+                .Where(msg => msg.OwnerId == _currentUser.Id)
+                .OrderByDescending(msg => msg.MessagedOn)
+                .AsQueryable();
+
+            if (request.Before != null)
+                query = query.Where(msg => msg.MessagedOn < request.Before);
+
+            return await query.ProjectTo<UserChatBotMessageDto>(_mapper.ConfigurationProvider)
                 .PaginateAsync(request.PageNumber, request.PageSize);
         }
     }

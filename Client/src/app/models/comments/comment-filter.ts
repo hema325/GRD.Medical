@@ -3,4 +3,5 @@ export interface CommentFilter {
     postId: number
     pageNumber: number
     pageSize: number
+    before: string | null
 }

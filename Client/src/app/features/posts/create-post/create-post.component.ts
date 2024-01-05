@@ -1,7 +1,4 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
-import { PaginatedList } from 'src/app/models/paginated-list';
-import { Post } from 'src/app/models/posts/post';
-import { PostFilter } from 'src/app/models/post-filter';
 import { PostsService } from 'src/app/services/posts.service';
 import { CreatePost } from 'src/app/models/posts/create-post';
 
@@ -16,12 +13,6 @@ export class CreatePostComponent {
     content: '',
     images: null,
   };
-
-  postFilter: PostFilter = {
-    ownerId: null,
-    pageNumber: 1,
-    pageSize: 6
-  }
 
   constructor(private postsService: PostsService) { }
 

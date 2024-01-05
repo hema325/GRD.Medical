@@ -25,7 +25,10 @@ namespace Application.Posts.Queries.GetPosts
             if(request.OwnerId != null)
                 query = query.Where(p => p.OwnerId == request.OwnerId);
 
-            var posts = await query.PaginateAsync(request.pageNumber, request.pageSize);
+            if (request.Before != null)
+                query = query.Where(p => p.PostedOn < request.Before);
+
+            var posts = await query.PaginateAsync(request.PageNumber, request.PageSize);
 
             return _mapper.Map<PaginatedList<PostDto>>(posts);
         }

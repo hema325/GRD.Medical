@@ -2,9 +2,8 @@
 
 namespace Application.UserChatBotMessages.Queries.GetUserChatBotMessages
 {
-    public class GetUserChatBotMessagesQuery: IRequest<PaginatedList<UserChatBotMessageDto>>
+    public class GetUserChatBotMessagesQuery: PaginationBase, IRequest<PaginatedList<UserChatBotMessageDto>>
     {
-        public int PageNumber { get; set; }
-        public int PageSize { get; set; }
+        public DateTime? Before { get; set; }
     }
 }

@@ -43,16 +43,16 @@ export class AccountService {
     let tokenStr = localStorage.getItem('rftkn');
     if (tokenStr) {
       let token = JSON.parse(tokenStr);
-      if (new Date().getTime() < new Date(token.expiration).getTime()) {
-        return this.httpClient.post<AuthResult>(this.baseUrl + '/requestJwt', { refreshToken: token.refreshToken }).pipe(map(authResult => {
-          this.setCurrentAuth(authResult);
-          return authResult;
-        }),
-          catchError(err => {
-            localStorage.removeItem('rftkn');
-            this.currentAuth.next(null);
-            return throwError(() => err);
-          }));
+      if (new Date() < new Date(token.expiration)) {
+        return this.httpClient.post<AuthResult>(this.baseUrl + '/requestJwt', { refreshToken: token.refreshToken })
+          .pipe(map(authResult => {
+            this.setCurrentAuth(authResult);
+            return authResult;
+          }),
+            catchError(err => {
+              this.removeCurrentAuth();
+              return throwError(() => err);
+            }));
       }
     }
     this.currentAuth.next(null);

@@ -7,6 +7,7 @@ import { ChatBotService } from 'src/app/services/chat-bot.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import { catchError, finalize, throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { UserChatBotFilter } from 'src/app/models/chat-bot/user-chat-bot-filter';
 
 @Component({
   selector: 'app-chating',
@@ -15,17 +16,28 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ChatingComponent {
 
+  suggestions: string[] =
+    [
+      "Do you have any allergies?",
+      "How often do you exercise?",
+      "What is your average daily water intake?",
+      "Do you smoke or use tobacco products?"
+    ];
+
   currentAuth: AuthResult | null = null;
   paginatedList: PaginatedList<UserChatBotMessage> | null = null;
 
-  paginationFilter = {
+  paginationFilter: UserChatBotFilter = {
     pageNumber: 1,
-    pageSize: 20
+    pageSize: 20,
+    before: new Date().toISOString()
   }
 
   isWriting = false;
   activeScrollToBottom = false;
   isFirstScroll = true;
+
+  isScrollBottomBtnActive = false;
 
   constructor(private accountService: AccountService,
     private chatBotService: ChatBotService,
@@ -43,17 +55,18 @@ export class ChatingComponent {
   }
 
   loadMessages() {
-    this.chatBotService.getMessages(this.paginationFilter.pageNumber, this.paginationFilter.pageSize).subscribe(res => {
+    this.chatBotService.getMessages(this.paginationFilter)
+      .subscribe(res => {
+        if (this.paginatedList) {
+          res.data.unshift(...this.paginatedList.data.reverse());
+          this.returnScrollToPrevPos = true;
+        }
+        else
+          this.activeScrollToBottom = true;
 
-      if (this.paginatedList) {
-        res.data.unshift(...this.paginatedList.data);
-        this.returnScrollToPrevPos = true;
-      }
-      else
-        this.activeScrollToBottom = true;
-
-      this.paginatedList = res;
-    });
+        this.paginatedList = res;
+        this.paginatedList.data.reverse();
+      });
   }
 
   prevScrollBottom: number = 0;
@@ -72,7 +85,7 @@ export class ChatingComponent {
 
   message(content: string) {
 
-    this.paginatedList?.data.unshift({
+    this.paginatedList?.data.push({
       id: 0,
       content: content,
       messagedOn: null,
@@ -90,14 +103,14 @@ export class ChatingComponent {
         this.loaderService.activate();
       }),
         catchError(err => {
-          this.paginatedList?.data.shift();
+          this.paginatedList?.data.pop();
           return throwError(() => err);
         }))
       .subscribe(res => {
-        this.paginatedList?.data.shift();
-        this.paginatedList?.data.unshift(res.userMessage);
+        this.paginatedList?.data.pop();
+        this.paginatedList?.data.push(res.userMessage);
         if (!res.isFailedToGenerateResponse)
-          this.paginatedList?.data.unshift(res.chatBotMessage);
+          this.paginatedList?.data.push(res.chatBotMessage);
         else
           this.toastr.error("Failed to generate response.");
 
@@ -133,6 +146,11 @@ export class ChatingComponent {
     this.renderer.listen(ele, 'scroll', e => {
       if (ele.scrollTop == 0 && this.paginatedList?.hasNextPage)
         this.loadMoreMessages();
+
+      if (ele.scrollHeight - ele.clientHeight - ele.scrollTop > 150)
+        this.isScrollBottomBtnActive = true;
+      else
+        this.isScrollBottomBtnActive = false;
     })
   }
 

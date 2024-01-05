@@ -28,6 +28,9 @@ namespace Application.Comments.Queries.GetComments
             else
                 query = query.OrderBy(c => c.CommentedOn);
 
+            if (request.Before != null)
+                query = query.Where(c => c.CommentedOn < request.Before);
+
             var comments = await query.ProjectTo<CommentDto>(_mapper.ConfigurationProvider)
                 .PaginateAsync(request.PageNumber, request.PageSize);
 

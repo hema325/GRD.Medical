@@ -37,9 +37,10 @@ export class PostsService {
 
   get(filter: PostFilter) {
     let params = new HttpParams();
-    filter.ownerId ? params = params.append('ownerId', filter.ownerId) : null;
+    params = filter.ownerId ? params.append('ownerId', filter.ownerId) : params;
     params = params.append('pageNumber', filter.pageNumber);
     params = params.append('pageSize', filter.pageSize);
+    params = filter.before ? params.append('before', filter.before) : params;
 
     return this.httpClient.get<PaginatedList<Post>>(this.baseUrl, { params });
   }

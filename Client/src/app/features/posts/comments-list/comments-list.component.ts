@@ -7,6 +7,7 @@ import { EditCommentBottomSheetComponent } from '../edit-comment-bottom-sheet/ed
 import { AuthResult } from 'src/app/models/account/auth-result';
 import { AccountService } from 'src/app/services/account.service';
 import { environment } from 'src/environments/environment.development';
+import { CommentFilter } from 'src/app/models/comments/comment-filter';
 
 @Component({
   selector: 'app-comments-list',
@@ -18,9 +19,12 @@ export class CommentsListComponent {
   defaultUserImageUrl = environment.defaultUserImageUrl;
   @Input() postId: number = 0;
 
-  commentFilter = {
+  commentFilter: CommentFilter = {
     pageNumber: 1,
-    pageSize: 6
+    pageSize: 6,
+    before: new Date().toISOString(),
+    replyTo: null,
+    postId: 0
   }
 
   currentAuth: AuthResult | null = null;
@@ -32,8 +36,13 @@ export class CommentsListComponent {
     private accountService: AccountService) { }
 
   ngOnInit() {
+    this.commentFilter.postId = this.postId; //must be at first
     this.loadComments();
     this.addCreatedComment();
+    this.loadCurrentAuth();
+  }
+
+  loadCurrentAuth() {
     this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
   }
 
@@ -62,16 +71,12 @@ export class CommentsListComponent {
   }
 
   loadComments() {
-    this.commentsService.get({
-      replyTo: null,
-      postId: this.postId,
-      pageNumber: this.commentFilter.pageNumber,
-      pageSize: this.commentFilter.pageSize
-    }).subscribe(comments => {
-      if (this.paginatedList)
-        comments.data.unshift(...this.paginatedList.data);
-      this.paginatedList = comments;
-    });
+    this.commentsService.get(this.commentFilter)
+      .subscribe(comments => {
+        if (this.paginatedList)
+          comments.data.unshift(...this.paginatedList.data);
+        this.paginatedList = comments;
+      });
   }
 
 
@@ -86,21 +91,19 @@ export class CommentsListComponent {
   addCreatedComment() {
     this.commentsService.commentCreated$.subscribe(comment => {
       if (this.paginatedList && comment && comment.postId == this.postId) {
-        if (!comment.replyTo) {
-          this.paginatedList.data = [comment, ...this.paginatedList.data.slice(0, this.paginatedList.pageSize - 1)]
-        }
+        if (!comment.replyTo)
+          this.paginatedList.data.unshift(comment);
         else {
           const mainComment = this.paginatedList.data.find(c => c.id == comment.replyTo);
           if (mainComment) {
-            // mainComment.replies = [comment, ...mainComment.replies.slice(0, this.commentFilter.pageSize - 1)]
             mainComment.replies.push(comment);
             mainComment.totalRepliesCount += 1;
           }
+          this.commentFilter.pageNumber = 1;
+          this.paginatedList.pageNumber = 1;
+          this.paginatedList.hasNextPage = this.paginatedList.totalCount > this.paginatedList.pageSize - 1;
+          this.paginatedList.hasPreviousPage = false;
         }
-        this.commentFilter.pageNumber = 1;
-        this.paginatedList.pageNumber = 1;
-        this.paginatedList.hasNextPage = this.paginatedList.totalCount > this.paginatedList.pageSize - 1;
-        this.paginatedList.hasPreviousPage = false;
       }
     })
   }
@@ -112,7 +115,8 @@ export class CommentsListComponent {
         replyTo: comment.id,
         postId: this.postId,
         pageNumber: Math.ceil(comment.replies.length / this.commentFilter.pageSize) + (comment.replies.length < this.commentFilter.pageSize ? 0 : 1),
-        pageSize: this.commentFilter.pageSize
+        pageSize: this.commentFilter.pageSize,
+        before: null
       }).subscribe(comments => {
         if (comment.replies.length < this.commentFilter.pageSize)
           comment.replies = comments.data;

@@ -15,7 +15,6 @@ using Application.Account.Queries.GetCurrentUser;
 using Application.Account.Queries.GetUser;
 using Application.Account.Queries.SendEmailConfirmation;
 using Application.Account.Queries.SendEmailResetPassword;
-using Application.Common.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

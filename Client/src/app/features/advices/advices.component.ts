@@ -15,7 +15,7 @@ export class AdvicesComponent {
   date = new Date();
 
   filterForm = this.fb.group({
-    title: ['', Validators.required]
+    title: ['']
   })
 
   filter: AdviceFilter = {
@@ -40,13 +40,6 @@ export class AdvicesComponent {
   handlePageEvent(event: PageEvent) {
     this.filter.pageSize = event.pageSize;
     this.filter.pageNumber = event.pageIndex + 1;
-    this.getAdvices();
-  }
-
-  handleResetFilter() {
-    this.filter.title = null;
-    this.filter.pageNumber = 1;
-    this.filterForm.reset();
     this.getAdvices();
   }
 

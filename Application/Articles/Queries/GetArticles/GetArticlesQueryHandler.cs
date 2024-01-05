@@ -22,7 +22,7 @@ namespace Application.Articles.Queries.GetArticles
             if(request.Title != null)
                 query = query.Where(a=>a.Title.StartsWith(request.Title));
 
-            var articles = await query.PaginateAsync(request.pageNumber,request.pageSize);
+            var articles = await query.PaginateAsync(request.PageNumber,request.PageSize);
 
             return _mapper.Map<PaginatedList<ArticleDto>>(articles);
         }

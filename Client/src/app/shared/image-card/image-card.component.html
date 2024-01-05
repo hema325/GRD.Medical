@@ -1,9 +1,9 @@
 <div class="bg-light py-2 px-3 rounded-3" *ngIf="image">
-    <div class="d-flex align-items-start">
+    <div class="d-flex align-items-center">
         <img [src]="imageUrl" class="rounded-circle me-4 object-fit-cover flex-shrink-0 " width="45" height="45">
-        <div class="d-flex align-items-center justify-content-between flex-fill">
-            <div class="pe-2">
-                <h3 class="mb-0 text-break " style="color:#444;">
+        <div class="d-flex justify-content-between  align-items-center flex-fill" style="width: calc(100% - 101px)">
+            <div [style.width]="hideActions ?'100%':'calc(100% - 48px)'">
+                <h3 class="mb-0 text-nowrap overflow-hidden" style="color:#444;text-overflow: ellipsis;width: 100%;">
                     {{image.name}}</h3>
                 <h5 class="text-muted mb-0">{{image.size | BytesSize:2 }}</h5>
             </div>
