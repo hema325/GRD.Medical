@@ -47,6 +47,7 @@ app.UseHttpsRedirection();
 app.UseInfrastructure();
 
 app.MapControllers();
+app.MapInfrastructure();
 app.MapFallbackToController("Index", "Fallback");
 
 await app.Services.InitialiseDBAsync();

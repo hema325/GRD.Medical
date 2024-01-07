@@ -39,7 +39,8 @@ namespace Infrastructure.Authentication.JWT.JWTManager
             return new[] {
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Role, user.Role.ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.GivenName, $"{user.FirstName} {user.LastName}")
             };
         }
     }

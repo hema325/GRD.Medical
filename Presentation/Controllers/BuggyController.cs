@@ -1,7 +1,6 @@
 ﻿using Application.Common.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Errors;
-using System.Text.Json;
 
 namespace Presentation.Controllers
 {

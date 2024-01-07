@@ -18,8 +18,6 @@
             if (advice == null)
                 throw new NotFoundException(nameof(Advice));
 
-            advice.AddDomainEvent(new EntityDeletedEvent(advice));
-
             await _fileStorage.RemoveAsync(advice.ImageUrl);
             _context.Advices.Remove(advice);
             await _context.SaveChangesAsync();

@@ -29,8 +29,6 @@ namespace Application.Comments.Commands.DeleteComment
             if(comment.OwnerId != _currentUser.Id && _currentUser.Role != Roles.Admin)
                 throw new ForbiddenException("You are not the owner of this comment");
 
-            comment.AddDomainEvent(new EntityDeletedEvent(comment));
-
             //remove existing files
             if(comment.Media != null)
                 await _fileStorage.RemoveAsync(comment.Media.Url);

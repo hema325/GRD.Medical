@@ -2,9 +2,11 @@
 using Infrastructure.ChatBot;
 using Infrastructure.Email;
 using Infrastructure.FileStorage;
+using Infrastructure.Notifications;
 using Infrastructure.Persistance;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,6 +23,7 @@ namespace Infrastructure
             services.AddDistributedMemoryCache();
             services.AddFileStorageService();
             services.AddCommonServces();
+            services.AddNotificationsService();
 
             return services;
         }
@@ -37,6 +40,13 @@ namespace Infrastructure
         {
             using var scope = serviceProvider.CreateScope();
             await scope.ServiceProvider.GetRequiredService<ApplicationDbContextInitialiser>().InitialiseAsync();
+        }
+
+        public static IEndpointRouteBuilder MapInfrastructure(this IEndpointRouteBuilder endpoint)
+        {
+            endpoint.MapNotificationsService();
+
+            return endpoint;
         }
     }
 }

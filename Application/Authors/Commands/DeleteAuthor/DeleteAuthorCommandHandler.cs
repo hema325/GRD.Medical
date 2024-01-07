@@ -18,8 +18,6 @@
             if (author == null)
                 throw new NotFoundException(nameof(Author));
 
-            author.AddDomainEvent(new EntityDeletedEvent(author));
-
             _context.Authors.Remove(author);
             await _context.SaveChangesAsync();
 

@@ -19,7 +19,7 @@ namespace Application.Comments.Commands.CreateComment
                 .Image();
 
             RuleFor(c => c.ReplyTo)
-                .MustAsync(async(id, ct) => id == null || await context.Comments.AnyAsync(c=>c.Id == id))
+                .MustAsync(async (id, ct) => id == null || await context.Comments.AnyAsync(c => c.Id == id))
                 .WithMessage("ReplyTo wasn't found.");
 
             RuleFor(c => c)

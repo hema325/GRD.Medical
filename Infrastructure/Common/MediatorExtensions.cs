@@ -11,7 +11,11 @@ namespace Infrastructure.Common
             var entries = context.ChangeTracker.Entries<EntityBase>().Where(e => e.Entity.DomainEvents.Any()).ToList();
             var domainEvents = entries.SelectMany(e => e.Entity.DomainEvents);
 
-            await Task.WhenAll(domainEvents.Select(e => publisher.Publish(e)));
+            await Task.WhenAll(domainEvents.Where(e => !e.IsFired).Select(e =>
+            {
+                e.MarkAsFired();
+                return publisher.Publish(e);
+            }));
             entries.ForEach(e => e.Entity.ClearDomainEvents());
         }
     }

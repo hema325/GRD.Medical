@@ -18,6 +18,9 @@ namespace Domain.Common.Abstractions
 
         public void ClearDomainEvents()
             => _domainEvents.Clear();
+
+        public void RemoveDomainEvent(EventBase domainEvent)
+            => _domainEvents.Remove(domainEvent);
         #endregion
     }
 }

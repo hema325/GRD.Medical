@@ -23,7 +23,6 @@
             if (post.OwnerId != _currentUser.Id && _currentUser.Role != Roles.Admin)
                 throw new ForbiddenException("You are not the owner of this post");
 
-            post.AddDomainEvent(new EntityDeletedEvent(post));
             await Task.WhenAll(post.Medias.Select(m => _fileStorage.RemoveAsync(m.Url)));
             _context.Posts.Remove(post);
             await _context.SaveChangesAsync();

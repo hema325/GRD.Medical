@@ -1,5 +1,6 @@
 ﻿using Application.Common.Models;
 using Infrastructure.ChatBot.Models;
+using Microsoft.Extensions.Logging;
 using System.Text;
 using System.Text.Json;
 
@@ -8,10 +9,11 @@ namespace Infrastructure.ChatBot
     internal class ChatBotService : IChatBot
     {
         private readonly HttpClient _httpClient;
-
-        public ChatBotService(HttpClient httpClient)
+        private readonly ILogger<ChatBotService> _logger;
+        public ChatBotService(HttpClient httpClient, ILogger<ChatBotService> logger)
         {
             _httpClient = httpClient;
+            _logger = logger;
         }
 
         public async Task<ChatBotResult> GetResponseAsync(string message)
@@ -32,7 +34,7 @@ namespace Infrastructure.ChatBot
             }
             catch
             {
-                //noting to do
+                _logger.LogError("Failed to generate chatbot message");
             }
 
             return ChatBotResult.Failure();

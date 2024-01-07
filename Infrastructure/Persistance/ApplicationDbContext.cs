@@ -34,8 +34,10 @@ namespace Infrastructure.Persistance
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
+
+            var affectedRows = await base.SaveChangesAsync(cancellationToken);
             await _publisher.DispatchDomainEventsAsync(this);
-            return await base.SaveChangesAsync(cancellationToken);
+            return affectedRows;
         }
 
         public DbSet<User> Users { get; private set; }
@@ -46,5 +48,6 @@ namespace Infrastructure.Persistance
         public DbSet<Post> Posts { get; private set; }
         public DbSet<Comment> Comments { get; private set; }
         public DbSet<UserChatBotMessage> UserChatBotMessages { get; private set; }
+        public DbSet<Notification> Notifications { get; private set; }
     }
 }

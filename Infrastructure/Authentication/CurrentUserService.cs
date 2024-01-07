@@ -22,6 +22,7 @@ namespace Infrastructure.Authentication
         }
 
         public string? Email => _user.FindFirst(ClaimTypes.Email)?.Value;
+        public string? Name => _user.FindFirst(ClaimTypes.GivenName)?.Value;
         public Roles? Role => Enum.Parse<Roles>(_user.FindFirst(ClaimTypes.Role).Value);
     }
 }

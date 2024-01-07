@@ -39,7 +39,10 @@ namespace Application.Comments.Commands.CreateComment
                     Url = await _fileStorage.SaveAsync(request.Image)
                 };
 
+
+            comment.AddDomainEvent(new CommentCreatedEvent(comment));
             comment.AddDomainEvent(new EntityCreatedEvent(comment));
+
             _context.Comments.Add(comment);
             await _context.SaveChangesAsync();
 
