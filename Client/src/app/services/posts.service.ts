@@ -44,4 +44,12 @@ export class PostsService {
 
     return this.httpClient.get<PaginatedList<Post>>(this.baseUrl, { params });
   }
+
+  getById(id: number) {
+    return this.httpClient.get<Post>(this.baseUrl + '/' + id);
+  }
+
+  getByCommentId(id: number) {
+    return this.httpClient.get<Post>(this.baseUrl + '/postForComment/' + id);
+  }
 }

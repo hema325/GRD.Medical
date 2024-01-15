@@ -1,0 +1,32 @@
+button:not(:first-child) {
+    visibility: hidden;
+    transition: buttom, transform, 400ms;
+}
+
+button:first-child {
+    transform: scale(1.2);
+}
+
+button:first-child:hover {
+    transform: scale(1.3);
+}
+
+button:not(:first-child):hover {
+    transform: scale(1.1);
+}
+
+.active button {
+    visibility: visible;
+}
+
+.active button:nth-child(2) {
+    bottom: 70px !important;
+}
+
+.active button:nth-child(3) {
+    bottom: 135px !important;
+}
+
+.active button:first-child mat-icon {
+    transform: rotate(45deg);
+}

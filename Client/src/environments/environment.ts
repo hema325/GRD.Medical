@@ -1,6 +1,7 @@
 export const environment = {
     baseUrl: 'api',
-    AIModelsBaseUrl: 'http://192.168.1.105:5000',
-    isProduction: true,
+    hubUrl: 'api/hubs',
+    AIModelsBaseUrl: 'https://li-roles-host-penguin.trycloudflare.com',
+    isProduction: false,
     defaultUserImageUrl: 'assets/images/profile.png'
 };

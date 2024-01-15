@@ -1,4 +1,5 @@
 ﻿using Application.Common.Models;
+using Application.Notifications.Commands.MarkAsRead;
 using Application.Notifications.Queries;
 using Application.Notifications.Queries.GetNotifications;
 using MediatR;
@@ -24,5 +25,13 @@ namespace Presentation.Controllers
         {
             return Ok(await _sender.Send(request));
         }
+
+        [HttpPost("markAsRead")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> markAsRead(MarkNotificationAsReadCommand request)
+        {
+            return Ok(await _sender.Send(request));
+        }
+
     }
 }

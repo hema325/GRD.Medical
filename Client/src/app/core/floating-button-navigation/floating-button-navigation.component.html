@@ -1,0 +1,14 @@
+<div class="position-fixed" [class.active]="activeNav" *ngIf="currentAuth" style="bottom: 18px;right: 20px;">
+    <button mat-fab color="accent" class="floating-btn position-absolute bottom-0 end-0 z-3"
+        (click)="activeNav=!activeNav">
+        <mat-icon>add</mat-icon>
+    </button>
+    <button mat-fab color="accent" class="position-absolute bottom-0 end-0 end-0 z-2" (click)="closeNav()"
+        routerLink="/ai-models/chating">
+        <mat-icon>forum</mat-icon>
+    </button>
+    <button mat-fab color="accent" (click)="closeNav()" class="position-absolute bottom-0 end-0 z-1"
+        routerLink="/notifications">
+        <mat-icon>notifications</mat-icon>
+    </button>
+</div>

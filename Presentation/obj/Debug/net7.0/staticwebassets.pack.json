@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\39.a27f39d0d54b3a95.js",
-      "PackagePath": "staticwebassets\\39.a27f39d0d54b3a95.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\244.d25f88a8e90496ce.js",
+      "PackagePath": "staticwebassets\\244.d25f88a8e90496ce.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\3rdpartylicenses.txt",
@@ -13,8 +13,12 @@
       "PackagePath": "staticwebassets\\496.fe80c6c1d831cd42.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\680.f8a80b2a54ca6b5d.js",
-      "PackagePath": "staticwebassets\\680.f8a80b2a54ca6b5d.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\550.d0941ca10056a5a4.js",
+      "PackagePath": "staticwebassets\\550.d0941ca10056a5a4.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\680.86e274083d9e096a.js",
+      "PackagePath": "staticwebassets\\680.86e274083d9e096a.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.d47fe0246f05a216.js",
@@ -25,8 +29,8 @@
       "PackagePath": "staticwebassets\\87.27493bf8cb75d0ae.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\870.b685330395a3f0d4.js",
-      "PackagePath": "staticwebassets\\870.b685330395a3f0d4.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\870.7070288f220e04c5.js",
+      "PackagePath": "staticwebassets\\870.7070288f220e04c5.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\about.jpg",
@@ -57,8 +61,8 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.e903a37c8af852b7.js",
-      "PackagePath": "staticwebassets\\main.e903a37c8af852b7.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.7fe0af5cc42a6d9e.js",
+      "PackagePath": "staticwebassets\\main.7fe0af5cc42a6d9e.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\owl.video.play.e3b436436832b027.png",
@@ -69,8 +73,8 @@
       "PackagePath": "staticwebassets\\polyfills.b21d18c38c3a54db.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.d735f4afb0d071f0.js",
-      "PackagePath": "staticwebassets\\runtime.d735f4afb0d071f0.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.d4ad7e51b6b6f353.js",
+      "PackagePath": "staticwebassets\\runtime.d4ad7e51b6b6f353.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.83173951ce214a0e.css",

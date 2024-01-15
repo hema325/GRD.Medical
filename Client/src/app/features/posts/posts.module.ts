@@ -6,11 +6,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModule } from 'src/app/core/core.module';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { FormsModule } from '@angular/forms';
-import { CreateCommentComponent } from './create-comment/create-comment.component';
+import { CreateCommentComponent } from './comments/create-comment/create-comment.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
-import { CommentsListComponent } from './comments-list/comments-list.component';
+import { CommentsListComponent } from './comments/comments-list/comments-list.component';
 import { EditPostBottomSheetComponent } from './edit-post-bottom-sheet/edit-post-bottom-sheet.component';
-import { EditCommentBottomSheetComponent } from './edit-comment-bottom-sheet/edit-comment-bottom-sheet.component';
+import { EditCommentBottomSheetComponent } from './comments/edit-comment-bottom-sheet/edit-comment-bottom-sheet.component';
+import { PostCardComponent } from './post-card/post-card.component';
+import { PostsForCommentComponent } from './posts-for-comment/posts-for-comment.component';
 
 
 
@@ -22,7 +24,9 @@ import { EditCommentBottomSheetComponent } from './edit-comment-bottom-sheet/edi
     PostsListComponent,
     CommentsListComponent,
     EditPostBottomSheetComponent,
-    EditCommentBottomSheetComponent
+    EditCommentBottomSheetComponent,
+    PostCardComponent,
+    PostsForCommentComponent
   ],
   imports: [
     CommonModule,

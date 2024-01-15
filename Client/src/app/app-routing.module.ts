@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'articles', loadChildren: () => import('./features/articles/articles.module').then(m => m.ArticlesModule) },
   { path: 'advices', loadChildren: () => import('./features/advices/advices.module').then(m => m.AdvicesModule) },
   { path: 'posts', loadChildren: () => import('./features/posts/posts.module').then(m => m.PostsModule), canActivate: [authGuard] },
+  { path: 'notifications', loadChildren: () => import('./features/notifications/notifications.module').then(m => m.NotificationsModule), canActivate: [authGuard] },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'server-error', component: ServerErrorComponent },
   { path: '**', component: NotFoundComponent },

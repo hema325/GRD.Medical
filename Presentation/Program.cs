@@ -18,9 +18,10 @@ builder.Services.AddCors(o =>
 {
     o.AddDefaultPolicy(b =>
     {
-        b.AllowAnyOrigin();
+        b.WithOrigins("http://localhost:4200");
         b.AllowAnyMethod();
         b.AllowAnyHeader();
+        b.AllowCredentials();
     });
 });
 builder.Services.Configure<ApiBehaviorOptions>(o =>

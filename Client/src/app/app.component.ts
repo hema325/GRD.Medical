@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { AuthResult } from './models/account/auth-result';
 import { AccountService } from './services/account.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { NotificationsService } from './services/notifications.service';
+import { ToastrService } from 'ngx-toastr';
+import { AuthResult } from './models/account/auth-result';
 
 @Component({
   selector: 'app-root',
@@ -11,21 +13,34 @@ import { filter } from 'rxjs';
 })
 export class AppComponent {
 
-  currentAuth: AuthResult | null = null;
   isAuthenticating = true;
-
+  currentAuth: AuthResult | null = null;
 
   constructor(private accountService: AccountService,
-    private router: Router) { }
+    private notificationsService: NotificationsService,
+    private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.loadCurrentAuth();
     this.relogin();
     this.scrollTopWhenOpeningAComponent();
+    this.loadCurrentAuth();
+    this.displayUserNotifications();
   }
 
   loadCurrentAuth() {
-    this.accountService.currentAuth$.subscribe(res => this.currentAuth = res);
+    this.accountService.currentAuth$.subscribe(auth => {
+      if (auth) {
+        this.currentAuth = auth;
+        this.notificationsService.openHubConnection(auth);
+      }
+      else
+        this.notificationsService.closeHubConnection();
+    })
+  }
+
+  displayUserNotifications() {
+    this.notificationsService.notifiations$.subscribe(notify => this.toastr.info(notify.content));
   }
 
   relogin() {

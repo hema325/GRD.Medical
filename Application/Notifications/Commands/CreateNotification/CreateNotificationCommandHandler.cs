@@ -1,6 +1,6 @@
 ﻿using Application.Notifications.Queries;
 
-namespace Application.Notifications.Commands
+namespace Application.Notifications.Commands.CreateNotification
 {
     internal class CreateNotificationCommandHandler : IRequestHandler<CreateNotificationCommand, NotificationDto>
     {

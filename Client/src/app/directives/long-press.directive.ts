@@ -6,7 +6,7 @@ import { Subject, Subscription, take, takeUntil, takeWhile, timer } from 'rxjs';
 })
 export class LongPressDirective {
 
-  @Input() duration: number = 500;
+  @Input() duration: number = 600;
   @Output() longPress = new EventEmitter();
 
   constructor(private elementRef: ElementRef) { }

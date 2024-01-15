@@ -1,0 +1,8 @@
+<app-header title="Post"></app-header>
+
+<div class="section">
+    <div class="container my-5">
+        <app-post-card *ngIf="post" [post]="post" [amIPostOwner]="post.owner.id == currentAuth?.id"
+            (bottomSheetBtnClicked)="openPostBottomSheet()" [commentsActive]="true"></app-post-card>
+    </div>
+</div>

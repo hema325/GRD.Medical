@@ -1,5 +1,4 @@
-﻿using Application.Notifications.Commands;
-
+﻿using Application.Notifications.Commands.CreateNotification;
 
 namespace Application.Comments.Events
 {

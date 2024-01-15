@@ -1,0 +1,21 @@
+<app-header title="Notifications"></app-header>
+
+<div class="section">
+    <div class="container my-5" *ngIf="paginatedList" (reachedBottom)="loadMoreNotifications()">
+        <div class="bg-white shadow-sm p-3 my-2  border-primary border-4 rounded-1 clickable"
+            [class.border-start]="!notfication.isRead" *ngFor="let notfication of paginatedList.data"
+            (click)="markAsRead(notfication.id)" [routerLink]="getPath(notfication)">
+            <div class="d-flex">
+                <img [src]="notfication.initiator.imageUrl" width="52px" height="52px"
+                    class="rounded-circle me-3 object-fit-cover ">
+                <div class="flex-fill">
+                    <div class="d-flex flex-column justify-content-center h-100">
+                        <h4 class="mb-0 text-body">{{notfication.content}}
+                        </h4>
+                        <span class="text-muted small">{{notfication.notifiedOn | timeago}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

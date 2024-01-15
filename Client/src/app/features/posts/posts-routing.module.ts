@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PostsComponent } from './posts.component';
 import { RouterModule } from '@angular/router';
+import { PostsForCommentComponent } from './posts-for-comment/posts-for-comment.component';
 
 
 const routes = [
-  { path: '', component: PostsComponent }
+  { path: '', component: PostsComponent },
+  { path: 'post-for-comment/:id', component: PostsForCommentComponent },
 ]
 
 @NgModule({

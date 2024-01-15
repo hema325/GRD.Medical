@@ -10,5 +10,6 @@ namespace Domain.Entities
 
         public User? Owner { get; set; }
         public ICollection<Media> Medias { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }

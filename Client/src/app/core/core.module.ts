@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { FloatingButtonNavigationComponent } from './floating-button-navigation/floating-button-navigation.component';
 
 
 
@@ -18,7 +19,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
     HeaderComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    NavMenuComponent
+    NavMenuComponent,
+    FloatingButtonNavigationComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
   exports: [
     NavbarComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    FloatingButtonNavigationComponent
   ]
 })
 export class CoreModule { }

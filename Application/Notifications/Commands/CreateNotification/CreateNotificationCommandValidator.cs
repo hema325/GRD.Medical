@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 
-namespace Application.Notifications.Commands
+namespace Application.Notifications.Commands.CreateNotification
 {
-    public class CreateNotificationCommandValidator: AbstractValidator<CreateNotificationCommand>
+    public class CreateNotificationCommandValidator : AbstractValidator<CreateNotificationCommand>
     {
         public CreateNotificationCommandValidator()
         {

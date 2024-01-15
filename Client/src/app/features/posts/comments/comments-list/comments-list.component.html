@@ -1,6 +1,6 @@
 <ng-container *ngIf="paginatedList">
     <ng-container *ngFor="let comment of paginatedList.data">
-        <div class="py-1 my-2 d-flex"
+        <div class="py-1 my-2 d-flex" id="com{{comment.id}}"
             (longPress)="comment.owner.id == currentAuth!.id ? openCommentBottomSheet(comment) : null">
             <a [routerLink]="currentAuth?.id != comment.owner.id ? '/account/'+comment.owner.id:'/account'">
                 <img [src]="comment.owner.imageUrl ?? defaultUserImageUrl" width="35" height="35"
@@ -21,9 +21,10 @@
                     <app-light-box [imagesUrl]="comment.media.type == 'Image'? [comment.media.url]:[]"
                         #lighbox></app-light-box>
                 </div>
-                <div class="d-flex align-items-center small reply text-body text-opacity-50">
+                <div class="d-flex align-items-center small reply text-body text-opacity-50"
+                    [style.color]="!reply.hidden ? '#3f51b5 !important': null">
                     <mat-icon style="width: 20px;height: 20px;font-size:20px;">reply</mat-icon> <span class="ms-1"
-                        (click)="reply.hidden = false">Reply</span>
+                        (click)="reply.hidden = !reply.hidden">Reply</span>
                 </div>
             </div>
         </div>
@@ -37,7 +38,7 @@
 
             <!-- Replies -->
 
-            <div class="py-1 my-2 d-flex" *ngFor="let reply of comment.replies"
+            <div class="py-1 my-2 d-flex" *ngFor="let reply of comment.replies" id="com{{reply.id}}"
                 (longPress)="reply.owner.id == currentAuth!.id ? openCommentBottomSheet(reply) : null">
                 <a [routerLink]="currentAuth?.id != reply.owner.id ? '/account/'+reply.owner.id:'/account'">
                     <img [src]="reply.owner.imageUrl ?? defaultUserImageUrl" width="35" height="35"

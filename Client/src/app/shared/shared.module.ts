@@ -13,6 +13,7 @@ import { TimeagoModule } from "ngx-timeago";
 import { FileDroppedDirective } from '../directives/file-dropped.directive';
 import { LightBoxComponent } from './light-box/light-box.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ReachedBottomDirective } from '../directives/reached-bottom.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AutoResizeTextAreaDirective,
     FileDroppedDirective,
     LightBoxComponent,
+    ReachedBottomDirective
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AutoResizeTextAreaDirective,
     TimeagoModule,
     FileDroppedDirective,
-    LightBoxComponent
+    LightBoxComponent,
+    ReachedBottomDirective
   ]
 })
 export class SharedModule { }

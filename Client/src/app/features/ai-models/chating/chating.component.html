@@ -1,6 +1,6 @@
 <app-header title="ChatBot"></app-header>
 <div class="section">
-    <div class="container">
+    <div class="container" [hidden]="isFirstLoading">
         <div class="bg-white p-4 rounded-3 shadow-sm my-4 chat-box d-flex flex-column justify-content-between overflow-hidden position-relative "
             *ngIf="currentAuth">
             <div class="overflow-auto hide-scrollbar flex-fill" #messagesContainer>

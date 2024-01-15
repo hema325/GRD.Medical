@@ -36,7 +36,7 @@ export class ChatingComponent {
   isWriting = false;
   activeScrollToBottom = false;
   isFirstScroll = true;
-
+  isFirstLoading = true;
   isScrollBottomBtnActive = false;
 
   constructor(private accountService: AccountService,
@@ -56,6 +56,7 @@ export class ChatingComponent {
 
   loadMessages() {
     this.chatBotService.getMessages(this.paginationFilter)
+      .pipe(finalize(() => this.isFirstLoading = false))
       .subscribe(res => {
         if (this.paginatedList) {
           res.data.unshift(...this.paginatedList.data.reverse());

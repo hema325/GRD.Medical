@@ -6,9 +6,6 @@ import { PostsService } from 'src/app/services/posts.service';
 import { AuthResult } from 'src/app/models/account/auth-result';
 import { AccountService } from 'src/app/services/account.service';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { EditPostBottomSheetComponent } from '../edit-post-bottom-sheet/edit-post-bottom-sheet.component';
-import { environment } from 'src/environments/environment.development';
-import { Media } from 'src/app/models/media';
 import { finalize } from 'rxjs';
 
 @Component({
@@ -17,10 +14,8 @@ import { finalize } from 'rxjs';
   styleUrls: ['./posts-list.component.css']
 })
 export class PostsListComponent {
-  defaultUserImageUrl = environment.defaultUserImageUrl;
-  preventLoading = false;
+  isLoading = false;
   paginatedList?: PaginatedList<Post>;
-  commentSections: boolean[] = [false]
   currentAuth: AuthResult | null = null;
 
   @Input() ownerId: number | null = null;
@@ -41,31 +36,17 @@ export class PostsListComponent {
   }
 
   ngOnInit() {
-    this.getPosts();
+    this.loadPosts();
     this.addCreatedPosts();
     this.loadCurrentAuth();
-    this.loadPostsWhenReachedBottom();
-  }
-
-  loadPostsWhenReachedBottom() {
-    window.addEventListener('scroll', () => this.isPostsContainerAtBottom() && !this.preventLoading ? this.loadMorePosts() : null)
-
   }
 
   loadCurrentAuth() {
     this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
   }
 
-  getMediaUrls(medias: Media[]) {
-    return medias.map(m => m.url);
-  }
-
   openPostBottomSheet(postId: number) {
-    const bottomSheet = this.postBottomSheet.open(EditPostBottomSheetComponent, { data: postId });
-    bottomSheet.afterDismissed().subscribe(res => {
-      if (res.postDeleted)
-        this.removePost(postId);
-    });
+    this.removePost(postId);
   }
 
   removePost(postId: number) {
@@ -75,13 +56,12 @@ export class PostsListComponent {
     const posts = this.paginatedList.data;
     const postIndex = posts.findIndex(p => p.id == postId);
     posts.splice(postIndex, 1);
-    this.commentSections.splice(postIndex, 1);
   }
 
-  getPosts() {
-    this.preventLoading = true;
+  loadPosts() {
+    this.isLoading = true;
     this.postsService.get(this.postFilter)
-      .pipe(finalize(() => this.preventLoading = false))
+      .pipe(finalize(() => this.isLoading = false))
       .subscribe(res => {
         if (this.paginatedList)
           res.data.unshift(...this.paginatedList.data);
@@ -91,9 +71,9 @@ export class PostsListComponent {
   }
 
   loadMorePosts() {
-    if (this.paginatedList?.hasNextPage) {
+    if (this.paginatedList?.hasNextPage && !this.isLoading) {
       this.postFilter.pageNumber += 1;
-      this.getPosts();
+      this.loadPosts();
     }
   }
 
@@ -101,25 +81,7 @@ export class PostsListComponent {
     this.postsService.createdPost$.subscribe(post => {
       if (post && this.paginatedList) {
         this.paginatedList.data.unshift(post);
-        this.commentSections.unshift(false);
       }
     });
-  }
-
-  @ViewChild('postsContainer') postsContainer?: ElementRef;
-
-  isPostsContainerAtBottom(): boolean {
-    const container = this.postsContainer?.nativeElement;
-    if (!container) return false;
-
-    const containerRect = container.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    const containerBottom = containerRect.bottom;
-
-    return containerBottom <= windowHeight;
-  }
-
-  ngOnDestroy() {
-    this.preventLoading = true;
   }
 }

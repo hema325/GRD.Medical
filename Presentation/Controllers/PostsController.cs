@@ -2,6 +2,8 @@
 using Application.Posts.Commands.CreatePost;
 using Application.Posts.Commands.DeletePost;
 using Application.Posts.Queries;
+using Application.Posts.Queries.GetByCommentId;
+using Application.Posts.Queries.GetPost;
 using Application.Posts.Queries.GetPosts;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -38,6 +40,20 @@ namespace Presentation.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(PaginatedList<PostDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAsync([FromQuery] GetPostsQuery request)
+        {
+            return Ok(await _sender.Send(request));
+        }
+        
+        [HttpGet("{Id}")]
+        [ProducesResponseType(typeof(PostDto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetByIdAsync([FromRoute] GetPostQuery request)
+        {
+            return Ok(await _sender.Send(request));
+        }
+        
+        [HttpGet("postForComment/{Id}")]
+        [ProducesResponseType(typeof(PostDto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetByCommentIdAsync([FromRoute] GetByCommentIdQuery request)
         {
             return Ok(await _sender.Send(request));
         }

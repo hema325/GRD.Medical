@@ -16,7 +16,7 @@ namespace Infrastructure.Notifications
 
         public static IEndpointRouteBuilder MapNotificationsService(this IEndpointRouteBuilder endpoint)
         {
-            endpoint.MapHub<NotificationHub>("/hubs/notifications", options=>
+            endpoint.MapHub<NotificationHub>("/api/hubs/notifications", options=>
             {
                 options.CloseOnAuthenticationExpiration = true;
             });
