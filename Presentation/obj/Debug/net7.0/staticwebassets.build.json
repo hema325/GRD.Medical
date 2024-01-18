@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GS0oLOfhngty8pirIstp4C7HWjjtI5deHmsQ1ZvOKKc=",
+  "Hash": "yGvOn4OUO2wX/YnVz9z/tXJBLZp1bbjVlI5762TQZfQ=",
   "Source": "Presentation",
   "BasePath": "_content/Presentation",
   "Mode": "Default",
@@ -272,12 +272,12 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.7fe0af5cc42a6d9e.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.b99dfaec19202357.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "main.7fe0af5cc42a6d9e.js",
+      "RelativePath": "main.b99dfaec19202357.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -286,7 +286,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\main.7fe0af5cc42a6d9e.js"
+      "OriginalItemSpec": "wwwroot\\main.b99dfaec19202357.js"
     },
     {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\owl.video.play.e3b436436832b027.png",

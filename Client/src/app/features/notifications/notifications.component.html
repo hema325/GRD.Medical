@@ -1,10 +1,11 @@
 <app-header title="Notifications"></app-header>
 
 <div class="section">
-    <div class="container my-5" *ngIf="paginatedList" (reachedBottom)="loadMoreNotifications()">
+    <div class="container my-5" *ngIf="paginatedList && paginatedList.data?.length"
+        (reachedBottom)="loadMoreNotifications()">
         <div class="bg-white shadow-sm p-3 my-2  border-primary border-4 rounded-1 clickable"
             [class.border-start]="!notfication.isRead" *ngFor="let notfication of paginatedList.data"
-            (click)="markAsRead(notfication.id)" [routerLink]="getPath(notfication)">
+            (click)="markAsRead(notfication)" [routerLink]="getPath(notfication)">
             <div class="d-flex">
                 <img [src]="notfication.initiator.imageUrl" width="52px" height="52px"
                     class="rounded-circle me-3 object-fit-cover ">
@@ -16,6 +17,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="" *ngIf="!paginatedList?.data?.length && !isLoading">
+        <div class="text-center" style="color: #3f51b5;">
+            <mat-icon class="m-auto mb-2 w-100 h-100" style="font-size: 120px;">notifications_active</mat-icon>
+            <h1 class="card-title fw-medium mb-2 fs-3 ">No notifications yet</h1>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
-<div class="position-fixed" [class.active]="activeNav" *ngIf="currentAuth" style="bottom: 18px;right: 20px;">
-    <button mat-fab color="accent" class="floating-btn position-absolute bottom-0 end-0 z-3"
+<div class="position-fixed" [class.active]="activeNav" style="bottom: 18px;right: 20px;">
+    <button mat-fab [color]="notificationsCount ? 'warn':'accent'" class="position-absolute bottom-0 end-0 z-3"
         (click)="activeNav=!activeNav">
         <mat-icon>add</mat-icon>
     </button>
@@ -7,8 +7,12 @@
         routerLink="/ai-models/chating">
         <mat-icon>forum</mat-icon>
     </button>
-    <button mat-fab color="accent" (click)="closeNav()" class="position-absolute bottom-0 end-0 z-1"
-        routerLink="/notifications">
-        <mat-icon>notifications</mat-icon>
+    <button mat-fab [color]="notificationsCount ? 'warn':'accent'" (click)="closeNav()"
+        class="position-absolute bottom-0 end-0 z-1" routerLink="/notifications">
+        <div class="position-relative w-auto h-auto">
+            <mat-icon>notifications</mat-icon>
+            <span class="badge position-absolute bottom-100 start-100 bg-danger"
+                *ngIf="notificationsCount">{{notificationsCount}}</span>
+        </div>
     </button>
 </div>

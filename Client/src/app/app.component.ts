@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AccountService } from './services/account.service';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { filter, finalize } from 'rxjs';
 import { NotificationsService } from './services/notifications.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthResult } from './models/account/auth-result';
@@ -24,19 +24,22 @@ export class AppComponent {
   ngOnInit() {
     this.relogin();
     this.scrollTopWhenOpeningAComponent();
-    this.loadCurrentAuth();
+    this.startNotificationHubConnection();
     this.displayUserNotifications();
+    this.loadCurrentAuth();
   }
 
-  loadCurrentAuth() {
+  startNotificationHubConnection() {
     this.accountService.currentAuth$.subscribe(auth => {
-      if (auth) {
-        this.currentAuth = auth;
-        this.notificationsService.openHubConnection(auth);
-      }
+      if (auth)
+        this.notificationsService.startHubConnection(auth);
       else
         this.notificationsService.closeHubConnection();
     })
+  }
+
+  loadCurrentAuth() {
+    this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth)
   }
 
   displayUserNotifications() {
@@ -44,10 +47,9 @@ export class AppComponent {
   }
 
   relogin() {
-    this.accountService.relogin().subscribe({
-      next: res => this.isAuthenticating = false,
-      error: err => this.isAuthenticating = false
-    });
+    this.accountService.relogin()
+      .pipe(finalize(() => this.isAuthenticating = false))
+      .subscribe();
   }
 
   scrollTopWhenOpeningAComponent() {

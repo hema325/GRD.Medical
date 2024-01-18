@@ -44,15 +44,4 @@ export class PostsForCommentComponent {
   openPostBottomSheet() {
     this.router.navigateByUrl('/posts');
   }
-
-  ngAfterViewChecked() {
-    try {
-      if (window.scrollY == 0 && this.scroll) {
-        const ele = this.elementRef.nativeElement.querySelector('#com' + this.scrollToId);
-        ele.scrollIntoView({ behavior: 'smooth' });
-        this.scroll = !ele;
-      }
-    }
-    catch { }
-  }
 }

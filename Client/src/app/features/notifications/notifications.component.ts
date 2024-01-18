@@ -15,7 +15,8 @@ export class NotificationsComponent {
   paginatedList: PaginatedList<Notification> | null = null;
   filter: NotificationsFilter = {
     pageNumber: 1,
-    pageSize: 10
+    pageSize: 10,
+    before: new Date().toUTCString()
   }
   isLoading: boolean = false;
 
@@ -49,8 +50,9 @@ export class NotificationsComponent {
     }
   }
 
-  markAsRead(id: number) {
-    this.notificationsService.markAsRead(id).subscribe();
+  markAsRead(notification: Notification) {
+    if (!notification.isRead)
+      this.notificationsService.markAsRead(notification.id).subscribe();
   }
 
   getPath(notification: Notification) {

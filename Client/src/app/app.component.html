@@ -1,11 +1,9 @@
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.6)" size="medium" color="#fff" type="ball-spin-clockwise" [fullScreen]="true">
     <p style="color:#fff"> Loading... </p>
 </ngx-spinner>
-
 <ng-container *ngIf="!isAuthenticating">
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
 </ng-container>
-
-<app-floating-button-navigation></app-floating-button-navigation>
+<app-floating-button-navigation *ngIf="currentAuth"></app-floating-button-navigation>

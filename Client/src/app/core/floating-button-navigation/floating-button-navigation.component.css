@@ -4,11 +4,11 @@ button:not(:first-child) {
 }
 
 button:first-child {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 button:first-child:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
 button:not(:first-child):hover {
@@ -20,7 +20,7 @@ button:not(:first-child):hover {
 }
 
 .active button:nth-child(2) {
-    bottom: 70px !important;
+    bottom: 68px !important;
 }
 
 .active button:nth-child(3) {
