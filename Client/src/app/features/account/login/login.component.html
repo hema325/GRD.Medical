@@ -3,23 +3,38 @@
 <div class="section">
     <div class="container">
         <div class="bg-white rounded-3 my-5 shadow-sm p-4">
-            <h1 class="mb-4">Login</h1>
-            <form [formGroup]="loginForm" class="w-100">
-                <div class="my-2">
-                    <app-form-input [control]="loginForm.controls.email" label="Email"></app-form-input>
+            <div class="row">
+                <div class="col col-lg-5 d-flex justify-content-center align-items-center">
+                    <img src="assets/images/avatar1.png" style="max-width: 260px;" class="rounded-circle mb-4">
                 </div>
-                <div class="my-2">
-                    <app-form-input [control]="loginForm.controls.password" label="Password"
-                        type="password"></app-form-input>
+                <div class="col ">
+                    <h1 class="text-center fs-1 text-primary fw-medium " style="margin-bottom: 36px;">Welcome Back
+                    </h1>
+                    <form [formGroup]="loginForm" class="w-100">
+                        <div class="my-2">
+                            <app-form-input [control]="loginForm.controls.email" label="Email"></app-form-input>
+                        </div>
+                        <div class="my-2">
+                            <app-form-input [control]="loginForm.controls.password" label="Password"
+                                type="password"></app-form-input>
+                        </div>
+                    </form>
+
+                    <div class="mb-3 d-flex justify-content-end">
+                        <button [disabled]="loginForm.invalid" class="w-100 py-3 btn btn-primary"
+                            (click)="login()">Login</button>
+                    </div>
+                    <div>
+                        <a class="link-primary text-decoration-none d-block link w-auto "
+                            (click)="sendEmailResetPassword()">Forgot
+                            your
+                            password?</a>
+                        <a class="link-primary text-decoration-none d-block link w-auto"
+                            (click)="sendEmailConfirmation()">Didn't
+                            Confirm
+                            your email?</a>
+                    </div>
                 </div>
-            </form>
-            <a class="link-primary text-decoration-none d-block link" (click)="sendEmailResetPassword()">Forgot your
-                password?</a>
-            <a class="link-primary text-decoration-none d-block link" (click)="sendEmailConfirmation()">Didn't Confirm
-                your email?</a>
-            <div class="mt-4 d-flex justify-content-end">
-                <button mat-raised-button [disabled]="loginForm.invalid" color="primary"
-                    (click)="login()">Login</button>
             </div>
         </div>
     </div>

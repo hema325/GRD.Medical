@@ -30,3 +30,12 @@ button:not(:first-child):hover {
 .active button:first-child mat-icon {
     transform: rotate(45deg);
 }
+
+.not-count {
+    transform: scale(0);
+    transition: transform 400ms;
+}
+
+.active .not-count {
+    transform: scale(1)
+}

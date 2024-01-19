@@ -20,8 +20,7 @@ export class PostsForCommentComponent {
   constructor(private postsService: PostsService,
     private activatedRoute: ActivatedRoute,
     private accountService: AccountService,
-    private router: Router,
-    private elementRef: ElementRef) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.loadPoast();

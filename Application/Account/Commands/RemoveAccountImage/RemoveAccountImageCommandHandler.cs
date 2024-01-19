@@ -22,9 +22,12 @@
             if (user == null)
                 throw new NotFoundException(nameof(User));
 
-            await _fileStorage.RemoveAsync(user.ImageUrl);
-            user.ImageUrl = null;
-            await _context.SaveChangesAsync();
+            if (user.ImageUrl != null)
+            {
+                await _fileStorage.RemoveAsync(user.ImageUrl);
+                user.ImageUrl = null;
+                await _context.SaveChangesAsync();
+            }
 
             return Unit.Value;
         }

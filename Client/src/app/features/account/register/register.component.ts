@@ -7,6 +7,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import { emailDuplicated } from 'src/app/validators/email-duplication.validator';
 import { password } from 'src/app/validators/password.validator';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ import { password } from 'src/app/validators/password.validator';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
   registerForm = this.fb.group({
     firstName: ['', [Validators.required, Validators.maxLength(20)]],
     lastName: ['', [Validators.required, Validators.maxLength(20)]],

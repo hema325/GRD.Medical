@@ -20,7 +20,7 @@
         <button mat-button (click)="isDropdownActive = !isDropdownActive">
             {{currentAuth.name}}
             <img [src]="currentAuth.imageUrl ?? defaultUserImageUrl" class="rounded-circle object-fit-cover"
-                style="width: 36px;height: 36px;">
+                style="width: 36px;">
         </button>
 
         <app-nav-menu [active]="isDropdownActive"></app-nav-menu>
