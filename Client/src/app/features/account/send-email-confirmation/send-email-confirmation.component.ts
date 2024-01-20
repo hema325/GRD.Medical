@@ -22,14 +22,11 @@ export class SendEmailConfirmationComponent {
   }
 
   ngOnInit() {
-    // this.send();
+    this.send();
   }
 
   send() {
-    this.accountService.sendEmailConfirmation({ email: this.email }).subscribe({
-      next: () => {
-        this.activateTimer();
-      },
+    this.accountService.sendEmailConfirmation({ email: this.email }).pipe(finalize(() => this.activateTimer())).subscribe({
       error: err => {
         if (ErrorCodes.VerifiedEmail == err.errorCode)
           this.router.navigateByUrl('/account/login');

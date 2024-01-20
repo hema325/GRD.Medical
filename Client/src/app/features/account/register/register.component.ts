@@ -31,8 +31,7 @@ export class RegisterComponent {
 
   register() {
     this.accountService.register(this.registerForm.value).pipe(take(1)).subscribe(res => {
-      this.router.navigateByUrl("/home");
-      this.toastr.success('Account is registered successfully, please check your email for confirmation.');
+      this.router.navigate(["/account/send-email-verification"], { state: this.registerForm.value.email as String });
     });
   }
 }
