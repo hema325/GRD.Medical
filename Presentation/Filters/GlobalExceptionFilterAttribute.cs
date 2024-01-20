@@ -1,4 +1,5 @@
 ﻿using Application.Common.Exceptions;
+using Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Presentation.Errors;
@@ -23,7 +24,8 @@ namespace Presentation.Filters
             {
                 var errorResponse = new ErrorResponse (
                     exBase.StatusCode,
-                    exBase.Message
+                    exBase.Message,
+                    exBase.ErrorCode
                 );
 
                 context.Result = new ObjectResult(errorResponse) { StatusCode = exBase.StatusCode };

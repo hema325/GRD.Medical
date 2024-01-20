@@ -3,7 +3,7 @@
 <div class="section">
     <div class="container my-5" *ngIf="paginatedList && paginatedList.data?.length"
         (reachedBottom)="loadMoreNotifications()">
-        <div class="bg-white shadow-sm p-3 my-2  border-primary border-4 rounded-1 clickable"
+        <div class="bg-white shadow-sm p-3 my-2  border-5 rounded-1 clickable" style="border-color:#3f51b5 !important;"
             [class.border-start]="!notfication.isRead" *ngFor="let notfication of paginatedList.data"
             (click)="markAsRead(notfication)" [routerLink]="getPath(notfication)">
             <div class="d-flex">

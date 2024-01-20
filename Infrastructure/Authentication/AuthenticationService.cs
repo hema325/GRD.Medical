@@ -52,15 +52,6 @@ namespace Infrastructure.Authentication
             user.AddDomainEvent(new EntityCreatedEvent(user));
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-
-            try
-            {
-                await SendEmailConfirmationAsync(user.Email);
-            }
-            catch(Exception ex)
-            {
-                //do nothing
-            }
         }
 
         public async Task<AuthResultDto> AuthenticateAsync(string email, string password)
@@ -68,10 +59,10 @@ namespace Infrastructure.Authentication
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null || !_passwordHasher.VerifyHashedPassword(user.HashedPassword, password))
-                throw new UnauthorizedException("Email or password is not correct");
+                throw new UnauthorizedException("Email or password is not correct", ErrorCodes.WrongEmailPassword);
 
             if (!user.IsEmailConfirmed)
-                throw new UnauthorizedException("Email is not confirmed");
+                throw new UnauthorizedException("Email is not confirmed", ErrorCodes.UnverifiedEmail);
 
             return await GetAuthResultDtoAsync(user);
         }
@@ -86,7 +77,7 @@ namespace Infrastructure.Authentication
                 await RemoveRefreshTokenAsync(refreshToken);
 
             if (refreshToken == null || DateTime.UtcNow>=refreshToken.ExpiresOn)
-                throw new UnauthorizedException("Invalid token");
+                throw new UnauthorizedException("Invalid token", ErrorCodes.InvalidRefreshToken);
 
             return await GetAuthResultDtoAsync(refreshToken.User);
         }
@@ -147,10 +138,10 @@ namespace Infrastructure.Authentication
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null)
-                throw new UnauthorizedException("Invalid email address.");
+                throw new UnauthorizedException("Invalid email address.", ErrorCodes.InvalidEmail);
 
             if (user.IsEmailConfirmed)
-                throw new ConflictException("Email already confirmed.");
+                throw new ConflictException("Email already confirmed.", ErrorCodes.VerifiedEmail);
 
             //generate email confirmation model & cache it
             var key = $"emailConfirmationToken-{user.Id}";
@@ -176,7 +167,7 @@ namespace Infrastructure.Authentication
 
             //check if user has this token
             if (confimrationToken == null || confimrationToken != token)
-                throw new UnauthorizedException("Failed to confirm your email address.");
+                throw new UnauthorizedException("Invalid token.", ErrorCodes.InvalidEmailVerificationToken);
 
             //confirm user email
             var user = await _context.Users.FindAsync(userId);
@@ -192,7 +183,7 @@ namespace Infrastructure.Authentication
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null)
-                throw new UnauthorizedException("Invalid email address.");
+                throw new UnauthorizedException("Invalid email address.", ErrorCodes.InvalidEmail);
 
             //generate email reset password model & cache it
             var key = $"emailResetPasswordToken-{user.Id}";
@@ -218,7 +209,7 @@ namespace Infrastructure.Authentication
 
             //check if user has this token
             if (resatingToken == null || resatingToken != token)
-                throw new UnauthorizedException("Failed to reset your password.");
+                throw new UnauthorizedException("Invalid token.", ErrorCodes.InvalidResetPasswordToken);
 
             //reset user password
             var user = await _context.Users.FindAsync(userId);
@@ -234,7 +225,7 @@ namespace Infrastructure.Authentication
             var user = await _context.Users.FindAsync(userId);
 
             if (user == null || !_passwordHasher.VerifyHashedPassword(user.HashedPassword, oldPassword))
-                throw new UnauthorizedException("Old password isn't correct");
+                throw new UnauthorizedException("Old password isn't correct", ErrorCodes.InvalidPassword);
 
             user.HashedPassword = _passwordHasher.HashPassword(newPassword);
             await _context.SaveChangesAsync();

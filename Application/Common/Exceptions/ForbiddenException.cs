@@ -6,6 +6,6 @@ namespace Application.Common.Exceptions
     {
         public override int StatusCode => (int) HttpStatusCode.Forbidden;
 
-        public ForbiddenException(string? message = "You can not perform this operation.") : base(message) { }
+        public ForbiddenException(string? message = "You can not perform this operation.") : base(message, ErrorCodes.AccessDenied) { }
     }
 }

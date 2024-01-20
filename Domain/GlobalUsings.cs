@@ -2,3 +2,4 @@
 global using MediatR;
 global using Domain.Enums;
 global using Domain.Constants;
+global using Domain.Enums;

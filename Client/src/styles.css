@@ -72,3 +72,15 @@ body {
 .scroll-smooth {
     scroll-behavior: smooth;
 }
+
+.text-primary {
+    color: #3f51b5 !important;
+}
+
+.btn-primary {
+    background-color: #3f51b5 !important;
+}
+
+.btn-primary:hover {
+    background-color: #2a3eaf !important;
+}

@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\244.ff22f25548d82208.js",
-      "PackagePath": "staticwebassets\\244.ff22f25548d82208.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\244.634848beea2864e7.js",
+      "PackagePath": "staticwebassets\\244.634848beea2864e7.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\3rdpartylicenses.txt",
@@ -29,20 +29,20 @@
       "PackagePath": "staticwebassets\\87.27493bf8cb75d0ae.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\870.591a1094e4061f5b.js",
-      "PackagePath": "staticwebassets\\870.591a1094e4061f5b.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\870.b11c877178668002.js",
+      "PackagePath": "staticwebassets\\870.b11c877178668002.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\about.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\about.jpg"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\boy.png",
-      "PackagePath": "staticwebassets\\assets\\images\\boy.png"
-    },
-    {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\chat_bot.webp",
       "PackagePath": "staticwebassets\\assets\\images\\chat_bot.webp"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\login.png",
+      "PackagePath": "staticwebassets\\assets\\images\\login.png"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\not_found.png",
@@ -51,6 +51,22 @@
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\profile.png",
       "PackagePath": "staticwebassets\\assets\\images\\profile.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\register.png",
+      "PackagePath": "staticwebassets\\assets\\images\\register.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\reset-password.webp",
+      "PackagePath": "staticwebassets\\assets\\images\\reset-password.webp"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\send-email-confrimation.png",
+      "PackagePath": "staticwebassets\\assets\\images\\send-email-confrimation.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\send-email-reset-password.webp",
+      "PackagePath": "staticwebassets\\assets\\images\\send-email-reset-password.webp"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\server-error.png",
@@ -65,8 +81,8 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.f69b7d6bdbc4537c.js",
-      "PackagePath": "staticwebassets\\main.f69b7d6bdbc4537c.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.397b0f3773602c57.js",
+      "PackagePath": "staticwebassets\\main.397b0f3773602c57.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\owl.video.play.e3b436436832b027.png",
@@ -77,12 +93,12 @@
       "PackagePath": "staticwebassets\\polyfills.b21d18c38c3a54db.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.e8b0d73f4066d539.js",
-      "PackagePath": "staticwebassets\\runtime.e8b0d73f4066d539.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.054c0f2b19ff111c.js",
+      "PackagePath": "staticwebassets\\runtime.054c0f2b19ff111c.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.83173951ce214a0e.css",
-      "PackagePath": "staticwebassets\\styles.83173951ce214a0e.css"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.393a63afe13d653d.css",
+      "PackagePath": "staticwebassets\\styles.393a63afe13d653d.css"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",

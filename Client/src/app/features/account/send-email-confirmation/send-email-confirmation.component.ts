@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import { finalize } from 'rxjs';
+import { ErrorCodes } from 'src/app/models/Errors/error-codes.enum';
 import { AccountService } from 'src/app/services/account.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-send-email-confirmation',
@@ -11,21 +12,41 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class SendEmailConfirmationComponent {
 
+  email: String | null = null;
+  counter: number = 60;
 
-  emailForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]]
-  })
+  constructor(private accountService: AccountService,
+    private router: Router) {
 
-  constructor(private fb: FormBuilder,
-    private accountService: AccountService,
-    private toastr: ToastrService,
-    private router: Router) { }
+    this.email = router.getCurrentNavigation()?.extras.state as String;
+  }
+
+  ngOnInit() {
+    // this.send();
+  }
 
   send() {
-    this.accountService.sendEmailConfirmation(this.emailForm.value).subscribe(res => {
-      this.toastr.success('Email sent successfully');
-      this.router.navigateByUrl('/home');
+    this.accountService.sendEmailConfirmation({ email: this.email }).subscribe({
+      next: () => {
+        this.activateTimer();
+      },
+      error: err => {
+        if (ErrorCodes.VerifiedEmail == err.errorCode)
+          this.router.navigateByUrl('/account/login');
+      }
     });
+  }
+
+  activateTimer() {
+    this.counter = 60;
+    const intervalId = setInterval(() => {
+
+      --this.counter;
+
+      if (!this.counter)
+        clearInterval(intervalId);
+
+    }, 1000);
   }
 
 }

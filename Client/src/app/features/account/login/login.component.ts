@@ -7,6 +7,8 @@ import { take } from 'rxjs';
 import { AccountService } from 'src/app/services/account.service';
 import { SendEmailConfirmationComponent } from '../send-email-confirmation/send-email-confirmation.component';
 import { SendEmailResetPasswordComponent } from '../send-email-reset-password/send-email-reset-password.component';
+import { ErrorResponse } from 'src/app/models/Errors/error-response';
+import { ErrorCodes } from 'src/app/models/Errors/error-codes.enum';
 
 @Component({
   selector: 'app-login',
@@ -25,24 +27,27 @@ export class LoginComponent {
     private fb: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService,
-    private dialog: MatDialog) { }
+    private toastr: ToastrService) { }
 
   login() {
-    this.accountService.login(this.loginForm.value).pipe(take(1)).subscribe(res => {
-      let returnUrl = this.activatedRoute.snapshot.queryParamMap.get('returnUrl');
-      if (!returnUrl)
-        returnUrl = '/home';
-      this.router.navigateByUrl(returnUrl);
-      this.toastr.success('Loggedin successfully');
+    this.accountService.login(this.loginForm.value).pipe(take(1)).subscribe({
+      next: () => this.handleSuccessfulLogin(),
+      error: error => this.handleFailureLogin(error)
     });
   }
 
-  sendEmailConfirmation() {
-    this.dialog.open(SendEmailConfirmationComponent, { width: '90%', maxWidth: '800px' });
+
+  handleSuccessfulLogin() {
+    let returnUrl = this.activatedRoute.snapshot.queryParamMap.get('returnUrl');
+    if (!returnUrl)
+      returnUrl = '/home';
+    this.router.navigateByUrl(returnUrl);
   }
 
-  sendEmailResetPassword() {
-    this.dialog.open(SendEmailResetPasswordComponent, { width: '90%', maxWidth: '800px' });
+  handleFailureLogin(error: ErrorResponse) {
+    if (error.errorCode == ErrorCodes.UnverifiedEmail) {
+      this.router.navigate(['/account/send-email-verification'], { state: this.loginForm.controls.email.value as String });
+    }
   }
+
 }
