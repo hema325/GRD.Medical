@@ -26,18 +26,17 @@ export class LoginComponent {
   constructor(private accountService: AccountService,
     private fb: FormBuilder,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService) { }
+    private activatedRoute: ActivatedRoute) { }
 
   login() {
-    this.accountService.login(this.loginForm.value).pipe(take(1)).subscribe({
-      next: () => this.handleSuccessfulLogin(),
+    this.accountService.login(this.loginForm.value).subscribe({
+      next: () => this.handleSuccessfullLogin(),
       error: error => this.handleFailureLogin(error)
     });
   }
 
 
-  handleSuccessfulLogin() {
+  handleSuccessfullLogin() {
     let returnUrl = this.activatedRoute.snapshot.queryParamMap.get('returnUrl');
     if (!returnUrl)
       returnUrl = '/home';

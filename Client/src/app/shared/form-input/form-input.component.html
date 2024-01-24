@@ -7,7 +7,11 @@
         <span *ngIf="control.errors?.['emailDuplication']">{{label}} is already taken</span>
         <span *ngIf="control.errors?.['password']">{{label}} must contain lower/upper case, special characters with
             minimum length of 6</span>
+        <span *ngIf="control.errors?.['precisionScale'] as precisionScale">{{label}} must be a number have precision of
+            {{precisionScale.precision}} and scale of {{precisionScale.scale}}</span>
         <span *ngIf="control.errors?.['maxlength'] as maxLength">{{label}} has max length of
             {{maxLength.requiredLength}}</span>
+        <span *ngIf="control.errors?.['max'] as max">{{label}} must be less than or equal
+            {{max.max}}</span>
     </mat-error>
 </mat-form-field>

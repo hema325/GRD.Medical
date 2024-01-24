@@ -17,7 +17,7 @@ div[contenteditable] {
 
 html,
 body {
-    height: 100%;
+    height: fit-content;
 }
 
 body {
@@ -25,21 +25,12 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-body {
-    background-color: #fafafa;
-}
-
 .section {
-    min-height: calc(100vh - 220px);
+    margin-top: 76px;
+    min-height: calc(100vh - 128px);
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-@media (max-width: 600px) {
-    .section {
-        min-height: calc(100vh - 248px);
-    }
 }
 
 .pointer {
@@ -57,6 +48,7 @@ body {
 
 .clickable:hover {
     color: #3f51b5 !important;
+    opacity: 1 !important;
 }
 
 .long-press {
@@ -77,10 +69,52 @@ body {
     color: #3f51b5 !important;
 }
 
+.bg-primary {
+    background-color: #3f51b5 !important;
+}
+
 .btn-primary {
     background-color: #3f51b5 !important;
 }
 
 .btn-primary:hover {
     background-color: #2a3eaf !important;
+}
+
+
+.header {
+    position: relative;
+    width: fit-content;
+}
+
+.header::before,
+.header::after {
+    content: '';
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+}
+
+.header::before {
+    width: 35%;
+    background-color: #3f51b5;
+    z-index: 2;
+}
+
+.header::after {
+    width: 100%;
+    background-color: #ddd;
+    z-index: 1;
+}
+
+
+.card-animation {
+    cursor: pointer;
+    transition: transform 400ms;
+}
+
+.card-animation:hover {
+    transform: translatey(-10px);
 }

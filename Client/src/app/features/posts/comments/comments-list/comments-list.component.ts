@@ -122,6 +122,8 @@ export class CommentsListComponent {
           comment.replies = comments.data;
         else
           comment.replies.push(...comments.data);
+
+        comment.totalRepliesCount = comments.totalCount;
       });
     }
   }

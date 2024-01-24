@@ -1,36 +1,36 @@
 {
   "Files": [
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\244.634848beea2864e7.js",
-      "PackagePath": "staticwebassets\\244.634848beea2864e7.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\244.8c48eccec3488875.js",
+      "PackagePath": "staticwebassets\\244.8c48eccec3488875.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\3rdpartylicenses.txt",
       "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\496.fe80c6c1d831cd42.js",
-      "PackagePath": "staticwebassets\\496.fe80c6c1d831cd42.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\496.7703273710e05a67.js",
+      "PackagePath": "staticwebassets\\496.7703273710e05a67.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\550.02c09f7a9435f0f6.js",
-      "PackagePath": "staticwebassets\\550.02c09f7a9435f0f6.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\550.0d1d8c648b724855.js",
+      "PackagePath": "staticwebassets\\550.0d1d8c648b724855.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\680.86e274083d9e096a.js",
-      "PackagePath": "staticwebassets\\680.86e274083d9e096a.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\680.155a07b3e739ba50.js",
+      "PackagePath": "staticwebassets\\680.155a07b3e739ba50.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.d47fe0246f05a216.js",
-      "PackagePath": "staticwebassets\\760.d47fe0246f05a216.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.6de0c72260b5a1cc.js",
+      "PackagePath": "staticwebassets\\760.6de0c72260b5a1cc.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\87.27493bf8cb75d0ae.js",
-      "PackagePath": "staticwebassets\\87.27493bf8cb75d0ae.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\87.a2c411b29f777ebe.js",
+      "PackagePath": "staticwebassets\\87.a2c411b29f777ebe.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\870.b11c877178668002.js",
-      "PackagePath": "staticwebassets\\870.b11c877178668002.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\870.3bac1c0160cbf635.js",
+      "PackagePath": "staticwebassets\\870.3bac1c0160cbf635.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\about.jpg",
@@ -43,6 +43,10 @@
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\login.png",
       "PackagePath": "staticwebassets\\assets\\images\\login.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\no-notifications.webp",
+      "PackagePath": "staticwebassets\\assets\\images\\no-notifications.webp"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\not_found.png",
@@ -81,8 +85,8 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.397b0f3773602c57.js",
-      "PackagePath": "staticwebassets\\main.397b0f3773602c57.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.28f1f6ee0552bcdd.js",
+      "PackagePath": "staticwebassets\\main.28f1f6ee0552bcdd.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\owl.video.play.e3b436436832b027.png",
@@ -93,12 +97,12 @@
       "PackagePath": "staticwebassets\\polyfills.b21d18c38c3a54db.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.054c0f2b19ff111c.js",
-      "PackagePath": "staticwebassets\\runtime.054c0f2b19ff111c.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.c5882325be3dc8f7.js",
+      "PackagePath": "staticwebassets\\runtime.c5882325be3dc8f7.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.393a63afe13d653d.css",
-      "PackagePath": "staticwebassets\\styles.393a63afe13d653d.css"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.289988af0c74e457.css",
+      "PackagePath": "staticwebassets\\styles.289988af0c74e457.css"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",

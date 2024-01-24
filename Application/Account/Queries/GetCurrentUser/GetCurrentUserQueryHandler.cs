@@ -1,5 +1,6 @@
 ﻿using Application.Common.Exceptions;
 using Application.Common.Interfaces;
+using Application.Users.Queries;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +24,10 @@ namespace Application.Account.Queries.GetCurrentUser
         public async Task<UserDto> Handle(GetCurrentUserQuery request, CancellationToken cancellationToken)
         {
             var user =  await _context.Users
+                .Include(u => u.Doctor)
+                .ThenInclude(d => d.Speciality)
+                .Include(u => u.Doctor)
+                .ThenInclude(d => d.Languages)
                 .FirstOrDefaultAsync(u=>u.Id == _currentUser.Id);
 
             if (user == null)

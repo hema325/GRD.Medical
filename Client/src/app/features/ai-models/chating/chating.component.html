@@ -1,4 +1,3 @@
-<app-header title="ChatBot"></app-header>
 <div class="section">
     <div class="container" [hidden]="isFirstLoading">
         <div class="bg-white p-4 rounded-3 shadow-sm my-4 chat-box d-flex flex-column justify-content-between overflow-hidden position-relative "
@@ -53,14 +52,18 @@
                 </div>
 
                 <div class="d-flex flex-column justify-content-center h-100" *ngIf="!paginatedList?.data?.length ">
-                    <div class="flex-fill d-flex justify-content-center align-items-center flex-column">
-                        <img src="assets/images/chat_bot.webp" class="rounded-circle d-block" width="80">
-                        <h1 class="text-center mt-3">How can I help you today?</h1>
+                    <div class="flex-fill d-flex justify-content-center align-items-center flex-column gap-4">
+                        <img src="assets/images/chat_bot.webp" class="rounded-circle d-block"
+                            style="max-width: 80px; width: 100%;">
+                        <h1 class="text-center text-primary mt-2 fs-4">How can I
+                            help you
+                            today?
+                        </h1>
                     </div>
                     <div class="row row-cols-1 row-cols-lg-2 g-2 mb-2 mx-sm-5 mt-5">
                         <div class="col" *ngFor="let sug of suggestions">
                             <div class="border border-1 border-light-subtle rounded-4 p-2 small snippet-action px-3"
-                                (click)="message(sug)">
+                                style="color: #666;" (click)="message(sug)">
                                 {{sug}}
                             </div>
                         </div>
@@ -68,16 +71,16 @@
                 </div>
             </div>
 
-            <div class="go-down shadow-sm text-muted bg-body rounded-circle position-absolute go-bottom"
+            <div class="go-down shadow text-muted bg-body rounded-circle position-absolute go-bottom"
                 (click)="scrollBottom()" [class.active]="isScrollBottomBtnActive">
-                <mat-icon style="font-size:30px;" class="w-auto h-auto ">keyboard_arrow_down</mat-icon>
+                <mat-icon style="font-size:30px;" class="w-auto h-auto text-primary">keyboard_arrow_down</mat-icon>
             </div>
 
 
             <div
                 class="text-muted d-flex justify-content-start align-items-end pt-3 mt-2 z-0 position-relative bg-white">
-                <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" alt="avatar 3"
-                    class="rounded-circle flex-shrink-0" width="46px" height="46px">
+                <img [src]="currentAuth.imageUrl ?? defaultImageUrl" alt="avatar 3" class="rounded-circle flex-shrink-0"
+                    width="46px" height="46px">
                 <textarea type="text" class="form-control form-control-lg mx-2 hide-scrollbar"
                     id="exampleFormControlInput2" placeholder="Type message" AutoResizeTextArea defaultHeight="48px"
                     style="resize: none;height: 48px;max-height: 100px;border-radius: 20px;" maxlength="500"

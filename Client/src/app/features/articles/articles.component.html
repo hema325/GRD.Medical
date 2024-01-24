@@ -1,11 +1,9 @@
-<app-header title="Articles"></app-header>
-
 <div class="section">
     <div class="container">
         <ng-container *ngIf="paginatedList">
 
             <div class="mt-5 shadow-sm bg-white p-4 rounded-3">
-                <h2>Search By Title</h2>
+                <h2 class="text-primary fw-medium mb-4 ">Search By Title</h2>
                 <app-form-input [control]="filterForm.controls.title" label="Title"
                     (keydown.enter)="handleSearchFilter()"></app-form-input>
                 <div class="d-flex justify-content-end">

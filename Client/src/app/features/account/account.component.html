@@ -1,11 +1,12 @@
-<app-header title="Profile"></app-header>
-
-<div class="section ">
+<div class="section align-items-start">
     <div class="container" *ngIf="user">
-        <div class=" shadow-sm bg-white rounded-3 mt-5 mb-3">
-            <div class="p-4 row">
-                <div class="col-12 col-lg-4">
-                    <div class="pe-md-4 border-end h-100 no-border">
+        <div class="row my-5">
+            <div class="col-lg-4 col-12">
+                <div class="position-sticky  mb-3" style="top: 90px;">
+                    <div class="shadow-sm bg-white mb-3 rounded-3 position-relative p-4 ">
+                        <div class="position-absolute " style="top:15px; left: 15px;">
+                            <span class="badge bg-primary">{{user.role}}</span>
+                        </div>
                         <div style="width: fit-content; cursor: pointer;" class="m-auto img-holder"
                             (click)="openBottomSheet()">
                             <img [src]="user.imageUrl ?? defaultUserImageUrl" style="width: 100px;"
@@ -17,32 +18,62 @@
                         <input type="file" (change)="uploadImage($event)" accept="image/*" #imageInput hidden>
                         <h2 class="text-center mt-2 mb-0">{{user.firstName}} {{user.lastName}}</h2>
                         <h5 class="text-center text-muted" style="margin-top: -5px;">{{user.email}}</h5>
+                    </div>
+                    <!-- Hover added -->
+                    <div class="shadow-sm mb-3 rounded-3 bg-white">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action  fs-6 p-3 d-flex align-items-center"
+                                [class.active]="tab==0" style="cursor: pointer;" (click)="tab=0">
+                                <mat-icon class="me-3" [class]="tab !=0 ? 'text-body opacity-50':null">person</mat-icon>
+                                Details
+                            </a>
+                            <a class="list-group-item list-group-item-action active fs-6 p-3 d-flex align-items-center"
+                                [class.active]="tab==1" style="cursor: pointer;" (click)="tab=1">
+                                <mat-icon class="me-3" [class]="tab !=1 ? 'text-body opacity-50':null">key</mat-icon>
+                                Password
+                            </a>
+                            <a class="list-group-item list-group-item-action fs-6 p-3 d-flex align-items-center"
+                                [class.active]="tab==2" style="cursor: pointer;" (click)="tab=2">
+                                <mat-icon class="me-3"
+                                    [class]="tab !=2 ? 'text-body opacity-50':null">notifications_active</mat-icon>
+                                <div class="d-flex justify-content-between align-items-center w-100">
+                                    <span>Notifications</span>
+                                    <span class="badge bg-danger"
+                                        *ngIf="notificationsCount">{{notificationsCount}}</span>
+                                </div>
 
-                        <div class="list-group my-5 list-group-flush ">
-                            <button type="button" class="list-group-item list-group-item-action py-3"
-                                [class.active]="tab == 0" aria-current="true" (click)="tab = 0">
-                                <mat-icon class="align-middle" style="width: 40px;">person</mat-icon> Account
-                            </button>
-                            <button type="button" class="list-group-item list-group-item-action py-3"
-                                [class.active]="tab == 1" (click)="tab=1"><mat-icon class="align-middle"
-                                    style="width: 40px;">key</mat-icon>
-                                Password</button>
+                            </a>
+                            <a class="list-group-item list-group-item-action fs-6 p-3 d-flex align-items-center"
+                                [class.active]="tab==3" style="cursor: pointer;" (click)="tab=3">
+                                <mat-icon class="me-3" [class]="tab !=3 ? 'text-body opacity-50':null">layers</mat-icon>
+                                Activities
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <app-update-account-details [user]="user" *ngIf="tab==0"></app-update-account-details>
-                    <app-change-account-password *ngIf="tab==1"></app-change-account-password>
+            </div>
+            <div class="col">
+                <ng-container *ngIf="tab==0">
+                    <div class="mb-3" *ngIf="isPatient()">
+                        <app-update-user-details [user]="user"></app-update-user-details>
+                    </div>
+                    <div class="mb-3" *ngIf="isDoctor()">
+                        <app-update-doctor-details [user]="user"></app-update-doctor-details>
+                    </div>
+                </ng-container>
+                <div class="mb-3" *ngIf="tab==1">
+                    <app-change-account-password></app-change-account-password>
+                </div>
+                <div class="mb-3" *ngIf="tab==2">
+                    <app-notification-list></app-notification-list>
+                </div>
+                <div class="mb-3" *ngIf="tab==3">
+                    <div class="mb-3">
+                        <app-create-post></app-create-post>
+                    </div>
+                    <app-posts-list [ownerId]="user.id"></app-posts-list>
                 </div>
             </div>
         </div>
-
-        <div class="mt-3 mb-3">
-            <app-create-post></app-create-post>
-        </div>
-        <div class="mb-5 mt-3">
-            <app-posts-list [ownerId]="user.id"></app-posts-list>
-        </div>
-
     </div>
 </div>

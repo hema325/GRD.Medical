@@ -9,15 +9,15 @@
     padding-top: 10px;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 400ms;
+    transition: visibility, opacity, 400ms;
 }
 
-.outlier .dropdown-nav {
+.outlier .nav-links {
     min-width: 200px;
     visibility: hidden;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: transform, opacity, 400ms;
+    overflow: hidden;
+    height: 0;
+    transition: height, visibility, 400ms;
 }
 
 .outlier.active {
@@ -25,21 +25,17 @@
     opacity: 1;
 }
 
-.outlier.active .dropdown-nav {
+.outlier.active .nav-links {
     visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
 }
 
-.dropdown-nav mat-icon {
-    width: 25px;
-    height: 25px;
-    font-size: 25px;
+.nav-link {
+    padding: 13px 15px;
+    cursor: pointer;
+    font-weight: 600 !important;
+    border-bottom: 1px solid #eee;
 }
 
-@media (max-width: 600px) {
-
-    .outlier {
-        top: calc(99% + 36px);
-    }
+.nav-link:hover {
+    background-color: #f8f9fa;
 }

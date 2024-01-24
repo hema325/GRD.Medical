@@ -1,0 +1,38 @@
+<div class="shadow-sm bg-white rounded-3 p-4">
+    <h2 class="mb-4 mt-2 text-primary">Details</h2>
+    <form [formGroup]="doctorForm" (ngSubmit)="updateDetails()">
+        <div class="row">
+            <div class="my-2 col">
+                <app-form-input [control]="doctorForm.controls.firstName" label="First Name"></app-form-input>
+            </div>
+            <div class="my-2 col">
+                <app-form-input [control]="doctorForm.controls.lastName" label="Last Name"
+                    class="my-1"></app-form-input>
+            </div>
+        </div>
+        <div class="my-2">
+            <app-specialist-select-input [control]="doctorForm.controls.specialityId"
+                [loadAll]="true"></app-specialist-select-input>
+        </div>
+        <div class="my-2">
+            <app-language-select-input [control]="doctorForm.controls.languageIds"
+                [loadAll]="true"></app-language-select-input>
+        </div>
+        <div class="row">
+            <div class="my-2 col">
+                <app-form-input [control]="doctorForm.controls.experience" type="number"
+                    label="Years of experience"></app-form-input>
+            </div>
+            <div class="my-2 col">
+                <app-form-input [control]="doctorForm.controls.consultFee" label="Consule Fee in $"></app-form-input>
+            </div>
+        </div>
+        <div class="my-2">
+            <app-text-area-input [control]="doctorForm.controls.biography" style="height: 100px;"
+                label="Biography"></app-text-area-input>
+        </div>
+        <div class="d-flex justify-content-end ">
+            <button mat-raised-button color="primary" [disabled]="doctorForm.invalid">Update</button>
+        </div>
+    </form>
+</div>

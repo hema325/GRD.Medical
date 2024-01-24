@@ -21,6 +21,7 @@
     "@angular/router": "^16.2.0",
     "@microsoft/signalr": "^8.0.0",
     "@ngu/carousel": "^8.0.0",
+    "cuid": "^3.0.0",
     "ngx-owl-carousel-o": "^16.0.0",
     "ngx-spinner": "^16.0.2",
     "ngx-timeago": "^3.0.0",

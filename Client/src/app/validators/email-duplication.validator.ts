@@ -7,8 +7,8 @@ import { LoaderService } from "../services/loader.service";
 
 export function emailDuplicated(accountService: AccountService, loader: LoaderService): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
-        loader.deactivate();
+        loader.skipNextRequest();
         return accountService.isEmailDuplicated(control.value)
-            .pipe(map(result => result ? { emailDuplication: true } : null), finalize(() => loader.activate()));
+            .pipe(map(result => result ? { emailDuplication: true } : null));
     }
 }

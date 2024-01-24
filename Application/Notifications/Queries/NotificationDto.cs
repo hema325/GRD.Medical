@@ -1,4 +1,4 @@
-﻿using Application.Account.Queries;
+﻿using Application.Users.Queries;
 
 namespace Application.Notifications.Queries
 {

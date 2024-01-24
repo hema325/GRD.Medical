@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { PaginatedList } from 'src/app/models/paginated-list';
 import { Post } from 'src/app/models/posts/post';
-import { PostFilter } from 'src/app/models/post-filter';
+import { PostFilter } from 'src/app/models/posts/post-filter';
 import { PostsService } from 'src/app/services/posts.service';
 import { AuthResult } from 'src/app/models/account/auth-result';
 import { AccountService } from 'src/app/services/account.service';

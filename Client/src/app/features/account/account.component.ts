@@ -1,10 +1,13 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { User } from 'src/app/models/account/user';
+import { User } from 'src/app/models/users/user';
 import { AccountService } from 'src/app/services/account.service';
 import { EditImageBottomSheetComponent } from './edit-image-bottom-sheet/edit-image-bottom-sheet.component';
 import { environment } from 'src/environments/environment.development';
 import { ToastrService } from 'ngx-toastr';
+import { Roles } from 'src/app/models/account/roles.enum';
+import { ActivatedRoute } from '@angular/router';
+import { NotificationsService } from 'src/app/services/notifications.service';
 
 
 @Component({
@@ -16,17 +19,40 @@ export class AccountComponent implements OnInit {
 
   defaultUserImageUrl = environment.defaultUserImageUrl;
   user: User | null = null;
-  tab = 0;
   profieImageActive = false;
+  tab = 0;
+
+  notificationsCount = 0;
 
   constructor(private accountService: AccountService,
     private bottomSheet: MatBottomSheet,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private activatedRoute: ActivatedRoute,
+    private notificationsService: NotificationsService) { }
 
   ngOnInit() {
     this.accountService.getDetails().subscribe(data => this.user = data);
+    this.activeTabBasedFragment();
+    this.recieveNotifications();
   }
 
+  recieveNotifications() {
+    this.notificationsService.notificationsCount$.subscribe(count => this.notificationsCount = count);
+  }
+
+  activeTabBasedFragment() {
+    this.activatedRoute.fragment.subscribe(tab => {
+      this.tab = Number(tab);
+    });
+  }
+
+  isDoctor() {
+    return this.user?.role == Roles.Doctor
+  }
+
+  isPatient() {
+    return this.user?.role == Roles.Patient;
+  }
 
   @ViewChild('imageInput') imageInput?: ElementRef;
 

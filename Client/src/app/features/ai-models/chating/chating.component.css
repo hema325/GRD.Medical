@@ -1,12 +1,6 @@
 .chat-box {
-    height: calc(100vh - 268px);
+    height: calc(100vh - 128px - 48px);
     min-height: 500px;
-}
-
-@media (max-width: 600px) {
-    .chat-box {
-        height: calc(100vh - 296px);
-    }
 }
 
 .loader {
@@ -64,5 +58,5 @@
 }
 
 .snippet-action:hover {
-    background-color: #f5f6f7;
+    background-color: #f8f8f8;
 }

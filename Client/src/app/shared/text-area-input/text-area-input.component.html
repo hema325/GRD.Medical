@@ -1,0 +1,15 @@
+<mat-form-field class="w-100 h-100" appearance="outline">
+    <mat-label *ngIf="label">{{label}}</mat-label>
+    <textarea matInput [formControl]="control" [disabled]="disabled" rows="6"></textarea>
+    <mat-error *ngIf="control.touched">
+        <span *ngIf="control.errors?.['required']">{{label}} is required</span>
+        <span *ngIf="control.errors?.['email']">{{label}} is not a proper email</span>
+        <span *ngIf="control.errors?.['emailDuplication']">{{label}} is already taken</span>
+        <span *ngIf="control.errors?.['password']">{{label}} must contain lower/upper case, special characters with
+            minimum length of 6</span>
+        <span *ngIf="control.errors?.['precisionScale'] as precisionScale">{{label}} must have precision of
+            {{precisionScale.precision}} and scale of {{precisionScale.scale}}</span>
+        <span *ngIf="control.errors?.['maxlength'] as maxLength">{{label}} has max length of
+            {{maxLength.requiredLength}}</span>
+    </mat-error>
+</mat-form-field>

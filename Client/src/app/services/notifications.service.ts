@@ -5,9 +5,8 @@ import { NotificationsFilter } from '../models/notifications/notifications-filte
 import { PaginatedList } from '../models/paginated-list';
 import { Notification } from 'src/app/models/notifications/notification';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
-import { AccountService } from './account.service';
 import { AuthResult } from '../models/account/auth-result';
-import { BehaviorSubject, ReplaySubject, finalize, map } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,12 +35,14 @@ export class NotificationsService {
   }
 
   getUnReadNotificationsCount() {
-    return this.httpClient.get<number>(this.baseUrl + '/unReadNotificationsCount');
+    return this.httpClient.get<number>(this.baseUrl + '/unReadNotificationsCount').pipe(map(res => {
+      this.notificationsCount.next(res);
+    }));
   }
 
   markAsRead(id: number) {
     return this.httpClient.post(this.baseUrl + '/markAsRead', { id })
-      .pipe(map(() => this.notificationsCount.next(-1)));
+      .pipe(map(() => this.notificationsCount.next(this.notificationsCount.value - 1)));
   }
 
   startHubConnection(auth: AuthResult) {
@@ -56,7 +57,7 @@ export class NotificationsService {
 
     this.hubConnection.on('ServerNotification', notification => {
       this.notifications.next(notification);
-      this.notificationsCount.next(1);
+      this.notificationsCount.next(this.notificationsCount.value + 1);
     });
   }
 

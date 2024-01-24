@@ -1,14 +1,10 @@
-<app-header title="Login"></app-header>
-
 <div class="section">
     <div class="container">
-        <div class="bg-white rounded-3 my-5 shadow-sm p-4">
-            <div class="row align-items-center">
-                <div class="col d-flex justify-content-center align-items-center">
-                    <img src="assets/images/login.png" style="max-width: 360px;" class="w-100">
-                </div>
-                <div class="col-lg col-12">
-                    <h1 class="text-center fs-1 text-primary fw-medium mt-lg-0 mt-5 mb-5">
+
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="bg-white rounded-3 my-5 shadow-sm p-4">
+                    <h1 class="text-center fs-1 text-primary fw-medium mt-3 mb-5">
                         User Login
                     </h1>
                     <form [formGroup]="loginForm" class="w-100">
@@ -20,17 +16,20 @@
                                 type="password"></app-form-input>
                         </div>
                     </form>
-                    <div class="mb-3 d-flex justify-content-end">
+                    <div class="d-flex justify-content-end">
                         <button [disabled]="loginForm.invalid" class="w-100 py-3 btn btn-primary"
                             (click)="login()">Login</button>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center mt-3 ">
                         <a class="link-secondary text-decoration-none d-block link w-auto "
                             routerLink="/account/send-email-reset-password">Forgot
                             your
                             password?</a>
                     </div>
                 </div>
+            </div>
+            <div class="col d-lg-flex justify-content-end align-items-center d-none">
+                <img src="assets/images/login.png" style="max-width: 500px;" class="w-100">
             </div>
         </div>
     </div>

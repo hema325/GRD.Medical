@@ -1,0 +1,2 @@
+<app-form-select [control]="control" label="Speciality" [options]="specialistsPaginatedList?.data"
+    [loading]="isLoadingSpecialists" (scrollAtBottom)="loadMoreSpecialists()" [default]="default"></app-form-select>

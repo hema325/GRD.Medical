@@ -16,22 +16,25 @@ export class FloatingButtonNavigationComponent {
   activeNav: boolean = false;
   notificationsCount: number = 0;
 
-  constructor(private notificationService: NotificationsService) { }
+  constructor(private notificationsService: NotificationsService,
+    private loaderService: LoaderService) { }
 
   ngOnInit() {
     this.recieveNotifications();
     this.loadNotificationsCount();
   }
 
+
+  loadNotificationsCount() {
+    this.loaderService.skipNextRequest();
+    this.notificationsService.getUnReadNotificationsCount().subscribe();
+  }
+
   closeNav() {
     this.activeNav = false;
   }
 
-  loadNotificationsCount() {
-    this.notificationService.getUnReadNotificationsCount().subscribe(res => this.notificationsCount += res);
-  }
-
   recieveNotifications() {
-    this.notificationService.notificationsCount$.subscribe(count => this.notificationsCount += count);
+    this.notificationsService.notificationsCount$.subscribe(count => this.notificationsCount = count);
   }
 }

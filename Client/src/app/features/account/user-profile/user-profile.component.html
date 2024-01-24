@@ -1,25 +1,81 @@
-<app-header title="Profile"></app-header>
-
-<div class="section ">
+<div class="section align-items-start">
     <div class="container" *ngIf="user">
-        <div class=" shadow-sm bg-white rounded-3 mt-5 mb-3">
-            <div class="p-4">
-                <div class="pe-md-4 h-100 no-border d-flex flex-column align-items-center ">
-                    <div style="width: fit-content; cursor: pointer;" class="m-auto img-holder">
-                        <img [src]="user.imageUrl? user.imageUrl: 'assets/images/profile.png'"
-                            style="width: 100px;height: 100px;" class="rounded-circle object-fit-cover "
-                            (click)="this.lighbox.active = true">
-                        <app-light-box [imagesUrl]="[user.imageUrl]" #lighbox></app-light-box>
+        <div class="row my-5">
+            <div class="col-lg-4 col-12">
+                <div class="position-sticky  mb-3" style="top: 90px;z-index: 999">
+                    <div class=" shadow-sm bg-white rounded-3 mb-3  position-relative">
+                        <div class="position-absolute " style="top:15px; left: 15px;">
+                            <span class="badge bg-primary">{{user.role}}</span>
+                        </div>
+                        <div class="p-4">
+                            <div class="pe-md-4 h-100 no-border d-flex flex-column align-items-center ">
+                                <div style="width: fit-content; cursor: pointer;" class="m-auto img-holder">
+                                    <img [src]="user.imageUrl? user.imageUrl: defaultImageUrl"
+                                        style="width: 100px;height: 100px;" class="rounded-circle object-fit-cover "
+                                        (click)="this.lighbox.active = true">
+                                    <app-light-box [imagesUrl]="[user.imageUrl]" #lighbox></app-light-box>
+                                </div>
+                                <h2 class="text-center mt-2 mb-0 text-dark">{{user.firstName}} {{user.lastName}}</h2>
+                                <h5 class="text-center text-muted mb-0" style="margin-top: -5px;">{{user.email}}</h5>
+                            </div>
+                        </div>
                     </div>
-                    <h2 class="text-center mt-2 mb-0">{{user.firstName}} {{user.lastName}}</h2>
-                    <h5 class="text-center text-muted mb-0" style="margin-top: -5px;">{{user.email}}</h5>
+                    <div class="shadow-sm mb-3 rounded-3 bg-white">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action fs-6 p-3 d-flex align-items-center"
+                                *ngIf="isDoctor()" [class.active]="tab==0" style="cursor: pointer;" (click)="tab=0">
+                                <mat-icon class="me-3"
+                                    [class]="tab !=0 ? 'text-body opacity-50':null">auto_awesome</mat-icon>
+                                Details
+                            </a>
+                            <a class="list-group-item list-group-item-action fs-6 p-3 d-flex align-items-center"
+                                *ngIf="isDoctor()" [class.active]="tab==1" style="cursor: pointer;" (click)="tab=1">
+                                <mat-icon class="me-3"
+                                    [class]="tab !=1 ? 'text-body opacity-50':null">auto_awesome</mat-icon>
+                                Reviews
+                            </a>
+                            <a class="list-group-item list-group-item-action fs-6 p-3 d-flex align-items-center"
+                                [class.active]="tab==2" style="cursor: pointer;" (click)="tab=2">
+                                <mat-icon class="me-3" [class]="tab !=2 ? 'text-body opacity-50':null">layers</mat-icon>
+                                Activities
+                            </a>
+                        </div>
+                    </div>
+                    <button mat-raised-button color="primary" class="mb-3 w-100 py-4 fs-6"
+                        *ngIf="isDoctor()">Consult</button>
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="shadow-sm bg-white rounded-3 mb-3 p-4" *ngIf="isDoctor() && tab==0">
+                    <div class="mb-3">
+                        <h3 class="text-primary mb-0 fw-medium ">Speciality:</h3>
+                        <p class="col"> {{user.doctor.speciality.name}}</p>
+                    </div>
+                    <div class="mb-3">
+                        <h3 class="text-primary mb-0 fw-medium ">Experience:</h3>
+                        <p>{{user.doctor.experience}} Years</p>
+                    </div>
+                    <div class="mb-3">
+                        <h3 class="text-primary mb-0 fw-medium ">Language:</h3>
+                        <p>{{getLanguages()}}</p>
+                    </div>
+                    <div class="mb-3">
+                        <h3 class="text-primary mb-0 fw-medium ">Consult Fee:</h3>
+                        <p>{{user.doctor.consultFee}} USD</p>
+                    </div>
+                    <div>
+                        <h3 class="text-primary mb-0 fw-medium ">Biography:</h3>
+                        <p [innerText]="user.doctor.biography" class="mb-0"></p>
+                    </div>
+                </div>
+                <div class="mb-3" *ngIf="tab==1">
+                    reviews not added yet
+                </div>
+                <div class="mb-3" *ngIf="tab==2">
+                    <app-posts-list [ownerId]="user.id"></app-posts-list>
                 </div>
             </div>
         </div>
-
-        <div class="mb-5 mt-3">
-            <app-posts-list [ownerId]="user.id"></app-posts-list>
-        </div>
-
     </div>
 </div>

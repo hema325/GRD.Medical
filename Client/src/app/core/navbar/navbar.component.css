@@ -1,6 +1,10 @@
 .nav-link {
     cursor: pointer;
     border-radius: 6px;
+    color: white !important;
+    font-weight: 500 !important;
+    letter-spacing: 1.4px !important;
+
 }
 
 .nav-link.active {
@@ -11,23 +15,72 @@
     background-color: #252f69;
 }
 
-@media (max-width: 600px) {
+.link-btn {
+    display: none;
+}
+
+.logo {
+    display: block;
+}
+
+@media (max-width: 900px) {
     .nav-links {
         position: absolute;
-        top: 99%;
+        top: 98%;
         left: 0;
         width: 100%;
+        display: block !important;
         background-color: #3f51b5;
-        display: flex;
-        padding: 0 20px;
         text-align: center;
         box-shadow: 0 0.7rem 1rem rgba(0, 0, 0, 0.15);
+        height: 0px;
+        overflow: hidden;
+        transition: height 600ms;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
-    .nav-links button {
-        flex-grow: 1;
-        margin: 0 !important;
-        padding: 0 !important;
+    .logo {
+        display: none;
+    }
+
+    .nav-links .nav-link {
+        text-align: start;
+        margin-right: 0 !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .link-btn {
+        height: fit-content;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        z-index: 5;
+    }
+
+    .link-btn::before {
+        content: '';
+        width: calc(100% + 14px);
+        height: calc(100% + 14px);
+        background-color: transparent;
+        position: absolute;
+        top: -7px;
+        left: -7px;
+        z-index: -1;
+        border-radius: 10px;
+        transition: background-color 400ms;
+    }
+
+    .link-btn.active::before {
+        background-color: #324191;
+    }
+
+    .link-btn:hover::before {
+        background-color: #252f69;
     }
 
     .dropdown-nav {

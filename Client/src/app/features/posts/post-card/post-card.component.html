@@ -10,7 +10,7 @@
                 </div>
                 <div class="small text-body text-opacity-50">{{ post.postedOn | timeago }}</div>
             </div>
-            <button mat-icon-button *ngIf="amIPostOwner"
+            <button mat-icon-button *ngIf="amIPostOwner" color="primary"
                 (click)="openPostBottomSheet(post.id)"><mat-icon>more_horiz</mat-icon></button>
         </div>
 

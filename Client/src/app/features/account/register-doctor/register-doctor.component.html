@@ -1,0 +1,78 @@
+<div class="section">
+    <div class="container">
+        <div class="bg-white rounded-3 my-5 shadow-sm p-4 pb-0">
+            <h1 class="text-center fs-1 text-primary fw-medium mt-3 mb-4">
+                Doctor Register
+            </h1>
+            <mat-stepper [linear]="true" #stepper>
+                <mat-step [stepControl]="registerForm.controls.AccountInfo" label="Account Info" style="padding:0;">
+                    <div class="row align-items-center pt-3">
+                        <div class="col d-lg-flex justify-content-center align-items-center d-none">
+                            <img src="assets/images/doctor-account.png" style="max-width: 400px;" class="w-100">
+                        </div>
+                        <div class="col">
+                            <form [formGroup]="registerForm.controls.AccountInfo">
+                                <div class="my-2">
+                                    <app-form-input [control]="registerForm.controls.AccountInfo.controls.firstName"
+                                        label="First Name"></app-form-input>
+                                </div>
+                                <div class="my-2">
+                                    <app-form-input [control]="registerForm.controls.AccountInfo.controls.lastName"
+                                        label="Last Name"></app-form-input>
+                                </div>
+                                <div class="my-2">
+                                    <app-form-input [control]="registerForm.controls.AccountInfo.controls.email"
+                                        label="Email"></app-form-input>
+                                </div>
+                                <div class="my-2">
+                                    <app-form-input [control]="registerForm.controls.AccountInfo.controls.password"
+                                        label="Password" type="password"></app-form-input>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button [disabled]="registerForm.controls.AccountInfo.invalid" matStepperNext
+                                        type="button" class="btn btn-primary py-3 w-100">Next</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </mat-step>
+                <mat-step [stepControl]="registerForm.controls.DoctorInfo" label="Doctor Info">
+                    <div class="row align-items-center pt-3">
+                        <div class="col d-lg-flex justify-content-center align-items-center d-none">
+                            <img src="assets/images/doctor-account-details.png" style="max-width: 420px;" class="w-100">
+                        </div>
+                        <div class="col">
+                            <form [formGroup]="registerForm.controls.DoctorInfo">
+                                <div class="my-2">
+                                    <app-specialist-select-input
+                                        [control]="registerForm.controls.DoctorInfo.controls.specialityId"></app-specialist-select-input>
+                                </div>
+                                <div class="my-2">
+                                    <app-language-select-input
+                                        [control]="registerForm.controls.DoctorInfo.controls.languageIds"></app-language-select-input>
+                                </div>
+                                <div class="my-2">
+                                    <app-experience-select-input
+                                        [control]="registerForm.controls.DoctorInfo.controls.experience"
+                                        label="Years of experience" [max]="60"></app-experience-select-input>
+                                </div>
+                                <div class="my-2">
+                                    <app-form-input [control]="registerForm.controls.DoctorInfo.controls.consultFee"
+                                        label="Consule Fee"></app-form-input>
+                                </div>
+                                <div class="my-2">
+                                    <app-text-area-input [control]="registerForm.controls.DoctorInfo.controls.biography"
+                                        style="height: 100px;" label="Biography"></app-text-area-input>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button [disabled]="registerForm.invalid" class="btn btn-primary py-3 w-100"
+                                        type="button" (click)="register()">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </mat-step>
+            </mat-stepper>
+        </div>
+    </div>
+</div>

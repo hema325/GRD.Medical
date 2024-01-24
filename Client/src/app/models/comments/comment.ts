@@ -1,4 +1,4 @@
-import { User } from "../account/user"
+import { User } from "../users/user"
 import { Media } from "../media"
 
 export interface Comment {

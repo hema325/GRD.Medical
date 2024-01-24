@@ -13,6 +13,7 @@ import { EditPostBottomSheetComponent } from './edit-post-bottom-sheet/edit-post
 import { EditCommentBottomSheetComponent } from './comments/edit-comment-bottom-sheet/edit-comment-bottom-sheet.component';
 import { PostCardComponent } from './post-card/post-card.component';
 import { PostsForCommentComponent } from './posts-for-comment/posts-for-comment.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 
 
@@ -26,7 +27,8 @@ import { PostsForCommentComponent } from './posts-for-comment/posts-for-comment.
     EditPostBottomSheetComponent,
     EditCommentBottomSheetComponent,
     PostCardComponent,
-    PostsForCommentComponent
+    PostsForCommentComponent,
+    PostDetailsComponent
   ],
   imports: [
     CommonModule,

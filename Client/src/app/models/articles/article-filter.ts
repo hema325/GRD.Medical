@@ -1,5 +1,5 @@
-export interface ArticleFilter {
+import { FilterBase } from "../filter-base"
+
+export interface ArticleFilter extends FilterBase {
     title: string | null
-    pageNumber: number
-    pageSize: number
 }

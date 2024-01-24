@@ -1,5 +1,5 @@
-﻿using Application.Account.Queries;
-using Application.Common.Models;
+﻿using Application.Common.Models;
+using Application.Users.Queries;
 
 namespace Application.Posts.Queries
 {

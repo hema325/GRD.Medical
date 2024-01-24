@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Infrastructure.Persistance.Migrations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistance.Seeds
 {
@@ -242,6 +243,42 @@ namespace Infrastructure.Persistance.Seeds
             };
 
             builder.Entity<Advice>().HasData(advices);
+
+            var languages = new[]
+            {
+                new Language { Id = 1, Name="Arabic" },
+                new Language { Id = 2, Name="English" },
+                new Language { Id = 3, Name="Spanish" },
+                new Language { Id = 4, Name="French" },
+                new Language { Id = 5, Name="German" },
+                new Language { Id = 6, Name="Italian" },
+                new Language { Id = 7, Name="Russian" },
+                new Language { Id = 8, Name="Bengali" },
+                new Language { Id = 9, Name="Portuguese" },
+                new Language { Id = 10, Name="Indonesian" },
+                new Language { Id = 11, Name="Chinese" },
+                new Language { Id = 12, Name="Hindi" }
+            };
+
+            builder.Entity<Language>().HasData(languages);
+
+            var specialists = new[]
+            {
+                new Speciality { Id = 1, Name = "Breast", ImageUrl = "Files/Seeds/Specialists/breast.png"},
+                new Speciality { Id = 2, Name = "Obstetrics & Gynaecology", ImageUrl = "Files/Seeds/Specialists/Obgyn.png"},
+                new Speciality { Id = 3, Name = "Children", ImageUrl = "Files/Seeds/Specialists/children.png"},
+                new Speciality { Id = 4, Name = "Colorectal & Rectum", ImageUrl = "Files/Seeds/Specialists/intestines.png"},
+                new Speciality { Id = 5, Name = "Ear, Nose & Throat", ImageUrl = "Files/Seeds/Specialists/nasal.png"},
+                new Speciality { Id = 6, Name = "Gall Bladder, Liver, Pancreas & Stomach", ImageUrl = "Files/Seeds/Specialists/gallbladder.png"},
+                new Speciality { Id = 7, Name = "Heart", ImageUrl = "Files/Seeds/Specialists/heart.png"},
+                new Speciality { Id = 8, Name = "Blood Vessels", ImageUrl = "Files/Seeds/Specialists/vascularSurgery.png"},
+                new Speciality { Id = 9, Name = "Joints & Bones", ImageUrl = "Files/Seeds/Specialists/shoulder.png"},
+                new Speciality { Id = 10, Name = "Kidney", ImageUrl = "Files/Seeds/Specialists/kidney.png"},
+                new Speciality { Id = 11, Name = "Stomach & Digestive System", ImageUrl = "Files/Seeds/Specialists/stomach.png"},
+                new Speciality { Id = 12, Name = "Urinary & Reproductive System", ImageUrl = "Files/Seeds/Specialists/bladder.png"},
+            };
+
+            builder.Entity<Speciality>().HasData(specialists);
         }
     }
 }

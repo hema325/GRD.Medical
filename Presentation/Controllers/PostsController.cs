@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace Presentation.Controllers
 {
     [Route("api/posts")]
-    [Authorize]
     public class PostsController : ApiControllerBase
     {
         private readonly ISender _sender;
@@ -24,6 +23,7 @@ namespace Presentation.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(PostDto), StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> CreateAsync([FromForm] CreatePostCommand request)
         {
             return Ok(await _sender.Send(request));
@@ -31,6 +31,7 @@ namespace Presentation.Controllers
 
         [HttpDelete("{Id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [Authorize]
         public async Task<IActionResult> DeleteAsync([FromRoute] DeletePostCommand request)
         {
             await _sender.Send(request);

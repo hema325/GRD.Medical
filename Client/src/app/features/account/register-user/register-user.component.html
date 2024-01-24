@@ -1,0 +1,41 @@
+<div class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="bg-white rounded-3 my-5 shadow-sm p-4">
+                    <h1 class="text-center fs-1 text-primary fw-medium mt-3 mb-5" style="margin-bottom: 36px;">
+                        User Register
+                    </h1>
+                    <form [formGroup]="registerForm" class="w-100">
+                        <div class="my-2">
+                            <app-form-input [control]="registerForm.controls.firstName"
+                                label="First Name"></app-form-input>
+                        </div>
+                        <div class="my-2">
+                            <app-form-input [control]="registerForm.controls.lastName"
+                                label="Last Name"></app-form-input>
+                        </div>
+                        <div class="my-2">
+                            <app-form-input [control]="registerForm.controls.email" label="Email"></app-form-input>
+                        </div>
+                        <div class="my-2">
+                            <app-form-input [control]="registerForm.controls.password" label="Password"
+                                type="password"></app-form-input>
+                        </div>
+                    </form>
+                    <div class="d-flex justify-content-end">
+                        <button [disabled]="registerForm.invalid" class="btn btn-primary py-3 w-100"
+                            (click)="register()">Register</button>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a class="link-secondary text-decoration-none d-block link w-auto "
+                            routerLink="/account/register-doctor">Want to register as doctor?</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-lg-flex justify-content-end align-items-center d-none">
+                <img src="assets/images/register.png" style="max-width: 500px;" class="w-100">
+            </div>
+        </div>
+    </div>
+</div>

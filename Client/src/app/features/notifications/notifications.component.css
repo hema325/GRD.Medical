@@ -1,7 +1,0 @@
-.clickable {
-    transition: margin 400ms;
-}
-
-.clickable:hover {
-    margin-left: 15px;
-}

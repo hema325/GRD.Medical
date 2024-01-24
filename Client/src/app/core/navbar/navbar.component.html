@@ -1,29 +1,34 @@
-<mat-toolbar color="primary" class="d-flex justify-content-between shadow fixed-top">
-    <div class="d-flex ">
-        <span class="me-4 d-flex align-items-center">
-            <mat-icon class="me-2">spa</mat-icon>
+<div class="d-flex justify-content-between align-items-center shadow fixed-top text-white bg-primary rounded-bottom-1"
+    style="max-width: 100vw;padding: 20px;">
+    <div class="d-flex align-items-center ">
+        <div class="link-btn active me-3" [class.active]="isNavlinksActive">
+            <mat-icon class="w-auto h-auto align-middle " style="font-size: 30px;"
+                (click)="isNavlinksActive = !isNavlinksActive;deactivateNavMenu()">menu</mat-icon>
+        </div>
+        <span class="me-4 fs-5 fw-medium  ">
             HealU
         </span>
-        <div class="d-flex nav-links">
-            <button mat-button class="me-2 p-2 nav-link" routerLink="/home" routerLinkActive="active">Home</button>
-            <button mat-button class="me-2 p-2 nav-link" routerLink="/articles"
-                routerLinkActive="active">Articles</button>
-            <button mat-button class="me-2 p-2 nav-link" routerLink="/advices"
-                routerLinkActive="active">Advices</button>
-        </div>
+        <ul class="d-flex nav-links  list-unstyled mb-0" #navLinks
+            [style.height]="(isNavlinksActive ? navLinks.scrollHeight + 'px': null)" (click)="isNavlinksActive = false">
+            <li class="me-2 p-2 nav-link " routerLink="/home" routerLinkActive="active">Home</li>
+            <li class="me-2 p-2 nav-link" routerLink="/specialities" routerLinkActive="active">Specialities</li>
+            <li class="me-2 p-2 nav-link" routerLink="/doctors" routerLinkActive="active">Doctors</li>
+            <li class="me-2 p-2 nav-link" routerLink="/posts" routerLinkActive="active">Posts</li>
+            <li class="me-2 p-2 nav-link" routerLink="/articles" routerLinkActive="active">Articles</li>
+            <li class="me-2 p-2 nav-link" routerLink="/advices" routerLinkActive="active">Advices</li>
+        </ul>
     </div>
     <div class="d-flex" *ngIf="!currentAuth">
-        <button mat-button class="me-2 p-2 nav-link" routerLink="/account/login">Login</button>
-        <button mat-raised-button class="p-2" routerLink="/account/register">Register</button>
+        <button class="me-2 p-2 nav-link " routerLink="/account/login">Login</button>
+        <button mat-raised-button class="p-2 text-dark" routerLink="/account/register-user">Register</button>
     </div>
     <div *ngIf="currentAuth">
-        <button mat-button (click)="isDropdownActive = !isDropdownActive">
-            {{currentAuth.name}}
+        <button mat-button (click)="toggleNavMenu(); isNavlinksActive = false;"
+            class="p-2 nav-link d-flex align-items-center">
+            <span class="me-2">{{currentAuth.name}}</span>
             <img [src]="currentAuth.imageUrl ?? defaultUserImageUrl" class="rounded-circle object-fit-cover"
-                style="width: 36px;">
+                style="width: 38px;">
         </button>
-
-        <app-nav-menu [active]="isDropdownActive"></app-nav-menu>
-
+        <app-nav-menu #navMenu></app-nav-menu>
     </div>
-</mat-toolbar>
+</div>

@@ -3,21 +3,25 @@ using Application.Account.Commands.Authenticate;
 using Application.Account.Commands.ChangePassword;
 using Application.Account.Commands.ConfirmEmail;
 using Application.Account.Commands.Register;
+using Application.Account.Commands.RegisterDoctor;
 using Application.Account.Commands.RemoveAccountImage;
 using Application.Account.Commands.RequestJWTToken;
 using Application.Account.Commands.ResetPassword;
 using Application.Account.Commands.RevokeRefreshToken;
+using Application.Account.Commands.UpdateDoctor;
 using Application.Account.Commands.UpdateUser;
 using Application.Account.Commands.UploadAccountImage;
-using Application.Account.Queries;
 using Application.Account.Queries.CheckEmailDuplication;
 using Application.Account.Queries.GetCurrentUser;
-using Application.Account.Queries.GetUser;
 using Application.Account.Queries.SendEmailConfirmation;
 using Application.Account.Queries.SendEmailResetPassword;
+using Application.Users.Queries;
+using Application.Users.Queries.GetUser;
+using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.Attributes;
 
 namespace Presentation.Controllers
 {
@@ -31,9 +35,17 @@ namespace Presentation.Controllers
             _sender = sender;
         }
 
-        [HttpPost("register")]
+        [HttpPost("registerUser")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> RegisterAsync(RegisterCommand request)
+        public async Task<IActionResult> RegisterUserAsync(RegisterUserCommand request)
+        {
+            await _sender.Send(request);
+            return NoContent();
+        }
+
+        [HttpPost("registerDoctor")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> RegisterDoctorAsync(RegisterDoctorCommand request)
         {
             await _sender.Send(request);
             return NoContent();
@@ -115,14 +127,6 @@ namespace Presentation.Controllers
         {
             return Ok(await _sender.Send(new GetCurrentUserQuery()));
         }
-        
-        [HttpGet("{Id}")]
-        [ProducesResponseType(typeof(UserDto),StatusCodes.Status200OK)]
-        [Authorize]
-        public async Task<IActionResult> CurrentUserAsync([FromRoute] GetUserQuery request)
-        {
-            return Ok(await _sender.Send(request));
-        }
 
         [HttpPost("uploadImage")]
         [ProducesResponseType(typeof(UploadAccountImageCommandResponse), StatusCodes.Status200OK)]
@@ -141,10 +145,18 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
-        [HttpPut]
+        [HttpPut("user")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [Authorize]
+        [HaveRoles(Roles.Patient)]
         public async Task<IActionResult> UpdateCurrentUserAsync(UpdateUserCommand request)
+        {
+            return Ok(await _sender.Send(request));
+        }
+        
+        [HttpPut("doctor")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HaveRoles(Roles.Doctor)]
+        public async Task<IActionResult> UpdateCurrentDoctorAsync(UpdateDoctorCommand request)
         {
             return Ok(await _sender.Send(request));
         }

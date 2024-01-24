@@ -1,21 +1,30 @@
-<app-header title="Heart Checking"></app-header>
-
 <div class="section">
     <div class="container">
-        <div class="bg-white rounded-3 shadow-sm p-4 my-5">
-            <div class="w-100 p-4 rounded-1" style="cursor: pointer;border:1px dashed #9d9fa5;"
-                (fileDropped)="check($event)" (click)="fileInput.click()">
-                <mat-icon style="color: #9d9fa5;font-size: 80px;width: 80px;height: 80px;"
-                    class="m-auto d-block">cloud_upload</mat-icon>
-                <h4 class="text-muted text-center">Choose voice file</h4>
-                <input type="file" (change)="check($event);" hidden #fileInput accept="audio/*">
-            </div>
+        <div class="row align-items-center justify-content-between ">
+            <div class="col">
+                <div class="bg-white rounded-3 shadow-sm p-4 my-5">
+                    <h1 class="text-center fs-3 text-primary fw-medium mb-4">
+                        Heart Checking
+                    </h1>
+                    <div class="w-100 p-4 rounded-1" style="cursor: pointer;border:1px dashed #ccc;"
+                        (fileDropped)="check($event)" (click)="fileInput.click()">
+                        <mat-icon style="color: #bbb;font-size: 80px;width: 80px;height: 80px;"
+                            class="m-auto d-block">cloud_upload</mat-icon>
+                        <h4 class="text-dark opacity-75  text-center">Choose voice file</h4>
+                        <input type="file" (change)="check($event);" hidden #fileInput accept="audio/*">
+                    </div>
 
-            <div class="mt-4" *ngIf="voice">
-                <app-audio-card [audio]="voice"></app-audio-card>
-            </div>
+                    <div class="mt-4" *ngIf="voice">
+                        <app-audio-card [audio]="voice"></app-audio-card>
+                    </div>
 
-            <div class="mt-4 mb-0 small" style="color: #444;" *ngIf="response" [innerHtml]="response.response"></div>
+                    <div class="mt-4 mb-0  small" style="color: #444;" *ngIf="response" [innerHtml]="response.response">
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 d-lg-flex justify-content-end align-items-center d-none">
+                <img src="assets/images/heart-checking.webp" style="max-width: 500px;" class="w-100">
+            </div>
         </div>
     </div>
 </div>

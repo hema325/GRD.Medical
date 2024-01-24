@@ -13,6 +13,9 @@ namespace Application.Common.Interfaces
         DbSet<Comment> Comments { get; }
         DbSet<UserChatBotMessage> UserChatBotMessages { get; }
         DbSet<Notification> Notifications { get; }
+        DbSet<Speciality> Specialities { get; }
+        DbSet<Language> Languages { get; }
+        DbSet<Doctor> Doctors { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

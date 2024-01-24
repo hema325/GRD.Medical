@@ -8,6 +8,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 import { catchError, finalize, throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { UserChatBotFilter } from 'src/app/models/chat-bot/user-chat-bot-filter';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-chating',
@@ -15,6 +16,8 @@ import { UserChatBotFilter } from 'src/app/models/chat-bot/user-chat-bot-filter'
   styleUrls: ['./chating.component.css']
 })
 export class ChatingComponent {
+
+  defaultImageUrl = environment.defaultUserImageUrl;
 
   suggestions: string[] =
     [
@@ -96,13 +99,10 @@ export class ChatingComponent {
     this.activeScrollToBottom = true;
     this.isWriting = true;
 
-    this.loaderService.deactivate();
+    this.loaderService.skipNextRequest();
 
     this.chatBotService.generateResponse(content)
-      .pipe(finalize(() => {
-        this.isWriting = false;
-        this.loaderService.activate();
-      }),
+      .pipe(finalize(() => this.isWriting = false),
         catchError(err => {
           this.paginatedList?.data.pop();
           return throwError(() => err);

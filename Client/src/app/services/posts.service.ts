@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Post } from '../models/posts/post';
 import { PaginatedList } from '../models/paginated-list';
-import { PostFilter } from '../models/post-filter';
+import { PostFilter } from '../models/posts/post-filter';
 import { BehaviorSubject, map } from 'rxjs';
 import { CreatePost } from '../models/posts/create-post';
 

@@ -1,5 +1,5 @@
 import { Media } from "../media"
-import { User } from "../account/user"
+import { User } from "../users/user"
 
 export interface Post {
     id: number

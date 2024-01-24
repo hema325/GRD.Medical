@@ -12,6 +12,7 @@ namespace Domain.Entities
         public string? ImageUrl { get; set; }
         public DateTime JoinedOn { get; set; }
 
+        public Doctor Doctor { get; set; }
         public ICollection<RefreshToken> RefreshTokens { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";

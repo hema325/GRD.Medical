@@ -49,5 +49,8 @@ namespace Infrastructure.Persistance
         public DbSet<Comment> Comments { get; private set; }
         public DbSet<UserChatBotMessage> UserChatBotMessages { get; private set; }
         public DbSet<Notification> Notifications { get; private set; }
+        public DbSet<Speciality> Specialities { get; private set; }
+        public DbSet<Language> Languages { get; private set; }
+        public DbSet<Doctor> Doctors { get; private set; }
     }
 }

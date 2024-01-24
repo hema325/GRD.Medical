@@ -1,9 +1,11 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { AuthResult } from 'src/app/models/account/auth-result';
 import { CreateComment } from 'src/app/models/comments/create-comment';
 import { AccountService } from 'src/app/services/account.service';
 import { CommentsService } from 'src/app/services/comments.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-create-comment',
@@ -12,6 +14,7 @@ import { CommentsService } from 'src/app/services/comments.service';
 })
 export class CreateCommentComponent {
 
+  defaultUserImageUrl = environment.defaultUserImageUrl;
   currentAuth: AuthResult | null = null;
   isEmojiListActive = false;
 
@@ -23,10 +26,11 @@ export class CreateCommentComponent {
   }
 
   constructor(private accountService: AccountService,
-    private commentsService: CommentsService) { }
+    private commentsService: CommentsService,
+    private router: Router) { }
 
   ngOnInit() {
-    this.accountService.currentAuth$.pipe(take(1)).subscribe(auth => this.currentAuth = auth);
+    this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
   }
 
   isCommentValid() {
@@ -80,6 +84,12 @@ export class CreateCommentComponent {
   }
 
   createComment() {
+
+    if (!this.currentAuth) {
+      this.router.navigate(['/account/login'], { queryParams: { returnUrl: '/posts/' + this.createCommentObj.postId } });
+      return;
+    }
+
     this.commentsService.create(this.createCommentObj)
       .subscribe(() => this.resetTextArea());
   }

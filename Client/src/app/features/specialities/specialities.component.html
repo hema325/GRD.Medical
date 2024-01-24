@@ -1,0 +1,17 @@
+<div class="section">
+    <div class="container my-5" *ngIf="specialistsPaginatedList" (reachedBottom)="loadMoreSpecialists()">
+
+        <h1 class="fs-1 fw-medium text-center mb-5 text-primary pb-2">Our Specilities</h1>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+            <div class="col" *ngFor="let speciality of specialistsPaginatedList?.data" routerLink="/doctors"
+                [queryParams]="{specId: speciality.id}">
+                <div class="card card-animation p-4 shadow-sm border-0 overflow-hidden">
+                    <img [src]="speciality.imageUrl" class="m-auto mb-4"
+                        style="width: 100px;font-size: 100px;height:100px;">
+                    <h5 class="card-title fs-5 fw-medium mb-2 text-center text-primary">{{speciality.name}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

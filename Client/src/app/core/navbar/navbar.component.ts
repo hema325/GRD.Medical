@@ -1,12 +1,8 @@
-import { Component, Renderer2 } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { LoginComponent } from 'src/app/features/account/login/login.component';
-import { RegisterComponent } from 'src/app/features/account/register/register.component';
+import { Component, Renderer2, ViewChild } from '@angular/core';
 import { AuthResult } from 'src/app/models/account/auth-result';
 import { AccountService } from 'src/app/services/account.service';
 import { environment } from 'src/environments/environment.development';
+import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 
 @Component({
   selector: 'app-navbar',
@@ -17,11 +13,23 @@ export class NavbarComponent {
 
   defaultUserImageUrl = environment.defaultUserImageUrl;
   currentAuth: AuthResult | null = null;
-  isDropdownActive = false;
+  isNavlinksActive = false;
 
   constructor(private accountService: AccountService) { }
 
   ngOnInit() {
+    console.log()
     this.accountService.currentAuth$.subscribe(result => this.currentAuth = result);
+  }
+
+  @ViewChild('navMenu') navMenu?: NavMenuComponent;
+
+  toggleNavMenu() {
+    console.log(this.navMenu);
+    this.navMenu?.toggle();
+  }
+
+  deactivateNavMenu() {
+    this.navMenu?.deactivate();
   }
 }

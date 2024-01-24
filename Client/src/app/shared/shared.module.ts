@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormInputComponent } from './form-input/form-input.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { EmojisListComponent } from './emojis-list/emojis-list.component';
 import { ImageCardComponent } from './image-card/image-card.component';
@@ -14,6 +14,9 @@ import { FileDroppedDirective } from '../directives/file-dropped.directive';
 import { LightBoxComponent } from './light-box/light-box.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ReachedBottomDirective } from '../directives/reached-bottom.directive';
+import { FormSelectComponent } from './form-select/form-select.component';
+import { TextAreaInputComponent } from './text-area-input/text-area-input.component';
+import { ExperienceSelectInputComponent } from './experience-select-input/experience-select-input.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,17 @@ import { ReachedBottomDirective } from '../directives/reached-bottom.directive';
     AutoResizeTextAreaDirective,
     FileDroppedDirective,
     LightBoxComponent,
-    ReachedBottomDirective
+    ReachedBottomDirective,
+    FormSelectComponent,
+    TextAreaInputComponent,
+    ExperienceSelectInputComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
     TimeagoModule.forChild(),
-    CarouselModule
+    CarouselModule,
   ],
   exports: [
     FormInputComponent,
@@ -47,7 +53,10 @@ import { ReachedBottomDirective } from '../directives/reached-bottom.directive';
     TimeagoModule,
     FileDroppedDirective,
     LightBoxComponent,
-    ReachedBottomDirective
+    ReachedBottomDirective,
+    FormSelectComponent,
+    TextAreaInputComponent,
+    ExperienceSelectInputComponent
   ]
 })
 export class SharedModule { }

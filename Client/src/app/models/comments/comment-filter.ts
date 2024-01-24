@@ -1,7 +1,7 @@
-export interface CommentFilter {
+import { FilterBase } from "../filter-base"
+
+export interface CommentFilter extends FilterBase {
     replyTo: number | null
     postId: number
-    pageNumber: number
-    pageSize: number
     before: string | null
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
 
@@ -9,7 +9,7 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class NavMenuComponent {
 
-  @Input() active: boolean = false;
+  isNavMenuActive: boolean = false;
 
   constructor(
     public accountService: AccountService,
@@ -18,4 +18,17 @@ export class NavMenuComponent {
   logout() {
     this.accountService.logout().subscribe(res => this.router.navigateByUrl('/home'));
   }
+
+  activate() {
+    this.isNavMenuActive = true;
+  }
+
+  deactivate() {
+    this.isNavMenuActive = false;
+  }
+
+  toggle() {
+    this.isNavMenuActive = !this.isNavMenuActive;
+  }
+
 }

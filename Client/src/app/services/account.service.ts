@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment.development';
 import { HttpClient } from '@angular/common/http'
 import { Observable, ReplaySubject, catchError, map, of, throwError } from 'rxjs';
 import { AuthResult } from '../models/account/auth-result';
-import { User } from '../models/account/user';
+import { User } from '../models/users/user';
 import { Media } from '../models/media';
 
 @Injectable({
@@ -72,8 +72,12 @@ export class AccountService {
     return of(null);
   }
 
-  register(registeration: object) {
-    return this.httpClient.post(this.baseUrl + '/register', registeration);
+  registerUser(registeration: object) {
+    return this.httpClient.post(this.baseUrl + '/registerUser', registeration);
+  }
+
+  registerDoctor(registeration: object) {
+    return this.httpClient.post(this.baseUrl + '/registerDoctor', registeration);
   }
 
   isEmailDuplicated(email: string) {
@@ -84,12 +88,19 @@ export class AccountService {
     return this.httpClient.get<User>(this.baseUrl);
   }
 
-  getUser(id: number) {
-    return this.httpClient.get<User>(this.baseUrl + '/' + id);
+  updateUser(data: any) {
+    return this.httpClient.put(this.baseUrl + '/user', data).pipe(map(res => {
+      let auth = this.currentAuthResult;
+      if (auth) {
+        auth.name = data.firstName + ' ' + data.lastName;
+        this.currentAuth.next(auth);
+      }
+      return res;
+    }));
   }
 
-  update(data: any) {
-    return this.httpClient.put(this.baseUrl, data).pipe(map(res => {
+  updateDoctor(data: any) {
+    return this.httpClient.put(this.baseUrl + '/doctor', data).pipe(map(res => {
       let auth = this.currentAuthResult;
       if (auth) {
         auth.name = data.firstName + ' ' + data.lastName;

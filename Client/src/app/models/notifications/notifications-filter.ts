@@ -1,5 +1,5 @@
-export interface NotificationsFilter {
-    pageNumber: number
-    pageSize: number
+import { FilterBase } from "../filter-base";
+
+export interface NotificationsFilter extends FilterBase {
     before: string
 }

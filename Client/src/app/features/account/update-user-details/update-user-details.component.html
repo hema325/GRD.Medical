@@ -1,0 +1,14 @@
+<div class="shadow-sm bg-white rounded-3 p-4">
+    <h2 class="mb-4 mt-2 text-primary ">Details</h2>
+    <form [formGroup]="userForm" (ngSubmit)="updateDetails()">
+        <div class="my-2">
+            <app-form-input [control]="userForm.controls.firstName" label="First Name"></app-form-input>
+        </div>
+        <div class="my-2">
+            <app-form-input [control]="userForm.controls.lastName" label="Last Name" class="my-1"></app-form-input>
+        </div>
+        <div class="d-flex justify-content-end ">
+            <button mat-raised-button color="primary" [disabled]="userForm.invalid">Update</button>
+        </div>
+    </form>
+</div>

@@ -1,6 +1,9 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { PostsService } from 'src/app/services/posts.service';
 import { CreatePost } from 'src/app/models/posts/create-post';
+import { AccountService } from 'src/app/services/account.service';
+import { AuthResult } from 'src/app/models/account/auth-result';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -9,14 +12,33 @@ import { CreatePost } from 'src/app/models/posts/create-post';
 })
 export class CreatePostComponent {
 
+  currentAuth: AuthResult | null = null;
+
   createPostObj: CreatePost = {
     content: '',
     images: null,
   };
 
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService,
+    private accountService: AccountService,
+    private router: Router) { }
+
+  ngOnInit() {
+    this.loadCurrentAuth();
+  }
+
+
+  loadCurrentAuth() {
+    this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
+  }
 
   createPost() {
+
+    if (!this.currentAuth) {
+      this.router.navigate(['/account/login'], { queryParams: { returnUrl: '/posts' } });
+      return;
+    }
+
     this.postsService.create(this.createPostObj)
       .subscribe(post => {
         this.createPostObj = {

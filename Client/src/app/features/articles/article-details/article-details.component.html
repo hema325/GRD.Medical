@@ -1,12 +1,11 @@
-<app-header [title]="article?.title ?? 'Loading Article Details'"></app-header>
 <div class="section">
     <div class="container">
-        <div class="bg-white shadow-sm rounded-3 p-4 fw-bold my-5 m-auto" style="max-width: 900px;" *ngIf="article">
+        <div class="bg-white shadow-sm rounded-3 p-4 fw-bold my-5 m-auto" style="max-width: 800px;" *ngIf="article">
             <div class="mb-3 overflow-hidden rounded-3 object-fit-cover">
                 <img [src]="article.imageUrl" class=" w-100  m-auto object-fit-cover "
                     style="min-height: 320px;max-height: 420px;">
             </div>
-            <article class="fw-medium m-auto" style="color: #444; line-height: 1.5;" [innerHTML]="article.content">
+            <article class="fw-medium m-auto" style="color: #444;line-height: 1.5;" [innerHTML]="article.content">
             </article>
         </div>
     </div>

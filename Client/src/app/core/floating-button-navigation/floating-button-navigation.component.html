@@ -8,11 +8,12 @@
         <mat-icon>forum</mat-icon>
     </button>
     <button mat-fab [color]="notificationsCount ? 'warn':'accent'" (click)="closeNav()"
-        class="position-absolute bottom-0 end-0 z-1" routerLink="/notifications">
+        class="position-absolute bottom-0 end-0 z-1" routerLink="/account" fragment="2">
         <div class="position-relative w-auto h-auto">
             <mat-icon>notifications</mat-icon>
             <span class="badge position-absolute bottom-100 start-100 bg-danger not-count"
                 *ngIf="notificationsCount">{{notificationsCount}}</span>
+
         </div>
     </button>
 </div>

@@ -4,11 +4,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from '../shared/material.module';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { FloatingButtonNavigationComponent } from './floating-button-navigation/floating-button-navigation.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -16,7 +16,6 @@ import { FloatingButtonNavigationComponent } from './floating-button-navigation/
   declarations: [
     NavbarComponent,
     FooterComponent,
-    HeaderComponent,
     NotFoundComponent,
     ServerErrorComponent,
     NavMenuComponent,
@@ -25,12 +24,12 @@ import { FloatingButtonNavigationComponent } from './floating-button-navigation/
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [
     NavbarComponent,
     FooterComponent,
-    HeaderComponent,
     FloatingButtonNavigationComponent
   ]
 })

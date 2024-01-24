@@ -1,6 +1,5 @@
 <div class="d-flex mw-100">
-    <img [src]="currentAuth?.imageUrl ??  'assets/images/profile.png'" alt="" width="35" height="35"
-        class="rounded-circle" />
+    <img [src]="currentAuth?.imageUrl ??  defaultUserImageUrl" alt="" width="35" height="35" class="rounded-circle" />
     <div class="flex-fill ps-2">
         <div class="position-relative d-flex">
             <textarea type="text"

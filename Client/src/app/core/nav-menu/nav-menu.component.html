@@ -1,24 +1,24 @@
-<div class="outlier" [class.active]="active" (click)="active=false">
-    <div class="rounded-3 bg-white  shadow dropdown-nav">
-        <button mat-button routerLink="/account" color="primary"
-            class="d-flex justify-content-start w-100 fs-6 px-3 py-4">
-            <mat-icon>account_circle</mat-icon>
-            Profile
-        </button>
-        <button mat-button color="primary" class="d-flex justify-content-start w-100  fs-6 px-3 py-4"
-            routerLink="/posts">
-            <mat-icon>newspaper</mat-icon>
-            Posts
-        </button>
-        <button mat-button color="primary" class="d-flex justify-content-start w-100  fs-6 px-3 py-4"
-            routerLink="/ai-models">
-            <mat-icon>healing</mat-icon>
-            Heal me
-        </button>
-        <button mat-button color="primary" (click)="logout()"
-            class="d-flex justify-content-start w-100  fs-6 px-3 py-4">
-            <mat-icon>logout</mat-icon>
-            Logout
-        </button>
-    </div>
+<div class="outlier" [class.active]="isNavMenuActive" (click)="isNavMenuActive = false">
+    <ul class="bg-white text-primary list-unstyled nav-links rounded-3 mb-0" #menu
+        [style.height]="(isNavMenuActive ? menu.scrollHeight: 0) + 'px'">
+        <li class="fs-6 d-flex align-items-center nav-link rounded-3" routerLink="/account"
+            style="border-bottom: 1px solid balck;" routerLinkActive="active">
+            <mat-icon class="w-auto h-auto fs-3">account_circle</mat-icon>
+            <span class="fw-medium ms-2">
+                Profile
+            </span>
+        </li>
+        <li class="fs-6 d-flex align-items-center nav-link rounded-3" routerLink="/ai-models" routerLinkActive="active">
+            <mat-icon class="w-auto h-auto fs-3">healing</mat-icon>
+            <span class="fw-medium ms-2">
+                Heal me
+            </span>
+        </li>
+        <li class="fs-6 d-flex align-items-center nav-link rounded-3" (click)="logout()" routerLinkActive="active">
+            <mat-icon class="w-auto h-auto fs-3">logout</mat-icon>
+            <span class="fw-medium ms-2">
+                Logout
+            </span>
+        </li>
+    </ul>
 </div>

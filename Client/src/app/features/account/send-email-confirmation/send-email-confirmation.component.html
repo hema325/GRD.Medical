@@ -1,10 +1,8 @@
-<app-header title="Email Verification"></app-header>
-
 <div class="section">
     <div class="container text-center my-5">
         <h1 class="text-center fs-1 text-primary fw-medium">Verify Your Email</h1>
         <h2 class="text-secondary  mb-0">Check your email & click the link to activate your account</h2>
-        <img src="assets/images/send-email-confrimation.png" class="m-auto my-5 w-100" style="max-width: 400px;">
+        <img src="assets/images/send-email-confrimation.png" class="m-auto mb-5 mt-4 w-100" style="max-width: 400px;">
         <button class="btn btn-primary  d-block m-auto px-4 py-2" [disabled]="counter" (click)="send()">Resend Email
             <span *ngIf="counter">In
                 {{counter}}s</span></button>
