@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Infrastructure.Authentication.Constants;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -34,14 +34,19 @@ namespace Infrastructure.Authentication.JWT.JWTManager
             };
         }
 
-        private Claim[] ExtractUserClaims(User user)
+        private IEnumerable<Claim> ExtractUserClaims(User user)
         {
-            return new[] {
+            var claims = new List<Claim> {
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Role, user.Role.ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.GivenName, $"{user.FirstName} {user.LastName}")
             };
+
+            if (user.Role == Roles.Doctor && user.Doctor != null)
+                claims.Add(new Claim(ClaimTypesConstants.DoctorId, user.Doctor.Id.ToString()));
+
+            return claims;
         }
     }
 }

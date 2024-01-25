@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class UserProfileComponent {
 
-  defaultImageUrl = environment.defaultUserImageUrl;
+  defaultUserImageUrl = environment.defaultUserImageUrl;
   user: User | null = null;
   tab = 0;
 

@@ -21,6 +21,7 @@ import { LanguageSelectInputComponent } from './language-select-input/language-s
 import { UpdateDoctorDetailsComponent } from './update-doctor-details/update-doctor-details.component';
 import { NotificationListComponent } from './notification-list/notification-list.component';
 import { SpecialitiesModule } from '../specialities/specialities.module';
+import { TimeSlotsModule } from '../time-slots/time-slots.module';
 
 
 
@@ -50,7 +51,8 @@ import { SpecialitiesModule } from '../specialities/specialities.module';
     ReactiveFormsModule,
     CoreModule,
     PostsModule,
-    SpecialitiesModule
+    SpecialitiesModule,
+    TimeSlotsModule
   ]
 })
 export class AccountModule { }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G2fjolrHTkFNRhgIUgdzZtXGLf7OkzNub5znBzEyxeA=",
+  "Hash": "glyDHspxt4MyuOlstsTspnu7IIQc9s0aGvnivr7Y9Xg=",
   "Source": "Presentation",
   "BasePath": "_content/Presentation",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\244.8c48eccec3488875.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\183.49fcf1b9b4ae112d.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "244.8c48eccec3488875.js",
+      "RelativePath": "183.49fcf1b9b4ae112d.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,7 +31,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\244.8c48eccec3488875.js"
+      "OriginalItemSpec": "wwwroot\\183.49fcf1b9b4ae112d.js"
+    },
+    {
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\255.a26987cd334f1a8b.js",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "255.a26987cd334f1a8b.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\255.a26987cd334f1a8b.js"
+    },
+    {
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\303.82e733c652ee0ba1.js",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "303.82e733c652ee0ba1.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\303.82e733c652ee0ba1.js"
     },
     {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\3rdpartylicenses.txt",
@@ -51,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\3rdpartylicenses.txt"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\496.7703273710e05a67.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\496.c1ccf47794a78ba6.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "496.7703273710e05a67.js",
+      "RelativePath": "496.c1ccf47794a78ba6.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,15 +99,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\496.7703273710e05a67.js"
+      "OriginalItemSpec": "wwwroot\\496.c1ccf47794a78ba6.js"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\550.0d1d8c648b724855.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\581.9ae1983621029673.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "550.0d1d8c648b724855.js",
+      "RelativePath": "581.9ae1983621029673.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -82,15 +116,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\550.0d1d8c648b724855.js"
+      "OriginalItemSpec": "wwwroot\\581.9ae1983621029673.js"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\680.155a07b3e739ba50.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\680.85957730fd750d19.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "680.155a07b3e739ba50.js",
+      "RelativePath": "680.85957730fd750d19.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,15 +133,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\680.155a07b3e739ba50.js"
+      "OriginalItemSpec": "wwwroot\\680.85957730fd750d19.js"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.6de0c72260b5a1cc.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.d5627bfc207e8938.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "760.6de0c72260b5a1cc.js",
+      "RelativePath": "760.d5627bfc207e8938.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +150,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\760.6de0c72260b5a1cc.js"
+      "OriginalItemSpec": "wwwroot\\760.d5627bfc207e8938.js"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\87.a2c411b29f777ebe.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\87.94e2364fdc8c8f11.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "87.a2c411b29f777ebe.js",
+      "RelativePath": "87.94e2364fdc8c8f11.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,15 +167,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\87.a2c411b29f777ebe.js"
+      "OriginalItemSpec": "wwwroot\\87.94e2364fdc8c8f11.js"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\870.3bac1c0160cbf635.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\966.6e7265e602293b8f.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "870.3bac1c0160cbf635.js",
+      "RelativePath": "966.6e7265e602293b8f.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -150,7 +184,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\870.3bac1c0160cbf635.js"
+      "OriginalItemSpec": "wwwroot\\966.6e7265e602293b8f.js"
     },
     {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\about.jpg",
@@ -170,6 +204,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\about.jpg"
     },
     {
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\ai-doctor.png",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "assets/images/ai-doctor.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\ai-doctor.png"
+    },
+    {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\chat_bot.webp",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
@@ -187,6 +238,91 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\chat_bot.webp"
     },
     {
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\doctor-account.png",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "assets/images/doctor-account.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\doctor-account.png"
+    },
+    {
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\doctor-account-details.png",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "assets/images/doctor-account-details.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\doctor-account-details.png"
+    },
+    {
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\forgot-password.png",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "assets/images/forgot-password.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\forgot-password.png"
+    },
+    {
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\heart-checking.png",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "assets/images/heart-checking.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\heart-checking.png"
+    },
+    {
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\heart-checking.webp",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "assets/images/heart-checking.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\heart-checking.webp"
+    },
+    {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\login.png",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
@@ -202,6 +338,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\login.png"
+    },
+    {
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\no-notifications.png",
+      "SourceId": "Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
+      "BasePath": "_content/Presentation",
+      "RelativePath": "assets/images/no-notifications.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\no-notifications.png"
     },
     {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\no-notifications.webp",
@@ -238,12 +391,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\not_found.png"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\profile.png",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\profile.webp",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "assets/images/profile.png",
+      "RelativePath": "assets/images/profile.webp",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -252,7 +405,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\profile.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\profile.webp"
     },
     {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\register.png",
@@ -306,23 +459,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\send-email-confrimation.png"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\send-email-reset-password.webp",
-      "SourceId": "Presentation",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
-      "BasePath": "_content/Presentation",
-      "RelativePath": "assets/images/send-email-reset-password.webp",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\send-email-reset-password.webp"
-    },
-    {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\server-error.png",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
@@ -340,12 +476,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\server-error.png"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\common.06f19fd9683972fc.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\sking-checking.png",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "common.06f19fd9683972fc.js",
+      "RelativePath": "assets/images/sking-checking.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -354,7 +490,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\common.06f19fd9683972fc.js"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\sking-checking.png"
     },
     {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\index.html",
@@ -374,12 +510,12 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.28f1f6ee0552bcdd.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.bf9050f315d1a51b.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "main.28f1f6ee0552bcdd.js",
+      "RelativePath": "main.bf9050f315d1a51b.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -388,7 +524,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\main.28f1f6ee0552bcdd.js"
+      "OriginalItemSpec": "wwwroot\\main.bf9050f315d1a51b.js"
     },
     {
       "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\owl.video.play.e3b436436832b027.png",
@@ -425,12 +561,12 @@
       "OriginalItemSpec": "wwwroot\\polyfills.b21d18c38c3a54db.js"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.c5882325be3dc8f7.js",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.8ec4ee88bcb09c73.js",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "runtime.c5882325be3dc8f7.js",
+      "RelativePath": "runtime.8ec4ee88bcb09c73.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -439,15 +575,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\runtime.c5882325be3dc8f7.js"
+      "OriginalItemSpec": "wwwroot\\runtime.8ec4ee88bcb09c73.js"
     },
     {
-      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.289988af0c74e457.css",
+      "Identity": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.79c237134ab357c1.css",
       "SourceId": "Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\",
       "BasePath": "_content/Presentation",
-      "RelativePath": "styles.289988af0c74e457.css",
+      "RelativePath": "styles.79c237134ab357c1.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -456,7 +592,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\styles.289988af0c74e457.css"
+      "OriginalItemSpec": "wwwroot\\styles.79c237134ab357c1.css"
     }
   ]
 }

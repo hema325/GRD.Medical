@@ -56,7 +56,7 @@ namespace Infrastructure.Authentication
 
         public async Task<AuthResultDto> AuthenticateAsync(string email, string password)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var user = await _context.Users.Include(u=>u.Doctor).FirstOrDefaultAsync(u => u.Email == email);
 
             if (user == null || !_passwordHasher.VerifyHashedPassword(user.HashedPassword, password))
                 throw new UnauthorizedException("Email or password is not correct", ErrorCodes.WrongEmailPassword);
@@ -71,6 +71,7 @@ namespace Infrastructure.Authentication
         {
             var refreshToken = await _context.RefreshTokens
                 .Include(rt => rt.User)
+                .ThenInclude(u=>u.Doctor)
                 .FirstOrDefaultAsync(rt => rt.Token == rfToken);
 
             if(refreshToken != null)

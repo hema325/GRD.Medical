@@ -12,5 +12,6 @@
         public User User { get; set; }
         public Speciality Speciality { get; set; }
         public ICollection<Language> Languages { get; set; }
+        public ICollection<TimeSlot> TimeSlots { get; set; }
     }
 }

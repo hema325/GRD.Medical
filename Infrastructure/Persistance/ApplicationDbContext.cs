@@ -52,5 +52,6 @@ namespace Infrastructure.Persistance
         public DbSet<Speciality> Specialities { get; private set; }
         public DbSet<Language> Languages { get; private set; }
         public DbSet<Doctor> Doctors { get; private set; }
+        public DbSet<TimeSlot> TimeSlots { get; private set; }
     }
 }

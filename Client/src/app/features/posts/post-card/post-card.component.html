@@ -5,8 +5,11 @@
                     [src]="post.owner.imageUrl ?? defaultUserImageUrl" alt="" width="50" height="50"
                     class="rounded-circle" /></a>
             <div class="flex-fill ps-2">
-                <div class="fw-bold"><a class="text-decoration-none" style="color: #3f51b5">{{post.owner.firstName}}
+                <div class="fw-bold d-flex align-items-center">
+                    <a class="text-decoration-none text-primary ">{{post.owner.firstName}}
                         {{post.owner.lastName}}</a>
+                    <mat-icon class="ms-1 w-auto h-auto" style="font-size: 16px;color: #5279f6;"
+                        *ngIf="isDoctor(post.owner.role)">verified</mat-icon>
                 </div>
                 <div class="small text-body text-opacity-50">{{ post.postedOn | timeago }}</div>
             </div>

@@ -16,6 +16,7 @@ namespace Application.Common.Interfaces
         DbSet<Speciality> Specialities { get; }
         DbSet<Language> Languages { get; }
         DbSet<Doctor> Doctors { get; }
+        DbSet<TimeSlot> TimeSlots { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

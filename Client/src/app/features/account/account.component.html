@@ -32,10 +32,28 @@
                                 <mat-icon class="me-3" [class]="tab !=1 ? 'text-body opacity-50':null">key</mat-icon>
                                 Password
                             </a>
-                            <a class="list-group-item list-group-item-action fs-6 p-3 d-flex align-items-center"
-                                [class.active]="tab==2" style="cursor: pointer;" (click)="tab=2">
+                            <a class="list-group-item list-group-item-action active fs-6 p-3 d-flex align-items-center"
+                                *ngIf="isDoctor()" [class.active]="tab==2" style="cursor: pointer;" (click)="tab=2">
                                 <mat-icon class="me-3"
-                                    [class]="tab !=2 ? 'text-body opacity-50':null">notifications_active</mat-icon>
+                                    [class]="tab !=2 ? 'text-body opacity-50':null">calendar_month</mat-icon>
+                                Time Slots
+                            </a>
+                            <a class="list-group-item list-group-item-action active fs-6 p-3 d-flex align-items-center"
+                                [class.active]="tab==3" style="cursor: pointer;" (click)="tab=3">
+                                <mat-icon class="me-3"
+                                    [class]="tab !=3 ? 'text-body opacity-50':null">attach_money</mat-icon>
+                                Billings
+                            </a>
+                            <a class="list-group-item list-group-item-action active fs-6 p-3 d-flex align-items-center"
+                                [class.active]="tab==4" style="cursor: pointer;" (click)="tab=4">
+                                <mat-icon class="me-3" [class]="tab !=4 ? 'text-body opacity-50':null">
+                                    schedule</mat-icon>
+                                Appointments
+                            </a>
+                            <a class="list-group-item list-group-item-action fs-6 p-3 d-flex align-items-center"
+                                [class.active]="tab==5" style="cursor: pointer;" (click)="tab=5">
+                                <mat-icon class="me-3"
+                                    [class]="tab !=5 ? 'text-body opacity-50':null">notifications_active</mat-icon>
                                 <div class="d-flex justify-content-between align-items-center w-100">
                                     <span>Notifications</span>
                                     <span class="badge bg-danger"
@@ -44,8 +62,8 @@
 
                             </a>
                             <a class="list-group-item list-group-item-action fs-6 p-3 d-flex align-items-center"
-                                [class.active]="tab==3" style="cursor: pointer;" (click)="tab=3">
-                                <mat-icon class="me-3" [class]="tab !=3 ? 'text-body opacity-50':null">layers</mat-icon>
+                                [class.active]="tab==6" style="cursor: pointer;" (click)="tab=6">
+                                <mat-icon class="me-3" [class]="tab !=6 ? 'text-body opacity-50':null">layers</mat-icon>
                                 Activities
                             </a>
                         </div>
@@ -65,9 +83,15 @@
                     <app-change-account-password></app-change-account-password>
                 </div>
                 <div class="mb-3" *ngIf="tab==2">
+                    <div class="mb-4">
+                        <app-create-time-slot></app-create-time-slot>
+                    </div>
+                    <app-time-slots-list></app-time-slots-list>
+                </div>
+                <div class="mb-3" *ngIf="tab==5">
                     <app-notification-list></app-notification-list>
                 </div>
-                <div class="mb-3" *ngIf="tab==3">
+                <div class="mb-3" *ngIf="tab==6">
                     <div class="mb-3">
                         <app-create-post></app-create-post>
                     </div>

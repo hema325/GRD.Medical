@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.development';
 import { Media } from 'src/app/models/media';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { EditPostBottomSheetComponent } from '../edit-post-bottom-sheet/edit-post-bottom-sheet.component';
+import { Roles } from 'src/app/models/account/roles.enum';
 
 @Component({
   selector: 'app-post-card',
@@ -31,6 +32,10 @@ export class PostCardComponent {
 
   getMediaUrls(medias: Media[]) {
     return medias.map(m => m.url);
+  }
+
+  isDoctor(role: any) {
+    return Roles.Doctor == role;
   }
 
 }

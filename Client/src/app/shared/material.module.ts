@@ -16,6 +16,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
+import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [
@@ -35,7 +37,9 @@ import { MatSliderModule } from '@angular/material/slider';
     MatSelectModule,
     MatStepperModule,
     MatTabsModule,
-    MatSliderModule
+    MatSliderModule,
+    NgxMatTimepickerModule,
+    MatTableModule
   ],
   exports: [
     MatToolbarModule,
@@ -54,7 +58,9 @@ import { MatSliderModule } from '@angular/material/slider';
     MatSelectModule,
     MatStepperModule,
     MatTabsModule,
-    MatSliderModule
+    MatSliderModule,
+    NgxMatTimepickerModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

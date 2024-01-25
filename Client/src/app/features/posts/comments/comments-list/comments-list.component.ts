@@ -8,6 +8,7 @@ import { AuthResult } from 'src/app/models/account/auth-result';
 import { AccountService } from 'src/app/services/account.service';
 import { environment } from 'src/environments/environment.development';
 import { CommentFilter } from 'src/app/models/comments/comment-filter';
+import { Roles } from 'src/app/models/account/roles.enum';
 
 @Component({
   selector: 'app-comments-list',
@@ -126,6 +127,10 @@ export class CommentsListComponent {
         comment.totalRepliesCount = comments.totalCount;
       });
     }
+  }
+
+  isDoctor(role: any) {
+    return Roles.Doctor == role;
   }
 
 }

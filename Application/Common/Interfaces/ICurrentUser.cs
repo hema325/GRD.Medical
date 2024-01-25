@@ -6,5 +6,6 @@
         string? Email { get; }
         Roles? Role { get; }
         string? Name { get; }
+        int? DoctorId { get; }
     }
 }

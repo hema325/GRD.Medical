@@ -17,6 +17,7 @@ import { ReachedBottomDirective } from '../directives/reached-bottom.directive';
 import { FormSelectComponent } from './form-select/form-select.component';
 import { TextAreaInputComponent } from './text-area-input/text-area-input.component';
 import { ExperienceSelectInputComponent } from './experience-select-input/experience-select-input.component';
+import { TimePickerInputComponent } from './time-picker-input/time-picker-input.component';
 
 @NgModule({
   declarations: [
@@ -32,14 +33,15 @@ import { ExperienceSelectInputComponent } from './experience-select-input/experi
     ReachedBottomDirective,
     FormSelectComponent,
     TextAreaInputComponent,
-    ExperienceSelectInputComponent
+    ExperienceSelectInputComponent,
+    TimePickerInputComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
     TimeagoModule.forChild(),
-    CarouselModule,
+    CarouselModule
   ],
   exports: [
     FormInputComponent,
@@ -56,7 +58,8 @@ import { ExperienceSelectInputComponent } from './experience-select-input/experi
     ReachedBottomDirective,
     FormSelectComponent,
     TextAreaInputComponent,
-    ExperienceSelectInputComponent
+    ExperienceSelectInputComponent,
+    TimePickerInputComponent
   ]
 })
 export class SharedModule { }

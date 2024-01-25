@@ -1,48 +1,84 @@
 {
   "Files": [
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\244.8c48eccec3488875.js",
-      "PackagePath": "staticwebassets\\244.8c48eccec3488875.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\183.49fcf1b9b4ae112d.js",
+      "PackagePath": "staticwebassets\\183.49fcf1b9b4ae112d.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\255.a26987cd334f1a8b.js",
+      "PackagePath": "staticwebassets\\255.a26987cd334f1a8b.js"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\303.82e733c652ee0ba1.js",
+      "PackagePath": "staticwebassets\\303.82e733c652ee0ba1.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\3rdpartylicenses.txt",
       "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\496.7703273710e05a67.js",
-      "PackagePath": "staticwebassets\\496.7703273710e05a67.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\496.c1ccf47794a78ba6.js",
+      "PackagePath": "staticwebassets\\496.c1ccf47794a78ba6.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\550.0d1d8c648b724855.js",
-      "PackagePath": "staticwebassets\\550.0d1d8c648b724855.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\581.9ae1983621029673.js",
+      "PackagePath": "staticwebassets\\581.9ae1983621029673.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\680.155a07b3e739ba50.js",
-      "PackagePath": "staticwebassets\\680.155a07b3e739ba50.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\680.85957730fd750d19.js",
+      "PackagePath": "staticwebassets\\680.85957730fd750d19.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.6de0c72260b5a1cc.js",
-      "PackagePath": "staticwebassets\\760.6de0c72260b5a1cc.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\760.d5627bfc207e8938.js",
+      "PackagePath": "staticwebassets\\760.d5627bfc207e8938.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\87.a2c411b29f777ebe.js",
-      "PackagePath": "staticwebassets\\87.a2c411b29f777ebe.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\87.94e2364fdc8c8f11.js",
+      "PackagePath": "staticwebassets\\87.94e2364fdc8c8f11.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\870.3bac1c0160cbf635.js",
-      "PackagePath": "staticwebassets\\870.3bac1c0160cbf635.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\966.6e7265e602293b8f.js",
+      "PackagePath": "staticwebassets\\966.6e7265e602293b8f.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\about.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\about.jpg"
     },
     {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\ai-doctor.png",
+      "PackagePath": "staticwebassets\\assets\\images\\ai-doctor.png"
+    },
+    {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\chat_bot.webp",
       "PackagePath": "staticwebassets\\assets\\images\\chat_bot.webp"
     },
     {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\doctor-account-details.png",
+      "PackagePath": "staticwebassets\\assets\\images\\doctor-account-details.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\doctor-account.png",
+      "PackagePath": "staticwebassets\\assets\\images\\doctor-account.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\forgot-password.png",
+      "PackagePath": "staticwebassets\\assets\\images\\forgot-password.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\heart-checking.png",
+      "PackagePath": "staticwebassets\\assets\\images\\heart-checking.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\heart-checking.webp",
+      "PackagePath": "staticwebassets\\assets\\images\\heart-checking.webp"
+    },
+    {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\login.png",
       "PackagePath": "staticwebassets\\assets\\images\\login.png"
+    },
+    {
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\no-notifications.png",
+      "PackagePath": "staticwebassets\\assets\\images\\no-notifications.png"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\no-notifications.webp",
@@ -53,8 +89,8 @@
       "PackagePath": "staticwebassets\\assets\\images\\not_found.png"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\profile.png",
-      "PackagePath": "staticwebassets\\assets\\images\\profile.png"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\profile.webp",
+      "PackagePath": "staticwebassets\\assets\\images\\profile.webp"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\register.png",
@@ -69,24 +105,20 @@
       "PackagePath": "staticwebassets\\assets\\images\\send-email-confrimation.png"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\send-email-reset-password.webp",
-      "PackagePath": "staticwebassets\\assets\\images\\send-email-reset-password.webp"
-    },
-    {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\server-error.png",
       "PackagePath": "staticwebassets\\assets\\images\\server-error.png"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\common.06f19fd9683972fc.js",
-      "PackagePath": "staticwebassets\\common.06f19fd9683972fc.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\assets\\images\\sking-checking.png",
+      "PackagePath": "staticwebassets\\assets\\images\\sking-checking.png"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.28f1f6ee0552bcdd.js",
-      "PackagePath": "staticwebassets\\main.28f1f6ee0552bcdd.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\main.bf9050f315d1a51b.js",
+      "PackagePath": "staticwebassets\\main.bf9050f315d1a51b.js"
     },
     {
       "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\owl.video.play.e3b436436832b027.png",
@@ -97,12 +129,12 @@
       "PackagePath": "staticwebassets\\polyfills.b21d18c38c3a54db.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.c5882325be3dc8f7.js",
-      "PackagePath": "staticwebassets\\runtime.c5882325be3dc8f7.js"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\runtime.8ec4ee88bcb09c73.js",
+      "PackagePath": "staticwebassets\\runtime.8ec4ee88bcb09c73.js"
     },
     {
-      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.289988af0c74e457.css",
-      "PackagePath": "staticwebassets\\styles.289988af0c74e457.css"
+      "Id": "D:\\Projects\\GRD.Medical\\Presentation\\wwwroot\\styles.79c237134ab357c1.css",
+      "PackagePath": "staticwebassets\\styles.79c237134ab357c1.css"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",

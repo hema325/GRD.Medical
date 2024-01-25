@@ -1,0 +1,9 @@
+<mat-form-field class="w-100" appearance="outline">
+    <mat-label *ngIf="label">{{label}}</mat-label>
+    <input matInput name="selected_time_g" [format]="format" [formControl]="control" [ngxMatTimepicker]="pickerG"
+        [disabled]="disabled" readonly />
+    <ngx-mat-timepicker color="primary" #pickerG></ngx-mat-timepicker>
+    <mat-error *ngIf="control.touched">
+        <span *ngIf="control.errors?.['required']">{{label}} is required</span>
+    </mat-error>
+</mat-form-field>
