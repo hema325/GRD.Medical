@@ -2,6 +2,8 @@
     <div class="container" *ngIf="user">
         <div class="row my-5">
             <div class="col-lg-4 col-12">
+                <app-light-box [imagesUrl]="[user.imageUrl ?? defaultUserImageUrl]"
+                    [(active)]="profieImageActive"></app-light-box>
                 <div class="position-sticky  mb-3" style="top: 90px;">
                     <div class="shadow-sm bg-white mb-3 rounded-3 position-relative p-4 ">
                         <div class="position-absolute " style="top:15px; left: 15px;">
@@ -16,8 +18,10 @@
                         <app-light-box [imagesUrl]="[user.imageUrl ?? defaultUserImageUrl]"
                             [(active)]="profieImageActive"></app-light-box>
                         <input type="file" (change)="uploadImage($event)" accept="image/*" #imageInput hidden>
-                        <h2 class="text-center mt-2 mb-0">{{user.firstName}} {{user.lastName}}</h2>
-                        <h5 class="text-center text-muted" style="margin-top: -5px;">{{user.email}}</h5>
+                        <a class="text-center text-decoration-none text-dark   d-block fs-6 fw-bold   mt-3 mb-1">{{user.firstName}}
+                            {{user.lastName}}</a>
+                        <span class="text-center text-muted  d-block "
+                            style="margin-top: -5px; font-size: .7rem;">{{user.email}}</span>
                     </div>
                     <!-- Hover added -->
                     <div class="shadow-sm mb-3 rounded-3 bg-white">
@@ -66,11 +70,17 @@
                                 <mat-icon class="me-3" [class]="tab !=6 ? 'text-body opacity-50':null">layers</mat-icon>
                                 Activities
                             </a>
+                            <a class="list-group-item list-group-item-action fs-6 p-3 d-flex align-items-center"
+                                *ngIf="isDoctor()" [class.active]="tab==7" style="cursor: pointer;" (click)="tab=7">
+                                <mat-icon class="me-3"
+                                    [class]="tab !=7 ? 'text-body opacity-50':null">auto_awesome</mat-icon>
+                                Reviews
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-lg-8">
                 <ng-container *ngIf="tab==0">
                     <div class="mb-3" *ngIf="isPatient()">
                         <app-update-user-details [user]="user"></app-update-user-details>
@@ -88,6 +98,12 @@
                     </div>
                     <app-time-slots-list></app-time-slots-list>
                 </div>
+                <div class="mb-3" *ngIf="tab==3">
+                    <app-billing-infos-list></app-billing-infos-list>
+                </div>
+                <div class="mb-3" *ngIf="tab==4">
+                    <app-appointments-list></app-appointments-list>
+                </div>
                 <div class="mb-3" *ngIf="tab==5">
                     <app-notification-list></app-notification-list>
                 </div>
@@ -96,6 +112,9 @@
                         <app-create-post></app-create-post>
                     </div>
                     <app-posts-list [ownerId]="user.id"></app-posts-list>
+                </div>
+                <div class="mb-3" *ngIf="tab==7">
+                    <app-reviews-list [doctorId]="user.id"></app-reviews-list>
                 </div>
             </div>
         </div>

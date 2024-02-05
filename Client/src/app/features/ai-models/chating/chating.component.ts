@@ -17,16 +17,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class ChatingComponent {
 
-  defaultImageUrl = environment.defaultUserImageUrl;
-
-  suggestions: string[] =
-    [
-      "Do you have any allergies?",
-      "How often do you exercise?",
-      "What is your average daily water intake?",
-      "Do you smoke or use tobacco products?"
-    ];
-
+  defaultUserImageUrl = environment.defaultUserImageUrl;
   currentAuth: AuthResult | null = null;
   paginatedList: PaginatedList<UserChatBotMessage> | null = null;
 
@@ -88,7 +79,6 @@ export class ChatingComponent {
   }
 
   message(content: string) {
-
     this.paginatedList?.data.push({
       id: 0,
       content: content,
@@ -164,6 +154,15 @@ export class ChatingComponent {
     if (this.returnScrollToPrevPos) {
       this.scrollPrevPos();
       this.returnScrollToPrevPos = false;
+    }
+  }
+
+  toMessageCardObj(msg: UserChatBotMessage) {
+    return {
+      content: msg.content,
+      messagedOn: msg.messagedOn,
+      imageUrl: !msg.isBotMessage ? this.currentAuth?.imageUrl ?? this.defaultUserImageUrl : 'assets/images/chat_bot.webp',
+      isMain: !msg.isBotMessage
     }
   }
 

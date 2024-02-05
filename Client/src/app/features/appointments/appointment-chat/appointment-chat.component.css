@@ -1,0 +1,4 @@
+.chat-box {
+    height: calc(100vh - 128px - 48px);
+    min-height: 500px;
+}

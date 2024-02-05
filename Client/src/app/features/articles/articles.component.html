@@ -3,7 +3,7 @@
         <ng-container *ngIf="paginatedList">
 
             <div class="mt-5 shadow-sm bg-white p-4 rounded-3">
-                <h2 class="text-primary fw-medium mb-4 ">Search By Title</h2>
+                <span class="text-primary fw-semibold  d-block mb-4 fs-5">Search By Title</span>
                 <app-form-input [control]="filterForm.controls.title" label="Title"
                     (keydown.enter)="handleSearchFilter()"></app-form-input>
                 <div class="d-flex justify-content-end">
@@ -17,14 +17,14 @@
                         [state]="article">
                         <img [src]="article.imageUrl" class="w-100 object-fit-cover " style="height: 250px;">
                         <div class="card-body">
-                            <h5 class="card-title fs-5 fw-medium mb-2">{{article.title}}</h5>
+                            <span class="card-title fs-5 fw-medium  d-block mb-2">{{article.title}}</span>
                             <span class="text-muted">{{article.author.name}} . {{ article.publishedOn |
                                 date}}</span>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <app-no-content-card *ngIf="!paginatedList.data.length && !isLoading"></app-no-content-card>
             <mat-paginator #paginator class=" my-5 shadow-sm bg-white p-3 rounded-3" (page)="handlePageEvent($event)"
                 [length]="paginatedList.totalCount" [pageSize] [pageSize]="filter.pageSize"
                 [showFirstLastButtons]="true" [pageIndex]="filter.pageNumber - 1" [pageSizeOptions]="[6, 12, 24, 50]"

@@ -1,0 +1,19 @@
+.go-bottom {
+    bottom: -45px;
+    left: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: bottom, transform, 400ms;
+}
+
+.go-bottom.active {
+    bottom: 110px;
+}
+
+.go-bottom:hover {
+    transform: scale(1.3);
+}

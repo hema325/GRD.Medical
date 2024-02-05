@@ -34,7 +34,15 @@ export class CreateTimeSlotComponent {
   }
 
   Create() {
-    this.timeSlotsService.create(this.timeSlotForm.value)
+    const timeSlot = this.timeSlotForm.value;
+    timeSlot.start = this.getUTCTime(timeSlot.start!);
+    timeSlot.end = this.getUTCTime(timeSlot.end!);
+
+    this.timeSlotsService.create(timeSlot)
       .subscribe(res => this.toastrService.success('Time slot is added successfully.'));
+  }
+
+  getUTCTime(time: string) {
+    return new Date('1-30-2024 ' + time).toLocaleTimeString('en-US', { timeZone: 'UTC' });
   }
 }

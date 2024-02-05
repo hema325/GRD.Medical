@@ -1,0 +1,12 @@
+.cell {
+    padding: 22px 15px;
+}
+
+.user-card-click {
+    cursor: pointer;
+    transition: background-color 400ms;
+}
+
+.user-card-click:hover {
+    background-color: #f8f9fa;
+}

@@ -17,6 +17,10 @@ namespace Application.Common.Interfaces
         DbSet<Language> Languages { get; }
         DbSet<Doctor> Doctors { get; }
         DbSet<TimeSlot> TimeSlots { get; }
+        DbSet<Appointment> Appointments { get; }
+        DbSet<BillingInfo> BillingInfos { get; }
+        DbSet<AppointmentMessage> AppointmentMessages { get; }
+        DbSet<Review> Reviews { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

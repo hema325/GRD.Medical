@@ -5,13 +5,11 @@ namespace Application.Notifications.Commands.CreateNotification
     internal class CreateNotificationCommandHandler : IRequestHandler<CreateNotificationCommand, NotificationDto>
     {
         private readonly IApplicationDbContext _context;
-        private readonly ICurrentUser _currentUser;
         private readonly IMapper _mapper;
 
-        public CreateNotificationCommandHandler(IApplicationDbContext context, ICurrentUser currentUser, IMapper mapper)
+        public CreateNotificationCommandHandler(IApplicationDbContext context, IMapper mapper)
         {
             _context = context;
-            _currentUser = currentUser;
             _mapper = mapper;
         }
 
@@ -23,7 +21,7 @@ namespace Application.Notifications.Commands.CreateNotification
                 ReferenceId = request.ReferenceId,
                 ReferenceType = request.ReferenceType,
                 OwnerId = request.OwnerId,
-                InitiatorId = _currentUser.Id!.Value,
+                InitiatorId = request.InitiatorId,
                 NotifiedOn = DateTime.UtcNow,
                 IsRead = false
             };
@@ -32,7 +30,8 @@ namespace Application.Notifications.Commands.CreateNotification
             _context.Notifications.Add(notification);
             await _context.SaveChangesAsync();
 
-            notification.Initiator = await _context.Users.FindAsync(_currentUser.Id);
+            if(request.InitiatorId != null)
+                notification.Initiator = await _context.Users.FindAsync(notification.InitiatorId);
 
             return _mapper.Map<NotificationDto>(notification);
         }

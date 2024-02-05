@@ -25,7 +25,6 @@ export class NavbarComponent {
   @ViewChild('navMenu') navMenu?: NavMenuComponent;
 
   toggleNavMenu() {
-    console.log(this.navMenu);
     this.navMenu?.toggle();
   }
 

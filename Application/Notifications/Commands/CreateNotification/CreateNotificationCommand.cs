@@ -8,5 +8,6 @@ namespace Application.Notifications.Commands.CreateNotification
         public int ReferenceId { get; set; }
         public ReferenceTypes ReferenceType { get; set; }
         public int OwnerId { get; set; }
+        public int? InitiatorId { get; set; }
     }
 }

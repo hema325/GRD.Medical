@@ -1,0 +1,37 @@
+<div class="section">
+    <div class="container" [hidden]="isFirstLoading || !isChatStarted()">
+        <div
+            class="bg-white rounded-3 shadow-sm my-4 chat-box d-flex flex-column justify-content-between overflow-hidden position-relative ">
+            <div class="overflow-auto hide-scrollbar flex-fill p-4 pb-0" #messagesContainer>
+
+                <div class="position-absolute end-0 top-0 mt-2 me-2">
+                    <app-chat-timer [endTime]="appointment?.endDateTime" *ngIf="appointment"
+                        (timeout)="this.isChatAvailable = false;"></app-chat-timer>
+                </div>
+                <app-message-card [msg]="toMessageCardObj(msg)" *ngFor="let msg of messages?.data"></app-message-card>
+                <div class="d-flex  h-100 justify-content-center align-items-center"
+                    *ngIf="!messages?.data?.length && !isWriting">
+                    <img src="assets/images/appointment-chat.jpg" class="w-100" style="max-width: 600px;">
+                </div>
+                <app-writing-loader [hidden]="!isWriting"
+                    [imageUrl]="getOtherUser()?.imageUrl ?? defaultUserImageUrl"></app-writing-loader>
+            </div>
+            <app-scroll-down-btn (clicked)="scrollBottom()" [active]="isScrollBottomBtnActive"></app-scroll-down-btn>
+
+            <div class="text-muted p-4 pt-3  z-3  bg-white">
+                <app-message-sender (sendBtnClicked)="message($event)" [disable]="isWriting" [enableMedia]="true"
+                    (writingStatus)="notifyWritingStatus($event)" *ngIf="isChatAvailable"></app-message-sender>
+                <div class="text-center" *ngIf="!isChatAvailable">
+                    <span class="fs-5  fw-semibold  text-primary mb-2 d-block m-auto">This chat is not available
+                        anymore!</span>
+                    <p>If you want another consultation please feel free to schedule another appointment</p>
+                    <button class="btn btn-primary mt-2" *ngIf="amIPatient()" routerLink="/reviews/create-review"
+                        [queryParams]="{docId: appointment?.doctor?.id}">Add
+                        Review</button>
+                    <button class="btn btn-primary mt-2" routerLink="/account" fragment="4" *ngIf="amIDoctor()">Go
+                        Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

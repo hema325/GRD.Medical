@@ -13,7 +13,7 @@ import { TimeSlotsService } from 'src/app/services/time-slots.service';
   styleUrls: ['./time-slots-list.component.css']
 })
 export class TimeSlotsListComponent {
-  displayedColumns: string[] = ['start', 'end', 'day', 'id'];
+  displayedColumns: string[] = ['day', 'start', 'end', 'id'];
 
   timeSlots: PaginatedList<TimeSlot> | null = null;
   timeSlotFilter: TimeSlotFilter = {
@@ -64,6 +64,10 @@ export class TimeSlotsListComponent {
         this.timeSlots.totalCount -= 1;
       }
     })
+  }
+
+  timeToDateTime(time: any) {
+    return new Date('1-30-2024 ' + time + ' UTC');
   }
 }
 

@@ -1,0 +1,31 @@
+<div class="section">
+    <div class="container my-5" *ngIf="appointment">
+
+        <div class="text-center mb-5 mt-5">
+            <div class="d-flex justify-content-center mb-5">
+                <div class="border me-3  border-1 rounded-2 text-center">
+                    <h1 class="d-block fw-bold cell fs-2 mb-0 text-primary border-bottom">{{days}}</h1>
+                    <h3 class=" d-block py-1 mb-0" style="font-size: 13px;">Days</h3>
+                </div>
+                <div class="border me-3 border-1 rounded-2 text-center">
+                    <h1 class="d-block fw-bold cell fs-2 mb-0 text-primary border-bottom">{{hours}}</h1>
+                    <h3 class=" d-block py-1 mb-0" style="font-size: 13px;">Hours</h3>
+                </div>
+                <div class="border me-3 border-1 rounded-2 text-center">
+                    <h1 class="d-block fw-bold cell fs-2 mb-0 text-primary border-bottom">{{minutes}}</h1>
+                    <h3 class=" d-block py-1 mb-0" style="font-size: 13px;">Minutes</h3>
+                </div>
+                <div class="border border-1 rounded-2 text-center">
+                    <h1 class="d-block fw-bold cell fs-2 mb-0 text-primary border-bottom">{{seconds}}</h1>
+                    <h3 class="d-block py-1 mb-0" style="font-size: 13px;">Seconds</h3>
+                </div>
+            </div>
+            <span class="text-center fs-2  text-primary fw-semibold mb-3 d-block">
+                Remaining Time!
+            </span>
+            <p class="mb-4">A chat conversation will be available when the counter reached zero.</p>
+            <button mat-raised-button color="primary" [disabled]="!isChatAvailable()" (click)="goToChat()">Go to
+                chat</button>
+        </div>
+    </div>
+</div>

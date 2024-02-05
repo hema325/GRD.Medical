@@ -12,6 +12,8 @@ namespace Infrastructure.Persistance.Configurations
             builder.HasOne(d => d.User).WithOne(u => u.Doctor).HasForeignKey<Doctor>(d => d.UserId);
             builder.HasOne(d => d.Speciality).WithMany().HasForeignKey(d=>d.SpecialityId);
             builder.HasMany(d => d.Languages).WithMany();
+
+            builder.HasIndex(d => new { d.SpecialityId, d.Experience, d.ConsultFee });
         }
     }
 }

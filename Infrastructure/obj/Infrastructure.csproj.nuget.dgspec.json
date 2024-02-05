@@ -226,6 +226,10 @@
             "RazorEngineCore": {
               "target": "Package",
               "version": "[2022.8.1, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[43.11.0, )"
             }
           },
           "imports": [

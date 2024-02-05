@@ -52,6 +52,12 @@ namespace Infrastructure.Email
             var template = await _templateParser.ParseAsync("EmailResetPasswordTemplate", emailResetPassword);
             await SendAsync(to, "Resating Password", template);
         }
+        
+        public async Task SendEmailAppointmentSheduledAsync(string to, EmailAppointmentScheduledTemplate emailResetPassword)
+        {
+            var template = await _templateParser.ParseAsync("EmailAppointmentScheduledTemplate", emailResetPassword);
+            await SendAsync(to, "Appointment Scheduling", template);
+        }
 
     }
 }

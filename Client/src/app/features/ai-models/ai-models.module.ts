@@ -7,6 +7,7 @@ import { CoreModule } from 'src/app/core/core.module';
 import { ChatingComponent } from './chating/chating.component';
 import { HeartCheckingComponent } from './heart-checking/heart-checking.component';
 import { SkinCheckingComponent } from './skin-checking/skin-checking.component';
+import { WelcomingViewComponent } from './chating/welcoming-view/welcoming-view.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SkinCheckingComponent } from './skin-checking/skin-checking.component';
     AiModelsComponent,
     ChatingComponent,
     HeartCheckingComponent,
-    SkinCheckingComponent
+    SkinCheckingComponent,
+    WelcomingViewComponent
   ],
   imports: [
     CommonModule,

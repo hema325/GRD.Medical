@@ -18,6 +18,8 @@ namespace Infrastructure.Persistance.Configurations
             builder.HasOne(c => c.Owner).WithMany().HasForeignKey(c => c.OwnerId).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(c => c.Replies).WithOne().HasForeignKey(c => c.ReplyTo).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(c => c.Post).WithMany(p=>p.Comments).HasForeignKey(c => c.PostId);
+
+            builder.HasIndex(c => c.CommentedOn);
         }
     }
 }

@@ -18,6 +18,7 @@ div[contenteditable] {
 html,
 body {
     height: fit-content;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {

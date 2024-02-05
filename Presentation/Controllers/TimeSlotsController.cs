@@ -2,17 +2,17 @@
 using Application.TimeSlots.Commands.CreateTimeSlot;
 using Application.TimeSlots.Commands.DeleteTimeSlot;
 using Application.TimeSlots.Queries;
+using Application.TimeSlots.Queries.GetAvailableTimeSlots;
 using Application.TimeSlots.Queries.GetTimeSlots;
-using Domain.Entities;
 using Domain.Enums;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.Attributes;
 
 namespace Presentation.Controllers
 {
     [Route("api/timeSlots")]
-    [HaveRoles(Roles.Doctor)]
     public class TimeSlotsController : ApiControllerBase
     {
         private readonly ISender _sender;
@@ -24,6 +24,7 @@ namespace Presentation.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(TimeSlotDto), StatusCodes.Status200OK)]
+        [HaveRoles(Roles.Doctor)]
         public async Task<IActionResult> CreateAsync(CreateTimeSlotCommand request)
         {
             return Ok(await _sender.Send(request));
@@ -31,6 +32,7 @@ namespace Presentation.Controllers
         
         [HttpDelete("{Id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [HaveRoles(Roles.Doctor)]
         public async Task<IActionResult> DeleteAsync([FromRoute]DeleteTimeSlotCommand request)
         {
             await _sender.Send(request);
@@ -39,7 +41,15 @@ namespace Presentation.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(PaginatedList<TimeSlotDto>), StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<IActionResult> GetAsync([FromQuery] GetTimeSlotsQuery request)
+        {
+            return Ok(await _sender.Send(request));
+        }
+        
+        [HttpGet("availableTimeSlots")]
+        [ProducesResponseType(typeof(IEnumerable<TimeSlotDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAvailableTimeSlotsAsync([FromQuery] GetAvailableTimeSlotsQuery request)
         {
             return Ok(await _sender.Send(request));
         }

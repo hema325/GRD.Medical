@@ -14,6 +14,8 @@ const routes: Routes = [
   { path: 'posts', loadChildren: () => import('./features/posts/posts.module').then(m => m.PostsModule) },
   { path: 'specialities', loadChildren: () => import('./features/specialities/specialities.module').then(m => m.SpecialitiesModule) },
   { path: 'doctors', loadChildren: () => import('./features/doctors/doctors.module').then(m => m.DoctorsModule) },
+  { path: 'appointments', loadChildren: () => import('./features/appointments/appointments.module').then(m => m.AppointmentsModule), canActivate: [authGuard] },
+  { path: 'reviews', loadChildren: () => import('./features/reviews/reviews.module').then(m => m.ReviewsModule), canActivate: [authGuard] },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'server-error', component: ServerErrorComponent },
   { path: '**', component: NotFoundComponent },

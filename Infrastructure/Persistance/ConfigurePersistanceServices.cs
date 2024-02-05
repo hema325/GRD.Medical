@@ -10,7 +10,7 @@ namespace Infrastructure.Persistance
         public static IServiceCollection AddPersistanceService(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(o => o.UseSqlServer(configuration.GetConnectionString("Default")));
-            
+
             services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<ApplicationDbContextInitialiser>();
 

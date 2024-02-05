@@ -1,17 +1,29 @@
 <div class="section">
-    <div class="container my-5" *ngIf="specialistsPaginatedList" (reachedBottom)="loadMoreSpecialists()">
-
-        <h1 class="fs-1 fw-medium text-center mb-5 text-primary pb-2">Our Specilities</h1>
-
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+    <div class="container my-5" *ngIf="specialistsPaginatedList">
+        <div class="mb-5 shadow-sm bg-white p-4 rounded-3">
+            <span class="text-primary fw-semibold  d-block mb-4 fs-5 ">Search By Name</span>
+            <app-form-input [control]="filterForm.controls.name" label="Name"
+                (keydown.enter)="handleSearchFilter()"></app-form-input>
+            <div class="d-flex justify-content-end">
+                <button type="button" mat-raised-button color="primary" (click)="handleSearchFilter()">Search</button>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" *ngIf="specialistsPaginatedList.data.length">
             <div class="col" *ngFor="let speciality of specialistsPaginatedList?.data" routerLink="/doctors"
                 [queryParams]="{specId: speciality.id}">
                 <div class="card card-animation p-4 shadow-sm border-0 overflow-hidden">
                     <img [src]="speciality.imageUrl" class="m-auto mb-4"
                         style="width: 100px;font-size: 100px;height:100px;">
-                    <h5 class="card-title fs-5 fw-medium mb-2 text-center text-primary">{{speciality.name}}</h5>
+                    <span class="card-title fs-5 fw-medium   mb-2 text-center text-primary">{{speciality.name}}</span>
                 </div>
             </div>
         </div>
+        <app-no-content-card
+            *ngIf="!specialistsPaginatedList.data.length && !isLoadingSpecialists"></app-no-content-card>
+        <mat-paginator #paginator class=" mt-5 shadow-sm bg-white p-3 rounded-3" (page)="handlePageEvent($event)"
+            [length]="specialistsPaginatedList.totalCount" [pageSize] [pageSize]="specialistsFilter.pageSize"
+            [showFirstLastButtons]="true" [pageIndex]="specialistsFilter.pageNumber - 1"
+            [pageSizeOptions]="[6, 12, 24, 50]" aria-label="Select page">
+        </mat-paginator>
     </div>
 </div>

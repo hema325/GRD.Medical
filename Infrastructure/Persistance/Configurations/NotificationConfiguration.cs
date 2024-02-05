@@ -9,6 +9,7 @@ namespace Infrastructure.Persistance.Configurations
         public void Configure(EntityTypeBuilder<Notification> builder)
         {
             builder.Property(n => n.Content).HasMaxLength(450);
+            builder.Property(n => n.InitiatorId).IsRequired(false);
             builder.Property(n => n.NotifiedOn).HasConversion<DateTimeToUtcConverter>();
 
             builder.HasOne(n => n.Owner).WithMany().HasForeignKey(n => n.OwnerId);

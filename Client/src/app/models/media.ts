@@ -1,4 +1,6 @@
+import { MediaTypes } from "./media-types.enum"
+
 export interface Media {
-    type: string
+    type: MediaTypes
     url: string
 }

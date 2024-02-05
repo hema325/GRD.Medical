@@ -18,6 +18,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
 import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 import { MatTableModule } from '@angular/material/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   imports: [
@@ -39,7 +43,11 @@ import { MatTableModule } from '@angular/material/table';
     MatTabsModule,
     MatSliderModule,
     NgxMatTimepickerModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatRadioModule,
   ],
   exports: [
     MatToolbarModule,
@@ -60,7 +68,11 @@ import { MatTableModule } from '@angular/material/table';
     MatTabsModule,
     MatSliderModule,
     NgxMatTimepickerModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

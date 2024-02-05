@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  isRelogin = false;
+  // isRelogin = false;
   currentAuth: AuthResult | null = null;
 
   constructor(private accountService: AccountService,
@@ -23,19 +23,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
     this.accountService.currentAuth$.pipe(take(1)).subscribe(auth => this.currentAuth = auth);
 
-    if (!this.isRelogin && this.currentAuth && new Date(this.currentAuth.jwtTokenExpiresOn) < new Date()) {
-      this.isRelogin = true;
-      return this.accountService.relogin().pipe(switchMap(auth => {
-        return next.handle(this.addTokenHeader(auth?.jwtToken, request));
-      }),
-        catchError(error => {
-          //logout if relogin failed
-          this.accountService.logout().subscribe();
-          this.router.navigateByUrl('/home');
-          return throwError(() => error);
-        }),
-        finalize(() => this.isRelogin = false))
-    }
+    // if (!this.isRelogin && this.currentAuth && new Date(this.currentAuth.jwtTokenExpiresOn) < new Date()) {
+    //   this.isRelogin = true;
+    //   return this.accountService.relogin().pipe(switchMap(auth => {
+    //     return next.handle(this.addTokenHeader(auth?.jwtToken, request));
+    //   }),
+    //     catchError(error => {
+    //       //logout if relogin failed
+    //       this.accountService.logout().subscribe();
+    //       this.router.navigateByUrl('/home');
+    //       return throwError(() => error);
+    //     }),
+    //     finalize(() => this.isRelogin = false))
+    // }
 
     return next.handle(this.addTokenHeader(this.currentAuth?.jwtToken, request));
   }

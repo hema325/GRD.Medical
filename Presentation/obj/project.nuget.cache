@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iEGvBdO56gpl0n15Q+qpEx/D7I30cD1LYVI2u+sF6HimVFCYhzG7EFua6AHsqc6qph2DsQwc0Rq4BBIqnyMYhQ==",
+  "dgSpecHash": "R/ztho8ZeXQbXAGyJUJWSd1cx2XxUkHDASyk0wRY/3pH4QAsv6Ysu+zR0e4cVEftjAicM5upA1HTT1Zvcbd+PQ==",
   "success": true,
   "projectFilePath": "D:\\Projects\\GRD.Medical\\Presentation\\Presentation.csproj",
   "expectedPackageFiles": [
@@ -66,7 +66,9 @@
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\mimekit\\4.3.0\\mimekit.4.3.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\razorenginecore\\2022.8.1\\razorenginecore.2022.8.1.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\stripe.net\\43.11.0\\stripe.net.43.11.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

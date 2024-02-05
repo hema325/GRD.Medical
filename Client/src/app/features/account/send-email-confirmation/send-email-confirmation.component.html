@@ -1,7 +1,9 @@
 <div class="section">
     <div class="container text-center my-5">
-        <h1 class="text-center fs-1 text-primary fw-medium">Verify Your Email</h1>
-        <h2 class="text-secondary  mb-0">Check your email & click the link to activate your account</h2>
+        <span class="text-center fs-1  text-primary fw-semibold mb-4 d-block">
+            Verify Your Email
+        </span>
+        <p class="text-secondary fs-6 fw-medium mb-0">Check your email & click the link to activate your account</p>
         <img src="assets/images/send-email-confrimation.png" class="m-auto mb-5 mt-4 w-100" style="max-width: 400px;">
         <button class="btn btn-primary  d-block m-auto px-4 py-2" [disabled]="counter" (click)="send()">Resend Email
             <span *ngIf="counter">In

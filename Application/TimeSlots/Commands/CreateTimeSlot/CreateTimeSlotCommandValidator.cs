@@ -8,20 +8,26 @@ namespace Application.TimeSlots.Commands.CreateTimeSlot
         {
             RuleFor(c => c.Start)
                 .NotEmpty()
-                .Must(s=> IsTimeSpan(s))
-                .WithMessage("Start is not a valid time.");
+                .Must(s=> IsTime(s))
+                    .WithMessage("Start is not a valid time.");
 
             RuleFor(c => c.End)
-                .NotEmpty().Must(e => IsTimeSpan(e))
-                .WithMessage("End is not a valid time.");
+                .NotEmpty()
+                .Must(e => IsTime(e))
+                    .WithMessage("End is not a valid time.");
 
             RuleFor(c => c.Day)
                 .NotEmpty()
                 .IsEnumName(typeof(Days))
-                .WithMessage("Day value in not valid");
+                    .WithMessage("Day value in not valid");
+
+            RuleFor(c=>c)
+                .Must(c=>TimeOnly.Parse(c.End) > TimeOnly.Parse(c.Start))
+                    .When(c => IsTime(c.Start) && IsTime(c.End))
+                    .WithMessage("Only intervals within the same date are allowed.");
         }
 
-        private bool IsTimeSpan(string timeStr) =>
-        TimeSpan.TryParse(timeStr, out var time);
+        private bool IsTime(string timeStr) =>
+        TimeOnly.TryParse(timeStr, out var time);
     }
 }

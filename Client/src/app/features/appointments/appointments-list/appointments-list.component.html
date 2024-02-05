@@ -1,0 +1,77 @@
+<div class="bg-white overflow-hidden shadow-sm rounded-3" *ngIf="appointments && appointments.data.length">
+    <div class="overflow-auto" style="max-width: 100%;">
+        <table mat-table [dataSource]="appointments.data">
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">Date</th>
+                <td mat-cell *matCellDef="let element" class="text-nowrap"> {{element.startDateTime | date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="startTime">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">Start Time</th>
+                <td mat-cell *matCellDef="let element" class="text-nowrap"> {{element.startDateTime | date:'shortTime'
+                    }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="endTime">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">End Time</th>
+                <td mat-cell *matCellDef="let element" class="text-nowrap"> {{element.endDateTime | date:'shortTime'}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="patient">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">Patient</th>
+                <td mat-cell *matCellDef="let element" class="text-nowrap">
+                    <img [src]="element.patient.imageUrl ?? defaultUserImageUrl" style="cursor: pointer;"
+                        routerLink="/account/{{element.patient.id}}" class="rounded-circle" width="34px">
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="doctor">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">Doctor</th>
+                <td mat-cell *matCellDef="let element" class="text-nowrap">
+                    <img [src]="element.doctor.imageUrl ?? defaultUserImageUrl" style="cursor: pointer;"
+                        routerLink="/account/{{element.doctor.id}}" class="rounded-circle" width="34px">
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fee">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">Consult Fee</th>
+                <td mat-cell *matCellDef="let element" class="text-nowrap"> {{element.consultFee}} USD
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">Status</th>
+                <td mat-cell *matCellDef="let element" class="text-nowrap">
+                    <span class="badge" [class]="getStatusClasses(element.status)">{{element.status}}</span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">Actions</th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="d-flex flex-nowrap">
+                        <button class="btn btn-secondary btn-sm  p-0 px-1 me-2"
+                            (click)="navigateToAppointment(element)">
+                            chat
+                        </button>
+                        <button class="btn btn-secondary btn-sm  p-0 px-1" (click)="markCompleted(element)"
+                            *ngIf="isAppointmentEnded(element)">
+                            mark completed
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator (page)="handlePageEvent($event)" class="w-100" [length]="appointments.totalCount"
+        [pageSize]="appointmentFilter.pageSize" [showFirstLastButtons]="true" [pageIndex]="appointments.pageNumber - 1"
+        [pageSizeOptions]="[10, 50 , 100, 200]" aria-label="Select page">
+    </mat-paginator>
+</div>
+
+<app-no-content-card *ngIf="!appointments?.data?.length && !isLoading"></app-no-content-card>

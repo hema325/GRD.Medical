@@ -1,92 +1,22 @@
 <div class="section">
     <div class="container" [hidden]="isFirstLoading">
-        <div class="bg-white p-4 rounded-3 shadow-sm my-4 chat-box d-flex flex-column justify-content-between overflow-hidden position-relative "
+        <div class="bg-white rounded-3 shadow-sm my-4 chat-box d-flex flex-column justify-content-between overflow-hidden position-relative "
             *ngIf="currentAuth">
-            <div class="overflow-auto hide-scrollbar flex-fill" #messagesContainer>
+            <div class="overflow-auto hide-scrollbar flex-fill p-4 pb-0" #messagesContainer>
 
-                <ng-container *ngFor="let msg of paginatedList?.data as msgs; let idx = index">
+                <app-message-card [msg]="toMessageCardObj(msg)"
+                    *ngFor="let msg of paginatedList?.data"></app-message-card>
 
-                    <div class="d-flex flex-row justify-content-start align-items-start" id="{{msg.id}}"
-                        *ngIf="msg.isBotMessage">
-                        <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle flex-shrink-0"
-                            width="40px" height="40px">
-                        <div>
-                            <p class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;"
-                                [innerText]="msg.content">
-                            </p>
-                            <p class="small ms-3 mb-3 rounded-3 text-muted float-end">
-                                {{msg.messagedOn | timeago}}
-                            </p>
-                        </div>
-                    </div>
+                <app-writing-loader *ngIf="isWriting" imageUrl="assets/images/chat_bot.webp"></app-writing-loader>
 
-                    <div class="d-flex flex-row justify-content-end align-items-start" *ngIf="!msg.isBotMessage">
-                        <div>
-                            <p class="small p-2 me-3 mb-1 text-white rounded-3" style="background-color: #3f51b5;"
-                                [innerText]="msg.content">
-                            </p>
-                            <p class="small me-3 mb-3 rounded-3 text-muted">
-                                <ng-container *ngIf="msg.messagedOn else sending">
-                                    {{msg.messagedOn | timeago}}
-                                </ng-container>
-                                <ng-template #sending>
-                                    Processing...
-                                </ng-template>
-                            </p>
-                        </div>
-                        <img [src]="currentAuth.imageUrl ?? 'assets/images/profile.png'" alt="avatar 1"
-                            class="rounded-circle flex-shrink-0" style="width: 40px; height: 40px;">
-                    </div>
-
-                </ng-container>
-
-                <!-- writing animation -->
-                <div class="d-flex flex-row align-items-start justify-content-start" *ngIf="isWriting">
-                    <img src="assets/images/chat_bot.webp" alt="avatar 1" class="rounded-circle flex-shrink-0"
-                        width="40px" height="40px">
-                    <div>
-                        <div class="small p-2 ms-3 mb-1 rounded-3" style="background-color: #f5f6f7;">
-                            <div class="loader"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-column justify-content-center h-100" *ngIf="!paginatedList?.data?.length ">
-                    <div class="flex-fill d-flex justify-content-center align-items-center flex-column gap-4">
-                        <img src="assets/images/chat_bot.webp" class="rounded-circle d-block"
-                            style="max-width: 65px; width: 100%;">
-                        <h1 class="text-center fw-medium text-primary  mt-1 fs-4">How can I
-                            help you
-                            today?
-                        </h1>
-                    </div>
-                    <div class="row row-cols-1 row-cols-lg-2 g-2 mb-2 mx-sm-5 mt-5">
-                        <div class="col" *ngFor="let sug of suggestions">
-                            <div class="border border-1 border-light-subtle rounded-4 p-2  snippet-action px-3"
-                                (click)="message(sug)">
-                                {{sug}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <app-welcoming-view *ngIf="!paginatedList?.data?.length"
+                    (suggestionChoosed)="message($event)"></app-welcoming-view>
             </div>
+            <app-scroll-down-btn (clicked)="scrollBottom()" [active]="isScrollBottomBtnActive"></app-scroll-down-btn>
 
-            <div class="go-down shadow text-muted bg-body rounded-circle position-absolute go-bottom"
-                (click)="scrollBottom()" [class.active]="isScrollBottomBtnActive">
-                <mat-icon style="font-size:30px;" class="w-auto h-auto text-primary">keyboard_arrow_down</mat-icon>
-            </div>
-
-
-            <div
-                class="text-muted d-flex justify-content-start align-items-end pt-3 mt-2 z-0 position-relative bg-white">
-                <img [src]="currentAuth.imageUrl ?? defaultImageUrl" alt="avatar 3" class="rounded-circle flex-shrink-0"
-                    width="46px" height="46px">
-                <textarea type="text" class="form-control form-control-lg mx-2 hide-scrollbar"
-                    id="exampleFormControlInput2" placeholder="Type message" AutoResizeTextArea defaultHeight="48px"
-                    style="resize: none;height: 48px;max-height: 100px;border-radius: 20px;" maxlength="500"
-                    #textarea></textarea>
-                <button mat-icon-button color="primary" [disabled]="!textarea.value || isWriting"
-                    (click)="message(textarea.value);textarea.value = ''"><mat-icon>send</mat-icon></button>
+            <div class="text-muted p-4 pt-3  z-3  bg-white">
+                <app-message-sender (sendBtnClicked)="message($event.content)"
+                    [disable]="isWriting"></app-message-sender>
             </div>
         </div>
     </div>

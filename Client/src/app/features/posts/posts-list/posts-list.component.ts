@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { PaginatedList } from 'src/app/models/paginated-list';
 import { Post } from 'src/app/models/posts/post';
 import { PostFilter } from 'src/app/models/posts/post-filter';
@@ -19,6 +19,7 @@ export class PostsListComponent {
   currentAuth: AuthResult | null = null;
 
   @Input() ownerId: number | null = null;
+  isOpened = false;
 
   postFilter: PostFilter = {
     ownerId: null,
@@ -28,17 +29,26 @@ export class PostsListComponent {
   }
 
   constructor(private postsService: PostsService,
-    private accountService: AccountService,
-    private postBottomSheet: MatBottomSheet) { }
+    private accountService: AccountService) { }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
     this.postFilter.ownerId = this.ownerId;
+    if (changes['ownerId'])
+      this.reset();
+  }
+
+  reset() {
+    this.postFilter.pageNumber = 1;
+    this.paginatedList = undefined;
+    if (this.isOpened)
+      this.loadPosts();
   }
 
   ngOnInit() {
     this.loadPosts();
     this.addCreatedPosts();
     this.loadCurrentAuth();
+    this.isOpened = true;
   }
 
   loadCurrentAuth() {

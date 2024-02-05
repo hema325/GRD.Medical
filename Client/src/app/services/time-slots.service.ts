@@ -36,4 +36,12 @@ export class TimeSlotsService {
 
     return this.httpClient.get<PaginatedList<TimeSlot>>(this.baseUrl, { params });
   }
+
+  getAvailableTimeSlots(doctorId: string, date: string) {
+    let params = new HttpParams();
+    params = params.append('doctorId', doctorId);
+    params = params.append('date', date);
+
+    return this.httpClient.get<TimeSlot[]>(this.baseUrl + '/availableTimeSlots', { params });
+  }
 }

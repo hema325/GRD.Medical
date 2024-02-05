@@ -4,6 +4,8 @@ import { NotificationsFilter } from 'src/app/models/notifications/notifications-
 import { Notification } from 'src/app/models/notifications/notification';
 import { PaginatedList } from 'src/app/models/paginated-list';
 import { NotificationsService } from 'src/app/services/notifications.service';
+import { Router } from '@angular/router';
+import { ReferenceTypes } from 'src/app/models/notifications/reference-types.enum';
 
 @Component({
   selector: 'app-notification-list',
@@ -19,7 +21,8 @@ export class NotificationListComponent {
   }
   isLoading: boolean = false;
 
-  constructor(private notificationsService: NotificationsService) { }
+  constructor(private notificationsService: NotificationsService,
+    private router: Router) { }
 
   ngOnInit() {
     this.loadNotifications();
@@ -55,13 +58,32 @@ export class NotificationListComponent {
       this.notificationsService.markAsRead(notification.id).subscribe();
   }
 
-  getPath(notification: Notification) {
+  navigateToNotificationSrc(notification: Notification) {
     switch (notification.referenceType) {
-      case 'Comment':
-      case 'Reply':
-        return '/posts/post-for-comment/' + notification.referenceId;
+      case ReferenceTypes.Comment:
+      case ReferenceTypes.Reply:
+        this.router.navigateByUrl('/posts/post-for-comment/' + notification.referenceId);
+        break;
+      case ReferenceTypes.Appointment:
+        this.router.navigate(['/account'], { fragment: '4' });
+        break;
+      case ReferenceTypes.Review:
+        this.router.navigate(['/account'], { fragment: '7' });
+        break;
+      case ReferenceTypes.Reminder:
+        this.router.navigate(['/appointments/chat-count-down'], { queryParams: { appontId: notification.referenceId } });
+        break;
       default:
-        return '/notfound'
+        this.router.navigateByUrl('/notfound');
+    }
+  }
+
+  getImageSrc(notification: Notification) {
+    switch (notification.referenceType) {
+      case ReferenceTypes.Reminder:
+        return 'assets/images/reminder.jpg';
+      default:
+        return notification?.initiator?.imageUrl;
     }
   }
 }

@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
+import { finalize } from 'rxjs';
+import { AuthResult } from 'src/app/models/account/auth-result';
 import { PaginatedList } from 'src/app/models/paginated-list';
 import { DoctorFilter } from 'src/app/models/users/doctor-filter';
 import { User } from 'src/app/models/users/user';
+import { AccountService } from 'src/app/services/account.service';
 import { UsersService } from 'src/app/services/users.service';
 import { environment } from 'src/environments/environment.development';
 
@@ -26,17 +29,24 @@ export class DoctorsComponent {
     specialityId: undefined,
     orderBy: undefined
   }
+  isLoading = false;
+  currentAuth: AuthResult | null = null;
 
   constructor(private usersService: UsersService,
-    private activatedRouter: ActivatedRoute) {
+    private activatedRouter: ActivatedRoute,
+    private accountService: AccountService) {
 
   }
 
   ngOnInit() {
     this.doctorFilter.specialityId = Number(this.activatedRouter.snapshot.queryParamMap.get('specId'));
     this.loadDoctors();
+    this.loadCurrentAuth();
   }
 
+  loadCurrentAuth() {
+    this.accountService.currentAuth$.subscribe(auth => this.currentAuth = auth);
+  }
 
   applyFilter(filter: any) {
     this.doctorFilter.pageNumber = 1;
@@ -48,7 +58,10 @@ export class DoctorsComponent {
   }
 
   loadDoctors() {
-    this.usersService.getDoctors(this.doctorFilter).subscribe(res => this.doctors = res);
+    this.isLoading = true;
+    this.usersService.getDoctors(this.doctorFilter)
+      .pipe(finalize(() => this.isLoading = false))
+      .subscribe(res => this.doctors = res);
   }
 
   handlePageEvent(event: PageEvent) {

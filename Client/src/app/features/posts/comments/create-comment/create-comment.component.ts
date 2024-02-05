@@ -95,8 +95,10 @@ export class CreateCommentComponent {
   }
 
   resetTextArea() {
-    this.createCommentObj.content = '';
     this.createCommentObj.image = null;
+    const ele = this.commentInput?.nativeElement;
+    ele.value = '';
+    ele.dispatchEvent(new Event('input'));
   }
 }
 

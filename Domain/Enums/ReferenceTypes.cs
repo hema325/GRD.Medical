@@ -3,6 +3,9 @@
     public enum ReferenceTypes
     {
         Comment,
-        Reply
+        Reply,
+        Appointment,
+        Review,
+        Reminder
     }
 }

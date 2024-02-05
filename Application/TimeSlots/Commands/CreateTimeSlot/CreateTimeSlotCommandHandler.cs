@@ -19,8 +19,8 @@ namespace Application.TimeSlots.Commands.CreateTimeSlot
         {
             var timeSlot = new TimeSlot
             {
-                Start = TimeSpan.Parse(request.Start),
-                End = TimeSpan.Parse(request.End),
+                Start = TimeOnly.Parse(request.Start).ToTimeSpan(),
+                End = TimeOnly.Parse(request.End).ToTimeSpan(),
                 Day = Enum.Parse<Days>(request.Day),
                 DoctorId = _currentUser.DoctorId.Value
             };

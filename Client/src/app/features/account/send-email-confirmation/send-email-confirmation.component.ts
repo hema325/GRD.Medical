@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { ErrorCodes } from 'src/app/models/Errors/error-codes.enum';
 import { AccountService } from 'src/app/services/account.service';
-import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-send-email-confirmation',

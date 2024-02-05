@@ -1,5 +1,5 @@
 <div class="shadow-sm bg-white rounded-3 p-4">
-    <h2 class="mb-4 mt-2 text-primary ">Details</h2>
+    <span class="mb-4 pb-2 mt-2 text-primary d-block fw-semibold fs-5">Details</span>
     <form [formGroup]="userForm" (ngSubmit)="updateDetails()">
         <div class="my-2">
             <app-form-input [control]="userForm.controls.firstName" label="First Name"></app-form-input>

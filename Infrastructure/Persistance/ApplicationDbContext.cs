@@ -53,5 +53,9 @@ namespace Infrastructure.Persistance
         public DbSet<Language> Languages { get; private set; }
         public DbSet<Doctor> Doctors { get; private set; }
         public DbSet<TimeSlot> TimeSlots { get; private set; }
+        public DbSet<Appointment> Appointments { get; private set; }
+        public DbSet<BillingInfo> BillingInfos { get; private set; }
+        public DbSet<AppointmentMessage> AppointmentMessages { get; private set; }
+        public DbSet<Review> Reviews { get; private set; }
     }
 }

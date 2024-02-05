@@ -22,6 +22,9 @@ import { UpdateDoctorDetailsComponent } from './update-doctor-details/update-doc
 import { NotificationListComponent } from './notification-list/notification-list.component';
 import { SpecialitiesModule } from '../specialities/specialities.module';
 import { TimeSlotsModule } from '../time-slots/time-slots.module';
+import { AppointmentsModule } from '../appointments/appointments.module';
+import { BillingInfosModule } from '../billing-infos/billing-infos.module';
+import { ReviewsModule } from '../reviews/reviews.module';
 
 
 
@@ -48,11 +51,13 @@ import { TimeSlotsModule } from '../time-slots/time-slots.module';
     AccountRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    ReactiveFormsModule,
     CoreModule,
     PostsModule,
     SpecialitiesModule,
-    TimeSlotsModule
+    TimeSlotsModule,
+    AppointmentsModule,
+    BillingInfosModule,
+    ReviewsModule
   ]
 })
 export class AccountModule { }

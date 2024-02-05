@@ -6,7 +6,8 @@ import { PaginatedList } from '../models/paginated-list';
 import { Notification } from 'src/app/models/notifications/notification';
 import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { AuthResult } from '../models/account/auth-result';
-import { BehaviorSubject, ReplaySubject, map } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, map, take } from 'rxjs';
+import { AccountService } from './account.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class NotificationsService {
   private notificationsCount = new BehaviorSubject<number>(0);
   notificationsCount$ = this.notificationsCount.asObservable();
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private accountService: AccountService) {
   }
 
   get(filter: NotificationsFilter) {
@@ -45,10 +46,14 @@ export class NotificationsService {
       .pipe(map(() => this.notificationsCount.next(this.notificationsCount.value - 1)));
   }
 
-  startHubConnection(auth: AuthResult) {
+  startHubConnection() {
     this.hubConnection = new HubConnectionBuilder()
       .withUrl(this.hubUrl, {
-        accessTokenFactory: () => auth.jwtToken
+        accessTokenFactory: () => {
+          let auth: string | undefined = undefined;
+          this.accountService.currentAuth$.pipe(take(1)).subscribe(res => auth = res?.jwtToken);
+          return auth!;
+        }
       })
       .withAutomaticReconnect()
       .build();
@@ -62,9 +67,7 @@ export class NotificationsService {
   }
 
   closeHubConnection() {
-    if (this.hubConnection) {
-      this.hubConnection.stop();
-    }
+    this.hubConnection?.stop();
   }
 
 }

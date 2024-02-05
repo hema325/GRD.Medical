@@ -8,6 +8,8 @@ namespace Infrastructure.Persistance.Configurations
         public void Configure(EntityTypeBuilder<TimeSlot> builder)
         {
             builder.HasOne(ts=>ts.Doctor).WithMany(d=>d.TimeSlots).HasForeignKey(ts=>ts.DoctorId);
+
+            builder.HasIndex(ts => new { ts.Day, ts.Start, ts.End });
         }
     }
 }

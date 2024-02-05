@@ -2,7 +2,8 @@
     <div class="container" *ngIf="user">
         <div class="row my-5">
             <div class="col-lg-4 col-12">
-                <div class="position-sticky  mb-3" style="top: 90px;z-index: 999">
+                <app-light-box [imagesUrl]="[user.imageUrl ?? defaultUserImageUrl]" #lighbox></app-light-box>
+                <div class="position-sticky  mb-3" style="top: 90px;z-index: 1000">
                     <div class=" shadow-sm bg-white rounded-3 mb-3  position-relative">
                         <div class="position-absolute " style="top:15px; left: 15px;">
                             <span class="badge bg-primary">{{user.role}}</span>
@@ -13,11 +14,12 @@
                                     <img [src]="user.imageUrl? user.imageUrl: defaultUserImageUrl"
                                         style="width: 100px;height: 100px;" class="rounded-circle object-fit-cover "
                                         (click)="this.lighbox.active = true">
-                                    <app-light-box [imagesUrl]="[user.imageUrl ?? defaultUserImageUrl]"
-                                        #lighbox></app-light-box>
                                 </div>
-                                <h2 class="text-center mt-2 mb-0 text-dark">{{user.firstName}} {{user.lastName}}</h2>
-                                <h5 class="text-center text-muted mb-0" style="margin-top: -5px;">{{user.email}}</h5>
+                                <a
+                                    class="text-center text-decoration-none text-dark   d-block fs-6 fw-bold   mt-3 mb-1">{{user.firstName}}
+                                    {{user.lastName}}</a>
+                                <span class="text-center text-muted  d-block "
+                                    style="margin-top: -5px; font-size: .7rem;">{{user.email}}</span>
                             </div>
                         </div>
                     </div>
@@ -42,35 +44,39 @@
                         </div>
                     </div>
                     <button mat-raised-button color="primary" class="mb-3 w-100 py-4 fs-6"
-                        *ngIf="isDoctor()">Consult</button>
+                        routerLink="/appointments/create-appointment" [queryParams]="{ docId: user.id}"
+                        *ngIf="isDoctor() && !amIDoctor()">Consult For {{user.doctor.consultFee}} USD</button>
                 </div>
-
             </div>
             <div class="col">
                 <div class="shadow-sm bg-white rounded-3 mb-3 p-4" *ngIf="isDoctor() && tab==0">
-                    <div class="mb-3">
-                        <h3 class="text-primary mb-0 fw-medium ">Speciality:</h3>
-                        <p class="col"> {{user.doctor.speciality.name}}</p>
+                    <div class="row">
+                        <div class="col-12 col-sm">
+                            <span class="text-primary mb-0 fw-semibold ">Speciality:</span>
+                            <p class="col"> {{user.doctor.speciality.name}}</p>
+                        </div>
+                        <div class="col">
+                            <span class="text-primary mb-0 fw-semibold ">Experience:</span>
+                            <p>{{user.doctor.experience}} Years</p>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <h3 class="text-primary mb-0 fw-medium ">Experience:</h3>
-                        <p>{{user.doctor.experience}} Years</p>
-                    </div>
-                    <div class="mb-3">
-                        <h3 class="text-primary mb-0 fw-medium ">Language:</h3>
-                        <p>{{getLanguages()}}</p>
-                    </div>
-                    <div class="mb-3">
-                        <h3 class="text-primary mb-0 fw-medium ">Consult Fee:</h3>
-                        <p>{{user.doctor.consultFee}} USD</p>
+                    <div class="row">
+                        <div class="col-12 col-sm">
+                            <span class="text-primary mb-0 fw-semibold ">Language:</span>
+                            <p>{{getLanguages()}}</p>
+                        </div>
+                        <div class="col">
+                            <span class="text-primary mb-0 fw-semibold ">Consult Fee:</span>
+                            <p>{{user.doctor.consultFee}} USD</p>
+                        </div>
                     </div>
                     <div>
-                        <h3 class="text-primary mb-0 fw-medium ">Biography:</h3>
+                        <span class="text-primary mb-0 fw-semibold  ">Biography:</span>
                         <p [innerText]="user.doctor.biography" class="mb-0"></p>
                     </div>
                 </div>
                 <div class="mb-3" *ngIf="tab==1">
-                    reviews not added yet
+                    <app-reviews-list [doctorId]="user.id"></app-reviews-list>
                 </div>
                 <div class="mb-3" *ngIf="tab==2">
                     <app-posts-list [ownerId]="user.id"></app-posts-list>

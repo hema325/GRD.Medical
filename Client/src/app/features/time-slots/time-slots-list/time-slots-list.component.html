@@ -1,23 +1,22 @@
-<div class="bg-white overflow-hidden shadow-sm rounded-3" *ngIf="timeSlots">
+<div class="bg-white overflow-hidden shadow-sm rounded-3" *ngIf="timeSlots && timeSlots.data.length">
     <div class="overflow-auto" style="max-width: 100%;">
         <table mat-table [dataSource]="timeSlots.data">
-            <!-- Name Column -->
-            <ng-container matColumnDef="start">
-                <th mat-header-cell *matHeaderCellDef class="text-nowrap">Start Time</th>
-                <td mat-cell *matCellDef="let element"> {{element.start}} </td>
-            </ng-container>
 
-            <!-- Weight Column -->
-            <ng-container matColumnDef="end">
-                <th mat-header-cell *matHeaderCellDef class="text-nowrap">End Time</th>
-                <td mat-cell *matCellDef="let element"> {{element.end}} </td>
-            </ng-container>
-
-            <!-- Symbol Column -->
             <ng-container matColumnDef="day">
                 <th mat-header-cell *matHeaderCellDef class="text-nowrap">Day</th>
                 <td mat-cell *matCellDef="let element"> {{element.day}} </td>
             </ng-container>
+
+            <ng-container matColumnDef="start">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">Start Time</th>
+                <td mat-cell *matCellDef="let element"> {{ timeToDateTime(element.start) | date:'shortTime'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="end">
+                <th mat-header-cell *matHeaderCellDef class="text-nowrap">End Time</th>
+                <td mat-cell *matCellDef="let element"> {{ timeToDateTime(element.end) | date:'shortTime'}} </td>
+            </ng-container>
+
 
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef class="text-nowrap">Actions</th>
@@ -37,3 +36,5 @@
         [pageSizeOptions]="[10, 50 , 100, 200]" aria-label="Select page">
     </mat-paginator>
 </div>
+
+<app-no-content-card *ngIf="!timeSlots?.data?.length && !isLoading"></app-no-content-card>

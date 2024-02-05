@@ -22,6 +22,7 @@ namespace Application.Comments.Events
             var notificationCommand = new CreateNotificationCommand
             {
                 ReferenceId = notification.Comment.Id,
+                InitiatorId = _currentUser.Id
             };
 
             if(notification.Comment.ReplyTo != null)

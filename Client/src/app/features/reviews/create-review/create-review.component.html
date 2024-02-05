@@ -1,0 +1,22 @@
+<div class="section">
+    <div class="container">
+        <div class="row align-items-center ">
+            <div class="col">
+                <div class="bg-white p-4 rounded-3 shadow-sm ">
+                    <div class="d-flex justify-content-center mb-4 mt-3">
+                        <ngx-stars [readonly]="false" color="#ff9529" [size]="3" [maxStars]="5"
+                            (ratingOutput)="onRatingSet($event)"></ngx-stars>
+                    </div>
+                    <app-text-area-input [control]="reviewForm.controls.content" label="Review"></app-text-area-input>
+                    <div class="d-flex justify-content-end ">
+                        <button mat-raised-button color="primary" [disabled]="reviewForm.invalid"
+                            (click)="add()">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-lg-flex justify-content-end align-items-center d-none">
+                <img src="assets/images/review.png" style="max-width: 600px;" class="w-100">
+            </div>
+        </div>
+    </div>
+</div>

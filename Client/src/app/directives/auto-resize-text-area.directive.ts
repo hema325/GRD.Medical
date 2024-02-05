@@ -15,4 +15,11 @@ export class AutoResizeTextAreaDirective {
     ele.style.height = this.defaultHeight;
     ele.style.height = ele.scrollHeight + 'px';
   }
+
+  @HostListener("blur")
+  blur() {
+    const ele = this.elementRef.nativeElement;
+    if (!ele.value)
+      ele.style.height = this.defaultHeight;
+  }
 }

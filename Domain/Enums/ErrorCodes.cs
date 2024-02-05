@@ -17,6 +17,7 @@
         InvalidResetPasswordToken,
         InvalidEmail,
         InvalidPassword,
-        InvalidData
+        InvalidData,
+        PaymentRequired,
     }
 }

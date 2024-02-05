@@ -4,15 +4,19 @@ button:not(:first-child) {
 }
 
 button:first-child {
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 button:first-child:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+}
+
+button:not(:first-child) {
+    transform: scale(.9);
 }
 
 button:not(:first-child):hover {
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 .active button {
@@ -20,11 +24,11 @@ button:not(:first-child):hover {
 }
 
 .active button:nth-child(2) {
-    bottom: 68px !important;
+    bottom: 61px !important;
 }
 
 .active button:nth-child(3) {
-    bottom: 135px !important;
+    bottom: 120px !important;
 }
 
 .active button:first-child mat-icon {

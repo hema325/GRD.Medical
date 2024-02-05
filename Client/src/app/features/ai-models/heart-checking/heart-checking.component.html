@@ -1,11 +1,11 @@
 <div class="section">
     <div class="container">
         <div class="row align-items-center justify-content-between ">
-            <div class="col">
+            <div class="col-12 col-lg-6">
                 <div class="bg-white rounded-3 shadow-sm p-4 my-5">
-                    <h1 class="text-center fs-3 text-primary fw-medium mb-4">
+                    <span class="text-center fs-2  text-primary fw-semibold mt-1  mb-4 pb-2 d-block">
                         Heart Checking
-                    </h1>
+                    </span>
                     <div class="w-100 p-4 rounded-1" style="cursor: pointer;border:1px dashed #ccc;"
                         (fileDropped)="check($event)" (click)="fileInput.click()">
                         <mat-icon style="color: #bbb;font-size: 80px;width: 80px;height: 80px;"
@@ -18,11 +18,19 @@
                         <app-audio-card [audio]="voice"></app-audio-card>
                     </div>
 
-                    <div class="mt-4 mb-0  small" style="color: #444;" *ngIf="response" [innerHtml]="response.response">
+                    <div class="mt-4 mb-0" *ngIf="prediction">
+                        <div class="mb-2">
+                            <span class="text-primary fw-bold me-1">{{prediction.label}}:</span>
+                            <p class="mb-0 d-inline " [innerText]="prediction.description"></p>
+                        </div>
+                        <div *ngIf="prediction.advice">
+                            <span class="text-primary fw-bold me-1">Advice:</span>
+                            <p class="mb-0 d-inline ">{{prediction.advice}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-5 d-lg-flex justify-content-end align-items-center d-none">
+            <div class="col-6 d-lg-flex justify-content-end align-items-center d-none">
                 <img src="assets/images/heart-checking.webp" style="max-width: 500px;" class="w-100">
             </div>
         </div>

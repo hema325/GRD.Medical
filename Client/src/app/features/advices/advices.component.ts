@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
+import { finalize } from 'rxjs';
 import { Advice } from 'src/app/models/advices/advice';
 import { AdviceFilter } from 'src/app/models/advices/advice-filter';
 import { PaginatedList } from 'src/app/models/paginated-list';
@@ -25,7 +26,7 @@ export class AdvicesComponent {
   }
 
   paginatedList: PaginatedList<Advice> | null = null;
-
+  isLoading = false;
   constructor(private fb: FormBuilder,
     private adviceService: AdvicesService) { }
 
@@ -34,7 +35,10 @@ export class AdvicesComponent {
   }
 
   getAdvices() {
-    this.adviceService.getAdvices(this.filter).subscribe(res => this.paginatedList = res);
+    this.isLoading = true;
+    this.adviceService.getAdvices(this.filter)
+      .pipe(finalize(() => this.isLoading = false))
+      .subscribe(res => this.paginatedList = res);
   }
 
   handlePageEvent(event: PageEvent) {

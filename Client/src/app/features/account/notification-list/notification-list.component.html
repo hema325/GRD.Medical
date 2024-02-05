@@ -1,22 +1,19 @@
 <div *ngIf="paginatedList && paginatedList.data?.length" (reachedBottom)="loadMoreNotifications()">
-    <div class="bg-white shadow-sm p-3 my-2  border-5 rounded-1 clickable" style="border-color:#3f51b5 !important;"
+    <div class="bg-white shadow-sm p-3 mb-2  border-5 rounded-1 clickable" style="border-color:#3f51b5 !important;"
         [class.border-start]="!notfication.isRead" *ngFor="let notfication of paginatedList.data"
-        (click)="markAsRead(notfication)" [routerLink]="getPath(notfication)">
+        (click)="markAsRead(notfication)" (click)="navigateToNotificationSrc(notfication)">
         <div class="d-flex">
-            <img [src]="notfication.initiator.imageUrl" width="52px" height="52px"
+            <img [src]="getImageSrc(notfication)" width="52px" height="52px"
                 class="rounded-circle me-3 object-fit-cover ">
             <div class="flex-fill">
                 <div class="d-flex flex-column justify-content-center h-100">
-                    <h4 class="mb-0 text-dark" [innerText]="notfication.content"></h4>
+                    <a class="mb-0 text-black  text-decoration-none fw-medium " [innerText]="notfication.content"></a>
                     <span class="text-muted small">{{notfication.notifiedOn | timeago}}</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="container my-5" *ngIf="!paginatedList?.data?.length && !isLoading">
-    <div class="text-center" style="color: #3f51b5;">
-        <img src="assets/images/no-notifications.png" style="max-width: 460px;width: 100%;">
-        <h1 class="text-primary fw-medium mt-2 fs-2">No notifications yet!</h1>
-    </div>
-</div>
+
+
+<app-no-content-card *ngIf="!paginatedList?.data?.length && !isLoading"></app-no-content-card>

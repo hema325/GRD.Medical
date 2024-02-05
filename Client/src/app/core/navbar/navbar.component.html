@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between align-items-center shadow fixed-top text-white bg-primary rounded-bottom-1"
+<div class="d-flex justify-content-between align-items-center shadow-sm fixed-top text-white bg-primary rounded-bottom-1"
     style="max-width: 100vw;padding: 20px;">
     <div class="d-flex align-items-center ">
         <div class="link-btn active me-3" [class.active]="isNavlinksActive">
@@ -23,12 +23,13 @@
         <button mat-raised-button class="p-2 text-dark" routerLink="/account/register-user">Register</button>
     </div>
     <div *ngIf="currentAuth">
-        <button mat-button (click)="toggleNavMenu(); isNavlinksActive = false;"
-            class="p-2 nav-link d-flex align-items-center">
-            <span class="me-2">{{currentAuth.name}}</span>
+        <div mat-button (click)="toggleNavMenu(); isNavlinksActive = false;"
+            class="px-2 nav-link d-flex align-items-center">
+            <div class="me-2 text-nowrap overflow-hidden user-name ">
+                {{currentAuth.name}}</div>
             <img [src]="currentAuth.imageUrl ?? defaultUserImageUrl" class="rounded-circle object-fit-cover"
-                style="width: 38px;">
-        </button>
+                style="width: 35px;">
+        </div>
         <app-nav-menu #navMenu></app-nav-menu>
     </div>
 </div>

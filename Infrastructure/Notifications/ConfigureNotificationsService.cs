@@ -8,7 +8,6 @@ namespace Infrastructure.Notifications
     {
         public static IServiceCollection AddNotificationsService(this IServiceCollection services)
         {
-            services.AddSignalR();
             services.AddScoped<INotificationSender, NotificationSenderService>();
 
             return services;

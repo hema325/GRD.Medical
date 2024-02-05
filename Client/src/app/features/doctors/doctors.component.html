@@ -4,31 +4,32 @@
             <app-doctors-filter (filterRequested)="applyFilter($event)" [seed]="doctorFilter"></app-doctors-filter>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4 mb-5 mt-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-5 mt-4">
             <div class="col" *ngFor="let doctor of doctors.data">
                 <div class="shadow-sm overflow-hidden bg-white rounded-3 p-4 card-animation"
-                    routerLink="/account/{{doctor.id}}" [state]="doctor">
+                    [routerLink]="currentAuth?.id == doctor.id ? '/account' : '/account/' +doctor.id" [state]="doctor">
                     <img [src]="doctor.imageUrl ?? defaultImageUrl" class="w-100 object-fit-cover"
                         class="rounded-circle w-100 m-auto d-block mb-3 mt-1" style="max-width: 120px;">
 
-                    <h2 class="text-primary  fw-medium text-center mb-0">Dr. {{doctor.firstName}} {{doctor.lastName}}
-                    </h2>
+                    <span class="text-primary  fw-semibold  d-block fs-6 text-center mb-0">Dr. {{doctor.firstName}}
+                        {{doctor.lastName}}
+                    </span>
                     <p class="text-center mb-3">{{doctor.doctor.speciality.name}}</p>
 
                     <div class="d-flex justify-content-between mx-3 text-center">
                         <div>
-                            <h3 class="text-primary mb-0">Experience</h3>
+                            <span class="text-primary fw-medium mb-0">Experience</span>
                             <p class="mb-0 text-muted">{{doctor.doctor.experience}} years</p>
                         </div>
                         <div>
-                            <h3 class="text-primary mb-0 ">Consult Fee</h3>
+                            <span class="text-primary fw-medium  mb-0 ">Consult Fee</span>
                             <p class="mb-0 text-muted">{{doctor.doctor.consultFee}} USD</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        <app-no-content-card *ngIf="!doctors.data.length && !isLoading"></app-no-content-card>
         <mat-paginator #paginator class=" mt-5 shadow-sm bg-white p-3 rounded-3" (page)="handlePageEvent($event)"
             [length]="doctors?.totalCount" [pageSize] [pageSize]="doctorFilter.pageSize" [showFirstLastButtons]="true"
             [pageIndex]="doctorFilter.pageNumber - 1" [pageSizeOptions]="[6, 12, 24, 50]" aria-label="Select page">

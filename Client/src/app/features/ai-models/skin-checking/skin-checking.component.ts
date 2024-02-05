@@ -10,7 +10,7 @@ import { AiModelsService } from 'src/app/services/ai-models.service';
 export class SkinCheckingComponent {
 
   image: any = null;
-  response: AiModelsResponse | null = null;
+  prediction: AiModelsResponse | null = null;
 
   constructor(private aiModelsService: AiModelsService) { }
 
@@ -26,7 +26,7 @@ export class SkinCheckingComponent {
       this.image = event.target?.files[0];
 
     if (this.image) {
-      this.aiModelsService.checkSkin(this.image).subscribe(res => this.response = res);
+      this.aiModelsService.checkSkin(this.image).subscribe(res => this.prediction = res);
     }
   }
 

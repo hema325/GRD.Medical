@@ -12,8 +12,10 @@ namespace Infrastructure.Persistance.Configurations
 
             builder.OwnsMany(p => p.Medias, builder =>
             {
-                builder.Property(p => p.Url).HasMaxLength(450);
+                builder.Property(m => m.Url).HasMaxLength(450);
             });
+
+            builder.HasIndex(p => p.PostedOn);
         }
     }
 }

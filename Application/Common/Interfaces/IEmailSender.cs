@@ -5,6 +5,7 @@ namespace Application.Common.Interfaces
 {
     public interface IEmailSender
     {
+        Task SendEmailAppointmentSheduledAsync(string to, EmailAppointmentScheduledTemplate emailResetPassword);
         Task SendEmailConfirmationAsync(string to, EmailConfirmationTemplate emailConfirmation);
         Task SendEmailResetPasswordAsync(string to, EmailResetPasswordTemplate emailResetPassword);
     }

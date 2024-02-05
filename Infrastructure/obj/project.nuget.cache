@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QmGsolNBOSYl8f1JH3lq2V40O5jdmEMy3/A3wSJmYNWH8b06YSKqXKwcR2FdV5AcyI2nKccCMiCeYVnlk+XCTw==",
+  "dgSpecHash": "Q4SmYV7pdT+18C5WBULSW5yaPZvBn4uwSMqUQWy5fH/IA6Ju6ex00PH6HLRpZ7bJaQUDtElVRfANiwqZDfgKGQ==",
   "success": true,
   "projectFilePath": "D:\\Projects\\GRD.Medical\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -64,7 +64,9 @@
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\mimekit\\4.3.0\\mimekit.4.3.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\razorenginecore\\2022.8.1\\razorenginecore.2022.8.1.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\stripe.net\\43.11.0\\stripe.net.43.11.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",

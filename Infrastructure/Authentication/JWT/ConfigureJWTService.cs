@@ -26,7 +26,7 @@ namespace Infrastructure.Authentication.JWT
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = jwtSettings?.Issuer,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings?.Key!)),
-                    ClockSkew = TimeSpan.Zero
+                    ClockSkew = TimeSpan.FromMinutes(5)
                 };
             });
 

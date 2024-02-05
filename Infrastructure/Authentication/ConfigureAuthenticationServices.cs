@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace Infrastructure.Authentication
 {
@@ -20,6 +21,7 @@ namespace Infrastructure.Authentication
             services.AddScoped<IAuthentication, AuthenticationService>();
             services.AddScoped<IPasswordHasher, PasswordHasherService>();
             services.AddScoped(typeof(IPasswordHasher<>), typeof(PasswordHasher<>));
+            services.AddScoped<IClientSettings>(sp => sp.GetRequiredService <IOptions<ClientSettings>>().Value);
 
             services.Configure<RefreshTokenSettings>(configuration.GetSection(RefreshTokenSettings.SectionName));
             services.Configure<ClientSettings>(configuration.GetSection(ClientSettings.SectionName));

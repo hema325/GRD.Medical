@@ -15,3 +15,7 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = D:\Projects\GRD.Medical\Presentation
 build_property._RazorSourceGeneratorDebug = 
+
+[D:/Projects/GRD.Medical/Presentation/Files/Templates/EmailAppointmentScheduledTemplate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = RmlsZXNcVGVtcGxhdGVzXEVtYWlsQXBwb2ludG1lbnRTY2hlZHVsZWRUZW1wbGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

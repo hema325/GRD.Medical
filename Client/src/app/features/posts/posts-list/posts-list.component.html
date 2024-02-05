@@ -4,4 +4,6 @@
         [amIPostOwner]="currentAuth?.id == post.owner.id"
         (bottomSheetBtnClicked)="openPostBottomSheet(post.id)"></app-post-card>
 
+    <app-no-content-card *ngIf="!paginatedList.data.length && !isLoading"></app-no-content-card>
+
 </div>

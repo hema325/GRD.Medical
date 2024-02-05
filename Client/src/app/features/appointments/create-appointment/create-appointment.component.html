@@ -1,0 +1,84 @@
+<div class="section">
+    <div class="container">
+        <div class="bg-white rounded-3 my-5 shadow-sm p-4 pb-0">
+            <span class="text-center fs-1  text-primary fw-semibold  mt-3 mb-2 d-block">
+                Scheduling
+            </span>
+            <mat-stepper #stepper>
+                <mat-step label="Appointment" style="padding:0;">
+                    <div class="row align-items-center pt-4">
+                        <div class="col-6 d-lg-flex justify-content-center align-items-center d-none">
+                            <img src="assets/images/appointment.webp" style="max-width: 380px;" class="w-100">
+                        </div>
+                        <div class="col">
+                            <div class="my-2">
+                                <app-date-picker-input [control]="scheduleForm.controls.date"
+                                    (changed)="getAvailableTimeSlots()" label="Date"
+                                    [min]="min"></app-date-picker-input>
+                            </div>
+                            <div class="mb-4 pb-1" *ngIf="isTimeSlotsLoaded">
+                                <label class="fw-medium mb-3 fs-6 text-secondary">Available Time Slots:</label>
+                                <mat-radio-group [formControl]="scheduleForm.controls.timeSlotId">
+                                    <mat-radio-button [value]="slot.id" *ngFor="let slot of availableTimeSlots"
+                                        color="primary" class="d-block">From {{
+                                        timeToDateTime(slot.start) | date:
+                                        'shortTime'}} To {{ timeToDateTime(slot.end) | date:
+                                        'shortTime' }}</mat-radio-button>
+                                </mat-radio-group>
+                                <p *ngIf="!availableTimeSlots.length" class="text-danger">No time slots available
+                                    for
+                                    this date.</p>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button [disabled]="scheduleForm.invalid" (click)="getPaymentIntent()" type="button"
+                                    class="btn btn-primary py-3 w-100">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </mat-step>
+                <mat-step label="Payment">
+                    <div class="row align-items-center pt-4">
+                        <div class="col d-lg-flex justify-content-center align-items-center d-none">
+                            <img src="assets/images/billing.png" style="max-width: 300px;" class="w-100">
+                        </div>
+                        <div class="col">
+                            <form>
+                                <div class="form-floating mb-3">
+                                    <div class="form-control" #cardNumber></div>
+                                    <label for="floatingInput">Card Number</label>
+                                    <div class="text-danger" style="margin-top: .25rem;font-size: .875em;">
+                                        <span *ngIf="cardNumberError">{{cardNumberError}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <div class="form-control" #cardExpiry></div>
+                                            <label for="floatingInput">Card Expiry</label>
+                                            <div class="text-danger" style="margin-top: .25rem;font-size: .875em;">
+                                                <span *ngIf="cardExpiryError">{{cardExpiryError}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <div class="form-control" #cardCvc></div>
+                                            <label for="floatingInput">Card CVC</label>
+                                            <div class="text-danger" style="margin-top: .25rem;font-size: .875em;">
+                                                <span *ngIf="cardCvcError">{{cardCvcError}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" [disabled]="!isPaymentFormValid()"
+                                        class="btn btn-primary py-3 w-100" (click)="pay()">Pay</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </mat-step>
+            </mat-stepper>
+        </div>
+    </div>
+</div>

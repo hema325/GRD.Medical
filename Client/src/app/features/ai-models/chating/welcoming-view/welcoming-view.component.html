@@ -1,0 +1,16 @@
+<div class="d-flex flex-column justify-content-center gap-5" style="min-height: 100%;">
+    <div class="flex-fill d-flex justify-content-center align-items-center flex-column gap-4 mt-4">
+        <img src="assets/images/chat_bot.webp" class="rounded-circle d-block" style="max-width: 70px; width: 100%;">
+        <h2 class="text-center fw-medium text-primary  mt-1 fs-3">How can I
+            help you
+            today?
+        </h2>
+    </div>
+    <div class="row row-cols-1 row-cols-lg-2 g-3">
+        <div class="col" *ngFor="let sug of suggestions">
+            <div class="border border-1 border-light-subtle rounded-4 p-3  snippet-action h-100" (click)="suggest(sug)">
+                {{sug}}
+            </div>
+        </div>
+    </div>
+</div>

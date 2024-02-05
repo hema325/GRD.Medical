@@ -14,16 +14,6 @@ builder.Services.AddSwaggerService();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddCors(o =>
-{
-    o.AddDefaultPolicy(b =>
-    {
-        b.WithOrigins("http://localhost:4200");
-        b.AllowAnyMethod();
-        b.AllowAnyHeader();
-        b.AllowCredentials();
-    });
-});
 builder.Services.Configure<ApiBehaviorOptions>(o =>
 {
     o.SuppressModelStateInvalidFilter = true;
@@ -32,7 +22,6 @@ builder.Services.Configure<ApiBehaviorOptions>(o =>
 var app = builder.Build();
 
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
-app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

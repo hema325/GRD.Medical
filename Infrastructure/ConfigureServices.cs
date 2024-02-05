@@ -3,12 +3,16 @@ using Infrastructure.ChatBot;
 using Infrastructure.Email;
 using Infrastructure.FileStorage;
 using Infrastructure.Notifications;
+using Infrastructure.Payment;
 using Infrastructure.Persistance;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Infrastructure.AppointmentChat;
+using Infrastructure.Cors;
+using Infrastructure.BackgroundJobs;
 
 namespace Infrastructure
 {
@@ -20,16 +24,22 @@ namespace Infrastructure
             services.AddAuthenticationService(configuration);
             services.AddEmailService(configuration);
             services.AddChatBotService(configuration);
+            services.AddPaymentService(configuration);
+            services.AddCorsService(configuration);
+            services.AddBackgroundJobs(configuration);
             services.AddDistributedMemoryCache();
             services.AddFileStorageService();
             services.AddCommonServces();
             services.AddNotificationsService();
+            services.AddSignalR();
+            services.AddAppointmentChatService();
 
             return services;
         }
 
         public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)
         {
+            app.UseCorsService();
             app.UseFileStorageService();
             app.UseAuthenticationService();
 
@@ -45,6 +55,7 @@ namespace Infrastructure
         public static IEndpointRouteBuilder MapInfrastructure(this IEndpointRouteBuilder endpoint)
         {
             endpoint.MapNotificationsService();
+            endpoint.MapAppointmentChatService();
 
             return endpoint;
         }

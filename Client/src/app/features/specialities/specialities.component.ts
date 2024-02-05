@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 import { finalize, take } from 'rxjs';
 import { PaginatedList } from 'src/app/models/paginated-list';
 import { Speciality } from 'src/app/models/specialists/Speciality';
@@ -13,11 +14,10 @@ import { SpecialistsService } from 'src/app/services/specialists.service';
 })
 export class SpecialitiesComponent {
 
-
   specialistsPaginatedList: PaginatedList<Speciality> | null = null;
   specialistsFilter: SpecialistFilter = {
     pageNumber: 1,
-    pageSize: 12,
+    pageSize: 9,
     name: ''
   }
   isLoadingSpecialists = false;
@@ -33,8 +33,17 @@ export class SpecialitiesComponent {
     this.loadSpecialists();
   }
 
-  applyFilter() {
 
+  handlePageEvent(event: PageEvent) {
+    this.specialistsFilter.pageSize = event.pageSize;
+    this.specialistsFilter.pageNumber = event.pageIndex + 1;
+    this.loadSpecialists();
+  }
+
+  handleSearchFilter() {
+    this.specialistsFilter.name = this.filterForm.controls.name.value ?? '';
+    this.specialistsFilter.pageNumber = 1;
+    this.loadSpecialists();
   }
 
   loadSpecialists() {
@@ -42,18 +51,6 @@ export class SpecialitiesComponent {
     this.specialistsService.get(this.specialistsFilter)
       .pipe(take(1),
         finalize(() => this.isLoadingSpecialists = false))
-      .subscribe(res => {
-        if (this.specialistsPaginatedList)
-          res.data.unshift(...this.specialistsPaginatedList.data);
-
-        this.specialistsPaginatedList = res;
-      });
-  }
-
-  loadMoreSpecialists() {
-    if (this.specialistsPaginatedList?.hasNextPage && !this.isLoadingSpecialists) {
-      this.specialistsFilter.pageNumber += 1;
-      this.loadSpecialists();
-    }
+      .subscribe(res => this.specialistsPaginatedList = res);
   }
 }

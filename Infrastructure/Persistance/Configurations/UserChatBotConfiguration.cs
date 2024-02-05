@@ -7,9 +7,11 @@ namespace Infrastructure.Persistance.Configurations
     {
         public void Configure(EntityTypeBuilder<UserChatBotMessage> builder)
         {
-            builder.Property(p => p.Content).HasMaxLength(500);
+            builder.Property(p => p.Content);
 
             builder.HasOne(p => p.Owner).WithMany().HasForeignKey(p => p.OwnerId);
+
+            builder.HasIndex(m=>m.MessagedOn);
         }
     }
 }

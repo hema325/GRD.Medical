@@ -712,6 +712,14 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
       "RazorEngineCore/2022.8.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Razor.Language": "6.0.1",
@@ -721,6 +729,18 @@
           "lib/net6.0/RazorEngineCore.dll": {
             "assemblyVersion": "2022.8.1.0",
             "fileVersion": "2022.8.1.0"
+          }
+        }
+      },
+      "Stripe.net/43.11.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "System.Configuration.ConfigurationManager": "6.0.1"
+        },
+        "runtime": {
+          "lib/net6.0/Stripe.net.dll": {
+            "assemblyVersion": "43.11.0.0",
+            "fileVersion": "43.11.0.0"
           }
         }
       },
@@ -998,7 +1018,8 @@
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.13",
           "MimeKit": "4.3.0",
-          "RazorEngineCore": "2022.8.1"
+          "RazorEngineCore": "2022.8.1",
+          "Stripe.net": "43.11.0"
         },
         "runtime": {
           "Infrastructure.dll": {}
@@ -1446,12 +1467,26 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
     "RazorEngineCore/2022.8.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-1OBkWvtj9TYpm9A+VMSqW9hcGdQYQjlAiif1fL9fwGVMqvWng3euiucnpPmbL1LhzL0EzAE14s7Ouknhr8WiMg==",
       "path": "razorenginecore/2022.8.1",
       "hashPath": "razorenginecore.2022.8.1.nupkg.sha512"
+    },
+    "Stripe.net/43.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UQUBwiqC3AzLHNts6unZnSBEJK06VPnGiSIL8V0W8kn0MruQMFdi/8VmrVcdAwvlsxHQdSUAKKZfiCjGL4dSfQ==",
+      "path": "stripe.net/43.11.0",
+      "hashPath": "stripe.net.43.11.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.5.0": {
       "type": "package",

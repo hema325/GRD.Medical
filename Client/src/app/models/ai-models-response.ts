@@ -1,3 +1,5 @@
 export interface AiModelsResponse {
-    response: string
+    label: string
+    description: string
+    advice: string
 }

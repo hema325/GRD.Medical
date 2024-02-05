@@ -13,7 +13,7 @@ namespace Application.Posts.Commands.CreatePost
                 .ForEach(f => f.Image());
 
             RuleFor(c => c)
-                .Must(c => c.Images != null && c.Images.Count() > 0 || !string.IsNullOrEmpty(c.Content))
+                .Must(c => (c.Images != null && c.Images.Any()) || !string.IsNullOrEmpty(c.Content))
                 .WithMessage("Content or images fields must not be empty.");
         }
     }

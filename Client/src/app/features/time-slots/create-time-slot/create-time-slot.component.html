@@ -1,13 +1,13 @@
 <div class="shadow-sm bg-white rounded-3 p-4">
-    <h2 class="mb-4 mt-2 text-primary ">Time Slots</h2>
+    <span class="mb-4 pb-2 mt-2 text-primary d-block fw-semibold fs-5">Time Slots</span>
     <div class="row">
         <div class="col mb-2">
             <app-time-picker-input [control]="timeSlotForm.controls.start" label="Start Time"
-                [format]="24"></app-time-picker-input>
+                [format]="12"></app-time-picker-input>
         </div>
         <div class="col mb-2">
             <app-time-picker-input [control]="timeSlotForm.controls.end" label="End Time"
-                [format]="24"></app-time-picker-input>
+                [format]="12"></app-time-picker-input>
         </div>
     </div>
     <div class="mb-2">

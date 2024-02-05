@@ -11,7 +11,7 @@ import { AiModelsService } from 'src/app/services/ai-models.service';
 export class HeartCheckingComponent {
 
   voice: any;
-  response: AiModelsResponse | null = null;
+  prediction: AiModelsResponse | null = null;
 
   constructor(private AIModelsService: AiModelsService) { }
 
@@ -28,7 +28,7 @@ export class HeartCheckingComponent {
 
     if (this.voice) {
       this.AIModelsService.checkHeart(this.voice)
-        .pipe(take(1)).subscribe(res => this.response = res);
+        .pipe(take(1)).subscribe(res => this.prediction = res);
     }
   }
 }

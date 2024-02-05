@@ -1,5 +1,7 @@
 ﻿using Application.Common.Exceptions;
+using Application.Common.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Presentation.Errors;
 
 namespace Presentation.Controllers
