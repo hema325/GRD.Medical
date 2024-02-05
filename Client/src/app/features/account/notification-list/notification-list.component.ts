@@ -6,6 +6,7 @@ import { PaginatedList } from 'src/app/models/paginated-list';
 import { NotificationsService } from 'src/app/services/notifications.service';
 import { Router } from '@angular/router';
 import { ReferenceTypes } from 'src/app/models/notifications/reference-types.enum';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-notification-list',
@@ -13,6 +14,7 @@ import { ReferenceTypes } from 'src/app/models/notifications/reference-types.enu
   styleUrls: ['./notification-list.component.css']
 })
 export class NotificationListComponent {
+  defaultUserImageUrl = environment.defaultUserImageUrl;
   paginatedList: PaginatedList<Notification> | null = null;
   filter: NotificationsFilter = {
     pageNumber: 1,
@@ -83,7 +85,7 @@ export class NotificationListComponent {
       case ReferenceTypes.Reminder:
         return 'assets/images/reminder.jpg';
       default:
-        return notification?.initiator?.imageUrl;
+        return notification?.initiator?.imageUrl ?? this.defaultUserImageUrl;
     }
   }
 }

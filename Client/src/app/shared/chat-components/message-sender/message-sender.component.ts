@@ -30,9 +30,11 @@ export class MessageSenderComponent {
   }
 
   sendFiles(e: any) {
-    this.message.files = [...e.target.files];
-    this.sendBtnClicked.emit(this.message);
-    this.message.files = null;
+    if (e.target.files.length) {
+      this.message.files = [...e.target.files];
+      this.sendBtnClicked.emit(this.message);
+      this.message.files = null;
+    }
   }
 
   @ViewChild('textarea') textArea?: ElementRef;
