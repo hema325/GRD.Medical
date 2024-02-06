@@ -18,7 +18,7 @@ export class AppointmentMessagesService {
   hubUrl = environment.hubUrl + '/appointmentChat';
   private hubConnection: HubConnection | null = null;
   private newMessagesSource = new ReplaySubject<AppointmentMessage>(0);
-  private writingStatusSource = new ReplaySubject<boolean>(0);
+  private writingStatusSource = new ReplaySubject<any>(0);
   newMessages$ = this.newMessagesSource.asObservable();
   writingStatus$ = this.writingStatusSource.asObservable();
 
@@ -58,11 +58,11 @@ export class AppointmentMessagesService {
     this.hubConnection.start();
 
     this.hubConnection.on('ReceiveMessage', message => this.newMessagesSource.next(message));
-    this.hubConnection.on('IsWriting', status => this.writingStatusSource.next(status));
+    this.hubConnection.on('IsWriting', (appointmentId, status) => this.writingStatusSource.next({ appointmentId, status }));
   }
 
-  notifyWritingStatus(to: number, status: boolean) {
-    this.hubConnection?.invoke('NotifyWritingStatus', to, status);
+  notifyWritingStatus(to: number, appointmentId: number, status: boolean) {
+    this.hubConnection?.invoke('NotifyWritingStatus', to, appointmentId, status);
   }
 
   closeHubConnection() {

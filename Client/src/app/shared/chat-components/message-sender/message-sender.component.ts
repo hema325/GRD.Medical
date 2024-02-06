@@ -14,8 +14,6 @@ export class MessageSenderComponent {
 
   @Input() disable = false;
   @Output() sendBtnClicked = new EventEmitter<Message>();
-  @Output() focus = new EventEmitter();
-  @Output() blur = new EventEmitter();
   @Output() writingStatus = new EventEmitter<boolean>();
   @Input() enableMedia = false;
 
@@ -25,6 +23,7 @@ export class MessageSenderComponent {
   }
 
   send() {
+    this.message.content = this.message.content.trim();
     this.sendBtnClicked.emit(this.message);
     this.resetTextArea();
   }

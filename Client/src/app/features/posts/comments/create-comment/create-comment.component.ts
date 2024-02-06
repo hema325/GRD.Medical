@@ -90,6 +90,7 @@ export class CreateCommentComponent {
       return;
     }
 
+    this.createCommentObj.content = this.createCommentObj.content!.trim();
     this.commentsService.create(this.createCommentObj)
       .subscribe(() => this.resetTextArea());
   }

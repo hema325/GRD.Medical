@@ -39,6 +39,7 @@ export class CreatePostComponent {
       return;
     }
 
+    this.createPostObj.content = this.createPostObj.content.trim();
     this.postsService.create(this.createPostObj)
       .subscribe(post => {
         this.createPostObj = {

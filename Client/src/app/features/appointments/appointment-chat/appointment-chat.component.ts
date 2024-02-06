@@ -71,9 +71,11 @@ export class AppointmentChatComponent {
   }
 
   updateWritingStatus() {
-    this.appointmentMessagesService.writingStatus$.subscribe(status => {
-      this.isWriting = status;
-      this.activeScrollToBottom = true;
+    this.appointmentMessagesService.writingStatus$.subscribe(res => {
+      if (res.appointmentId == this.appointment!.id) {
+        this.isWriting = res.status;
+        this.activeScrollToBottom = true;
+      }
     });
   }
 
@@ -81,7 +83,7 @@ export class AppointmentChatComponent {
   notifyWritingStatus(status: boolean) {
     if (this.prevNotifiedStatus != status) {
       this.prevNotifiedStatus = status;
-      this.appointmentMessagesService.notifyWritingStatus(this.getOtherUser()!.id, status);
+      this.appointmentMessagesService.notifyWritingStatus(this.getOtherUser()!.id, this.appointment!.id, status);
     }
   }
 
@@ -126,7 +128,6 @@ export class AppointmentChatComponent {
   }
 
   message(event: any) {
-    console.log(event);
     const message: CreateAppointmentMessage = {
       content: event.content,
       images: event.files,

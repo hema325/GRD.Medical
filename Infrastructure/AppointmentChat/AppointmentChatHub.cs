@@ -7,9 +7,9 @@ namespace Infrastructure.AppointmentChat
     [Authorize]
     internal class AppointmentChatHub: Hub
     {
-        public async Task NotifyWritingStatus(int target, bool status)
+        public async Task NotifyWritingStatus(int target,int appointmentId, bool status)
         {
-            await Clients.User(target.ToString()).SendAsync(AppointmentChatHubMethods.IsWriting, status);
+            await Clients.User(target.ToString()).SendAsync(AppointmentChatHubMethods.IsWriting, appointmentId, status);
         }
     }
 }

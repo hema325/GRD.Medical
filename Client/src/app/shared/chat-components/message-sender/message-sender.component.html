@@ -5,15 +5,14 @@
             placeholder="Type message" AutoResizeTextArea defaultHeight="48px"
             style="resize: none;height: 48px;max-height: 100px;padding-right: 40px !important"
             [style.padding-right]="enableMedia?'80px !important':'40px !important'" maxlength="500"
-            (focus)="focus.emit()" (blur)="blur.emit()" #textarea></textarea>
+            #textarea></textarea>
         <div class="position-absolute send-container d-flex align-items-center pe-1">
             <button style="cursor: pointer;" class="border-0 bg-transparent text-secondary opacity-75 clickable"
                 *ngIf="enableMedia" (click)="fileInput.click()" style="height:27px; width: 27px;"><mat-icon
                     class="w-auto h-auto" style="font-size: 27px;">photo_camera</mat-icon></button>
             <input type="file" hidden #fileInput accept="image/*" (input)="sendFiles($event)" multiple>
 
-            <button [disabled]="(!message.content && !message.files?.length) || disable"
-                style="height:27px; width: 27px;"
+            <button [disabled]="!message.content || disable" style="height:27px; width: 27px;"
                 class="border-0  send-btn ms-2 ps-1 bg-transparent  text-secondary  opacity-75 clickable "
                 (click)="send()"><mat-icon class="w-auto h-auto" style="font-size: 27px;">send</mat-icon></button>
         </div>

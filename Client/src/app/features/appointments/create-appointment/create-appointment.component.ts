@@ -150,7 +150,7 @@ export class CreateAppointmentComponent {
     const form = this.scheduleForm.value;
     if (form) {
       const appointment = {
-        date: this.toUTCDate(new Date(form.date!).toLocaleDateString(), Number(form.timeSlotId)).toISOString().split('T')[0],
+        date: this.toUTCDate(form.date!, Number(form.timeSlotId)).toISOString().split('T')[0],
         doctorId: form.doctorId,
         timeSlotId: form.timeSlotId,
         paymentIntentId: this.paymentIntent!.id
@@ -165,7 +165,10 @@ export class CreateAppointmentComponent {
 
   toUTCDate(date: string, timeSlotId: number) {
     const timeSlot = this.availableTimeSlots.filter(ts => ts.id == timeSlotId)[0];
-    const [day, month, year] = date.split('/');
+    const dateObj = new Date(date);
+    const day = dateObj.getDate();
+    const month = dateObj.getMonth() + 1;
+    const year = dateObj.getFullYear();
     return new Date(year + '/' + month + '/' + day + ' ' + this.timeToDateTime(timeSlot.start).toTimeString());
   }
 
