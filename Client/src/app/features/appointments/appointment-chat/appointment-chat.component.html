@@ -19,7 +19,7 @@
             <app-scroll-down-btn (clicked)="scrollBottom()" [active]="isScrollBottomBtnActive"></app-scroll-down-btn>
 
             <div class="text-muted p-4 pt-3  z-3  bg-white">
-                <app-message-sender (sendBtnClicked)="message($event)" [disable]="isWriting" [enableMedia]="true"
+                <app-message-sender (sendBtnClicked)="message($event)" [enableMedia]="true"
                     (writingStatus)="notifyWritingStatus($event)" *ngIf="isChatAvailable"></app-message-sender>
                 <div class="text-center" *ngIf="!isChatAvailable">
                     <span class="fs-5  fw-semibold  text-primary mb-2 d-block m-auto">This chat is not available
