@@ -8,8 +8,9 @@
             <div class="col" *ngFor="let doctor of doctors.data">
                 <div class="shadow-sm overflow-hidden bg-white rounded-3 p-4 card-animation"
                     [routerLink]="currentAuth?.id == doctor.id ? '/account' : '/account/' +doctor.id" [state]="doctor">
-                    <img [src]="doctor.imageUrl ?? defaultImageUrl" class="w-100 object-fit-cover"
-                        class="rounded-circle w-100 m-auto d-block mb-3 mt-1" style="max-width: 120px;">
+                    <img [src]="doctor.imageUrl ?? defaultImageUrl"
+                        class="rounded-circle m-auto d-block mb-3 mt-1 object-fit-cover"
+                        style="width:120px;height: 120px;">
 
                     <span class="text-primary  fw-semibold  d-block fs-6 text-center mb-0">Dr. {{doctor.firstName}}
                         {{doctor.lastName}}

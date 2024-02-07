@@ -71,6 +71,11 @@ export class AppointmentChatComponent {
     this.updateWritingStatus();
   }
 
+  disableChat() {
+    this.isChatAvailable = false;
+    this.isWriting = false;
+  }
+
   updateWritingStatus() {
     this.appointmentMessagesService.writingStatus$.subscribe(res => {
       if (res.appointmentId == this.appointment!.id) {

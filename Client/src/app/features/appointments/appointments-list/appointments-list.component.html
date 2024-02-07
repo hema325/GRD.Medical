@@ -20,17 +20,19 @@
 
             <ng-container matColumnDef="patient">
                 <th mat-header-cell *matHeaderCellDef class="text-nowrap">Patient</th>
-                <td mat-cell *matCellDef="let element" class="text-nowrap">
-                    <img [src]="element.patient.imageUrl ?? defaultUserImageUrl" style="cursor: pointer;"
-                        routerLink="/account/{{element.patient.id}}" class="rounded-circle" width="34px">
+                <td mat-cell *matCellDef="let element" class="text-nowrap" style="cursor: pointer;"
+                    routerLink="/account/{{element.patient.id}}">
+                    <img [src]="element.patient.imageUrl ?? defaultUserImageUrl" class="rounded-circle object-fit-cover"
+                        style="width: 34px;height: 34px;">
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="doctor">
                 <th mat-header-cell *matHeaderCellDef class="text-nowrap">Doctor</th>
-                <td mat-cell *matCellDef="let element" class="text-nowrap">
-                    <img [src]="element.doctor.imageUrl ?? defaultUserImageUrl" style="cursor: pointer;"
-                        routerLink="/account/{{element.doctor.id}}" class="rounded-circle" width="34px">
+                <td mat-cell *matCellDef="let element" class="text-nowrap" style="cursor: pointer;"
+                    routerLink="/account/{{element.doctor.id}}">
+                    <img [src]="element.doctor.imageUrl ?? defaultUserImageUrl" class="rounded-circle object-fit-cover"
+                        style="width: 34px;height: 34px;">
                 </td>
             </ng-container>
 

@@ -3,7 +3,7 @@
         <div class="d-flex align-items-center mb-3">
             <a [routerLink]="!amIPostOwner ? '/account/'+post.owner.id:'/account'"><img
                     [src]="post.owner.imageUrl ?? defaultUserImageUrl" alt="" width="50" height="50"
-                    class="rounded-circle" /></a>
+                    class="rounded-circle object-fit-cover" /></a>
             <div class="flex-fill ps-2">
                 <div class="fw-bold d-flex align-items-center">
                     <a class="text-decoration-none text-primary ">{{post.owner.firstName}}

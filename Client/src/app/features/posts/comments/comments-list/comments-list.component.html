@@ -4,7 +4,7 @@
             (longPress)="comment.owner.id == currentAuth!.id ? openCommentBottomSheet(comment) : null">
             <a [routerLink]="currentAuth?.id != comment.owner.id ? '/account/'+comment.owner.id:'/account'">
                 <img [src]="comment.owner.imageUrl ?? defaultUserImageUrl" width="35" height="35"
-                    class="rounded-circle me-2">
+                    class="rounded-circle me-2 object-fit-cover">
             </a>
             <div class="flex-fill">
                 <div class="d-flex justify-content-between align-items-center mb-1">
@@ -44,7 +44,7 @@
                 (longPress)="reply.owner.id == currentAuth!.id ? openCommentBottomSheet(reply) : null">
                 <a [routerLink]="currentAuth?.id != reply.owner.id ? '/account/'+reply.owner.id:'/account'">
                     <img [src]="reply.owner.imageUrl ?? defaultUserImageUrl" width="35" height="35"
-                        class="rounded-circle">
+                        class="rounded-circle object-fit-cover">
                 </a>
 
                 <div class="ps-2 flex-fill">
