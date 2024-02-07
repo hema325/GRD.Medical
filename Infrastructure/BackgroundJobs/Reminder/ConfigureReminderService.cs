@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Infrastructure.BackgroundJobs.Reminder.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.BackgroundJobs.Reminder
@@ -7,7 +8,8 @@ namespace Infrastructure.BackgroundJobs.Reminder
     {
         public static IServiceCollection AddReminderService(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddHostedService<ReminderService>();
+            services.AddHostedService<ReminderBackgroundService>();
+            services.AddScoped<IReminderService, ReminderService>();
 
             services.Configure<ReminderSettings>(configuration.GetSection(ReminderSettings.SectionName));
 

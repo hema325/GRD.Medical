@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Infrastructure.BackgroundJobs.DBCleaner.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.BackgroundJobs.DBCleaner
@@ -7,7 +8,8 @@ namespace Infrastructure.BackgroundJobs.DBCleaner
     {
         public static IServiceCollection AddDBCleanerService(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddHostedService<DBCleanerService>();
+            services.AddHostedService<DBCleanerBackgroundService>();
+            services.AddScoped<IDBCleanerService, DBCleanerService>();
 
             services.Configure<DBCleanerSettings>(configuration.GetSection(DBCleanerSettings.SectionName));
 
