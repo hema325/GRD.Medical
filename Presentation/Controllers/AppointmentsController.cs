@@ -25,7 +25,7 @@ namespace Presentation.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
-        [HaveRoles(Roles.Patient)]
+        [HaveRoles(Roles.Patient, Roles.Admin)]
         public async Task<IActionResult> CreateAsync(CreateAppointmentCommand request)
         {
             return Ok(await _sender.Send(request));

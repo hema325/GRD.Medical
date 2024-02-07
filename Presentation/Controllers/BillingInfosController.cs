@@ -24,7 +24,7 @@ namespace Presentation.Controllers
 
         [HttpPost("createPaymentIntentId")]
         [ProducesResponseType(typeof(PaymentIntentDto), StatusCodes.Status200OK)]
-        [HaveRoles(Roles.Patient)]
+        [HaveRoles(Roles.Patient, Roles.Admin)]
         public async Task<IActionResult> GetPaymentIntentIdAsync(CreatePaymentIntentCommand request)
         {
             return Ok(await _sender.Send(request));

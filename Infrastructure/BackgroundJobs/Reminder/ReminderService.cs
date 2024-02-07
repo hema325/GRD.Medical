@@ -33,7 +33,7 @@ namespace Infrastructure.BackgroundJobs.Reminder
                 {
                     var diffSpan = appointment.StartDateTime - DateTime.UtcNow;
 
-                    if (diffSpan <= TimeSpan.FromMinutes(10) && appointment.RemindedTimes == 0)
+                    if (diffSpan < TimeSpan.FromMinutes(11) && appointment.RemindedTimes == 0)
                     {
                         await NotifyUsers(appointment);
                         await UpdateRemindedTimes(appointment);
@@ -116,7 +116,7 @@ namespace Infrastructure.BackgroundJobs.Reminder
 
         private async Task Cache(IEnumerable<Appointment>? appointments)
         {
-            string? appointmentsJson = JsonSerializer.Serialize(appointments);
+            var appointmentsJson = JsonSerializer.Serialize(appointments);
             await _cache.SetStringAsync(CacheKeys.ReminderAppointments, appointmentsJson, new DistributedCacheEntryOptions
             {
                 AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(_settings.CacheInMinutes)

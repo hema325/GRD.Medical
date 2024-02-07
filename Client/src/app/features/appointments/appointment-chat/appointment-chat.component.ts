@@ -59,6 +59,7 @@ export class AppointmentChatComponent {
   isFirstScroll = true;
   isFirstLoading = true;
   isScrollBottomBtnActive = false;
+  isSendingMsg = false;
 
   ngOnInit() {
     this.loadCurrentAuth();
@@ -156,17 +157,19 @@ export class AppointmentChatComponent {
       }
     });
 
+    const msgIdx = this.messages!.data.length - 1;
+    this.isSendingMsg = true;
+
     this.activeScrollToBottom = true;
 
     this.loaderService.skipNextRequest();
 
     this.appointmentMessagesService.createMessage(message)
-      .pipe(catchError(err => {
-        this.messages?.data.pop();
-        return throwError(() => err);
+      .pipe(finalize(() => {
+        this.messages?.data.splice(msgIdx, 1);
+        this.isSendingMsg = false;
       }))
       .subscribe(res => {
-        this.messages?.data.pop();
         this.messages?.data.push(res);
         this.activeScrollToBottom = true;
       });

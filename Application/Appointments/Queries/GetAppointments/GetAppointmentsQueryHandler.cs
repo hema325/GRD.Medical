@@ -24,7 +24,7 @@ namespace Application.Appointments.Queries.GetAppointments
                 .OrderByDescending(a => a.StartDateTime)
                 .AsQueryable();
 
-            if (_currentUser.Role == Roles.Patient)
+            if (_currentUser.Role == Roles.Patient || _currentUser.Role == Roles.Admin)
             {
                 query = query.Include(a => a.Doctor)
                     .Where(a => a.PatientId == _currentUser.Id);

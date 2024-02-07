@@ -44,7 +44,6 @@ export class NotificationListComponent {
           res.data.unshift(...this.paginatedList.data);
 
         this.paginatedList = res
-        console.log(res);
       });
   }
 

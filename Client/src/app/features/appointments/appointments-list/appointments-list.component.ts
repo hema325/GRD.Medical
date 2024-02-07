@@ -37,7 +37,7 @@ export class AppointmentsListComponent {
 
   handleDisplaedColumns() {
     this.accountService.currentAuth$.pipe(take(1)).subscribe(auth => {
-      if (auth?.role == Roles.Patient)
+      if (auth?.role == Roles.Patient || auth?.role == Roles.Admin)
         this.displayedColumns[3] = 'doctor';
       else if (auth?.role == Roles.Doctor)
         this.displayedColumns[3] = 'patient';
