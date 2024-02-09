@@ -18,7 +18,7 @@ namespace Presentation.Controllers
 
         public AdvicesController(IMediator mediator)
         {
-            this._sender = mediator;
+            _sender = mediator;
         }
 
         [HttpPost]

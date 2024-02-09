@@ -26,10 +26,8 @@ namespace Application.Appointments.Events
         public async Task Handle(AppointmentCreatedEvent notification, CancellationToken cancellationToken)
         {
             var appointment = notification.Appointment;
-            var t1 = NotifyOnEmail(appointment);
-            var t2 = NotifyClients(appointment);
-
-            await Task.WhenAll(t1, t2);
+            await NotifyOnEmail(appointment);
+            await NotifyClients(appointment);
         }
 
         private async Task NotifyClients(Appointment appointment)
@@ -60,7 +58,8 @@ namespace Application.Appointments.Events
                 .Select(u => u.Email)
                 .ToListAsync();
 
-            await Task.WhenAll(emails.Select(email => _emailSender.SendEmailAppointmentSheduledAsync(email, templateObj)));
+            foreach (var email in emails)
+                await _emailSender.SendEmailAppointmentSheduledAsync(email, templateObj); 
         }
 
         private string AppointmentDateToString(Appointment appointment)

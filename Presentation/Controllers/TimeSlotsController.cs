@@ -41,7 +41,7 @@ namespace Presentation.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(PaginatedList<TimeSlotDto>), StatusCodes.Status200OK)]
-        [Authorize]
+        [HaveRoles(Roles.Doctor)]
         public async Task<IActionResult> GetAsync([FromQuery] GetTimeSlotsQuery request)
         {
             return Ok(await _sender.Send(request));

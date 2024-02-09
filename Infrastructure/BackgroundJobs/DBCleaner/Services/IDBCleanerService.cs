@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
+﻿
 namespace Infrastructure.BackgroundJobs.DBCleaner.Services
 {
     internal interface IDBCleanerService
