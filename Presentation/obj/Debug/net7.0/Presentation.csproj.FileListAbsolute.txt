@@ -928,3 +928,4 @@ D:\Projects\GRD.Medical\Presentation\bin\Debug\net7.0\Newtonsoft.Json.dll
 D:\Projects\GRD.Medical\Presentation\bin\Debug\net7.0\Stripe.net.dll
 D:\Projects\GRD.Medical\Presentation\obj\Debug\net7.0\Presentation.RazorAssemblyInfo.cache
 D:\Projects\GRD.Medical\Presentation\obj\Debug\net7.0\Presentation.RazorAssemblyInfo.cs
+D:\Projects\GRD.Medical\Presentation\bin\Debug\net7.0\libman.json
