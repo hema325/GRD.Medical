@@ -6,10 +6,12 @@ using MailKit.Security;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using MimeKit.Text;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Infrastructure.Email
 {
-    internal class EmailSenderService: IEmailSender
+    internal class EmailSenderService : IEmailSender
     {
         private readonly EmailSettings _emailSettings;
         private readonly ITemplateParser _templateParser;
@@ -33,7 +35,8 @@ namespace Infrastructure.Email
             };
 
             //send email message
-            var smtpClient = new SmtpClient();
+            using var smtpClient = new SmtpClient();
+            smtpClient.ServerCertificateValidationCallback = CertificateCallback;
             await smtpClient.ConnectAsync(_emailSettings.Host,
                 _emailSettings.Port,
                 SecureSocketOptions.SslOnConnect);
@@ -41,7 +44,32 @@ namespace Infrastructure.Email
             await smtpClient.SendAsync(message);
         }
 
-        public async Task SendEmailConfirmationAsync(string to, EmailConfirmationTemplate emailConfirmation)
+        private bool CertificateCallback(object sender, X509Certificate? certificate, X509Chain? chain, SslPolicyErrors sslPolicyErrors)
+        {
+            
+            if (sslPolicyErrors == SslPolicyErrors.None)
+                return true;
+
+            if ((sslPolicyErrors & SslPolicyErrors.RemoteCertificateChainErrors) != 0)
+            {
+                if (chain != null && chain.ChainStatus != null)
+                {
+                    foreach (var status in chain.ChainStatus)
+                    {
+                        if ((certificate.Subject == certificate.Issuer) && (status.Status == X509ChainStatusFlags.UntrustedRoot))
+                            continue;
+                        else if (status.Status != X509ChainStatusFlags.NoError)
+                            return false;
+                    }
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+public async Task SendEmailConfirmationAsync(string to, EmailConfirmationTemplate emailConfirmation)
         {
             var template = await _templateParser.ParseAsync("EmailConfirmationTemplate", emailConfirmation);
             await SendAsync(to, "Confirming Email", template);
@@ -58,6 +86,7 @@ namespace Infrastructure.Email
             var template = await _templateParser.ParseAsync("EmailAppointmentScheduledTemplate", emailResetPassword);
             await SendAsync(to, "Appointment Scheduling", template);
         }
+
 
     }
 }
