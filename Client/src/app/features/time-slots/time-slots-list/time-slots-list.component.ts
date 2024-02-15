@@ -65,9 +65,5 @@ export class TimeSlotsListComponent {
       }
     })
   }
-
-  timeToDateTime(time: any) {
-    return new Date('1-30-2024 ' + time + ' UTC');
-  }
 }
 

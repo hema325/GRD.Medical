@@ -9,12 +9,12 @@
 
             <ng-container matColumnDef="start">
                 <th mat-header-cell *matHeaderCellDef class="text-nowrap">Start Time</th>
-                <td mat-cell *matCellDef="let element"> {{ timeToDateTime(element.start) | date:'shortTime'}} </td>
+                <td mat-cell *matCellDef="let element"> {{ element.start | utctimeToLocaltime | date:'shortTime'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="end">
                 <th mat-header-cell *matHeaderCellDef class="text-nowrap">End Time</th>
-                <td mat-cell *matCellDef="let element"> {{ timeToDateTime(element.end) | date:'shortTime'}} </td>
+                <td mat-cell *matCellDef="let element"> {{ element.end | utctimeToLocaltime | date:'shortTime'}} </td>
             </ng-container>
 
 

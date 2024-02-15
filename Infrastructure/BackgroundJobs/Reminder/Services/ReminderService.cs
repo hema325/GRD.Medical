@@ -2,9 +2,9 @@
 using Domain.Constants;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
-using System.Text.Json;
+using Application.Common.Extensions;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Infrastructure.BackgroundJobs.Reminder.Services
 {
@@ -93,11 +93,7 @@ namespace Infrastructure.BackgroundJobs.Reminder.Services
 
         private async Task<IEnumerable<Appointment>> GetAppointments()
         {
-            var appointmentsJson = await _cache.GetStringAsync(CacheKeys.ReminderAppointments);
-            IEnumerable<Appointment>? appointments = null;
-
-            if (appointmentsJson != null)
-                appointments = JsonSerializer.Deserialize<IEnumerable<Appointment>>(appointmentsJson);
+            var appointments = await _cache.GetAsync<IEnumerable<Appointment>>(CacheKeys.ReminderAppointments);
 
             if (appointments == null)
             {
@@ -113,8 +109,7 @@ namespace Infrastructure.BackgroundJobs.Reminder.Services
 
         private async Task Cache(IEnumerable<Appointment>? appointments)
         {
-            var appointmentsJson = JsonSerializer.Serialize(appointments);
-            await _cache.SetStringAsync(CacheKeys.ReminderAppointments, appointmentsJson, new DistributedCacheEntryOptions
+            await _cache.SetAsync(CacheKeys.ReminderAppointments, appointments, new DistributedCacheEntryOptions
             {
                 AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(_settings.CacheInMinutes)
             });

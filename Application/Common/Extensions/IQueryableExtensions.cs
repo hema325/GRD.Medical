@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Common.Extensions
 {
-    internal static class IQueryableExtensions
+    public static class IQueryableExtensions
     {
         public static async Task<PaginatedList<TDest>> PaginateAsync<TDest>(this IQueryable<TDest> query, int pageNumber, int pageSize) where TDest: class
         {

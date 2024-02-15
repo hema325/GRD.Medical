@@ -22,7 +22,7 @@ namespace Application.TimeSlots.Commands.CreateTimeSlot
                     .WithMessage("Day value in not valid");
 
             RuleFor(c=>c)
-                .Must(c=>TimeOnly.Parse(c.End) > TimeOnly.Parse(c.Start))
+                .Must(c=> TimeOnly.Parse(c.End) > TimeOnly.Parse(c.Start))
                     .When(c => IsTime(c.Start) && IsTime(c.End))
                     .WithMessage("Only intervals within the same date are allowed.");
         }

@@ -21,7 +21,7 @@
                                 <mat-radio-group [formControl]="scheduleForm.controls.timeSlotId">
                                     <mat-radio-button [value]="slot.id" *ngFor="let slot of availableTimeSlots"
                                         color="primary" class="d-block">From {{
-                                        timeToDateTime(slot.start) | date:
+                                        slot.start | utctimeToLocaltime | date:
                                         'shortTime'}} To {{ timeToDateTime(slot.end) | date:
                                         'shortTime' }}</mat-radio-button>
                                 </mat-radio-group>

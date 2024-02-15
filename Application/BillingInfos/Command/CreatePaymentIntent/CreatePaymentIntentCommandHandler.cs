@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Application.Common.Extensions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
 
@@ -22,11 +23,7 @@ namespace Application.BillingInfos.Command.CreatePaymentIntent
         public async Task<PaymentIntentDto> Handle(CreatePaymentIntentCommand request, CancellationToken cancellationToken)
         {
             var intentKey = string.Format(CacheKeys.PaymentIntentId, _currentUser.Id, request.DoctorId);
-            var paymentIntentJson = await _distributedCache.GetStringAsync(intentKey);
-            PaymentIntentDto? paymentIntent = null;
-
-            if (paymentIntentJson != null)
-                paymentIntent = JsonSerializer.Deserialize<PaymentIntentDto>(paymentIntentJson);
+            var paymentIntent = await _distributedCache.GetAsync<PaymentIntentDto>(intentKey);
 
             if (paymentIntent == null)
             {
@@ -34,7 +31,7 @@ namespace Application.BillingInfos.Command.CreatePaymentIntent
                     .FirstOrDefaultAsync(u => u.UserId == request.DoctorId);
 
                 paymentIntent = await _payment.CreatePaymentIntentAsync(doctor.ConsultFee);
-                await _distributedCache.SetStringAsync(intentKey, JsonSerializer.Serialize(paymentIntent));
+                await _distributedCache.SetAsync(intentKey, paymentIntent);
             }
 
             return paymentIntent;
