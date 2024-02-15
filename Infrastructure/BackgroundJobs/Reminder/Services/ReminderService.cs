@@ -93,7 +93,7 @@ namespace Infrastructure.BackgroundJobs.Reminder.Services
 
         private async Task<IEnumerable<Appointment>> GetAppointments()
         {
-            var appointments = await _cache.GetAsync<IEnumerable<Appointment>>(CacheKeys.ReminderAppointments);
+            var appointments = await _cache.GetAsync<List<Appointment>>(CacheKeys.ReminderAppointments);
 
             if (appointments == null)
             {

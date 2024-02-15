@@ -8,9 +8,12 @@ namespace Application.Common.Extensions
         public static async Task SetAsync<TType>(this IDistributedCache cache,string key, TType obj, DistributedCacheEntryOptions? options = null) where TType : class
         {
             var jsonStr = JsonSerializer.Serialize(obj);
-            
+
             if (options != null)
+            {
                 await cache.SetStringAsync(key, jsonStr, options);
+                return;
+            }
 
             await cache.SetStringAsync(key, jsonStr);
         }
