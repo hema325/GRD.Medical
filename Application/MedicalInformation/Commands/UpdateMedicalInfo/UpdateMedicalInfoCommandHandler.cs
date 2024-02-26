@@ -24,17 +24,17 @@ namespace Application.MedicalInformation.Commands.UpdateMedicalInfo
 
             if (medicalInfo == null)
             {
-                CreateMedicalInfo(request, medicalInfo);
+                CreateMedicalInfo(request, ref medicalInfo);
                 _context.MedicalInfos.Add(medicalInfo);
                 await _context.SaveChangesAsync();
                 return Unit.Value;
             }
 
-            UpdateMedicalInfo(request, medicalInfo);
+            UpdateMedicalInfo(request, ref medicalInfo);
             await _context.SaveChangesAsync();
             return Unit.Value;
         }
-        private void CreateMedicalInfo(UpdateMedicalInfoCommand request, MedicalInfo medicalInfo)
+        private void CreateMedicalInfo(UpdateMedicalInfoCommand request, ref MedicalInfo medicalInfo)
         {
             medicalInfo = new MedicalInfo
             {
@@ -49,7 +49,7 @@ namespace Application.MedicalInformation.Commands.UpdateMedicalInfo
             };
             medicalInfo.AddDomainEvent(new EntityCreatedEvent(medicalInfo));
         }
-        private void UpdateMedicalInfo(UpdateMedicalInfoCommand request, MedicalInfo medicalInfo)
+        private void UpdateMedicalInfo(UpdateMedicalInfoCommand request, ref MedicalInfo medicalInfo)
         {
             medicalInfo.Age = request.Age;
             medicalInfo.Hight = request.Hight;
