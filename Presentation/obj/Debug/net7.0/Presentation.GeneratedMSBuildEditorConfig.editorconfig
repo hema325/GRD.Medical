@@ -9,13 +9,13 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Presentation
 build_property.RootNamespace = Presentation
-build_property.ProjectDir = D:\Projects\GRD.Medical\Presentation\
+build_property.ProjectDir = D:\Learn Programming\Graduation_project\last\Presentation\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Projects\GRD.Medical\Presentation
+build_property.MSBuildProjectDirectory = D:\Learn Programming\Graduation_project\last\Presentation
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Projects/GRD.Medical/Presentation/Files/Templates/EmailAppointmentScheduledTemplate.cshtml]
+[D:/Learn Programming/Graduation_project/last/Presentation/Files/Templates/EmailAppointmentScheduledTemplate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = RmlsZXNcVGVtcGxhdGVzXEVtYWlsQXBwb2ludG1lbnRTY2hlZHVsZWRUZW1wbGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

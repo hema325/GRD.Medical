@@ -21,6 +21,7 @@ namespace Application.Common.Interfaces
         DbSet<BillingInfo> BillingInfos { get; }
         DbSet<AppointmentMessage> AppointmentMessages { get; }
         DbSet<Review> Reviews { get; }
+        DbSet<MedicalInfo> MedicalInfos { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

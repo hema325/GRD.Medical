@@ -57,5 +57,6 @@ namespace Infrastructure.Persistance
         public DbSet<BillingInfo> BillingInfos { get; private set; }
         public DbSet<AppointmentMessage> AppointmentMessages { get; private set; }
         public DbSet<Review> Reviews { get; private set; }
+        public DbSet<MedicalInfo> MedicalInfos { get; private set;}
     }
 }
