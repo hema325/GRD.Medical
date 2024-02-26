@@ -5,14 +5,17 @@ using Application.MedicalInformation.Queries.GetMedicalInfo;
 using Microsoft.AspNetCore.Authorization;
 using Application.MedicalInformation.Commands.UpdateMedicalInfo;
 using Application.MedicalInformation.Queries;
+using Domain.Enums;
+using Presentation.Attributes;
 
 namespace Presentation.Controllers
 {
-    [Route("api/medicalInfo")]
-    public class MedicalInfoController : ApiControllerBase
+    [Route("api/medicalInfos")]
+    [HaveRoles(Roles.Patient)]
+    public class MedicalInfosController : ApiControllerBase
     {
         private readonly ISender _sender;
-        public MedicalInfoController(ISender sender)
+        public MedicalInfosController(ISender sender)
         {
             _sender = sender;
         }
@@ -20,10 +23,10 @@ namespace Presentation.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [Authorize]
         public async Task<IActionResult> UpdateAsync([FromForm] UpdateMedicalInfoCommand request)
         {
-            return Ok(await _sender.Send(request));
+            await _sender.Send(request);
+            return NoContent();
         }
 
 
