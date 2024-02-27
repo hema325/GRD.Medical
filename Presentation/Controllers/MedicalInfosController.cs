@@ -23,7 +23,7 @@ namespace Presentation.Controllers
 
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> UpdateAsync([FromForm] UpdateMedicalInfoCommand request)
+        public async Task<IActionResult> UpdateAsync(UpdateMedicalInfoCommand request)
         {
             await _sender.Send(request);
             return NoContent();
