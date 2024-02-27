@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.MedicalInformation.Commands.UpdateMedicalInfo
+namespace Application.MedicalInfos.Commands.UpdateMedicalInfo
 {
     public class UpdateMedicalInfoCommandHandler : IRequestHandler<UpdateMedicalInfoCommand>
     {
@@ -24,19 +24,18 @@ namespace Application.MedicalInformation.Commands.UpdateMedicalInfo
 
             if (medicalInfo == null)
             {
-                CreateMedicalInfo(request, ref medicalInfo);
-                _context.MedicalInfos.Add(medicalInfo);
+                CreateMedicalInfo(request);
                 await _context.SaveChangesAsync();
                 return Unit.Value;
             }
 
-            UpdateMedicalInfo(request, ref medicalInfo);
+            UpdateMedicalInfo(request, medicalInfo);
             await _context.SaveChangesAsync();
             return Unit.Value;
         }
-        private void CreateMedicalInfo(UpdateMedicalInfoCommand request, ref MedicalInfo medicalInfo)
+        private void CreateMedicalInfo(UpdateMedicalInfoCommand request)
         {
-            medicalInfo = new MedicalInfo
+            var medicalInfo = new MedicalInfo
             {
                 Age = request.Age,
                 Hight = request.Hight,
@@ -48,8 +47,9 @@ namespace Application.MedicalInformation.Commands.UpdateMedicalInfo
                 UserId = _currentUser.Id.Value
             };
             medicalInfo.AddDomainEvent(new EntityCreatedEvent(medicalInfo));
+            _context.MedicalInfos.Add(medicalInfo);
         }
-        private void UpdateMedicalInfo(UpdateMedicalInfoCommand request, ref MedicalInfo medicalInfo)
+        private void UpdateMedicalInfo(UpdateMedicalInfoCommand request, MedicalInfo medicalInfo)
         {
             medicalInfo.Age = request.Age;
             medicalInfo.Hight = request.Hight;

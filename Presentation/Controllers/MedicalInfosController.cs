@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Application.MedicalInformation.Queries.GetMedicalInfo;
 using Microsoft.AspNetCore.Authorization;
-using Application.MedicalInformation.Commands.UpdateMedicalInfo;
+using Application.MedicalInfos.Commands.UpdateMedicalInfo;
 using Application.MedicalInformation.Queries;
 using Domain.Enums;
 using Presentation.Attributes;

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.MedicalInformation.Commands.UpdateMedicalInfo
+namespace Application.MedicalInfos.Commands.UpdateMedicalInfo
 {
     public class UpdateMedicalInfoCommandValidator : AbstractValidator<UpdateMedicalInfoCommand>
     {
