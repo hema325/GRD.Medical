@@ -1,4 +1,4 @@
-Web application Inspired by platforms like Doctor Anywhere and Konsilmed, it facilitates patientdoctor interactions. Users can register, filter doctors, schedule appointments, engage in chat,
+Web application Inspired by platforms like Doctor Anywhere and Konsilmed, it facilitates patient-doctor interactions. Users can register, filter doctors, schedule appointments, engage in chat,
 leave reviews, ask medical questions, browse articles, receive notifications, and conveniently reset
 passwords.
 
